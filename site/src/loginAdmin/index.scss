@@ -1,0 +1,112 @@
+*{
+    margin: 0;
+    height: 100%;
+  
+    
+}
+
+.page{
+    background-image: url("../../public/fundo\ admin.jpg");
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.caixa{
+    object-position: 50%;
+    width: 50em;
+    height: 25em;
+    position: absolute;
+    top: 8em;
+    left: 17.5em;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(255, 255, 255);
+    opacity: 0.5;
+    transition: 1.5s;
+
+}
+
+.caixa:hover{
+    opacity: 1.0;
+}
+
+.t1{
+    text-align: center;
+    color: rgb(255, 0, 0);
+    font-size: 21px;
+    margin-top: 0.6em;
+    
+    
+    
+}
+
+.faixa2{
+    display: flex;
+    flex-direction: row;
+    margin-top: 3.5em;
+    margin-left: 2em;
+    width: 18em;
+}
+
+.input1{
+    width: 10em;
+    height: 2em;
+    margin-top: 2em;
+    border-radius: 30px;
+    border: none;
+}
+
+.input2{
+    width: 6em;
+    height: 1.5em;
+    margin-top: 2em;
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+}
+.input2:hover{
+    color: rgb(255, 0, 0);
+    transform: scale(1.050);
+}
+
+.botao{
+    width: 10em;
+    height: 2em;
+    position: absolute;
+    top: 18.8em;
+    left: 11em;
+    border: solid black 1px;
+    background-color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    
+}
+
+.botao:hover{
+    border: solid rgb(255, 0, 0) 1px;
+    color: rgb(255, 0, 0);
+    transform: scale(1.050);
+}
+
+.img{
+    width: 300px;
+    height: 3000px;
+    margin-left: 28em;
+    margin-top: -17em;
+}
+
+.img:hover{
+    transform: scale(1.070);
+}
+
+
+
+
+.box{
+    border-radius: 8px;
+    width: 18em;
+    border: solid black 1px;
+   
+   
+}
