@@ -9,8 +9,6 @@ Site em desenvolvimento ...
 - Nº19  - Guilherme Vidal  
 - Nº13  - Gabriel Ferreira  
 - Nº33  - Kevin P.  
-- Nº34  - Luan Reinhold  
-
-panqueca
+- Nº34  - Luan Reinhold
 
 # Em desenvolvimento...
