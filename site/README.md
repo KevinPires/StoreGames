@@ -5,10 +5,10 @@ Site em desenvolvimento ...
 
 ## integrantes 
 
-Luan R.
-Kevin P.
-Guilherme V.
-Gabriel F.
-Carlos Eduardo
+Nº06  - Carlos Eduardo  
+Nº19  - Guilherme Vidal
+Nº13  - Gabriel Ferreira  
+Nº33  - Kevin P.  
+Nº34  - Luan Reinhold  
 
 # Em desenvolvimento...
