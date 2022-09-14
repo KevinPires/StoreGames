@@ -8,6 +8,6 @@ import LoginAdmin from './loginAdmin';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <LoginAdmin />
+    <App/>
   </React.StrictMode>
 );
