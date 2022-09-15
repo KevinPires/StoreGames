@@ -21,19 +21,16 @@
     left: 17.5em;
     display: flex;
     flex-direction: column;
-    background-color: rgb(255, 255, 255);
-    opacity: 0.5;
-    transition: 1.5s;
+    background-color: rgba(255, 255, 255, 30%);
+    border-radius: 20px;
+    
 
 }
 
-.caixa:hover{
-    opacity: 1.0;
-}
 
 .t1{
     text-align: center;
-    color: rgb(255, 0, 0);
+    color: rgb(255, 255, 255);
     font-size: 21px;
     margin-top: 0.6em;
     
@@ -64,6 +61,7 @@
     display: flex;
     flex-direction: row;
     cursor: pointer;
+    color: white;
 }
 .input2:hover{
     color: rgb(255, 0, 0);

@@ -1,0 +1,196 @@
+
+
+.page{
+    display: flex;
+    flex-direction: row;
+}
+
+.barra{
+    display: flex;
+    flex-direction: column;
+    width: 10em;
+    background-color: #323A45;
+  
+    
+}
+
+.cabeca{
+    width: 100%;
+}
+
+.img{
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+    
+}
+
+.boxred{
+    background-color: #E74C3C;
+    color: white;
+    margin-top: 1.5em;
+    display: flex;
+    flex-direction: row;
+    height: 3.6em;
+    
+}
+
+.box{
+    margin-top: 8em;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+    
+}
+
+.box1{
+    margin-top: 1.5em;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    height: 3.6em;
+    cursor: pointer;
+    
+}
+
+.boxred1{
+    background-color: #E74C3C;
+    color: white;
+    margin-top: 5em;
+    cursor: pointer;
+    height: 50px;
+     display: flex;
+    flex-direction: row;
+    
+  
+}
+
+.t{
+    margin-top: 7px;
+    margin-left: 12px;
+    text-align: center;
+    
+}
+
+.t1{
+    margin-top: 7px;
+    margin-left: -9px;
+    text-align: center;
+    
+}
+.t2{
+    margin-top: 13px;
+    margin-left: 15px;
+    text-align: center;
+    
+}
+
+
+.img1{
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+    margin-top: 12px;
+    
+}
+
+
+
+.faixa1{
+    margin-top: 3em;
+    height: 70px;
+    margin-right: 5em;
+    margin-left: 5em;
+    
+}
+
+
+.caixa{
+    height: 25em;
+    margin-left: 5em;
+    margin-right: 5em;
+    background-color: #F6F0F0;
+    border: solid 1px black;
+    margin-top: -0.3em;
+    
+}
+.fundo{
+    width: 100%;
+    height: 65px;
+}
+
+.h1{
+    text-align: center;
+    position:absolute;
+    color: white;
+    left: 30em;
+    top: 7.10em;
+    font-size: 22px;
+}
+
+.linha1{
+    display: flex;
+    flex-direction: row;
+    margin-top: 2em;
+    margin-left: 2em;
+    margin-right: 2em;
+    
+}
+
+.input{
+    height: 80px;
+    width: 300px;
+}
+
+.imagem{
+    height: 80px;
+    width: 100px;
+    border: solid 1px black;
+    cursor: pointer;
+}
+
+.put{
+    margin-left: 7em;
+}
+
+.put2{
+    margin-left: 2.5em;
+}
+
+.put3{
+    margin-left: 3em;
+    background-color: white;
+}
+
+.put1{
+    margin-left: 15em;
+}
+
+.put0{
+    margin-left: 5.2em;
+}
+
+.put02{
+    margin-left: 8.1em;
+}
+
+.botao{
+    width: 15em;
+    height: 2.5em;
+    border: solid #384AEA;
+    background-color: #384AEA;
+    border-radius: 5px;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.botaofaixa{
+    margin-top: 3.5em;
+    margin-left: 25em;
+    
+    
+}
+
+
