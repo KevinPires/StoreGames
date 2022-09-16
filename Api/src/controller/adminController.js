@@ -1,4 +1,4 @@
-import {    login } from '../repository/adminRepository.js'
+import { login } from '../repository/adminRepository.js'
 import { Router  } from "express";
 import multer from 'multer';
 
