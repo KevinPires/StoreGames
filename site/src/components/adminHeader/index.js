@@ -1,12 +1,11 @@
 import './index.scss'
 
-export default function HeaderAdmin (props) {
+export default function HeaderAdmin () {
 
     return (
-        <section className={props.alinhamento}>
+        <section className="headerAdmin">
             <img src="./logoStoreGames.png" alt="img logo" />
             <div className="boxText"> <p>Seja bem vindo, <span id='adm'>Administrador</span></p> </div>
-            
         </section>
     )
 }
