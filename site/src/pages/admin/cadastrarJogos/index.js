@@ -2,7 +2,7 @@ import './index.scss'
 
 import HeaderAdmin  from '../../../components/adminHeader'
 import BarraLateral from '../../../components/BarraLateral'
-
+import TelaCadastro from '../../../components/telaCadastro'
 
 
 export default function CadastratJogos(){
@@ -11,8 +11,19 @@ export default function CadastratJogos(){
       <main className="cadastrar-jogos-page">
           
           <BarraLateral/>
+
           <div className="cont-faixa-cadastro">
-            <HeaderAdmin/>
+
+          <HeaderAdmin/>
+
+            <section className="container-Column">
+              
+              <TelaCadastro/>
+            
+            </section>
+            
+
+            
           </div>
           
        

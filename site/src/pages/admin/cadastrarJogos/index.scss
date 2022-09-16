@@ -6,6 +6,20 @@
     flex-direction:row;
 
     .cont-faixa-cadastro{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+       
+
         width: 100%;
+        
+    }
+
+    .container-Column {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
 }
