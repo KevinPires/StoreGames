@@ -7,9 +7,10 @@ export default function LoginAdmin(){
     <main className="login-admin-page">
 
         <section className="containerLogin">
-            <h1>Área Administrativa</h1>
+            <h1><span>Área Administrativa</span></h1>
 
             <div className="container-row">
+
                 <div className="boxInputs">
                     <InputLogin nome="login" value="login"/>
                     <InputLogin nome="senha" value="senha"/>
@@ -26,7 +27,7 @@ export default function LoginAdmin(){
 
         </section>
 
-        <InputLogin nome="login"/>
+        
 
     </main>
 

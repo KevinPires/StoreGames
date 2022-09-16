@@ -1,6 +1,6 @@
 .login-admin-page {
     height: 100vh;
-    background-color: rgb(143, 139, 139);
+    background-image: url("../../../../../site/public/fundoadmin.jpg");
 
     display: flex;
     flex-direction: column;
@@ -8,15 +8,16 @@
     justify-content: center;    
 
     .containerLogin {
+        
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
 
-        background-color: rgb(108, 108, 110);
-        border: 2px solid black;
-        width: 724px;
-        height: 380px;
+        background-color: rgb(108, 108, 110, 0.5);
+        border-radius: 10px;
+        width: 45.25em;
+        height: 23.75em;
     }
 
     .container-row {
@@ -34,23 +35,29 @@
     }
 
     .row {
-        width: 60%;
+        width: 100%;
         height: 2em;
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: space-evenly;
     }
 
     #logo-login {
         width: 50%;
-        
+        padding-left: 10px;
     }
 
     #botao-login {
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 1.5em;
-        width: 1.2em;
+        height: 2.5rem;
+        width: 7em;
+        border-radius: 10px;
+    }
+
+    #botao-login:hover {
+        cursor: pointer;
+        background-color: rgb(161, 161, 161);
     }
 }
