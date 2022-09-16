@@ -22,26 +22,3 @@
 
 }
 
-.headerAdmin2 {
-
-    background-color: #596677;
-    height: 93px;
-    
-    display: inline-block;
-    
-
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-
-    .boxText {
-        color: white;
-        width: 8em;
-    }
-
-    #adm {
-        color: red
-    }
-
-}
