@@ -32,7 +32,7 @@ export default function LoginAdmin(){
             storage('usuario-logado', r);
             
             setTimeout(() => {
-                navigate('/admin/cadastro');
+                navigate('/admin/home');
             }, 3000)
     
         }
