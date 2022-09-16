@@ -27,11 +27,7 @@ export default function LoginAdmin(){
 
         </section>
 
-<<<<<<< HEAD
-       
-=======
-        
->>>>>>> b956835e4b5d5d02ba489e87982b1829cb97396d
+
 
     </main>
 

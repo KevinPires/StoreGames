@@ -1,6 +1,4 @@
-*{
-    //border: solid 1px red;
-}
+
 
 .cadastrar-jogos-page {
     height: 100vh;
@@ -10,6 +8,10 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start; 
+
+    *{
+        border: solid 1px red;
+    }
 
     .barra-lateral{
         display: flex;
@@ -28,6 +30,7 @@
             display: flex;
             flex-direction: row;
             align-items: center;
+            justify-content: space-evenly;
             margin-top: 0.5em;
             margin-left: 0.5em;
             

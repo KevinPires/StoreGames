@@ -1,7 +1,7 @@
 .login-admin-page {
     height: 100vh;
     background-image: url("../../../../../site/public/fundoadmin.jpg");
-
+    color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -14,7 +14,7 @@
         align-items: center;
         justify-content: center;
 
-        background-color: rgb(108, 108, 110, 0.5);
+        background-color: rgb(108, 108, 110, 0.3);
         border-radius: 10px;
         width: 45.25em;
         height: 23.75em;
@@ -44,14 +44,9 @@
 
     #logo-login {
         width: 50%;
-<<<<<<< HEAD
-=======
         padding-left: 10px;
->>>>>>> b956835e4b5d5d02ba489e87982b1829cb97396d
     }
-    #logo-login:hover{
-        transform: scale(1.080);
-    }
+ 
 
     
 
