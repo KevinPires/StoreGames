@@ -7,6 +7,7 @@ export default function CadastratJogos(){
   
         <section className="page">
             
+            
           
         </section>
 
