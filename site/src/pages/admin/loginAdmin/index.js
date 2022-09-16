@@ -26,7 +26,7 @@ export default function LoginAdmin(){
 
         </section>
 
-        <InputLogin nome="login"/>
+       
 
     </main>
 

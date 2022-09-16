@@ -43,8 +43,12 @@
 
     #logo-login {
         width: 50%;
-        
     }
+    #logo-login:hover{
+        transform: scale(1.080);
+    }
+
+    
 
     #botao-login {
         display: flex;
