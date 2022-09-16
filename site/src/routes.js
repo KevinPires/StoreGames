@@ -1,6 +1,6 @@
 import {BrowserRouter, Route, Routes} from 'react-router-dom'
-import Login from './pages/loginAdmin/'
-import AdminCadastro from './pages/CadastrarJogos'
+import Login from './pages/admin/loginAdmin/'
+import AdminCadastro from './pages/admin/cadastrarJogos'
 
 
 export default function AppRoutes() {
@@ -9,8 +9,6 @@ export default function AppRoutes() {
         <Routes>
                 <Route path='/' element={<Login />} />
                 <Route path='/admin/cadastro' element={<AdminCadastro />} />
-                
-                
         </Routes>
     </BrowserRouter>        
     )

@@ -1,31 +1,35 @@
 import './index.scss';
-
+import InputLogin from '../../../components/inputLogin';
 export default function LoginAdmin(){
 
     return (
-        <section className="page">
-       
-        <section className="caixa">
 
-            <div className="faixa1">
-                <div className="t1"> Área Administrativa</div>
-                
-            </div>
-             
-            <div className="faixa2">
+    <main className="login-admin-page">
 
-                <div className="campo1">  
+        <section className="containerLogin">
+            <h1>Área Administrativa</h1>
 
-                <div className="input1"> <input  className="box" type="text" placeholder=" email"/></div>
-                <div className="input1"> <input  className="box" type="password" placeholder=" senha"/></div>
-                <div className="input2"> <u>Lembre-me</u> </div>
-                <button className="botao"> Login</button>
-
+            <div className="container-row">
+                <div className="boxInputs">
+                    <InputLogin nome="login" value="login"/>
+                    <InputLogin nome="senha" value="senha"/>
+                <div className="row">
+                    <p>Lembrar-me</p> <button id="botao-login">Login</button>
                 </div>
+                    
+                </div>
+                <img id="logo-login" src="./logo.png" alt="logo" />
             </div>
-            <img  className='img' src="./logo.png" alt="img logo" />
-            
+
+           
+
+
         </section>
-    </section>
+
+        <InputLogin nome="login"/>
+
+    </main>
+
+  
     )
 } 
