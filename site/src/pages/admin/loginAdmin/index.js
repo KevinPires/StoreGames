@@ -57,8 +57,9 @@ export default function LoginAdmin(){
             <div className="container-row">
 
                 <div className="boxInputs">
-                    <InputLogin nome="login" value={email} onChange={e => setEmail(e.target.value )}/>
-                    <InputLogin nome="senha" value={senha} onChange={e => setSenha(e.target.value )} />
+                    <InputLogin nome="login" value={email} onChange={e => setEmail(e.target.value)}/>
+                    {email}
+                    <InputLogin nome="senha" value={senha}  />
                     <input type='txt' value={email} onChange={e => setEmail(e.target.value )}/>
                     <input type='password' value={senha} onChange={e => setSenha(e.target.value )}/> 
                    
