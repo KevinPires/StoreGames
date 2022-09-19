@@ -35,7 +35,9 @@ export default function CadastratJogos(){
 
                       <div className="labelInput">
                           <label htmlFor="">Genero:</label> 
-                          <select name="generos" id="generos"><option></option></select>
+                          <select name="generos" id="generos">
+                            <option></option>
+                          </select>
                       </div>
 
                       <div className="labelInput">

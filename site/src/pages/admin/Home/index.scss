@@ -7,16 +7,23 @@
 
     .cont-faixa-cadastro{
         width: 100%;
-        .centro {
-            padding-left: 35%;
-           .ajuste{
-            height: 530px;
-            
-           }
-            
-        }
+        display: flex;
+        flex-direction: column;
     }
-    
+
+    .imagem-login{
+        width: 35%;
+        
+       }
+
+    .centro {
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       height: 100%;
+
+        
+    }
     
    
 }
