@@ -1,6 +1,26 @@
 import './index.scss';
+import { useNavigate } from 'react-router-dom'
+import {  useEffect } from 'react'
+import storage from 'local-storage'
+
+
+
 
 export default function BarraLateral(){
+
+    useEffect(() => {
+        if (!storage('usuario-logado')){
+            navigate('/');
+        }
+      }, [])
+    
+
+    const navigate = useNavigate();
+ 
+        function sairClick(){
+        storage.remove('usuario-logado');
+        navigate('/');
+    }
     return(
         <main className="barraLateral">
             <section className="barra-lateral">
@@ -12,7 +32,7 @@ export default function BarraLateral(){
                     <div className="atalho"> <img className="casa" src="/concluidos.png" alt="casa" />  <p>Pedidos Concluidos</p></div>
                 </div>
             
-                <div className="atalho1"> <img className="casa" src="/sair.png" alt="casa" />       <p>Sair</p></div>
+                <div className="atalho1"> <img className="casa" src="/sair.png" alt="casa" />       <p onClick={sairClick}>Sair</p></div>
             </section>
         </main>
     )

@@ -1,15 +1,15 @@
 import { con } from './connection.js'
 
-export async function login(email, senha){
+export async function login(login, senha){
     const comando = `
         SELECT ID_ADMIN_LOGIN         id,
-               DS_EMAIL                  email,
+               DS_LOGIN                login,
                DS_SENHA                  senha
           from TB_ADMIN_LOGIN
-         where DS_EMAIL                 =  ?
+         where DS_LOGIN               =  ?
            and DS_SENHA                 =  ?
     `
-    const [linhas] = await con.query(comando, [email, senha])
+    const [linhas] = await con.query(comando, [login, senha])
     return linhas[0];
 }
 

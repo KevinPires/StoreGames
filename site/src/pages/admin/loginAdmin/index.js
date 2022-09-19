@@ -9,7 +9,7 @@ import storage from 'local-storage'
 
 
 export default function LoginAdmin(){
-    const [email, setEmail] = useState (''); 
+    const [logar, setLogar] = useState (''); 
     const [senha, setSenha] = useState ('');
     const [erro, setErro] = useState ('');
     const [carregando, setCarregando] = useState (false);
@@ -17,18 +17,14 @@ export default function LoginAdmin(){
     const navigate = useNavigate();
     const ref = useRef();
 
-    useEffect(() => {
-        if (storage('usuario-logado')){
-            navigate('/');
-        }
-    }, {} )
+  
 
     async function entrarClick(){
             ref.current.continuousStart();
             setCarregando(true);
        
         try{
-            const r = await login(email, senha)
+            const r = await login(logar, senha)
             storage('usuario-logado', r);
             
             setTimeout(() => {
@@ -46,6 +42,13 @@ export default function LoginAdmin(){
         }
     }
 
+    useEffect(()=> {
+        if  (storage ('usuario-logado')){
+            navigate('/admin/home');
+        }
+      }, [])
+   
+
 
     return (
 
@@ -58,7 +61,7 @@ export default function LoginAdmin(){
 
                 <div className="boxInputs">
 
-                    <input placeholder='login' className="input-login-format" type='txt' value={email} onChange={e => setEmail(e.target.value )}/>
+                    <input placeholder='login' className="input-login-format" type='txt' value={logar} onChange={e => setLogar(e.target.value )}/>
                     <input placeholder='senha' className='input-login-format' type='password' value={senha} onChange={e => setSenha(e.target.value )}/> 
                    
                 <div className="row">

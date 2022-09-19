@@ -6,9 +6,9 @@ const api = axios.create({
     baseURL: API_URL
 })
 
-export async function login(email, senha){
+export async function login(logar, senha){
     const r = await api.post('/admin/login', {
-        email: email,
+        logar: logar,
         senha: senha
     });
     return r.data;

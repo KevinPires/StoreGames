@@ -7,9 +7,9 @@ const upload = multer({ dest: 'storage/perfil' })
 
 server.post('/admin/login', async (req, resp) =>{
     try {
-        const { email, senha } = req.body;
+        const { logar, senha } = req.body;
 
-        const resposta = await login(email, senha);
+        const resposta = await login(logar, senha);
         if(!resposta) {
             throw new Error('Credenciais inválidas');
         }
