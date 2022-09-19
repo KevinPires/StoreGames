@@ -17,7 +17,7 @@ export default function Home(){
                <HeaderAdmin/>
             <div className='centro'>
 
-              <img className='ajuste' src='/logoOriginal.png' alt='opa'/>
+              <img className='ajuste' src='/logoOrigin.png' alt='opa'/>
               </div>
             </div>
              </main>

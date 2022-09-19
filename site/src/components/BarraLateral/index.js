@@ -23,37 +23,46 @@ export default function BarraLateral(){
     }
     return(
         <nav className="comp-menu">
-        <div>
 
+        <div className='menu-items'>
+        <div >
+                <img  className='img' src="/casa.png" alt="consultar" />
+                <div className='texto'>Home</div>
+        </div>
+        </div>
 
-            <div className='menu-items'>
-                <div >
-                    <img className='img' src="/Casas.png" alt="home" />
-                    <div>Home</div>
-                </div>
-                <div >
-                    <img className='img' src="/mais.png" alt="cadastrar" />
-                    <div>Cadastrar o jogo</div>
-                </div>
-                <div>
-                    <img className='img' src="/lup.png" alt="consultar" />
-                    <div>Consultar Pedidos</div>
-                </div>
-                <div>
-                    <img className='img' src="/pendentes.png" alt="consultar" />
-                    <div>Pedidos pendentes</div>
-                </div>
-                <div>
-                    <img className='img' src="/concluido.png" alt="consultar" />
-                    <div>Pedidos concluidos</div>
-                </div>
-            </div>
+        <div className='menu-items'>
+        <div >
+                <img  className='img' src="/mais.png" alt="consultar" />
+                <div className='texto'>Cadastar o jogo</div>
+        </div>
+        </div>
+
+        <div className='menu-items'>
+        <div >
+                <img  className='img' src="/lup.png" alt="consultar" />
+                <div className='texto'>Consultar pedidos</div>
+        </div>
+        </div>
+
+        <div className='menu-items'>
+        <div >
+                <img  className='img' src="/pendencia.png" alt="consultar" />
+                <div className='texto'>Pedidos pendentes</div>
+        </div>
+        </div>
+
+        <div className='menu-items'>
+        <div >
+                <img  className='img' src="/concluidos.png" alt="consultar" />
+                <div className='texto'>Pedidos concluidos</div>
+        </div>
         </div>
 
         <div className='menu-items'>
             <div onClick={sairClick} >
                 <img  className='img' src="/sair.png" alt="consultar" />
-                <div>Sair</div>
+                <div className='texto'>Sair</div>
             </div>
         </div>
     </nav>
