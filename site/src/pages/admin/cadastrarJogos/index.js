@@ -2,7 +2,7 @@ import './index.scss'
 
 import HeaderAdmin  from '../../../components/adminHeader'
 import BarraLateral from '../../../components/BarraLateral'
-import TelaCadastro from '../../../components/telaCadastro'
+
 import InputCadastro from '../../../components/inputCadastro'
 
 
