@@ -1,5 +1,5 @@
 import './index.scss';
-import InputLogin from '../../../components/inputLogin';
+
 
 import LoadingBar from 'react-top-loading-bar'
 import { useState, useRef, useEffect } from 'react'
@@ -57,11 +57,9 @@ export default function LoginAdmin(){
             <div className="container-row">
 
                 <div className="boxInputs">
-                    <InputLogin nome="login" value={email} onChange={e => setEmail(e.target.value)}/>
-                    {email}
-                    <InputLogin nome="senha" value={senha}  />
-                    <input type='txt' value={email} onChange={e => setEmail(e.target.value )}/>
-                    <input type='password' value={senha} onChange={e => setSenha(e.target.value )}/> 
+
+                    <input placeholder='login' className="input-login-format" type='txt' value={email} onChange={e => setEmail(e.target.value )}/>
+                    <input placeholder='senha' className='input-login-format' type='password' value={senha} onChange={e => setSenha(e.target.value )}/> 
                    
                 <div className="row">
                     <p>Lembrar-me</p> 

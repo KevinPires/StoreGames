@@ -30,6 +30,10 @@
     }
 
     .boxInputs {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
         width: 50%;
         height: 10em;
     }
@@ -39,7 +43,7 @@
         height: 2em;
         display: flex;
         flex-direction: row;
-        justify-content: space-evenly;
+        justify-content: space-around;
     }
 
     #logo-login {
@@ -51,6 +55,7 @@
     
 
     #botao-login {
+        border: none;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -63,4 +68,15 @@
         cursor: pointer;
         background-color: rgb(161, 161, 161);
     }
+
+    .input-login-format {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 75%;
+        padding: 0.8rem;
+        margin-bottom: 20px;
+        border-radius: 5px;
+    }
+
 }
