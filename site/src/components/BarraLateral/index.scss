@@ -1,63 +1,48 @@
+.comp-menu {
+    position: relative;
+    width: 12%;
+    background-color: #323A45;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
 
-.barraLateral{
-        width: 14%;
-    .barra-lateral{
+
+
+
+    .menu-items {
         display: flex;
         flex-direction: column;
-        justify-content:space-around;
-        align-items: center;
         width: 100%;
-        height: 100%;
-        background-color: #323A45;
-        .cont-navegacao{
-            margin-top: 3em;
-            width: 100%;
-        }
+        margin-top: 80%;
+        width: 100%;
 
-        .atalho{
-            width: 100%;
-            height: 70px;
-            text-align: center;
-            color: white;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: space-evenly;
-            margin-top: 0.5em;
-            margin-left: 0.5em;
-            
-            p{
-                width: 100px;
-            }
 
-            .casa{
-                width: 30px;
-                height: 30px;
-                
-            }
-        }
-
-        .atalho1{
-            p{
-                width: 100px;
-            }
-            width: 100%;
-            height: 60px;
-            text-align: center;
-            color: white;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: space-evenly;
-            background-color: #E74C3C;
-           
-
-            .casa{
-                width: 30px;
-                height: 30px;
-                margin-left: 0.3em;
-                
-            }
-        }
     }
-}    
+    .menu-items > div {
+        display: flex;
+        align-items: center;
+        color: #fff;
+        transition: .3s;
+        cursor: pointer;
+        margin-top: 10%;
+
+    }
+    .menu-items > div:hover {
+        background-color: #E74C3C;
+        width: 100%;
+    }
+
+
+
+    .selecionado {
+        background-color: #A028E6;
+    }
+
+    .img{
+        height: 35px;
+        width: 35px;
+    }
+
+}

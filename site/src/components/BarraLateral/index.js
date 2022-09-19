@@ -13,7 +13,7 @@ export default function BarraLateral(){
             navigate('/');
         }
       }, [])
-    
+
 
     const navigate = useNavigate();
  
@@ -22,18 +22,40 @@ export default function BarraLateral(){
         navigate('/');
     }
     return(
-        <main className="barraLateral">
-            <section className="barra-lateral">
-                <div className="cont-navegacao">
-                    <div className="atalho"> <img className="casa" src="/casa.png" alt="casa" />        <p>Home</p></div>
-                    <div className="atalho"> <img className="casa" src="/maispreto.png" alt="casa" />   <p> Cadastrar o Jogos</p></div>
-                    <div className="atalho"> <img className="casa" src="/lupa.png" alt="casa" />        <p>Consultar pedidos</p></div>
-                    <div className="atalho"> <img className="casa" src="/pendentes.png" alt="casa" />   <p>Pedidos Pendentes</p></div>
-                    <div className="atalho"> <img className="casa" src="/concluidos.png" alt="casa" />  <p>Pedidos Concluidos</p></div>
+        <nav className="comp-menu">
+        <div>
+
+
+            <div className='menu-items'>
+                <div >
+                    <img className='img' src="/Casas.png" alt="home" />
+                    <div>Home</div>
                 </div>
-            
-                <div className="atalho1"> <img className="casa" src="/sair.png" alt="casa" />       <p onClick={sairClick}>Sair</p></div>
-            </section>
-        </main>
+                <div >
+                    <img className='img' src="/mais.png" alt="cadastrar" />
+                    <div>Cadastrar o jogo</div>
+                </div>
+                <div>
+                    <img className='img' src="/lup.png" alt="consultar" />
+                    <div>Consultar Pedidos</div>
+                </div>
+                <div>
+                    <img className='img' src="/pendentes.png" alt="consultar" />
+                    <div>Pedidos pendentes</div>
+                </div>
+                <div>
+                    <img className='img' src="/concluido.png" alt="consultar" />
+                    <div>Pedidos concluidos</div>
+                </div>
+            </div>
+        </div>
+
+        <div className='menu-items'>
+            <div onClick={sairClick} >
+                <img  className='img' src="/sair.png" alt="consultar" />
+                <div>Sair</div>
+            </div>
+        </div>
+    </nav>
     )
 }
