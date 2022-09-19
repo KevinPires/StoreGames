@@ -1,6 +1,6 @@
 .cont{
     background-image: url('../../../../public/LoginUsuario.png');
-    background-size: 132%;
+    background-size: 100%;
     
     margin: 0;
     height: 100vh;
@@ -49,11 +49,17 @@
                 width: 140px;
                 padding: 10px;
                 border-radius: 10px;
+                border: none;
             }
         }
 
         .cont-link{
             color: #6A6A6A;
+
+            p{
+                text-align: center;
+                margin-bottom: 10px;
+            }
         }
     }
 

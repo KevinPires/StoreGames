@@ -7,7 +7,7 @@ import Login from './pages/admin/loginAdmin/'
 import AdminCadastro from './pages/admin/cadastrarJogos'
 import Home from './pages/admin/Home'
 
-import LoginUsuario from './pages/usuario/loginUsuario'
+import LoginUsuario from './pages/usuario/loginUsuario/index.js'
 
 
 export default function AppRoutes() {
