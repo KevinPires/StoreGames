@@ -64,17 +64,17 @@ export default function CadastratJogos(){
                       
                       <div className="boxColumn">
                           <label htmlFor="">Descrição</label>             
-                          <textarea name="" id="" cols="43" rows="8"></textarea> 
+                          <textarea maxlength="350" style={{resize: "none"}} name="" id="" cols="43" rows="8"></textarea> 
                       </div>
 
                       <div className="boxColumn">
                           <label htmlFor="">Requisitos Minimos</label>    
-                          <textarea name="" id="" cols="43" rows="8"></textarea>
+                          <textarea maxlength="350" style={{resize: "none"}} name="" id="" cols="43" rows="8"></textarea>
                       </div>
 
                       <div className="boxColumn">
                           <label htmlFor="">Imagem</label>                
-                          <textarea name="" id="" cols="20" rows="10"></textarea>
+                          <textarea maxlength="350" style={{resize: "none"}} name="" id="" cols="20" rows="10"></textarea>
                       </div>
 
                   </section>
