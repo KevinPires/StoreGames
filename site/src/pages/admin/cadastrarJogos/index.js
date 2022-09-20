@@ -2,7 +2,7 @@ import './index.scss'
 import { listarGenero } from '../../../api/generoApi'
 import { listarPlataforma } from '../../../api/plafatormaApi'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import HeaderAdmin  from '../../../components/adminHeader'
 import BarraLateral from '../../../components/BarraLateral'
 import InputCadastro from '../../../components/inputCadastro'
@@ -10,8 +10,25 @@ import InputCadastro from '../../../components/inputCadastro'
 
 export default function CadastratJogos(){
     const [idGenero, setIdGenero] = useState();
+    const [generos, setGeneros] = useState([]);
+
     const [idPlataforma, setIdPlataforma] = useState();
+    const [plataformas, setPlataformas] = useState([])
     
+    async function carregarGenero () {
+        const load = await listarGenero()
+        setGeneros(load)
+    }
+
+    async function carregarPlataformas() {
+        const load = await listarPlataforma()
+        setPlataformas(load)
+    }
+
+    useEffect(() => {
+        carregarGenero()
+        carregarPlataformas()
+    }, [])
     
     
     return (
@@ -44,8 +61,12 @@ export default function CadastratJogos(){
                           <label htmlFor="">Genero:</label> 
                           <select value={idGenero}name="generos" id="generos" onChange={e => setIdGenero(e.target.value)}>
                           <option selected disable hidden> Selecione </option>
-                         
-                            </select>
+
+                                {generos.map(genero     => 
+                                    <option>{genero.genero}</option>
+                                    )}
+
+                          </select>
                       </div>
 
 
@@ -53,7 +74,11 @@ export default function CadastratJogos(){
                           <label htmlFor="">Plataforma:</label> 
                           <select value={idPlataforma} name="generos" id="generos"  onChange={e => setIdPlataforma(e.target.value)}>
                             <option selected disable hidden> Selecione </option>
+                                {plataformas.map (item => 
+                                    
+                                    <option>{item.plataforma}</option>
 
+                                    )}
                            
                             </select>
                       </div>
