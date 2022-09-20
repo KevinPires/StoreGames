@@ -1,12 +1,19 @@
 import './index.scss'
+import { listarGenero } from '../../../api/generoApi'
+import { listarPlataforma } from '../../../api/plafatormaApi'
 
+import { useState } from 'react'
 import HeaderAdmin  from '../../../components/adminHeader'
 import BarraLateral from '../../../components/BarraLateral'
-
 import InputCadastro from '../../../components/inputCadastro'
 
 
 export default function CadastratJogos(){
+    const [idGenero, setIdGenero] = useState();
+    const [idPlataforma, setIdPlataforma] = useState();
+    
+    
+    
     return (
   
       <main className="cadastrar-jogos-page">
@@ -35,14 +42,20 @@ export default function CadastratJogos(){
 
                       <div className="labelInput">
                           <label htmlFor="">Genero:</label> 
-                          <select name="generos" id="generos">
-                            <option></option>
-                          </select>
+                          <select value={idGenero}name="generos" id="generos" onChange={e => setIdGenero(e.target.value)}>
+                          <option selected disable hidden> Selecione </option>
+                         
+                            </select>
                       </div>
+
 
                       <div className="labelInput">
                           <label htmlFor="">Plataforma:</label> 
-                          <select name="generos" id="generos"><option></option></select>
+                          <select value={idPlataforma} name="generos" id="generos"  onChange={e => setIdPlataforma(e.target.value)}>
+                            <option selected disable hidden> Selecione </option>
+
+                           
+                            </select>
                       </div>
 
                   </section>

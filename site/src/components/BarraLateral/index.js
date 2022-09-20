@@ -1,5 +1,5 @@
 import './index.scss';
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import {  useEffect } from 'react'
 import storage from 'local-storage'
 
@@ -25,24 +25,24 @@ export default function BarraLateral(){
         <nav className="comp-menu">
 
         <div className='menu-items'>
-        <div >
+        <Link to='/admin/home'>
                 <img  className='img' src="/casa.png" alt="consultar" />
                 <div className='texto'>Home</div>
-        </div>
+        </Link>
         </div>
 
         <div className='menu-items'>
-        <div >
+        <Link to='/admin/cadastro'>
                 <img  className='img' src="/mais.png" alt="consultar" />
                 <div className='texto'>Cadastar o jogo</div>
-        </div>
+        </Link>
         </div>
 
         <div className='menu-items'>
-        <div >
+        <Link to='/admin/consulta'>
                 <img  className='img' src="/lup.png" alt="consultar" />
                 <div className='texto'>Consultar pedidos</div>
-        </div>
+        </Link>
         </div>
 
         <div className='menu-items'>
@@ -65,6 +65,7 @@ export default function BarraLateral(){
                 <div className='texto'>Sair</div>
             </div>
         </div>
+        
     </nav>
     )
 }

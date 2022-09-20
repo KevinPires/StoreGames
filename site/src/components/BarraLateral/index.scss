@@ -17,13 +17,14 @@
         flex-direction: column;
         width: 100%;
         justify-content: space-between;
+        text-decoration: none;
         
 
         
 
 
     }
-    .menu-items > div {
+    .menu-items > a {
         display: flex;
         align-items: center;
         color: #fff;
@@ -33,7 +34,7 @@
         padding: 1em;
 
     }
-    .menu-items > div:hover {
+    .menu-items > a:hover {
         background-color: #E74C3C;
         width: 100%;
     }
