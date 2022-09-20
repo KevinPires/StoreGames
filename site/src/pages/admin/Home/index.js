@@ -9,7 +9,7 @@ export default function Home(){
     return (
 
       <main className="admin-home">
-          <BarraLateral/>
+          <BarraLateral selecionado='home'/>
 
 
           <div className="cont-faixa-cadastro">

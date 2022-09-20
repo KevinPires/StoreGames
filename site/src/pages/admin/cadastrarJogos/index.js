@@ -18,7 +18,7 @@ export default function CadastratJogos(){
   
       <main className="cadastrar-jogos-page">
           
-          <BarraLateral/>
+          <BarraLateral selecionado='cadastrar'/>
 
           <div className="cont-faixa-cadastro">
 

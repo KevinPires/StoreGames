@@ -17,7 +17,7 @@
         flex-direction: column;
         width: 100%;
         justify-content: space-between;
-        text-decoration: none;
+        
         
 
         
@@ -30,8 +30,9 @@
         color: #fff;
         transition: .3s;
         cursor: pointer;
-        margin-top: 10%;
+        
         padding: 1em;
+        text-decoration: none;
 
     }
     .menu-items > a:hover {
@@ -42,7 +43,7 @@
 
 
     .selecionado {
-        background-color: #A028E6;
+        background-color: #E74C3C;
     }
 
     .img{
@@ -52,7 +53,11 @@
 
     .texto{
         text-align: center;
+        text-decoration: none;
+
     }
+
+   
 
 }
 
