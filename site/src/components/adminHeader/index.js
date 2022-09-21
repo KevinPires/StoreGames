@@ -4,7 +4,7 @@ import storage from 'local-storage'
 
 export default function HeaderAdmin () {
 
-    const [nome, setNome] = useState('Administrador')
+    const [nome, setNome] = useState('')
 
      function exibirNome () {
         const taLogado =  storage('usuario-logado')

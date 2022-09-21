@@ -63,7 +63,7 @@ export default function CadastratJogos(){
                           <option selected disable hidden> Selecione </option>
 
                                 {generos.map(genero     => 
-                                    <option>{genero.genero}</option>
+                                    <option value={genero.id}>{genero.genero}</option>
                                     )}
 
                           </select>
@@ -73,10 +73,10 @@ export default function CadastratJogos(){
                       <div className="labelInput">
                           <label htmlFor="">Plataforma:</label> 
                           <select value={idPlataforma} name="generos" id="generos"  onChange={e => setIdPlataforma(e.target.value)}>
-                            <option selected disable hidden> Selecione </option>
+                            <option selected disabled hidden> Selecione </option>
                                 {plataformas.map (item => 
                                     
-                                    <option>{item.plataforma}</option>
+                                    <option value={item.id}>{item.plataforma}</option>
 
                                     )}
                            
@@ -89,17 +89,17 @@ export default function CadastratJogos(){
                       
                       <div className="boxColumn">
                           <label htmlFor="">Descrição</label>             
-                          <textarea maxlength="350" style={{resize: "none"}} name="" id="" cols="43" rows="8"></textarea> 
+                          <textarea maxLength="350" style={{resize: "none"}} name="" id="" cols="43" rows="8"></textarea> 
                       </div>
 
                       <div className="boxColumn">
                           <label htmlFor="">Requisitos Minimos</label>    
-                          <textarea maxlength="350" style={{resize: "none"}} name="" id="" cols="43" rows="8"></textarea>
+                          <textarea maxLength="350" style={{resize: "none"}} name="" id="" cols="43" rows="8"></textarea>
                       </div>
 
                       <div className="boxColumn">
                           <label htmlFor="">Imagem</label>                
-                          <textarea maxlength="350" style={{resize: "none"}} name="" id="" cols="20" rows="10"></textarea>
+                          <textarea maxLength="350" style={{resize: "none"}} name="" id="" cols="20" rows="10"></textarea>
                       </div>
 
                   </section>
