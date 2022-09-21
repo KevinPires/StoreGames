@@ -4,7 +4,7 @@ export default function InputCadastro () {
 
     return (
         <section className="input-Login">
-            <input className='input-cadastro' type="text"/>
+            <input className='input-cadastro' type="number"/>
         </section>
     )
 }

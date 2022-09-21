@@ -61,12 +61,13 @@ export default function CadastratJogos(){
                           <label htmlFor="">Genero:</label> 
                           <select value={idGenero}name="generos" id="generos" onChange={e => setIdGenero(e.target.value)}>
                           <option selected disable hidden> Selecione </option>
-
+                          
                                 {generos.map(genero     => 
                                     <option value={genero.id}>{genero.genero}</option>
                                     )}
-
+                                   
                           </select>
+                          <div className='adicionar'><img  className='maisAdicionar' src="/mais.png" alt="consultar" /></div>
                       </div>
 
 
@@ -81,6 +82,7 @@ export default function CadastratJogos(){
                                     )}
                            
                             </select>
+                            <div className='adicionar'><img  className='maisAdicionar' src="/mais.png" alt="consultar" /></div>
                       </div>
 
                   </section>
@@ -111,12 +113,12 @@ export default function CadastratJogos(){
                           <select name="generos" id="generos"><option></option></select>
                       </div>
                       <div className="labelInput">
-                          <label htmlFor="">Valor</label>                    
+                          <label htmlFor="">Valor:</label>                    
                           <InputCadastro/>
                       
                       </div>
                       <div className="labelInput">
-                          <label htmlFor="">Quantidade</label>               
+                          <label htmlFor="">Quantidade:</label>               
                           <InputCadastro/>
                       </div>
 
