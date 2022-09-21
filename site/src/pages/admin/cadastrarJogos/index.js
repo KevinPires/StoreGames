@@ -5,10 +5,17 @@ import { listarPlataforma } from '../../../api/plafatormaApi'
 import { useEffect, useState } from 'react'
 import HeaderAdmin  from '../../../components/adminHeader'
 import BarraLateral from '../../../components/BarraLateral'
-import InputCadastro from '../../../components/inputCadastro'
+
 
 
 export default function CadastratJogos(){
+    const [nome,setNome] = useState();
+    const [descricao,setDescricao] = useState();
+    const [resquisitosMinimos, setResquisitosMinimos] = useState();
+    const [valor,setValor] = useState();
+    const [quantidade, setQuantidade] = useState(0);
+
+
     const [idGenero, setIdGenero] = useState();
     const [generos, setGeneros] = useState([]);
 
@@ -72,7 +79,7 @@ export default function CadastratJogos(){
               
             <section className="pageCadastro">
               
-              <section className="containerCadastrar">
+                <section className="containerCadastrar">
                   <section className="header">
                       <p>Cadastrar Jogos</p>
                   </section>
@@ -81,7 +88,7 @@ export default function CadastratJogos(){
 
                         <div className="labelInput">
                           <label>Nome:</label>
-                          <InputCadastro/>
+                          <input className='input-cadastro' type="txt" value={nome} onChange={e => setNome(e.target.value)}/>
                         </div>
 
                         <div className="labelInput">
@@ -89,7 +96,7 @@ export default function CadastratJogos(){
                             <select value={idGenero}name="generos" id="generos" onChange={e => setIdGenero(e.target.value)}>
                             <option selected disable hidden> Selecione </option>
                           
-                                {generos.map(genero     => 
+                                {generos.map(genero => 
                                     <option value={genero.id}>{genero.genero}</option>
                                 )}
                                    
@@ -97,7 +104,7 @@ export default function CadastratJogos(){
                             <div className='adicionar' onClick={adicionarGenero}><img  className='maisAdicionar' src="/mais.png" alt="consultar" /></div>
                             <div>
                                 <label></label>
-                                <div className='cat-conteiner'>
+                                <div className='plat-conteiner'>
                                     {genSelecionadas.map(id =>
                                         <div className='plat-selecionada'>
                                             {BuscarNomeGenero(id)}
@@ -109,9 +116,9 @@ export default function CadastratJogos(){
 
 
                         <div className="labelInput">
-                          <label htmlFor="">Plataforma:</label> 
-                          <select value={idPlataforma} name="generos" id="generos"  onChange={e => setIdPlataforma(e.target.value)}>
-                            <option selected disabled hidden> Selecione </option>
+                            <label htmlFor="">Plataforma:</label> 
+                            <select value={idPlataforma} name="generos" id="generos"  onChange={e => setIdPlataforma(e.target.value)}>
+                                <option selected disabled hidden> Selecione </option>
                                 {plataformas.map (item => 
                                     <option value={item.id}>{item.plataforma}</option>
                                 )}
@@ -134,16 +141,16 @@ export default function CadastratJogos(){
 
                     </section>
 
-                  <section className="container2">
+                    <section className="container2">
                       
                       <div className="boxColumn">
                           <label htmlFor="">Descrição</label>             
-                          <textarea maxLength="350" style={{resize: "none"}} name="" id="" cols="43" rows="8"></textarea> 
+                          <textarea maxLength="350" style={{resize: "none"}} name="" id="" cols="43" rows="8" value={descricao} onChange={e => setDescricao(e.target.value)}></textarea> 
                       </div>
 
                       <div className="boxColumn">
                           <label htmlFor="">Requisitos Minimos</label>    
-                          <textarea maxLength="350" style={{resize: "none"}} name="" id="" cols="43" rows="8"></textarea>
+                          <textarea maxLength="350" style={{resize: "none"}} name="" id="" cols="43" rows="8" value={resquisitosMinimos} onChange={e => setResquisitosMinimos(e.target.value)}></textarea>
                       </div>
 
                       <div className="boxColumn">
@@ -151,9 +158,9 @@ export default function CadastratJogos(){
                           <textarea maxLength="350" style={{resize: "none"}} name="" id="" cols="20" rows="10"></textarea>
                       </div>
 
-                  </section>
+                    </section>
 
-                  <section className="container3">
+                    <section className="container3">
 
                       <div className="labelInput">
                           <label>Disponivel:</label>                         
@@ -161,17 +168,17 @@ export default function CadastratJogos(){
                       </div>
                       <div className="labelInput">
                           <label htmlFor="">Valor:</label>                    
-                          <InputCadastro/>
+                          <input className='input-cadastro' type='txt' value={valor} onChange={e => setValor(e.target.value)}/>
                           
                       
                       </div>
                       <div className="labelInput">
                           <label htmlFor="">Quantidade:</label>               
-                          <InputCadastro/>
+                          <input className='input-cadastro' type='txt' value={quantidade} onChange={e => setQuantidade(e.target.value)}/>
                       </div>
 
-                  </section>
-                  <section className="faixa-botao"><button>Cadastrar Jogo</button></section>
+                    </section>
+                <section className="faixa-botao"><button>Cadastrar Jogo</button></section>
                   
               </section>
             </section>

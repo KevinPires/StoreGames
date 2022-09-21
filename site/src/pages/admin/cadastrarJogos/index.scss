@@ -7,32 +7,31 @@
     flex-direction:row;
 
     .cont-faixa-cadastro{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
         
-        width: 100%;
-        
+      width: 100%;   
     }
 
     .container-Column {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
     
 
     .header {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        height: 4em;
-        background-image: url("../../../../public/fundoCadastrar.jpg");
-      }
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 4em;
+      background-image: url("../../../../public/fundoCadastrar.jpg");
+    }
     
       .header > p {
         color: white
@@ -119,8 +118,19 @@
         transform: scale(1.089);
       }
 
-      
+      .plat-conteiner {
+        display: flex;
+        flex-wrap: wrap;
+      }
 
+      .plat-selecionada {
+        font-size: .7em;
+        background-color: #672dc3;
+        padding: .5em 1em;
+        margin: .5em 5px;
+        color: #fff;
+        border-radius: 1em;
+      }
       .maisAdicionar{
         height: 30px;
       }
@@ -139,15 +149,15 @@
     }
 
     @media (max-width:1024px) {
-        .containerCadastrar {
-            width: 90%;
+      .containerCadastrar {
+          width: 90%;
             
             
-        }
+      }
 
-        .boxColumn {
-            width: 25%;
-        }
+      .boxColumn {
+          width: 25%;
+      }
         
    
 
