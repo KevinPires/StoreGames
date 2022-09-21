@@ -113,6 +113,7 @@ export default function CadastratJogos(){
                       <div className="labelInput">
                           <label htmlFor="">Valor</label>                    
                           <InputCadastro/>
+                          
                       
                       </div>
                       <div className="labelInput">

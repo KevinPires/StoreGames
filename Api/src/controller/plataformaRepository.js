@@ -1,4 +1,4 @@
-import { listarPlataforma } from '../repository/plataformaRepository.js'; 
+import { inserirPlatarmaJogo, listarPlataforma } from '../repository/plataformaRepository.js'; 
 
 import { Router } from 'express';
 
@@ -18,3 +18,4 @@ server.get('/jogo/plataforma', async (req, resp) => {
 })
 
 export default server;
+

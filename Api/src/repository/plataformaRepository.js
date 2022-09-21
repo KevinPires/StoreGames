@@ -12,3 +12,5 @@ export async function listarPlataforma() {
     const [linhas] = await con.query(comando);
     return linhas;
 }
+
+

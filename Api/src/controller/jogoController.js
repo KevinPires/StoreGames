@@ -1,4 +1,4 @@
-import { cadastroJogo } from "../repository/jogoRepository.js";
+import { cadastroJogo, inserirGeneroJogo, inserirPlataformaJogo } from "../repository/jogoRepository.js";
 import { response, Router } from "express";
 import multer from "multer";
 
@@ -8,13 +8,24 @@ server.post('/jogo', async (req,resp) => {
     try{
 
         const infoJogo = req.body
+        const inserirJogo = await cadastroJogo(infoJogo)
 
         if(!infoJogo) {
             resp.status(400).send('Insira Informações!')
         }
 
-        const inserirJogo = await cadastroJogo(infoJogo)
+        for (const item of infoJogo.plataformas) {
+            await inserirPlataformaJogo(infoJogo, item)
+        }
 
+        
+        for (const item of infoJogo.generos) {
+            await inserirGeneroJogo(infoJogo, item)
+        }
+
+
+
+    
         resp.send(inserirJogo)
 
 
