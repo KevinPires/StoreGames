@@ -14,3 +14,15 @@ export async function listarPlataforma() {
 }
 
 
+export async function buscarPlataformaporID(id) {
+    const comando = `
+        select id_plataforma       as id,
+               ds_plataforma       as genero
+          from tb_plataforma
+         where id_plataforma = ?
+    `
+
+    const [linhas] = await con.query(comando, [id]);
+    return linhas[0];
+}
+

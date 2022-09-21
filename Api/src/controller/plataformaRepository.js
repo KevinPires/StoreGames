@@ -1,4 +1,4 @@
-import { inserirPlatarmaJogo, listarPlataforma } from '../repository/plataformaRepository.js'; 
+import { listarPlataforma } from '../repository/plataformaRepository.js'; 
 
 import { Router } from 'express';
 

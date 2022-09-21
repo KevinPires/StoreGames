@@ -10,7 +10,7 @@ export async function cadastroJogo (jogo) {
     `
     const [resposta] = await con.query (comando, [jogo.nome, jogo.valor, jogo.descricao, jogo.estoque, jogo.imagem, jogo.requisitos, jogo.disponivel, jogo.maisvendido])
     jogo.id = resposta.insertId;
-    return jogo
+    return resposta[0]
     
     
 }
