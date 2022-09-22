@@ -1,6 +1,7 @@
 import './index.scss'
 import { listarGenero } from '../../../api/generoApi'
 import { listarPlataforma } from '../../../api/plafatormaApi'
+import { inserirJogo } from '../../../api/produto'
 
 import { useEffect, useState } from 'react'
 import HeaderAdmin  from '../../../components/adminHeader'
@@ -9,12 +10,14 @@ import BarraLateral from '../../../components/BarraLateral'
 
 
 export default function CadastratJogos(){
-    const [nome,setNome] = useState();
-    const [descricao,setDescricao] = useState();
-    const [resquisitosMinimos, setResquisitosMinimos] = useState();
-    const [valor,setValor] = useState();
-    const [quantidade, setQuantidade] = useState(0);
-
+    const [nome,setNome] = useState('');
+    const [descricao,setDescricao] = useState('');
+    const [resquisitos, setResquisitos] = useState('');
+    const [valor,setValor] = useState('');
+    const [estoque, setEstoque] = useState(0);
+    const [disponivel, setDisponivel] = useState(false);
+    const [maisVendido, setMaisVendido] = useState(false);
+    
 
     const [idGenero, setIdGenero] = useState();
     const [generos, setGeneros] = useState([]);
@@ -33,6 +36,18 @@ export default function CadastratJogos(){
     async function carregarPlataformas() {
         const load = await listarPlataforma()
         setPlataformas(load)
+    }
+
+    async function salvar() {
+        try {
+            const valorProduto = Number(valor.replace(',', '.'));
+
+            const r = await inserirJogo(nome, valor, descricao, estoque, resquisitos, disponivel, maisVendido, generos, plataformas );
+            alert ('Jogo cadastrado com sucesso');
+        }
+        catch (err) {
+            alert ('não cadastrou');
+        }
     }
 
     function buscarNomePlataforma(id) {
@@ -153,13 +168,13 @@ export default function CadastratJogos(){
 
                       <div className="boxColumn m-right">
                           <label htmlFor="">Requisitos Minimos</label>    
-                          <textarea maxLength="350" style={{resize: "none"}} name="" id="" cols="43" rows="8" value={resquisitosMinimos} onChange={e => setResquisitosMinimos(e.target.value)}></textarea>
+                          <textarea maxLength="350" style={{resize: "none"}} name="" id="" cols="43" rows="8" value={resquisitos} onChange={e => setResquisitos(e.target.value)}></textarea>
                       </div>
 
                       <div className="boxColumn img-edit m-all" onClick={escolherImagem} >
                        
-                          <img src='/icon-upload.svg' />
-                          <input type='file' id='imgCapa' />
+                        <img src='/icon-upload.svg' />
+                        <input type='file' id='imgCapa' />
                         
                       </div>
 
@@ -169,8 +184,13 @@ export default function CadastratJogos(){
 
                       <div className="labelInput">
                           <label>Disponivel:</label>                         
-                          <input type='checkbox' />
+                          <input type='checkbox' checked={disponivel} onChange={e => setDisponivel(e.target.checked)}/>
                       </div>
+                      <div className="labelInput">
+                          <label>Destaque:</label>                         
+                          <input type='checkbox' checked={maisVendido} onChange={e => setMaisVendido(e.target.checked)} />
+                      </div>
+
                       <div className="labelInput m-left">
                           <label htmlFor="">Valor:</label>                    
                           <input className='input-cadastro' type='txt' value={valor} onChange={e => setValor(e.target.value)}/>
@@ -179,11 +199,11 @@ export default function CadastratJogos(){
                       </div>
                       <div className="labelInput">
                           <label htmlFor="">Quantidade:</label>               
-                          <input className='input-cadastro input-height' type='txt' value={quantidade} onChange={e => setQuantidade(e.target.value)}/>
+                          <input className='input-cadastro input-height' type='txt' value={estoque} onChange={e => setEstoque(e.target.value)}/>
                       </div>
 
                     </section>
-                <section className="faixa-botao"><button>Cadastrar Jogo</button></section>
+                <section className="faixa-botao" onClick={salvar}><button>Cadastrar Jogo</button></section>
                   
               </section>
             </section>

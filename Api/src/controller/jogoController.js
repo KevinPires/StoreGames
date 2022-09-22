@@ -32,9 +32,6 @@ server.post('/jogo', async (req,resp) => {
             await inserirPlataformaJogo(jogoID, idPlataforma)
         }
 
-
-
-
     
         resp.send(infoJogo)
 
