@@ -65,6 +65,11 @@
         
     
       }
+      
+      #imgCapa{
+        visibility: hidden;
+        position: absolute;
+       }
     
       .labelInput {
         display: flex;
@@ -183,6 +188,7 @@
       }
         
    
+  
 
 
 

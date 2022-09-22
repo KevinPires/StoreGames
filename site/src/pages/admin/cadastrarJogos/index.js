@@ -64,6 +64,9 @@ export default function CadastratJogos(){
         carregarPlataformas()
     }, [])
     
+    function escolherImagem(){
+        document.getElementById('imagemCapa').click();
+    }
 
     return (
   
@@ -153,9 +156,11 @@ export default function CadastratJogos(){
                           <textarea maxLength="350" style={{resize: "none"}} name="" id="" cols="43" rows="8" value={resquisitosMinimos} onChange={e => setResquisitosMinimos(e.target.value)}></textarea>
                       </div>
 
-                      <div className="boxColumn img-edit m-all" >
-                          <p className='m-left m-all'>Imagem</p> 
-                          <img src='/adicionar.png' />
+                      <div className="boxColumn img-edit m-all" onClick={escolherImagem} >
+                       
+                          <img src='/icon-upload.svg' />
+                          <input type='file' id='imgCapa' />
+                        
                       </div>
 
                     </section>

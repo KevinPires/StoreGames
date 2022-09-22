@@ -11,3 +11,17 @@ export async function inserirJogo(nome, valor, descricao, estoque, imagem, requi
     return r.data
 }
 
+
+export async function enviarImagemJogo(id, imagem){
+
+    const formData = new FormData();
+    formData.append('capa', imagem);
+
+    const resposta = await api.put(`/jogo/${id}/capa`, formData,{
+        headers: {
+            "Content-type": "multipart/form-data" 
+        }
+    });
+
+    return resposta.status;
+}
