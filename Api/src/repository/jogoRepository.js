@@ -36,3 +36,13 @@ export async function inserirGeneroJogo(ID_JOGO, ID_GENERO) {
     return resposta[0]
     
 }
+
+export async function alterarImagem(imagem, id) {
+    const comando = 
+    `update tb_jogo  
+            set img_capa  = ?
+        where id_jogo = ?`;
+
+    const [resposta] = await con.query(comando, [imagem,id]);
+    return resposta.affectedRows
+}

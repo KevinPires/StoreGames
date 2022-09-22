@@ -68,7 +68,7 @@
     
       .labelInput {
         display: flex;
-        flex-direction: row ;
+        flex-direction: row;
       }
     
       .boxColumn {
@@ -93,6 +93,10 @@
     
       }
     
+      .input-height{
+        height: 1.9rem;
+
+      }
       button:hover {
         cursor: pointer;
         background-color: #2b3cdb;
@@ -124,17 +128,36 @@
       }
 
       .plat-selecionada {
-        font-size: .7em;
-        background-color: #672dc3;
-        padding: .5em 1em;
-        margin: .5em 5px;
+        font-size: .5rem;
+        background-color: #f12b0d;
+        padding: 0.1rem 0rem;
+        text-align: center;
+        height: 1rem;
+        margin: 0rem 0rem 0.37rem 0.4rem;
         color: #fff;
-        border-radius: 1em;
+        width: 3rem;
+        border-radius: 1.4rem;
       }
       .maisAdicionar{
         height: 30px;
       }
     
+      .img-edit {
+        
+        width: 10%;
+      }
+
+      .m-right{
+        margin-right: 3.5rem;
+      }
+      .m-left{
+        margin-left: 4rem;
+      }
+
+      .m-all{
+        margin: 0em 3em 1em 1em;
+        
+      }
 
     @media (max-width:1270px) {
         .containerCadastrar {

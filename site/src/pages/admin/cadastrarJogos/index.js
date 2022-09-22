@@ -88,7 +88,7 @@ export default function CadastratJogos(){
 
                         <div className="labelInput">
                           <label>Nome:</label>
-                          <input className='input-cadastro' type="txt" value={nome} onChange={e => setNome(e.target.value)}/>
+                          <input className='input-cadastro input-height' type="txt" value={nome} onChange={e => setNome(e.target.value)}/>
                         </div>
 
                         <div className="labelInput">
@@ -148,14 +148,14 @@ export default function CadastratJogos(){
                           <textarea maxLength="350" style={{resize: "none"}} name="" id="" cols="43" rows="8" value={descricao} onChange={e => setDescricao(e.target.value)}></textarea> 
                       </div>
 
-                      <div className="boxColumn">
+                      <div className="boxColumn m-right">
                           <label htmlFor="">Requisitos Minimos</label>    
                           <textarea maxLength="350" style={{resize: "none"}} name="" id="" cols="43" rows="8" value={resquisitosMinimos} onChange={e => setResquisitosMinimos(e.target.value)}></textarea>
                       </div>
 
-                      <div className="boxColumn">
-                          <label htmlFor="">Imagem</label>                
-                          <textarea maxLength="350" style={{resize: "none"}} name="" id="" cols="20" rows="10"></textarea>
+                      <div className="boxColumn img-edit m-all" >
+                          <p className='m-left m-all'>Imagem</p> 
+                          <img src='/adicionar.png' />
                       </div>
 
                     </section>
@@ -164,9 +164,9 @@ export default function CadastratJogos(){
 
                       <div className="labelInput">
                           <label>Disponivel:</label>                         
-                          <select name="generos" id="generos"><option></option></select>
+                          <input type='checkbox' />
                       </div>
-                      <div className="labelInput">
+                      <div className="labelInput m-left">
                           <label htmlFor="">Valor:</label>                    
                           <input className='input-cadastro' type='txt' value={valor} onChange={e => setValor(e.target.value)}/>
                           
@@ -174,7 +174,7 @@ export default function CadastratJogos(){
                       </div>
                       <div className="labelInput">
                           <label htmlFor="">Quantidade:</label>               
-                          <input className='input-cadastro' type='txt' value={quantidade} onChange={e => setQuantidade(e.target.value)}/>
+                          <input className='input-cadastro input-height' type='txt' value={quantidade} onChange={e => setQuantidade(e.target.value)}/>
                       </div>
 
                     </section>
