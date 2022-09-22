@@ -15,6 +15,7 @@ export default function CadastratJogos(){
     const [resquisitos, setResquisitos] = useState('');
     const [valor,setValor] = useState('');
     const [estoque, setEstoque] = useState(0);
+    const [imagem, setImagem] = useState('')
     const [disponivel, setDisponivel] = useState(false);
     const [maisVendido, setMaisVendido] = useState(false);
     
@@ -42,7 +43,7 @@ export default function CadastratJogos(){
         try {
             const valorProduto = Number(valor.replace(',', '.'));
 
-            const r = await inserirJogo(nome, valor, descricao, estoque, resquisitos, disponivel, maisVendido, generos, plataformas );
+            const r = await inserirJogo(nome, valorProduto, descricao, estoque, imagem, resquisitos, disponivel, maisVendido, genSelecionadas, platSelecionadas );
             alert ('Jogo cadastrado com sucesso');
         }
         catch (err) {

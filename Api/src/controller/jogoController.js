@@ -33,7 +33,7 @@ server.post('/jogo', async (req,resp) => {
         }
 
     
-        resp.send(infoJogo)
+        resp.status(204).send();
 
 
     } catch (err) {
