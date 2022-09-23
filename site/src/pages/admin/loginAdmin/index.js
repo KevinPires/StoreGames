@@ -6,7 +6,7 @@ import { useState, useRef, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { login } from '../../../api/loginApi';
 import storage from 'local-storage'
-
+import InputLogin from '../../../components/inputLogin'
 
 export default function LoginAdmin(){
     const [logar, setLogar] = useState (''); 
@@ -58,27 +58,19 @@ export default function LoginAdmin(){
             <h1><span>Área Administrativa</span></h1>
 
             <div className="container-row">
-
                 <div className="boxInputs">
-
-                    <input placeholder='login' className="input-login-format" type='txt' value={logar} onChange={e => setLogar(e.target.value )}/>
-                    <input placeholder='senha' className='input-login-format' type='password' value={senha} onChange={e => setSenha(e.target.value )}/> 
-                   
+                     <InputLogin value={logar} type='text' nome='login' onChange={e => setLogar(e.target.value )}/>
+                     <InputLogin value={senha} type='password'nome='senha' onChange={e => setSenha(e.target.value )}/>
                 <div className="row">
                     <p>Lembrar-me</p> 
                     <button id="botao-login" onClick={entrarClick} disabled={carregando}>Login</button>
                 </div>
-                    
                 </div>
                 <img id="logo-login" src="./logo.png" alt="logo" />
             </div>
             <div>
                 {erro}
             </div>
-
-           
-
-
         </section>
 
 

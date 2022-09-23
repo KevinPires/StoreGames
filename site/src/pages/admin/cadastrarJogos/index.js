@@ -50,7 +50,9 @@ export default function CadastratJogos(){
             alert ('Jogo cadastrado com sucesso');
         }
         catch (err) {
+            console.log(err)
             alert ('não cadastrou');
+            
         }
     }
 
