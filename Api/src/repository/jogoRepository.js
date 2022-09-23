@@ -4,13 +4,26 @@ import { con } from './connection.js'
 export async function cadastroJogo (jogo) {
     const comando = 
     `
-    insert into TB_JOGO (NM_JOGO, VL_JOGO, DS_JOGO, QTD_ESTOQUE, IMG_CAPA, DS_REQUISITOS, BL_DISPONIVEL, BL_MAISVENDIDO)
-					values(?, ? , ? , ? , ? , ? , ?, ? );
+    insert into TB_JOGO ( NM_JOGO, VL_JOGO, DS_JOGO, QTD_ESTOQUE, DS_REQUISITOS, BL_DISPONIVEL, BL_MAISVENDIDO)
+					values( ? , ? , ? , ? , ? , ?, ?);
 
     `
-    const [resposta] = await con.query (comando, [jogo.nome, jogo.valor, jogo.descricao, jogo.estoque, jogo.imagem, jogo.requisitos, jogo.disponivel, jogo.maisvendido])
+    const [resposta] = await con.query (
+        comando, 
+        [
+            jogo.nome, 
+            jogo.valor, 
+            jogo.descricao, 
+            jogo.estoque, 
+            jogo.requisitos, 
+            jogo.disponivel, 
+            jogo.maisvendido
+        ]
+    )
+                                                                                                
     jogo.id = resposta.insertId;
-    return resposta[0]
+    
+    return resposta.insertId
     
     
 }
@@ -43,6 +56,7 @@ export async function alterarImagem(imagem, id) {
             set img_capa  = ?
         where id_jogo = ?`;
 
-    const [resposta] = await con.query(comando, [imagem,id]);
+    const [resposta] = await con.query(comando, [imagem, id]);
     return resposta.affectedRows
 }
+

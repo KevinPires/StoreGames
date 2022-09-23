@@ -32,12 +32,9 @@ server.post('/jogo', async (req,resp) => {
             await inserirPlataformaJogo(jogoID, idPlataforma)
         }
 
-    
-        resp.status(204).send();
-
-
+        resp.status(200).send(jogoID.toString());
     } catch (err) {
-
+        console.log(err)
         resp.status(400).send({
             erro: err.message
         })
@@ -53,6 +50,9 @@ server.put('/jogo/:id/capa', upload.single('capa'), async (req, resp) => {
             throw new Error('Escolha a capa do filme.'); 
         const { id } = req.params;
         const imagem = req.file.path;
+
+        console.log(id)
+        console.log(imagem)
 
         const resposta = await alterarImagem(imagem, id)
         if (resposta != 1 )

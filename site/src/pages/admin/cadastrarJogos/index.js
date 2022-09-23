@@ -1,7 +1,7 @@
 import './index.scss'
 import { listarGenero } from '../../../api/generoApi'
 import { listarPlataforma } from '../../../api/plafatormaApi'
-import { inserirJogo } from '../../../api/produto'
+import { enviarImagemJogo, inserirJogo } from '../../../api/produto'
 
 import { useEffect, useState } from 'react'
 import HeaderAdmin  from '../../../components/adminHeader'
@@ -15,9 +15,10 @@ export default function CadastratJogos(){
     const [resquisitos, setResquisitos] = useState('');
     const [valor,setValor] = useState('');
     const [estoque, setEstoque] = useState(0);
-    const [imagem, setImagem] = useState('')
     const [disponivel, setDisponivel] = useState(false);
     const [maisVendido, setMaisVendido] = useState(false);
+
+    const [imagem, setImagem] = useState('')
     
 
     const [idGenero, setIdGenero] = useState();
@@ -42,8 +43,10 @@ export default function CadastratJogos(){
     async function salvar() {
         try {
             const valorProduto = Number(valor.replace(',', '.'));
+            const novoJogo = await inserirJogo(nome, valorProduto, descricao, estoque, resquisitos, disponivel, maisVendido, genSelecionadas, platSelecionadas );
+            const r = enviarImagemJogo(novoJogo, imagem);
+            await r
 
-            const r = await inserirJogo(nome, valorProduto, descricao, estoque, imagem, resquisitos, disponivel, maisVendido, genSelecionadas, platSelecionadas );
             alert ('Jogo cadastrado com sucesso');
         }
         catch (err) {
@@ -84,6 +87,9 @@ export default function CadastratJogos(){
         document.getElementById('imagemCapa').click();
     }
 
+    function mostrarImagem() {
+         return URL.createObjectURL(imagem)
+    }
     return (
   
     <main className="cadastrar-jogos-page">
@@ -143,7 +149,8 @@ export default function CadastratJogos(){
                                 )}
                            
                             </select>
-                            <div className='adicionar' onClick={adicionarPlataforma}><img  className='maisAdicionar' src="/mais.png" alt="consultar" /></div>
+                            <div className='adicionar' onClick={adicionarPlataforma}>
+                                <img  className='maisAdicionar' src="/mais.png" alt="consultar" /></div>
                                 <div>
                                     <label></label>
                                     <div className='cat-conteiner'>
@@ -172,13 +179,16 @@ export default function CadastratJogos(){
                           <textarea maxLength="350" style={{resize: "none"}} name="" id="" cols="43" rows="8" value={resquisitos} onChange={e => setResquisitos(e.target.value)}></textarea>
                       </div>
 
-                      <div className="boxColumn img-edit m-all" onClick={escolherImagem} >
-                       
-                        <img src='/icon-upload.svg' />
-                        <input type='file' id='imgCapa' />
+                      <div className=" img-edit m-all imagem-perfil"  onClick={escolherImagem}>
                         
+                            {!imagem &&
+                            <img className="img-Arq" src='/icon-upload.svg' alt=''/>
+                        }
+                            {imagem &&
+                            <img src={mostrarImagem()} alt='' className='w-img'/>
+                            }
+                            <input type='file' id='imagemCapa'  onChange={e => setImagem(e.target.files[0])}/>
                       </div>
-
                     </section>
 
                     <section className="container3">
