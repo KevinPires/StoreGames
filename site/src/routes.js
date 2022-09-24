@@ -11,6 +11,7 @@ import ConsultarJogos from './pages/admin/consultarJogos'
 import LoginUsuario from './pages/usuario/loginUsuario'
 import Pendentes from './pages/admin/pendentes'
 import PedidosConcluidos from './pages/admin/pedidosConcluidos'
+import CadastroUsuario from './pages/usuario/cadastroUsuario'
 
 
 export default function AppRoutes() {
@@ -24,6 +25,7 @@ export default function AppRoutes() {
                 <Route path='admin/pendentes' element={<Pendentes/>} />
                 <Route path='/admin/concluidos' element={<PedidosConcluidos/>} />
                 <Route path='/usuario/login' element={<LoginUsuario/>} />
+                <Route path='/usuario/cadastro' element={<CadastroUsuario/>} />
               
         </Routes>
     </BrowserRouter>        
