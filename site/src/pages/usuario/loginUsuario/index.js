@@ -1,5 +1,6 @@
 import './index.scss'
 import '../../../common/common.scss'
+import { Link } from 'react-router-dom'
 
 
 export default function LoginUsuario (){
@@ -24,7 +25,7 @@ export default function LoginUsuario (){
 
                 <div className='cont-link'>
                     <p>Não consegue fazer login?</p>
-                    <p>Criar conta</p>
+                     <Link to='/usuario/cadastro' className='link'> <p>Criar conta</p></Link>
                 </div>
                
 

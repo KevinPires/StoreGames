@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import './index.scss'
 
 
@@ -8,7 +9,7 @@ export default function CadastroUsuario() {
             <section className='conteiner-page-1'>
              <div className='titulo'> <h1>Já possui conta?</h1></div>
              <div className='subtitulo'>Caso já possua uma conta, realize o login pressionando o botão abaixo</div>
-             <div className='botaodiv'> <button className='botao'><b>Realizar Login</b></button></div>
+             <Link to='/usuario/login' className='botaodiv'> <button className='botao'><b>Realizar Login</b></button></Link>
             </section>
 
             <section className='conteiner-page-2'>

@@ -52,7 +52,7 @@
     }
 
     .textbox{
-       padding: 0.75em;
+       padding: 0.8em;
        width: 350px;
        margin-top: 1em;
        background-color: #DDE6F4;
@@ -76,10 +76,19 @@
         margin-top: 3em;
        
     }
+
+    .botao:hover{
+        color: red;
+        border: solid 1px  red;
+        transform: scale(1.070);
+    }
+
+    .botao2:hover{
+        color: rgb(43, 255, 0);
+        border: solid 1px rgb(43, 255, 0);
+        transform: scale(1.070);
+    }
 }
 
 
 
-*{
-   //border: solid 1px black;
-}
