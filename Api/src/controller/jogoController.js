@@ -1,4 +1,4 @@
-import { cadastroJogo, inserirGeneroJogo, inserirPlataformaJogo, alterarImagem } from "../repository/jogoRepository.js";
+import { cadastroJogo, inserirGeneroJogo, inserirPlataformaJogo, alterarImagem, listarTodosJogos, buscarPorNome } from "../repository/jogoRepository.js";
 import { response, Router } from "express";
 import multer from "multer";
 import { buscarGeneroPorId } from "../repository/generoRepository.js";
@@ -65,5 +65,34 @@ server.put('/jogo/:id/capa', upload.single('capa'), async (req, resp) => {
         })
     }
 })
+
+server.get('/jogo/consultar', async (req, resp) => {
+    try {
+        const resposta = await listarTodosJogos();
+        resp.send(resposta);
+    } catch (err) {
+        resp.status(400).send({
+            erro: err.message
+        })
+    }
+})
+
+server.get('/jogo/busca', async (req, resp) => {
+    try {
+        const { nome } = req.query;
+        
+        const resposta = await buscarPorNome(nome);
+
+        if (resposta.length == 0)
+            resp.status(404).send([])
+        else
+            resp.send(resposta);
+    } catch (err) {
+        resp.status(400).send({
+            erro: err.message
+        })
+    }
+})
+
 
 export default server;

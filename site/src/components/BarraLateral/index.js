@@ -51,7 +51,7 @@ export default function BarraLateral(props){
         <div className='menu-items'>
         <Link to='/admin/consulta'  className={vereficarMenuSelecionado('consultar')}>
                 <img  className='img' src="/lup.png" alt="consultar" />
-                <div className='texto'>Consultar pedidos</div>
+                <div className='texto'>Consultar jogos</div>
         </Link>
         </div>
 

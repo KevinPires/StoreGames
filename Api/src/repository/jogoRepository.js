@@ -60,3 +60,37 @@ export async function alterarImagem(imagem, id) {
     return resposta.affectedRows
 }
 
+export async function listarTodosJogos() {
+    const comando =
+    `SELECT id_jogo		id,
+    nm_jogo		      nome,
+    vl_jogo	          valor,
+    ds_jogo	          descricao,
+    qtd_estoque	      estoque,
+    ds_requisitos     requisitos ,
+    bl_disponivel     disponivel,
+    bl_maisvendido    maisvendido
+FROM tb_jogo`;
+    
+    const [linhas] = await con.query(comando);
+    return linhas;
+}
+
+export async function buscarPorNome(nome) {
+    const comando =
+   ` SELECT id_jogo		id,
+    nm_jogo		        nome,
+    vl_jogo	            valor,
+    ds_jogo	            descricao,
+    qtd_estoque	        estoque,
+    ds_requisitos       requisitos,
+    bl_disponivel       disponivel,
+    bl_maisvendido      maisvendido  
+    from tb_jogo   
+          WHERE nm_jogo like ?` ;
+    
+    const [linhas] = await con.query(comando, [ `%${nome}%` ]);
+    return linhas;
+}
+
+
