@@ -30,65 +30,50 @@ export default function ConsultarJogos(){
 
     <div className="cont-faixa-cadastro">
 
-         <HeaderAdmin/>
-     
+        <div className='conteudo'>
+            <div className='caixa-busca'>
+                <input type="text" placeholder='Buscar jogos por nome' value={filtro} onChange={e => setFiltro(e.target.value)} />
+            </div>
+        
 
-     <div className='conteudo'>
+            <table >
+                <thead>
+                    <tr>
+                        <th>IDENTIFICAÇÃO</th>
+                        <th>NOME</th>
+                        <th>VALOR</th>
+                        <th>DISPONIVEL</th>
+                        <th>QUANTIDADE</th>
+                        <th>EDITAR E APAGAR</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
 
-                    <div className='caixa-busca'>
-                        <input type="text" placeholder='Buscar jogos por nome' value={filtro} onChange={e => setFiltro(e.target.value)} />
-                    </div>
-                  
-                  <div className='tabela'>
-                  <table >
-                        <thead>
-                            <tr>
-                                <th>IDENTIFICAÇÃO</th>
-                                <th>NOME</th>
-                                <th>VALOR</th>
-                                <th>DISPONIVEL</th>
-                                <th>QUANTIDADE</th>
-                                <th>EDITAR E APAGAR</th>
-                                
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                        {filteredGames.map(item => 
-                            
-                            <tr>
-                            <td>{item.id}</td>
-                            <td>{item.nome}</td>
-                            <td>{item.valor}</td>
-                            <td>{item.disponivel ? 'Sim' : 'Não'}</td>
-                            <td>{item.estoque}</td>
-                            
-                           
-                            
-                            <td>
-                                <img src='/lapis.png' 
-                                />
+                {filteredGames.map(item => 
+                    <tr>
+                        <td>{item.id}</td>
+                        <td>{item.nome}</td>
+                        <td>{item.valor}</td>
+                        <td>{item.disponivel ? 'Sim' : 'Não'}</td>
+                        <td>{item.estoque}</td>
+                        <td>
+                            <img src='/lapis.png' 
+                            />
 
 
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-                                <img src='/lixo.png'/>
-                            </td>
-                        </tr>
-                            
-                        )}
-                            
-                         
-
-                     
-                            
-                          
-                        </tbody>
-                    </table>
-                  </div>
+                            <img src='/lixo.png'/>
+                        </td>
+                    </tr>
+                )} 
+                </tbody>
+            </table>
+        </div>
                    
                     
-                </div>
+
             </div>
        </main>
   )

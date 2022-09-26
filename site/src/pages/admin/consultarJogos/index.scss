@@ -1,18 +1,20 @@
 .admin-consultar{
     display: flex;
     flex-direction: row;
+    height: 100%;
 
 
     .container {
         display: flex;
         flex-direction: column;
-        flex-grow: 1;
+
     }
 
     .cont-faixa-cadastro{
         display: flex;
         flex-direction: column;
         width: 100%;
+        height: 100%;
     }
 
 
@@ -22,7 +24,7 @@
         flex-direction: column;
         padding: 20px 60px;
         background-color: #F5F6FA;
-        flex-grow: 1;
+
     }
 
 
@@ -50,12 +52,13 @@
         right: -15px;
     }
 
+    
+
+
     table {
         width: 100%;
         border-collapse: collapse;
         margin-top: 50px;
-        overflow-y: scroll;
-        
     }
     th {
         text-align: left;
@@ -63,8 +66,6 @@
         padding: 25px 40px;
         font-size: 14px;
         text-shadow: 0px 1px 4px rgba(217, 217, 217, 0.5);
-        
-       
     }
     thead {
         background-color: #323A45;
@@ -85,8 +86,6 @@
         cursor: pointer;
     }
     tr td:nth-child(2) {
-        text-overflow: ellipsis;
-        overflow: hidden;
         white-space: nowrap; 
         width: 100px;
     }
@@ -102,10 +101,12 @@
     }
 
 
-    .tabela{
-        overflow-y: scroll;
-    }
+    
 
+}
+
+*{
+  //  border: solid 1px black;
 }
 
 
