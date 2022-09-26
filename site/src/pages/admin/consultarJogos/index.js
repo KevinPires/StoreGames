@@ -10,20 +10,18 @@ export default function ConsultarJogos(){
     const [jogos, setJogos] = useState([])
     const [filtro, setFiltro] = useState ('')
 
- async function carregarTodosJogos(){
-   const resp = await listarTodosJogos();
-   setJogos(resp);
-}
+    async function carregarTodosJogos(){
+        const resp = await listarTodosJogos();
+        setJogos(resp);
+    }
 
-async function filtrar() {
-    const resp = await listarTodosJogosPorNome(filtro);
-    setJogos(resp);
-}
+    const filteredGames = filtro.length >= 1
+        ? jogos.filter(item => item.nome.toUpperCase().includes(filtro.toUpperCase()))
+        : jogos
 
-
-useEffect(() => {
-    carregarTodosJogos()
-}, [])
+    useEffect(() => {
+        carregarTodosJogos()
+    }, [])
 
   return(
     <main className="admin-consultar">
@@ -39,10 +37,10 @@ useEffect(() => {
 
                     <div className='caixa-busca'>
                         <input type="text" placeholder='Buscar jogos por nome' value={filtro} onChange={e => setFiltro(e.target.value)} />
-                        <img src='/lupa.png' onClick={filtrar} />
                     </div>
-
-                    <table>
+                  
+                  <div className='tabela'>
+                  <table >
                         <thead>
                             <tr>
                                 <th>IDENTIFICAÇÃO</th>
@@ -56,7 +54,7 @@ useEffect(() => {
                         </thead>
                         <tbody>
 
-                        {jogos.map(item => 
+                        {filteredGames.map(item => 
                             
                             <tr>
                             <td>{item.id}</td>
@@ -87,6 +85,8 @@ useEffect(() => {
                           
                         </tbody>
                     </table>
+                  </div>
+                   
                     
                 </div>
             </div>

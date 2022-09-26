@@ -20,7 +20,6 @@
     .conteudo {
         display: flex;
         flex-direction: column;
-        
         padding: 20px 60px;
         background-color: #F5F6FA;
         flex-grow: 1;
@@ -43,6 +42,7 @@
         border: none;
         padding: 0px;
         width: 100%;
+        outline: none;
     }
     .caixa-busca img {
         cursor: pointer;
@@ -54,6 +54,8 @@
         width: 100%;
         border-collapse: collapse;
         margin-top: 50px;
+        overflow-y: scroll;
+        
     }
     th {
         text-align: left;
@@ -61,14 +63,16 @@
         padding: 25px 40px;
         font-size: 14px;
         text-shadow: 0px 1px 4px rgba(217, 217, 217, 0.5);
+        
+       
     }
     thead {
         background-color: #323A45;
-       
     }
     td {
         padding: 25px 40px;
         font-weight: 500;
+      
     }
     tbody tr:nth-child(even) {
         background-color: #EDEDED;
@@ -95,6 +99,11 @@
     }
     tr:hover td:nth-last-child(1) img {
         visibility: visible;
+    }
+
+
+    .tabela{
+        overflow-y: scroll;
     }
 
 }
