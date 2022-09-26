@@ -194,17 +194,18 @@ export default function CadastratJogos() {
                             </section>
 
                             <section className="container3">
+                                <div className='box-left'>
+                                    <div className="labelInput">
+                                        <label>Disponivel:</label>
+                                        <input type='checkbox' checked={disponivel} onChange={e => setDisponivel(e.target.checked)} />
+                                    </div>
 
-                                <div className="labelInput">
-                                    <label>Disponivel:</label>
-                                    <input type='checkbox' checked={disponivel} onChange={e => setDisponivel(e.target.checked)} />
+                                    <div className="labelInput">
+                                        <label>Destaque:</label>
+                                        <input type='checkbox' checked={maisVendido} onChange={e => setMaisVendido(e.target.checked)} />
+                                    </div>
                                 </div>
-
-                                <div className="labelInput">
-                                    <label>Destaque:</label>
-                                    <input type='checkbox' checked={maisVendido} onChange={e => setMaisVendido(e.target.checked)} />
-                                </div>
-
+                                
                                 <div className="labelInput m-left">
                                     <label htmlFor="">Valor:</label>
                                     <InputCadastro type='text' value={valor} onChange={e => setValor(e.target.value)} />
