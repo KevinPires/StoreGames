@@ -1,10 +1,10 @@
 .cadastrar-jogos-page{
-    height: 100vh;
-    width: 100%;
-    background-color: rgb(143, 139, 139);
+  height: 100vh;
+  width: 100%;
+  background-color: rgb(143, 139, 139);
 
-    display: flex;
-    flex-direction:row;
+  display: flex;
+  flex-direction:row;
 
     .cont-faixa-cadastro{
       display: flex;
@@ -56,41 +56,39 @@
       .container1, .container2, .container3{
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: space-evenly;
        
        
         margin-right: 1em;
         margin-left: 1em;
       
-        
-    
       }
       .imagem-capa{
         height: 3.4rem;
         width: 3.4rem;
       }
       #imagemCapa{
-        position: absolute;
         visibility: hidden;
-        
-       }
+        width: 1px;
+      }
 
-       .imagem-perfil{
+      .imagem-perfil{
         width: 4rem;
         height: 4rem;
         border: solid 6px #fff;
         border-radius: 2rem;
-    }
+      }
 
-       .w-img{
+      .w-img{
         width: 100%;
         height: 100%;
-       }
+      }
 
       
       .labelInput {
         display: flex;
         flex-direction: row;
+        width: 29%;
       }
     
       .boxColumn {
@@ -130,7 +128,7 @@
       }
     
       select {
-        width: 175px;
+        width: 100%;
         height: 30px;
       }
 
@@ -159,6 +157,11 @@
         color: #fff;
         width: 3rem;
         border-radius: 1.4rem;
+      }
+      .box-left{
+        display: flex;
+        justify-content: space-around;
+        width: 26%;
       }
       .maisAdicionar{
         height: 30px;
