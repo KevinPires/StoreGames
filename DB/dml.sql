@@ -2,8 +2,18 @@ use storegames;
 
 INSERT INTO TB_ADMIN (DS_NOME)
 	values ('Luan');
-    INSERT INTO TB_ADMIN_LOGIN (FK_ADMIN, DS_LOGIN, DS_SENHA)
+INSERT INTO TB_ADMIN_LOGIN (FK_ADMIN, DS_LOGIN, DS_SENHA)
 	values (1,'Luan', '1234');
+
+-- CADASTRANDO USUARIO 
+insert into TB_USUARIO (nm_usuario, ds_cep, ds_nascimento, ds_cpf)
+	value('Kevin' , '04849-013' , '2000-02-12' , '0805393873537');
+
+-- LOGIN USUARIO
+INSERT INTO TB_USUARIO_LOGIN (id_usuario , ds_email, ds_senha)
+	value(1, 'gabriel@gmail.com', '1234');
+
+
 
 
 -- CARGA INICIAL, AQUI TA INSERINDO OS GENEROS E PLATAFORMAS DOS JOGOS

@@ -23,9 +23,7 @@ export async function cadastroJogo (jogo) {
                                                                                                 
     jogo.id = resposta.insertId;
     
-    return resposta.insertId
-    
-    
+    return resposta.insertId  
 }
 
 export async function inserirPlataformaJogo(ID_JOGO, ID_PLATAFORMA) {
@@ -52,7 +50,7 @@ export async function inserirGeneroJogo(ID_JOGO, ID_GENERO) {
 
 export async function alterarImagem(imagem, id) {
     const comando = 
-    `update TB_JOGO
+    `update TB_JOGO  
             set img_capa  = ?
         where id_jogo = ?`;
 
