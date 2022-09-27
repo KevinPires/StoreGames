@@ -6,7 +6,7 @@ export async function listarGenero() {
     const comando = `
         select id_genero         as id,
                ds_genero        as genero
-          from tb_genero
+          from TB_GENERO
     `
 
     const [linhas] = await con.query(comando);
@@ -17,7 +17,7 @@ export async function buscarGeneroPorId(id) {
     const comando = `
         select id_genero       as id,
                ds_genero       as genero
-          from tb_genero
+          from TB_GENERO
          where id_genero = ?
     `
 

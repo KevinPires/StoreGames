@@ -23,9 +23,7 @@ export async function cadastroJogo (jogo) {
                                                                                                 
     jogo.id = resposta.insertId;
     
-    return resposta.insertId
-    
-    
+    return resposta.insertId  
 }
 
 export async function inserirPlataformaJogo(ID_JOGO, ID_PLATAFORMA) {
@@ -52,7 +50,7 @@ export async function inserirGeneroJogo(ID_JOGO, ID_GENERO) {
 
 export async function alterarImagem(imagem, id) {
     const comando = 
-    `update tb_jogo  
+    `update TB_JOGO  
             set img_capa  = ?
         where id_jogo = ?`;
 
@@ -63,14 +61,14 @@ export async function alterarImagem(imagem, id) {
 export async function listarTodosJogos() {
     const comando =
     `SELECT id_jogo		id,
-    nm_jogo		      nome,
-    vl_jogo	          valor,
-    ds_jogo	          descricao,
-    qtd_estoque	      estoque,
-    ds_requisitos     requisitos ,
-    bl_disponivel     disponivel,
-    bl_maisvendido    maisvendido
-FROM tb_jogo`;
+            nm_jogo		      nome,
+            vl_jogo	          valor,
+            ds_jogo	          descricao,
+            qtd_estoque	      estoque,
+            ds_requisitos     requisitos ,
+            bl_disponivel     disponivel,
+            bl_maisvendido    maisvendido
+        FROM TB_JOGO`;
     
     const [linhas] = await con.query(comando);
     return linhas;
@@ -79,15 +77,15 @@ FROM tb_jogo`;
 export async function buscarPorNome(nome) {
     const comando =
    ` SELECT id_jogo		id,
-    nm_jogo		        nome,
-    vl_jogo	            valor,
-    ds_jogo	            descricao,
-    qtd_estoque	        estoque,
-    ds_requisitos       requisitos,
-    bl_disponivel       disponivel,
-    bl_maisvendido      maisvendido  
-    from tb_jogo   
-          WHERE nm_jogo like ?` ;
+            nm_jogo		        nome,
+            vl_jogo	            valor,
+            ds_jogo	            descricao,
+            qtd_estoque	        estoque,
+            ds_requisitos       requisitos,
+            bl_disponivel       disponivel,
+            bl_maisvendido      maisvendido  
+        from tb_jogo   
+        WHERE nm_jogo like ?` ;
     
     const [linhas] = await con.query(comando, [ `%${nome}%` ]);
     return linhas;
@@ -118,8 +116,8 @@ export async function removerPlataformaJogo(id){
 
 export async function removerJogo(id){
     const comando = `
-    delete from tb_jogo
-    where id_jogo =?
+        delete from TB_JOGO
+            where id_jogo =?
     `;
     const [resposta] = await con.query(comando, [id]);
     return resposta.affectedRows;
