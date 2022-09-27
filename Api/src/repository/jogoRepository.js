@@ -93,4 +93,35 @@ export async function buscarPorNome(nome) {
     return linhas;
 }
 
+// Funções de delete 
+
+
+export async function removerGeneroJogo(id){
+    const comando = `
+    delete from tb_genero_jogo
+    where id_genero_jogo =?
+    `;
+    const [resposta] = await con.query(comando, [id]);
+    return resposta.affectedRows;
+}
+
+
+export async function removerPlataformaJogo(id){
+    const comando = `
+    delete from tb_plataforma_jogo
+    where id_plataforma_jogo =?
+    `;
+    const [resposta] = await con.query(comando, [id]);
+    return resposta.affectedRows;
+}
+
+
+export async function removerJogo(id){
+    const comando = `
+    delete from tb_jogo
+    where id_jogo =?
+    `;
+    const [resposta] = await con.query(comando, [id]);
+    return resposta.affectedRows;
+}
 

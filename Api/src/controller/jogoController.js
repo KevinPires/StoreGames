@@ -1,4 +1,4 @@
-import { cadastroJogo, inserirGeneroJogo, inserirPlataformaJogo, alterarImagem, listarTodosJogos, buscarPorNome } from "../repository/jogoRepository.js";
+import { cadastroJogo, inserirGeneroJogo, inserirPlataformaJogo, alterarImagem, listarTodosJogos, buscarPorNome, removerGeneroJogo, removerPlataformaJogo, removerJogo } from "../repository/jogoRepository.js";
 import { response, Router } from "express";
 import multer from "multer";
 import { buscarGeneroPorId } from "../repository/generoRepository.js";
@@ -96,6 +96,28 @@ server.get('/jogo/busca', async (req, resp) => {
         })
     }
 })
+
+
+server.delete('/jogo/:id', async (req, resp )=> {
+    try {
+        const { id } = req.params;
+        const remocao1 = await removerGeneroJogo(id);
+        if (remocao1 !=1)
+            throw new Error ('Genero do filme não pode ser removido.')
+        const remocao2 = await removerPlataformaJogo(id);
+        if (remocao2 !=1)
+            throw new Error ('Plataforma do filme não pode ser removida.')
+        const remocao3 = await removerJogo(id);
+        if (remocao3 !=1)
+        throw new Error ('jogo do filme não pode ser removida.')
+    } catch (err) {
+        resp.status(204).send({
+            erro: err.message
+        })
+           
+    }
+})
+
 
 
 export default server;
