@@ -12,14 +12,13 @@ server.post('/jogo', async (req,resp) => {
     try{
 
         const infoJogo = req.body
+
         await ValidarJogo(infoJogo)
         
         const jogoID = await cadastroJogo(infoJogo)
 
 
-        if(!infoJogo) {
-            resp.status(400).send('Insira Informações!')
-        }
+ 
 
         for (const idGenero of infoJogo.generos) {
             const cat = await buscarGeneroPorId(idGenero);
