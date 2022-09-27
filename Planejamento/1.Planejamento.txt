@@ -5,3 +5,11 @@ Planejamento Api
 1- login
 
 Post        
+
+///////////////////////////////////
+/delete /jogo/:id
+
+response (204)
+
+
+//////////////////////////////////
