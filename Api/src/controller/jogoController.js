@@ -102,17 +102,25 @@ server.delete('/jogo/:id', async (req, resp )=> {
     try {
         const { id } = req.params;
         const remocao1 = await removerGeneroJogo(id);
-        if (remocao1 !=1)
-            throw new Error ('Genero do filme não pode ser removido.')
+        if (remocao1 === 0)
+            throw new Error ('Genero do jogo não pode ser removido.')
         const remocao2 = await removerPlataformaJogo(id);
-        if (remocao2 !=1)
-            throw new Error ('Plataforma do filme não pode ser removida.')
+        if (remocao2 === 0)
+            throw new Error ('Plataforma do jogo não pode ser removida.')
         const remocao3 = await removerJogo(id);
-        if (remocao3 !=1)
-        throw new Error ('jogo do filme não pode ser removida.')
+        if (remocao3 === 0)
+        throw new Error ('jogo não pode ser removido.')
+
+        return resp.status(200).send({
+            msg: "Jogo deletado"
+        })
     } catch (err) {
-        resp.status(204).send({
+        
+        console.log(err)
+
+        return resp.status(400).send({ 
             erro: err.message
+            
         })
            
     }

@@ -15,3 +15,8 @@ export async function  listarTodosJogosPorNome(nome){
     const reposta = await api.get(`/jogo/busca?nome=${nome}`);
     return reposta.data;
 }
+
+export async function deletarJogo(id){
+    const reposta = await api.delete(`/jogo/${id}`);
+    return reposta.status;
+}

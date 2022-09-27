@@ -6,7 +6,7 @@ export async function listarPlataforma() {
     const comando = `
         select id_plataforma         as id,
                ds_plataforma         as plataforma
-          from tb_plataforma
+          from TB_PLATAFORMA
     `
 
     const [linhas] = await con.query(comando);
@@ -18,7 +18,7 @@ export async function buscarPlataformaporID(id) {
     const comando = `
         select id_plataforma       as id,
                ds_plataforma       as genero
-          from tb_plataforma
+          from TB_PLATAFORMA
          where id_plataforma = ?
     `
 
