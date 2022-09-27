@@ -61,14 +61,14 @@ export async function alterarImagem(imagem, id) {
 export async function listarTodosJogos() {
     const comando =
     `SELECT id_jogo		id,
-            nm_jogo		      nome,
-            vl_jogo	          valor,
-            ds_jogo	          descricao,
-            qtd_estoque	      estoque,
-            ds_requisitos     requisitos ,
-            bl_disponivel     disponivel,
-            bl_maisvendido    maisvendido
-        FROM TB_JOGO`;
+    nm_jogo		      nome,
+    vl_jogo	          valor,
+    ds_jogo	          descricao,
+    qtd_estoque	      estoque,
+    ds_requisitos     requisitos ,
+    bl_disponivel     disponivel,
+    bl_maisvendido    maisvendido
+FROM TB_JOGO`;
     
     const [linhas] = await con.query(comando);
     return linhas;
@@ -77,15 +77,15 @@ export async function listarTodosJogos() {
 export async function buscarPorNome(nome) {
     const comando =
    ` SELECT id_jogo		id,
-            nm_jogo		        nome,
-            vl_jogo	            valor,
-            ds_jogo	            descricao,
-            qtd_estoque	        estoque,
-            ds_requisitos       requisitos,
-            bl_disponivel       disponivel,
-            bl_maisvendido      maisvendido  
-        from tb_jogo   
-        WHERE nm_jogo like ?` ;
+    nm_jogo		        nome,
+    vl_jogo	            valor,
+    ds_jogo	            descricao,
+    qtd_estoque	        estoque,
+    ds_requisitos       requisitos,
+    bl_disponivel       disponivel,
+    bl_maisvendido      maisvendido  
+    from TB_JOGO  
+          WHERE nm_jogo like ?` ;
     
     const [linhas] = await con.query(comando, [ `%${nome}%` ]);
     return linhas;
@@ -96,8 +96,8 @@ export async function buscarPorNome(nome) {
 
 export async function removerGeneroJogo(id){
     const comando = `
-    delete from tb_genero_jogo
-    where id_genero_jogo =?
+    delete from TB_GENERO_JOGO
+    WHERE fk_jogo = ?
     `;
     const [resposta] = await con.query(comando, [id]);
     return resposta.affectedRows;
@@ -106,8 +106,8 @@ export async function removerGeneroJogo(id){
 
 export async function removerPlataformaJogo(id){
     const comando = `
-    delete from tb_plataforma_jogo
-    where id_plataforma_jogo =?
+    delete from TB_PLATAFORMA_JOGO
+    WHERE fk_jogo = ?
     `;
     const [resposta] = await con.query(comando, [id]);
     return resposta.affectedRows;
@@ -116,8 +116,8 @@ export async function removerPlataformaJogo(id){
 
 export async function removerJogo(id){
     const comando = `
-        delete from TB_JOGO
-            where id_jogo =?
+    delete from TB_JOGO
+    where id_jogo =?
     `;
     const [resposta] = await con.query(comando, [id]);
     return resposta.affectedRows;

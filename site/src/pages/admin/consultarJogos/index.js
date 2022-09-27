@@ -2,7 +2,7 @@ import './index.scss';
 
 import BarraLateral from '../../../components/BarraLateral';
 import HeaderAdmin from '../../../components/adminHeader';
-import { listarTodosJogos, listarTodosJogosPorNome } from '../../../api/jogos';
+import { listarTodosJogos, listarTodosJogosPorNome , deletarJogo} from '../../../api/jogos';
 import { useEffect, useState } from 'react';
 
 export default function ConsultarJogos(){
@@ -22,6 +22,15 @@ export default function ConsultarJogos(){
     useEffect(() => {
         carregarTodosJogos()
     }, [])
+
+    async function removerJogoClick(id, nome){
+      const reposta = await deletarJogo(id, nome)
+      if (filtro === '')
+      carregarTodosJogos();
+      
+      
+      alert ('filme removido')
+    }
 
   return(
     <main className="admin-consultar">
@@ -64,7 +73,7 @@ export default function ConsultarJogos(){
 
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-                            <img src='/lixo.png'/>
+                            <img src='/lixo.png' onClick={() => removerJogoClick(item.id, item.nome)}/>
                         </td>
                     </tr>
                 )} 
