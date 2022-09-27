@@ -3,6 +3,7 @@ import { response, Router } from "express";
 import multer from "multer";
 import { buscarGeneroPorId } from "../repository/generoRepository.js";
 import { buscarPlataformaporID } from "../repository/plataformaRepository.js";
+import { ValidarJogo } from "../services/validarProduto.js";
 
 
 const server = Router()
@@ -11,6 +12,8 @@ server.post('/jogo', async (req,resp) => {
     try{
 
         const infoJogo = req.body
+        await ValidarJogo(infoJogo)
+        
         const jogoID = await cadastroJogo(infoJogo)
 
 
