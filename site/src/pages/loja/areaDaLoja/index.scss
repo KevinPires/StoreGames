@@ -1,4 +1,17 @@
 .lojaPage{
+    body {
+        background-color: rgb(108, 108, 110, 0.3);;
+    }
 
     height: 100vh;
+
+    .faixaum {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-image: url("../../../../public/fundoLoja.png");
+        background-repeat: no-repeat;
+        background-size: 100%;
+        height: 29rem;
+    }
 }
