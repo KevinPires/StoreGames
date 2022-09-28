@@ -1,0 +1,23 @@
+.comp-vantagens{
+    width: 100%;
+    background-color: #323A45;
+    height: 15vh;
+
+    display: inline-block;
+    .conteudo{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        .box{
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 179px;
+            color: white;
+        }
+    }
+}

@@ -48,7 +48,7 @@ export default function CadastroUsuario() {
                 <div className='boxtext'><input placeholder='Data de nascimento' type='text' className='textbox' value={nascimento} onChange={e => setNascimento(e.target.value)}></input ></div>
                 <div className='boxtext'><input placeholder='CPF' type='text' className='textbox' value={cpf} onChange={e => setCpf(e.target.value)}></input ></div>
                 <button className='botao2' onClick={botaoCadastro}>Cadastrar</button>
-                <div>
+                <div className='msg-erro'>
                     {erro}
                 </div>
              </section>
