@@ -123,3 +123,38 @@ export async function removerJogo(id){
     return resposta.affectedRows;
 }
 
+
+export async function alterarJogo(id, jogo){
+    const comando = 
+    `update TB_JOGO
+         set NM_JOGO = ?,
+         VL_JOGO = ?,
+         DS_JOGO = ?,
+         QTD_ESTOQUE = ?,
+         DS_REQUISITOS = ?,
+         BL_DISPONIVEL = ?,
+         BL_MAISVENDIDO = ?
+    where ID_JOGO = ?; `
+
+    const [resposta] = await con.query(comando, [jogo.nome, jogo.valor, jogo.descricao, jogo.estoque, jogo.requisitos, jogo.disponivel, jogo.maisvendido, id]);
+    return resposta.affectedRows;
+}
+
+
+export async function  buscarPorId(id){
+    const comando =
+   `  select ID_JOGO,
+   NM_JOGO,
+   VL_JOGO,
+   DS_JOGO,
+   QTD_ESTOQUE,
+   IMG_CAPA,
+   DS_REQUISITOS,
+   BL_DISPONIVEL,
+   BL_MAISVENDIDO
+   from TB_JOGO
+   where ID_JOGO = ?`;
+
+   const [linhas] = await con.query(comando, [id]);
+   return linhas[0];
+}
