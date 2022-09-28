@@ -4,6 +4,8 @@ import BarraLateral from '../../../components/BarraLateral';
 import HeaderAdmin from '../../../components/adminHeader';
 import { listarTodosJogos, listarTodosJogosPorNome , deletarJogo} from '../../../api/jogos';
 import { useEffect, useState } from 'react';
+import { confirmAlert} from 'react-confirm-alert'
+import {toast} from 'react-toastify';
 
 export default function ConsultarJogos(){
 
@@ -24,12 +26,28 @@ export default function ConsultarJogos(){
     }, [])
 
     async function removerJogoClick(id, nome){
-      const reposta = await deletarJogo(id, nome)
-      if (filtro === '')
-      carregarTodosJogos();
       
-      
-      alert ('filme removido')
+       confirmAlert({
+        title: 'Remover jogo',
+        message: `Deseja remover o jogo ${nome} ? `,
+        buttons: [
+            {
+               label: 'Sim', onClick: async () => {
+                const reposta = await deletarJogo(id, nome)
+                if (filtro === '')
+                carregarTodosJogos();
+                
+                
+                toast.dark ('filme removido')
+               }
+            },
+            {
+               label: 'Não'
+            }
+        ]
+       })
+
+     
     }
 
   return(
@@ -60,7 +78,7 @@ export default function ConsultarJogos(){
                 <tbody>
 
                 {filteredGames.map(item => 
-                    <tr>
+                    <tr key={item.id}>
                         <td>{item.id}</td>
                         <td>{item.nome}</td>
                         <td>{item.valor}</td>
