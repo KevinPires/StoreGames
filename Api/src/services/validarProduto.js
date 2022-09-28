@@ -1,8 +1,8 @@
-import { response } from "express"
 
 export async function ValidarJogo (infoJogo) {
     const erros = []
     const haveError = false
+
     if(!infoJogo.nome) {
         erros.push("Nome Obrigatorio")
         haveError = true
