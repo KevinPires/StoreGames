@@ -1,4 +1,4 @@
-import { cadastroJogo, inserirGeneroJogo, inserirPlataformaJogo, alterarImagem, listarTodosJogos, buscarPorNome, removerGeneroJogo, removerPlataformaJogo, removerJogo } from "../repository/jogoRepository.js";
+import { cadastroJogo, inserirGeneroJogo, inserirPlataformaJogo, alterarImagem, listarTodosJogos, buscarPorNome, removerGeneroJogo, removerPlataformaJogo, removerJogo, alterarJogo, buscarPorId } from "../repository/jogoRepository.js";
 import { response, Router } from "express";
 import multer from "multer";
 import { buscarGeneroPorId } from "../repository/generoRepository.js";
@@ -122,6 +122,42 @@ server.delete('/jogo/:id', async (req, resp )=> {
             
         })
            
+    }
+})
+
+
+server.put('/jogo/:id' , async (req, resp) => {
+    try {
+        const {id} = req.params;
+        const jogo = req.body;
+
+        const resposta = await alterarJogo(id, jogo);
+        if (resposta != 1)
+        throw new Error ('jogo não pode ser alterado');
+        else
+        resp.status(204).send();
+
+    }  catch (err) {
+        resp.status(400).send({
+            erro: err.message
+        })
+    }
+})
+
+server.get('/jogo/:id', async (req, resp) => {
+    try {
+        const id = Number(req.params.id);
+        
+        const resposta = await buscarPorId(id);
+
+        if (!resposta)
+            resp.status(404).send([])
+        else
+            resp.send(resposta);
+    } catch (err) {
+        resp.status(400).send({
+            erro: err.message
+        })
     }
 })
 
