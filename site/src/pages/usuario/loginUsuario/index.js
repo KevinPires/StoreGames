@@ -1,17 +1,52 @@
 import './index.scss'
-import '../../../common/common.scss'
-import { Link } from 'react-router-dom'
+import '../../../common/common.scss';
+
+import LoadingBar from 'react-top-loading-bar';
+import { useState , useRef } from 'react';
+import { Link } from 'react-router-dom';
+import {loginUsuario} from '../../../api/usuario';
+import { useNavigate } from 'react-router-dom';
+
 
 
 export default function LoginUsuario (){
+    const [email, setEmail] =useState('');
+    const [senha, setSenha] = useState('');
+    const [erro, setErro] = useState ('');
+    const [carregando, setCarrengando] = useState(false);
+
+    const navigate = useNavigate();
+    const ref = useRef();
+    
+    async function botaoLogin(){
+        ref.current.continuousStart()
+        setCarrengando(true)
+        try {
+            const r = await loginUsuario(email, senha);
+
+            if( r.status === 401){
+                setErro(r.data.erro)
+            }else{
+                setTimeout(()=>{
+                    navigate('/landing')
+                }, 3000)
+            }
+
+        } catch (err) {
+            ref.current.complete()
+            setCarrengando(false)
+            setErro(err.response.data.erro)
+        }
+    }
     return(
         <main className="cont">
+            <LoadingBar color="red" ref={ref}/>
             <div className="cont-card">
                 <h1>Iniciar Sessão </h1>
                 
                 <div className='cont-input'>
-                    <input type='txt' placeholder='Email'/>
-                    <input type='password' placeholder='Senha'/>
+                    <input type='txt' placeholder='Email' value={email} onChange={e => setEmail(e.target.value)}/>
+                    <input type='password' placeholder='Senha' value={senha} onChange={e => setSenha(e.target.value)}/>
                 </div>
             
                 <div className="cont-button">
@@ -20,7 +55,10 @@ export default function LoginUsuario (){
                         <label style={{color:'#6A6A6A'}} > Lembrar me </label>
                     </div>
             
-                    <button> Login </button>
+                    <button onClick={botaoLogin} disabled={carregando}> Login </button>
+                </div>
+                <div className='msg-Erro'>
+                    {erro}
                 </div>
 
                 <div className='cont-link'>

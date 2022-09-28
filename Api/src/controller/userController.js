@@ -74,7 +74,7 @@ server.post('/cadastro/usuario' , async (req, resp) =>{
 
 server.post('/login/usuario' , async (req, resp) =>{
     try {
-        const [ email, senha ] = req.body;
+        const { email, senha } = req.body;
 
         const resposta =  await loginUsuario( email, senha)
 

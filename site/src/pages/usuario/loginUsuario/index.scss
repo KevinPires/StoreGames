@@ -1,6 +1,7 @@
 .cont{
     background-image: url('../../../../public/LoginUsuario.png');
-    background-size: 100%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
     
     margin: 0;
     height: 100vh;
@@ -53,6 +54,11 @@
             }
         }
 
+        .msg-Erro{
+            color: #f64c4c;
+            margin: 0;
+        }
+
         .cont-link{
             color: #6A6A6A;
 
@@ -68,5 +74,5 @@
     }
 
     
-
+    
 }
