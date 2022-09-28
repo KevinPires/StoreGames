@@ -8,7 +8,8 @@
 
     .conteiner-page-1{
         background-image: url('../../../../public/fundoUsuarioCadastrar.png');
-        background-size: 100%;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
         width: 50%;
         display: flex;
         flex-direction: column;
@@ -19,7 +20,8 @@
 
     .titulo{
         color: white;
-        margin-top: 15%;
+        
+        font-size: 20px;
     }
 
     .subtitulo{
@@ -27,6 +29,7 @@
         text-align: center;
         padding: 1em;
         color: white;
+        font-size:18px;
     }
 
     .botao{
@@ -37,6 +40,7 @@
         border-radius: 15px;
         cursor: pointer;
         width: 115%;
+        margin-bottom: 2em;
     }
 
     .conteiner-page-2{

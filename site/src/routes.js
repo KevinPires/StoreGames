@@ -3,15 +3,15 @@ import {BrowserRouter, Route, Routes} from 'react-router-dom'
  
 import Login from './pages/admin/loginAdmin/'
 
-
 import AdminCadastro from './pages/admin/cadastrarJogos'
 import Home from './pages/admin/Home'
-
 import ConsultarJogos from './pages/admin/consultarJogos'
 import LoginUsuario from './pages/usuario/loginUsuario'
 import Pendentes from './pages/admin/pendentes'
 import PedidosConcluidos from './pages/admin/pedidosConcluidos'
 import CadastroUsuario from './pages/usuario/cadastroUsuario'
+
+import LandingPage from './pages/usuario/landingPage'
 
 
 export default function AppRoutes() {
@@ -25,8 +25,8 @@ export default function AppRoutes() {
                 <Route path='admin/pendentes' element={<Pendentes/>} />
                 <Route path='/admin/concluidos' element={<PedidosConcluidos/>} />
                 <Route path='/usuario/login' element={<LoginUsuario/>} />
-                <Route path='/usuario/cadastro' element={<CadastroUsuario/>} />
-              
+                <Route path='/usuario/cadastro' element={<CadastroUsuario/>} /> 
+                <Route path='/landing' element={<LandingPage/>}/> 
         </Routes>
     </BrowserRouter>        
     )
