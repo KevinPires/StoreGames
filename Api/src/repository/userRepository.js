@@ -49,9 +49,33 @@ export async function verificarEmail(email){
     return resposta.length
 }   
 
+export async function verificarCpf(cpf){
+    const comando = `
+        select id_usuario
+            from TB_USUARIO
+            where ds_cpf = ?;
+    `
+
+    const [ resposta ] = await con.query(
+        comando,[
+            cpf
+        ]
+    )
+
+    return resposta.length
+}
+
 
 export async function loginUsuario(email, senha){
     const comando = `
-
+        select  id_usuario_login     id,
+                ds_email          email,
+                ds_senha          senha
+          from  TB_USUARIO_LOGIN
+         where  ds_email           = ?
+           and  ds_senha           = ?
     `
-}
+
+    const [ linhas ] = await con.query(comando, [email, senha])
+    return linhas[0];
+ }
