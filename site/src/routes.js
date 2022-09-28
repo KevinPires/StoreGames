@@ -12,12 +12,13 @@ import LoginUsuario from './pages/usuario/loginUsuario'
 import Pendentes from './pages/admin/pendentes'
 import PedidosConcluidos from './pages/admin/pedidosConcluidos'
 import CadastroUsuario from './pages/usuario/cadastroUsuario'
-
+import LojaArea from './pages/loja/areaDaLoja'
 
 export default function AppRoutes() {
     return(
     <BrowserRouter>
         <Routes>
+                <Route path='/loja' element={<LojaArea/>} />
                 <Route path='/' element={<Login />} />
                 <Route path='/admin/cadastro' element={<AdminCadastro />} />
                 <Route path='/admin/home' element={<Home/>} />
