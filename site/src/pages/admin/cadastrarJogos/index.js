@@ -109,7 +109,7 @@ export default function CadastratJogos() {
                         <section className="containerCadastrar">
                             <section className="header">
                                 <p>Cadastrar Jogos</p>
-                            </section>
+                            </section>  
 
                             <section className="container1">
 
@@ -217,12 +217,12 @@ export default function CadastratJogos() {
                                 
                                 <div className="labelInput m-left">
                                     <label htmlFor="">Valor:</label>
-                                    <InputCadastro type='text' value={valor} onChange={e => setValor(e.target.value)} />
+                                    <InputCadastro type='number' value={valor} onChange={e => setValor(e.target.value)} />
                                 </div>
 
-                                <div className="labelInput">
+                                <div className="labelInput">    
                                     <label htmlFor="">Quantidade:</label>
-                                    <InputCadastro type='text' value={estoque} onChange={e => setEstoque(e.target.value)} />
+                                    <InputCadastro type='number' value={estoque} onChange={e => setEstoque(e.target.value)} />
                                 </div>
 
                             </section>
