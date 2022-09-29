@@ -26,7 +26,8 @@ export default function AppRoutes() {
                 <Route path='/admin/concluidos' element={<PedidosConcluidos/>} />
                 <Route path='/usuario/login' element={<LoginUsuario/>} />
                 <Route path='/usuario/cadastro' element={<CadastroUsuario/>} /> 
-                <Route path='/landing' element={<LandingPage/>}/> 
+                <Route path='/landing' element={<LandingPage/>}/>
+                <Route path='/jogos' element={<LojaArea/>}/> 
         </Routes>
     </BrowserRouter>        
     )

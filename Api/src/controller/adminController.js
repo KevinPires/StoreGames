@@ -5,7 +5,7 @@ import multer from 'multer';
 const server = Router ();
 const upload = multer({ dest: 'storage/perfil' })
 
-server.post('/admin/login', async (req, resp) =>{
+server.post('/login', async (req, resp) =>{
     try {
         const { logar, senha } = req.body;
 

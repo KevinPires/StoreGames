@@ -5,7 +5,7 @@ import { Router } from 'express';
 const server = Router();
 
 
-server.get('/jogo/plataforma', async (req, resp) => {
+server.get('/consultar', async (req, resp) => {
     try {
         const linhas = await listarPlataforma();
         resp.send(linhas);

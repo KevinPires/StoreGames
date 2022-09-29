@@ -28,7 +28,7 @@ export default function LoginUsuario (){
                 setErro(r.data.erro)
             }else{
                 setTimeout(()=>{
-                    navigate('/landing')
+                    navigate('/jogos')
                 }, 3000)
             }
 

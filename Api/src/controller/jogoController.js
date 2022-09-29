@@ -8,7 +8,7 @@ import { ValidarJogo } from "../services/validarProduto.js";
 
 const server = Router()
 const upload = multer({dest: 'storage/capasJogos' })
-server.post('/jogo', async (req,resp) => {
+server.post('/', async (req,resp) => {
     try{
 
         const infoJogo = req.body
@@ -46,7 +46,7 @@ server.post('/jogo', async (req,resp) => {
 
 })
 
-server.put('/jogo/:id/capa', upload.single('capa'), async (req, resp) => {
+server.put('/:id/capa', upload.single('capa'), async (req, resp) => {
     try {
         if (!req.file)
             throw new Error('Escolha a capa do filme.'); 
@@ -68,7 +68,7 @@ server.put('/jogo/:id/capa', upload.single('capa'), async (req, resp) => {
     }
 })
 
-server.get('/jogo/consultar', async (req, resp) => {
+server.get('/consultar', async (req, resp) => {
     try {
         const resposta = await listarTodosJogos();
         resp.send(resposta);
@@ -79,7 +79,7 @@ server.get('/jogo/consultar', async (req, resp) => {
     }
 })
 
-server.get('/jogo/busca', async (req, resp) => {
+server.get('/busca', async (req, resp) => {
     try {
         const { nome } = req.query;
         
@@ -97,7 +97,7 @@ server.get('/jogo/busca', async (req, resp) => {
 })
 
 
-server.delete('/jogo/:id', async (req, resp )=> {
+server.delete('/:id', async (req, resp )=> {
     try {
         const { id } = req.params;
         const remocao1 = await removerGeneroJogo(id);
@@ -126,7 +126,7 @@ server.delete('/jogo/:id', async (req, resp )=> {
 })
 
 
-server.put('/jogo/:id' , async (req, resp) => {
+server.put('/:id' , async (req, resp) => {
     try {
         const {id} = req.params;
         const jogo = req.body;
@@ -144,7 +144,7 @@ server.put('/jogo/:id' , async (req, resp) => {
     }
 })
 
-server.get('/jogo/:id', async (req, resp) => {
+server.get('/:id', async (req, resp) => {
     try {
         const id = Number(req.params.id);
         

@@ -21,7 +21,7 @@ export default function HeaderLoja () {
                     <li className='listaOpcoes'>
                         <p>Loja</p>
                         <p>Categorias</p>
-                        <p>Suporte</p>´
+                        <p>Suporte</p>
                         <p>Área do Usuario</p>
                     </li>
                 </section>
