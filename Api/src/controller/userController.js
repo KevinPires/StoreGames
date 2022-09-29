@@ -5,7 +5,7 @@ import multer from 'multer';
 const server = Router ();
 
 
-server.post('/cadastro/usuario' , async (req, resp) =>{
+server.post('/cadastro' , async (req, resp) =>{
     try {
         const usuario = req.body;
         
@@ -72,7 +72,7 @@ server.post('/cadastro/usuario' , async (req, resp) =>{
 })
 
 
-server.post('/login/usuario' , async (req, resp) =>{
+server.post('/login' , async (req, resp) =>{
     try {
         const { email, senha } = req.body;
 

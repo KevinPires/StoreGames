@@ -16,11 +16,11 @@ server.use(express.json());
 
 
 //config endpoints
-server.use(adminController);
-server.use(jogoController)
-server.use(generoController)
-server.use(plataformaController)
-server.use(userController)
+server.use('/admin', adminController);
+server.use('/jogo', jogoController)
+server.use('/genero', generoController)
+server.use('/plataforma', plataformaController)
+server.use('/user', userController)
 
 server.listen(process.env.PORT, () => console.log(`conectada na porta ${process.env.PORT}`)); 
 

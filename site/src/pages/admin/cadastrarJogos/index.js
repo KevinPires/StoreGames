@@ -121,10 +121,10 @@ export default function CadastratJogos() {
                                 <div className="labelInput">
                                     <label htmlFor="">Genero:</label>
                                     <select value={idGenero} name="generos" id="generos" onChange={e => setIdGenero(e.target.value)}>
-                                        <option selected disable hidden> Selecione </option>
+                                        <option disabled hidden> Selecione </option>
 
                                         {generos.map(genero =>
-                                            <option value={genero.id}>{genero.genero}</option>
+                                            <option key={genero.id} value={genero.id}>{genero.genero}</option>
                                         )}
 
                                     </select>
@@ -133,7 +133,10 @@ export default function CadastratJogos() {
                                         <label></label>
                                         <div className='plat-conteiner'>
                                             {genSelecionadas.map(id =>
-                                                <div className='plat-selecionada'>
+                                                <div 
+                                                    key={id}
+                                                    className='plat-selecionada'
+                                                >
                                                     {BuscarNomeGenero(id)}
                                                 </div>
                                             )}
@@ -145,9 +148,12 @@ export default function CadastratJogos() {
                                 <div className="labelInput">
                                     <label htmlFor="">Plataforma:</label>
                                     <select value={idPlataforma} name="generos" id="generos" onChange={e => setIdPlataforma(e.target.value)}>
-                                        <option selected disabled hidden> Selecione </option>
-                                        {plataformas.map(item =>
-                                            <option value={item.id}>{item.plataforma}</option>
+                                        <option disabled={true} hidden> Selecione </option>
+                                        {plataformas.map(item =>    
+                                            <option 
+                                                key={item.id}
+                                                value={item.id}
+                                            > {item.plataforma}</option>
                                         )}
 
                                     </select>
@@ -157,7 +163,10 @@ export default function CadastratJogos() {
                                         <label></label>
                                         <div className='cat-conteiner'>
                                             {platSelecionadas.map(id =>
-                                                <div className='plat-selecionada'>
+                                                <div 
+                                                    key={id}
+                                                    className='plat-selecionada'
+                                                >
                                                     {buscarNomePlataforma(id)}
                                                 </div>
                                             )}

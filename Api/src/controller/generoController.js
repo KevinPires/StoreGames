@@ -5,13 +5,13 @@ import { Router } from 'express';
 const server = Router();
 
 
-server.get('/jogo/genero', async (req, resp) => {
+server.get('/consultar', async (req, resp) => {
     try {
         const linhas = await listarGenero();
-        resp.send(linhas);
+        return resp.send(linhas);
     }
     catch (err) {
-        resp.status(400).send({
+        return resp.status(400).send({
             erro: err.message
         })
     }

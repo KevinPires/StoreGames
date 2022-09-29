@@ -6,6 +6,6 @@ const api = axios.create({
 })
 
 export async function  listarPlataforma(){
-    const r = await api.get('/jogo/plataforma');
+    const r = await api.get('/plataforma/consultar');
     return r.data;
 }
