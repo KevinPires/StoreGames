@@ -1,5 +1,6 @@
 .lojaPage{   
-    height: 100vh;
+   // a maneira que ta a formatação é: o container de jogos não tem height
+   // os jogos que vão sendo inseridos que dão o tamanho a pagina
     .faixaum {
         display: flex;
         align-items: center;
@@ -14,5 +15,35 @@
             font-size: 34px;
             color: white;
         }
+    }
+    .flexboxrow {
+        display: flex;
+        flex-direction: row;
+    }
+
+
+
+    .container-jogos {
+        flex-wrap: wrap;
+        display: flex;
+        flex-direction: row;
+        width: 75%;
+        padding: 1em;
+        
+        background-color: #FFFFFF;
+    }
+
+    .container-filtros {
+        display: flex;
+        flex-direction: column;
+
+        width: 25%;
+        background-color: #323A45;;
+
+    }
+
+    .container {
+       // height fixo 
+       max-width: 200vh;
     }
 }

@@ -1,0 +1,27 @@
+.BoxCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 14rem;
+    height: 20rem;
+    padding: 1rem;
+    border-radius: 15px;
+    background-color: #EDEDED;
+    margin: 2rem 1em 2rem 1em;
+    cursor: pointer;
+
+    img {
+        width: 10rem;
+    }
+
+    h4 {
+        margin-left: 1.4rem;
+        font-size: 1rem;
+    }
+
+    #card-preco {
+        color: gray;
+    }
+}
+
