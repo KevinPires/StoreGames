@@ -143,18 +143,22 @@ export async function alterarJogo(id, jogo){
 
 export async function  buscarPorId(id){
     const comando =
-   `  select ID_JOGO,
-   NM_JOGO,
-   VL_JOGO,
-   DS_JOGO,
-   QTD_ESTOQUE,
-   IMG_CAPA,
-   DS_REQUISITOS,
-   BL_DISPONIVEL,
-   BL_MAISVENDIDO
+   `  select ID_JOGO            id,
+   NM_JOGO                      nome,                                                       
+   VL_JOGO                      valor,
+   DS_JOGO                      descricao,
+   QTD_ESTOQUE                  estoque,
+   DS_REQUISITOS                requisitos,
+   BL_DISPONIVEL                disponivel,
+   BL_MAISVENDIDO               maisvendido
    from TB_JOGO
    where ID_JOGO = ?`;
 
    const [linhas] = await con.query(comando, [id]);
    return linhas[0];
 }
+
+
+
+
+ 
