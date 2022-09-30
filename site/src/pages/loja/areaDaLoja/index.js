@@ -1,4 +1,5 @@
 import BarraVantagens  from '../../../components/TelaDeJogos/vantagens'
+import BarraFilto from '../../../components/TelaDeJogos/barraFiltros'
 import HeaderLoja from '../../../components/headerLoja'
 import './index.scss'
 import '../../../common/common.scss'
@@ -16,10 +17,8 @@ export default function lojaArea () {
 
            <BarraVantagens/>
             <section className='container flexboxrow'>
-                <div className="container-filtros">
-
-                </div>
-
+                <BarraFilto/>
+                
                 <div className='container-jogos'>
                 <CardJogo/>
                 <CardJogo/>

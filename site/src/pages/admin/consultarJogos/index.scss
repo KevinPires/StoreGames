@@ -7,7 +7,6 @@
     .container {
         display: flex;
         flex-direction: column;
-
     }
 
     .cont-faixa-cadastro{
@@ -24,7 +23,7 @@
         flex-direction: column;
         padding: 20px 60px;
         background-color: #F5F6FA;
-
+        height: 89vh;
     }
 
 
@@ -52,20 +51,23 @@
         right: -15px;
     }
 
-    
+
 
 
     table {
         width: 100%;
         border-collapse: collapse;
         margin-top: 50px;
+        overflow: auto;
+        display: inline-block;
     }
     th {
-        text-align: left;
+        text-align: center;
         color: #fff;
         padding: 25px 40px;
         font-size: 14px;
         text-shadow: 0px 1px 4px rgba(217, 217, 217, 0.5);
+        
     }
     thead {
         background-color: #323A45;
@@ -73,7 +75,7 @@
     td {
         padding: 25px 40px;
         font-weight: 500;
-      
+        text-align: center;
     }
     tbody tr:nth-child(even) {
         background-color: #EDEDED;
@@ -86,7 +88,7 @@
         cursor: pointer;
     }
     tr td:nth-child(2) {
-        white-space: nowrap; 
+        white-space: nowrap;
         width: 100px;
     }
     tr td:nth-child(1) {
@@ -101,7 +103,7 @@
     }
 
 
-    
+
 
 }
 
@@ -112,7 +114,7 @@
 
 
 
-    
-  
+
+
 
 

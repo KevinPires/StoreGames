@@ -55,17 +55,17 @@ server.post('/cadastro' , async (req, resp) =>{
             temError = true
         }
         if(temError){
-            return resp.status(400).json({ Erro : erros})
+            return resp.status(401).send({ erro : erros})
         }
         const resposta =  await cadastrarUsuario(usuario);
 
-        resp.status(200).json({
+        resp.status(200).send({
             idInserido : resposta ,
             msg : 'Usuario Cadastrado'
         })
     } catch (err) {
-        console.log(err);
-        resp.status(400).json({
+        
+        resp.status(401).send({
             erro: err.message
         })
     }

@@ -56,7 +56,7 @@ export default function ConsultarJogos(){
 
 
     <div className="cont-faixa-cadastro">
-
+        <HeaderAdmin/>
         <div className='conteudo'>
             <div className='caixa-busca'>
                 <input type="text" placeholder='Buscar jogos por nome' value={filtro} onChange={e => setFiltro(e.target.value)} />

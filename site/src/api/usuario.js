@@ -7,7 +7,7 @@ const api =axios.create({
 });
 
 export async function loginUsuario(email, senha){
-    const r = await api.post('/login/usuario',{
+    const r = await api.post('/user/login',{
         email : email,
         senha : senha
     });
@@ -15,7 +15,7 @@ export async function loginUsuario(email, senha){
 }
 
 export async function cadastrarUsuario(nome, email, senha, cep, nascimento, cpf){
-    const r = await api.post('/cadastro/usuario',{
+    const r = await api.post('/user/cadastro',{
         nome : nome,
         email : email,
         senha : senha,

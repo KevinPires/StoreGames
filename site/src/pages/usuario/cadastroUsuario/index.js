@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState , useEffect} from 'react'
 import { Link } from 'react-router-dom'
 import './index.scss'
 import {cadastrarUsuario} from'../../../api/usuario'
@@ -11,8 +11,9 @@ export default function CadastroUsuario() {
     const [cpf ,setCpf] = useState('');
     const [email, setEmail]= useState('');
     const [senha, setSenha] = useState('');
+    
 
-    const [erro,setErro] = useState('');
+    const [erro,setErro] = useState([]);
     const navigate = useNavigate();
 
     async function botaoCadastro(){
@@ -28,6 +29,7 @@ export default function CadastroUsuario() {
             setErro(err.response.data.erro)
         }
     }
+
 
     return(
         <main className='page-usuario-cadastro'>
@@ -45,13 +47,21 @@ export default function CadastroUsuario() {
                 <div className='boxtext'><input placeholder='Email' type='text' className='textbox' value={email} onChange={e => setEmail(e.target.value)}></input ></div>
                 <div className='boxtext'><input placeholder='Senha' type='password' className='textbox' value={senha} onChange={e => setSenha(e.target.value)}></input ></div>
                 <div className='boxtext'><input placeholder='Cep' type='text' className='textbox' value={cep} onChange={e => setCep(e.target.value)}></input ></div>
-                <div className='boxtext'><input placeholder='Data de nascimento' type='text' className='textbox' value={nascimento} onChange={e => setNascimento(e.target.value)}></input ></div>
+                <div className='boxtext'><input placeholder='Data de nascimento' type='date' className='textbox' value={nascimento} onChange={e => setNascimento(e.target.value)} ></input ></div>
                 <div className='boxtext'><input placeholder='CPF' type='text' className='textbox' value={cpf} onChange={e => setCpf(e.target.value)}></input ></div>
                 <button className='botao2' onClick={botaoCadastro}>Cadastrar</button>
                 <div className='msg-erro'>
-                    {erro}
+                    { <ul>
+                        {erro.map(e => 
+                            <li> {e.Erro} </li>
+                        )}
+                    </ul> }
+                    
                 </div>
              </section>
         </main>
     )
 }
+
+
+
