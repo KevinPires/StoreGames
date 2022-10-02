@@ -62,10 +62,16 @@ export default function CadastratJogos() {
     }
 
     function adicionarPlataforma() {
+       if (!idPlataforma){
+        return
+       }
+        
+        
         if (!platSelecionadas.find(item => item == idPlataforma)) {
             const plataformas = [...platSelecionadas, idPlataforma];
             setPlatSelecionadas(plataformas);
         }
+        
     }
 
     function BuscarNomeGenero(id) {
@@ -74,6 +80,11 @@ export default function CadastratJogos() {
     }
 
     function adicionarGenero() {
+        if (!idGenero){
+            return
+           }
+        
+        
         if (!genSelecionadas.find(item => item == idGenero)) {
             const generos = [...genSelecionadas, idGenero];
             setGenSelecionadas(generos);
@@ -121,7 +132,7 @@ export default function CadastratJogos() {
                                 <div className="labelInput">
                                     <label htmlFor="">Genero:</label>
                                     <select value={idGenero} name="generos" id="generos" onChange={e => setIdGenero(e.target.value)}>
-                                        <option disabled hidden> Selecione </option>
+                                        <option disabled hidden selected="selected" > Selecione </option>
 
                                         {generos.map(genero =>
                                             <option key={genero.id} value={genero.id}>{genero.genero}</option>
@@ -148,9 +159,10 @@ export default function CadastratJogos() {
                                 <div className="labelInput">
                                     <label htmlFor="">Plataforma:</label>
                                     <select value={idPlataforma} name="generos" id="generos" onChange={e => setIdPlataforma(e.target.value)}>
-                                        <option disabled={true} hidden> Selecione </option>
+                                        <option disabled hidden selected="selected" > Selecione </option>
                                         {plataformas.map(item =>    
                                             <option 
+                                          
                                                 key={item.id}
                                                 value={item.id}
                                             > {item.plataforma}</option>
