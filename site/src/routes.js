@@ -12,6 +12,7 @@ import PedidosConcluidos from './pages/admin/pedidosConcluidos'
 import CadastroUsuario from './pages/usuario/cadastroUsuario'
 import LandingPage from './pages/usuario/landingPage'
 import LojaArea from './pages/loja/areaDaLoja'
+import Rodape from './components/Rodapé'
 
 export default function AppRoutes() {
     return(
@@ -28,6 +29,7 @@ export default function AppRoutes() {
                 <Route path='/usuario/cadastro' element={<CadastroUsuario/>} /> 
                 <Route path='/landing' element={<LandingPage/>}/>
                 <Route path='/jogos' element={<LojaArea/>}/> 
+                <Route path='/rodape' element={<Rodape/>}/> 
         </Routes>
     </BrowserRouter>        
     )
