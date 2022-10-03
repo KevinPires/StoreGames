@@ -8,8 +8,9 @@
 
     .conteiner-0{
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         justify-content: center;
+        align-items: center;
         
     }
   
@@ -17,7 +18,8 @@
         display: flex;
         flex-direction: row;
         align-items: center;
-        justify-content: center;
+        justify-content: space-around;
+        margin-top: 2%;
     }
 
     .caixa-1{
@@ -26,7 +28,10 @@
         border-radius: 15px;
         width: 25%;
         padding: 0.2em;
+        text-align: center;
     }
+
+    
 
     .caixa-2{
         border: solid white;
@@ -39,14 +44,13 @@
         margin-right: 4em;
     }
 
-     .conteiner-2{
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-evenly;
+    .caixa-2:hover{
+        border: solid  3px #E74C3C;
+        cursor: pointer;
+        color: #E74C3C;
+    }
 
-     }
-
+    
     .coluna-1{
         color: white;
         
@@ -57,15 +61,84 @@
         height: 60px;
     }
 
+    .tamanho:hover{
+        background-color: aqua;
+        cursor: pointer;
+    }
+
     .barra-final{
         text-align: center;
         background-color: #596677;
         color: white;
         padding: 0.8em;
-        margin-top: 5%;
+        margin-top: 3%;
     }
+
+    h1{
+        margin-bottom: 10px;
+    }
+
+    p{
+        margin-top: 7px;
+    }
+    p:hover{
+        cursor: pointer;
+        text-decoration:underline;
+        color: purple;
+    }
+
+    .redes-sociais{
+        display: flex;
+        flex-direction: row;
+        
+    }
+
+    .face{
+        width: 55px;
+        height: 55px;
+    }
+
+    .redes-sociais > div {
+        cursor: pointer;
+        transition: .3;
+        margin: 4px;
+    }
+
+    .twiter:hover{
+        background-color: rgb(0, 217, 255);
+        border-radius: 100px;
+       
+    }
+    .face:hover{
+        background-color: rgb(0, 17, 255);
+        border-radius: 100px;
+       
+    }
+    .zap:hover{
+        background-color: rgb(72, 255, 0);
+        border-radius: 100px;
+       
+    }
+
+    .zap{
+        width: 55px;
+        height: 55px;
+    }
+
+    .twiterbox{
+        border-radius: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: auto;
+    }
+
+    .twiter{
+        width: 55px;
+        height: 55px;
+        
+    }
+
+    
 }
 
-*{
-    border: solid 1px black;
-}

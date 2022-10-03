@@ -4,6 +4,7 @@ import HeaderLoja from '../../../components/headerLoja'
 import './index.scss'
 import '../../../common/common.scss'
 import CardJogo from '../../../components/cardJogo'
+import Rodape from '../../../components/Rodapé'
 
 export default function lojaArea () {
 
@@ -34,6 +35,7 @@ export default function lojaArea () {
                 <CardJogo/>
                 </div>
             </section>
+            <Rodape/>
 
         </main>
     )
