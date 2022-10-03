@@ -7,7 +7,7 @@ const api = axios.create({
 
 
 export async function inserirJogo(nome, valor, descricao, estoque, requisitos, disponivel, maisvendido, generos, plataformas) {
-    const r = await api.post('/jogo', {nome, valor, descricao, estoque,  requisitos, disponivel, maisvendido, generos, plataformas})
+    const r = await api.post('/jogo', {nome, valor, descricao, estoque, requisitos, disponivel, maisvendido, generos, plataformas})
     return r.data
 }
 

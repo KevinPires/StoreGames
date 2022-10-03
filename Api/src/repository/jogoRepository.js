@@ -65,7 +65,7 @@ export async function listarTodosJogos() {
     vl_jogo	          valor,
     ds_jogo	          descricao,
     qtd_estoque	      estoque,
-    ds_requisitos     requisitos ,
+    ds_requisitos     requisitos,
     bl_disponivel     disponivel,
     bl_maisvendido    maisvendido
 FROM TB_JOGO`;
