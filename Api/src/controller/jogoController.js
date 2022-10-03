@@ -24,6 +24,7 @@ server.post('/', async (req,resp) => {
             const cat = await buscarGeneroPorId(idGenero);
 
             if (cat != undefined)
+
             await inserirGeneroJogo(jogoID, idGenero)
         }
 
@@ -100,15 +101,11 @@ server.get('/busca', async (req, resp) => {
 server.delete('/:id', async (req, resp )=> {
     try {
         const { id } = req.params;
-        const remocao1 = await removerGeneroJogo(id);
-        if (remocao1 === 0)
-            throw new Error ('Genero do jogo não pode ser removido.')
-        const remocao2 = await removerPlataformaJogo(id);
-        if (remocao2 === 0)
-            throw new Error ('Plataforma do jogo não pode ser removida.')
-        const remocao3 = await removerJogo(id);
-        if (remocao3 === 0)
-        throw new Error ('jogo não pode ser removido.')
+         await removerGeneroJogo(id);
+      
+         await removerPlataformaJogo(id);
+
+         await removerJogo(id);
 
         return resp.status(200).send({
             msg: "Jogo deletado"
