@@ -1,6 +1,6 @@
 import { con } from './connection.js'
 
-
+//cadastrar jogo
 export async function cadastroJogo (jogo) {
     const comando = 
     `
@@ -26,6 +26,7 @@ export async function cadastroJogo (jogo) {
     return resposta.insertId  
 }
 
+//inserir plataforma
 export async function inserirPlataformaJogo(ID_JOGO, ID_PLATAFORMA) {
     const comando = 
     `
@@ -37,6 +38,7 @@ export async function inserirPlataformaJogo(ID_JOGO, ID_PLATAFORMA) {
     
 }
 
+//inserir gênero
 export async function inserirGeneroJogo(ID_JOGO, ID_GENERO) {
     const comando = 
     `
@@ -48,6 +50,8 @@ export async function inserirGeneroJogo(ID_JOGO, ID_GENERO) {
     
 }
 
+
+//alterar imagem
 export async function alterarImagem(imagem, id) {
     const comando = 
     `update TB_JOGO  
@@ -58,6 +62,7 @@ export async function alterarImagem(imagem, id) {
     return resposta.affectedRows
 }
 
+//listar todos
 export async function listarTodosJogos() {
     const comando =
     `SELECT id_jogo		id,
@@ -74,6 +79,7 @@ FROM TB_JOGO`;
     return linhas;
 }
 
+//buscar por nome
 export async function buscarPorNome(nome) {
     const comando =
    ` SELECT id_jogo		id,
@@ -92,7 +98,6 @@ export async function buscarPorNome(nome) {
 }
 
 // Funções de delete 
-
 
 export async function removerGeneroJogo(id){
     const comando = `
@@ -124,23 +129,6 @@ export async function removerJogo(id){
 }
 
 
-export async function alterarJogo(id, jogo){
-    const comando = 
-    `update TB_JOGO
-         set NM_JOGO = ?,
-         VL_JOGO = ?,
-         DS_JOGO = ?,
-         QTD_ESTOQUE = ?,
-         DS_REQUISITOS = ?,
-         BL_DISPONIVEL = ?,
-         BL_MAISVENDIDO = ?
-    where ID_JOGO = ?; `
-
-    const [resposta] = await con.query(comando, [jogo.nome, jogo.valor, jogo.descricao, jogo.estoque, jogo.requisitos, jogo.disponivel, jogo.maisvendido, id]);
-    return resposta.affectedRows;
-}
-
-
 export async function  buscarPorId(id){
     const comando =
    `  select ID_JOGO            id,
@@ -158,7 +146,22 @@ export async function  buscarPorId(id){
    return linhas[0];
 }
 
+// alterar jogo
+export async function alterarJogo(id, jogo){
+    const comando = 
+    `update TB_JOGO
+         set NM_JOGO = ?,
+         VL_JOGO = ?,
+         DS_JOGO = ?,
+         QTD_ESTOQUE = ?,
+         DS_REQUISITOS = ?,
+         BL_DISPONIVEL = ?,
+         BL_MAISVENDIDO = ?
+    where ID_JOGO = ?; `
 
+    const [resposta] = await con.query(comando, [jogo.nome, jogo.valor, jogo.descricao, jogo.estoque, jogo.requisitos, jogo.disponivel, jogo.maisvendido, id]);
+    return resposta.affectedRows;
+}
 
 
  
