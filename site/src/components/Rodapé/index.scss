@@ -1,0 +1,71 @@
+.page-rodape{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    //align-items: center;
+    background-color: #323A45;
+    padding-top: 2em;
+
+    .conteiner-0{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        
+    }
+  
+    .conteiner-1{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .caixa-1{
+        border: solid white;
+        color: white;
+        border-radius: 15px;
+        width: 25%;
+        padding: 0.2em;
+    }
+
+    .caixa-2{
+        border: solid white;
+        color: black;
+        border-radius: 15px;
+        background-color: white;
+        width: 25%;
+        padding: 0.2em;
+        text-align: center;
+        margin-right: 4em;
+    }
+
+     .conteiner-2{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-evenly;
+
+     }
+
+    .coluna-1{
+        color: white;
+        
+    }
+
+    .tamanho{
+        width: 60px;
+        height: 60px;
+    }
+
+    .barra-final{
+        text-align: center;
+        background-color: #596677;
+        color: white;
+        padding: 0.8em;
+        margin-top: 5%;
+    }
+}
+
+*{
+    border: solid 1px black;
+}
