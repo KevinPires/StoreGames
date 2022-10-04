@@ -14,7 +14,7 @@ export default function Rodape(){
          <section className='conteiner-1'>
         
            
-           <div>  <img className='ajuste' src='/logoOrigin.png' alt='opa'/></div>
+           <div>  <img className='logo-rodape' src='/logoOrigin.png' alt='opa'/></div>
 
            <div className='coluna-1'> <h1>Início</h1> <p>Home</p> <p>Link</p></div>
             <div className='coluna-1'> <h1>Sobre nós</h1> <p>Informações </p><p> Contato</p></div>

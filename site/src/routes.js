@@ -12,6 +12,7 @@ import PedidosConcluidos from './pages/admin/pedidosConcluidos'
 import CadastroUsuario from './pages/usuario/cadastroUsuario'
 import LandingPage from './pages/usuario/landingPage'
 import LojaArea from './pages/loja/areaDaLoja'
+import GuiaRodape from './pages/loja/GuiaRodape'
 
 //Nâo apagar o segundo AdminCadastro, ele faz parte do alterar
 
@@ -31,6 +32,7 @@ export default function AppRoutes() {
                 <Route path='/usuario/cadastro' element={<CadastroUsuario/>} /> 
                 <Route path='/landing' element={<LandingPage/>}/>
                 <Route path='/jogos' element={<LojaArea/>}/> 
+                <Route path='/ajuda' element={<GuiaRodape/>} />
                  
         </Routes>
     </BrowserRouter>        

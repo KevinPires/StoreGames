@@ -1,0 +1,31 @@
+.page-ajuda{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    .conteiner-rodape-1{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: start;
+        background-image: url("../../../../public/imagem-guia-rodape.jpg");
+        padding: 2em;
+    }
+
+    .item-2{
+        color: white;
+        width: 22%;
+        margin-left: 10%;
+    }
+
+    h1{
+        width: 130%;
+        font-size: 28px;
+    }
+
+    p{
+        width: 105%;
+        font-size: 18px;
+    }
+}
+
