@@ -21,6 +21,7 @@ server.use('/jogo', jogoController)
 server.use('/genero', generoController)
 server.use('/plataforma', plataformaController)
 server.use('/user', userController)
+server.use('storage/capasJogos', express.static('storage/capasJogos'));
 
 server.listen(process.env.PORT, () => console.log(`conectada na porta ${process.env.PORT}`)); 
 

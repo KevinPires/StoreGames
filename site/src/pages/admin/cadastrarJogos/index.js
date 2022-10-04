@@ -3,13 +3,17 @@ import { listarGenero } from '../../../api/generoApi'
 import { listarPlataforma } from '../../../api/plafatormaApi'
 import { enviarImagemJogo, inserirJogo } from '../../../api/produto'
 
+import { toast, ToastContainer } from 'react-toastify' 
 import { useEffect, useState } from 'react'
 import HeaderAdmin from '../../../components/adminHeader'
 import BarraLateral from '../../../components/BarraLateral'
 import InputCadastro from '../../../components/inputCadastro'
 import InputTextArea from '../../../components/inputTextArea'
+import { useParams } from 'react-router-dom'
+import { buscarJogoPorId } from '../../../api/jogos'
 
 export default function CadastratJogos() {
+    const [idJogo, setIdJogo] = useState();
     const [nome, setNome] = useState('');
     const [descricao, setDescricao] = useState('');
     const [resquisitos, setResquisitos] = useState('');
@@ -30,6 +34,9 @@ export default function CadastratJogos() {
     const [platSelecionadas, setPlatSelecionadas] = useState([]);
     const [genSelecionadas, setGenSelecionadas] = useState([]);
 
+    const { id } = useParams();
+
+
     async function carregarGenero() {
         const load = await listarGenero()
         setGeneros(load)
@@ -40,6 +47,22 @@ export default function CadastratJogos() {
         setPlataformas(load)
     }
 
+    async function carregarJogo(){
+        if (!id) return;
+
+        const resposta = await buscarJogoPorId(id);
+        setIdJogo(resposta.info.id)
+        setNome(resposta.info.nome)
+        setValor(resposta.info.valor)
+        setDescricao(resposta.info.descricao)
+        setEstoque(resposta.info.estoque)
+        setResquisitos(resposta.info.requisitos)
+        setDisponivel(resposta.info.disponivel)
+        setMaisVendido(resposta.info.maisvendido)
+        setGenSelecionadas(resposta.genero)
+        setPlatSelecionadas(resposta.plataforma)
+    }
+
     async function salvar() {
         try {
             const valorProduto = Number(valor.replace(',', '.'));
@@ -47,11 +70,11 @@ export default function CadastratJogos() {
             const r = enviarImagemJogo(novoJogo, imagem);
             await r
 
-            alert('Jogo cadastrado com sucesso');
+            toast('Jogo cadastrado com sucesso');
         }
         catch (err) {
-            console.log(err)
-            alert('não cadastrou');
+           toast.error(err.response.data.erro)
+            // toast('Jogo não foi cadastrado!');
 
         }
     }
@@ -94,6 +117,7 @@ export default function CadastratJogos() {
     useEffect(() => {
         carregarGenero()
         carregarPlataformas()
+        carregarJogo()
     }, [])
 
     function escolherImagem() {
@@ -106,7 +130,7 @@ export default function CadastratJogos() {
     return (
 
         <main className="cadastrar-jogos-page">
-
+            <ToastContainer/>
             <BarraLateral selecionado='cadastrar' />
 
             <div className="cont-faixa-cadastro">

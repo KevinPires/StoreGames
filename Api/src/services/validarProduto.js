@@ -23,6 +23,14 @@ export async function ValidarJogo (infoJogo) {
         erros.push("Requisitos Obrigatorio!")
         haveError = true
     }
+    if(!infoJogo.generos || infoJogo.generos.length <= 0){
+        erros.push("Gênero obrigatório")
+        haveError = true
+    }
+    if(!infoJogo.plataformas || infoJogo.plataformas.length <= 0){
+        erros.push("Plataforma obrigatória")
+        haveError = true
+    }
     if(haveError) {
         throw new Error ("Campos obrigatorios não preenchidos!")
     }

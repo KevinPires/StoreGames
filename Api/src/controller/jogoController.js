@@ -1,4 +1,4 @@
-import { cadastroJogo, inserirGeneroJogo, inserirPlataformaJogo, alterarImagem, listarTodosJogos, buscarPorNome, removerGeneroJogo, removerPlataformaJogo, removerJogo, alterarJogo, buscarPorId } from "../repository/jogoRepository.js";
+import { cadastroJogo, inserirGeneroJogo, inserirPlataformaJogo, alterarImagem, listarTodosJogos, buscarPorNome, removerGeneroJogo, removerPlataformaJogo, removerJogo, alterarJogo, buscarJogoPorId, buscarPorIdPlataforma, buscarPorIdGenero } from "../repository/jogoRepository.js";
 import { response, Router } from "express";
 import multer from "multer";
 import { buscarGeneroPorId } from "../repository/generoRepository.js";
@@ -10,10 +10,11 @@ const server = Router()
 const upload = multer({dest: 'storage/capasJogos' })
 server.post('/', async (req,resp) => {
     try{
-
+        console.log(req.body)
         const infoJogo = req.body
 
         await ValidarJogo(infoJogo)
+        
         
         const jogoID = await cadastroJogo(infoJogo)
 
@@ -37,7 +38,6 @@ server.post('/', async (req,resp) => {
 
         resp.status(200).send(jogoID.toString());
     } catch (err) {
-        console.log(err)
         resp.status(400).send({
             erro: err.message
         })
@@ -53,9 +53,6 @@ server.put('/:id/capa', upload.single('capa'), async (req, resp) => {
             throw new Error('Escolha a capa do filme.'); 
         const { id } = req.params;
         const imagem = req.file.path;
-
-        console.log(id)
-        console.log(imagem)
 
         const resposta = await alterarImagem(imagem, id)
         if (resposta != 1 )
@@ -159,6 +156,28 @@ server.get('/:id', async (req, resp) => {
     }
 })
 
+
+server.get('/consultando/:id', async (req, resp) => {
+    try {
+        const id = req.params.id;
+
+       const jogo =  await buscarJogoPorId(id);
+       const genero = await buscarPorIdGenero(id);
+       const plataforma = await buscarPorIdPlataforma(id); 
+
+       resp.send({
+        info: jogo,
+        genero: genero, 
+        plataforma: plataforma 
+       })
+       
+
+    } catch (err) {
+        resp.status(400).send({ 
+            erro: err.message
+        })
+    }
+})
 
 
 export default server;

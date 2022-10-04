@@ -20,3 +20,9 @@ export async function deletarJogo(id){
     const reposta = await api.delete(`/jogo/${id}`);
     return reposta.status;
 }
+
+export async function buscarJogoPorId(id) {
+    const resposta = await api.get(`/jogo/consultando/${id}`);
+    return resposta.data;
+
+}

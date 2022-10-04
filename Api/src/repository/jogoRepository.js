@@ -129,22 +129,44 @@ export async function removerJogo(id){
 }
 
 
-export async function  buscarPorId(id){
+export async function  buscarJogoPorId(id){
     const comando =
-   `  select ID_JOGO            id,
-   NM_JOGO                      nome,                                                       
-   VL_JOGO                      valor,
-   DS_JOGO                      descricao,
-   QTD_ESTOQUE                  estoque,
-   DS_REQUISITOS                requisitos,
-   BL_DISPONIVEL                disponivel,
-   BL_MAISVENDIDO               maisvendido
-   from TB_JOGO
-   where ID_JOGO = ?`;
+   `  SELECT ID_JOGO           as  id,
+   NM_JOGO                     as nome,                                                       
+   VL_JOGO                     as valor,
+   DS_JOGO                     as descricao,
+   QTD_ESTOQUE                 as estoque,
+   DS_REQUISITOS               as requisitos,
+   BL_DISPONIVEL               as disponivel,
+   BL_MAISVENDIDO              as maisvendido
+   FROM TB_JOGO
+   WHERE ID_JOGO = ?`;
 
    const [linhas] = await con.query(comando, [id]);
    return linhas[0];
 }
+
+    export async function  buscarPorIdGenero(idJogo){
+    const comando =
+   `SELECT FK_GENERO         as id
+        FROM TB_GENERO_JOGO
+    WHERE FK_JOGO = ?`;
+
+   const [linhas] = await con.query(comando, [idJogo]);
+   return linhas.map(item => item.id);
+}
+
+   export async function  buscarPorIdPlataforma(idJogo){
+    const comando =
+   `SELECT FK_PLATAFORMA         as id
+        FROM TB_PLATAFORMA_JOGO
+    WHERE FK_JOGO = ?`;
+
+   const [linhas] = await con.query(comando, [idJogo]);
+   return linhas.map(item => item.id);
+}
+
+
 
 // alterar jogo
 export async function alterarJogo(id, jogo){

@@ -12,7 +12,8 @@ import PedidosConcluidos from './pages/admin/pedidosConcluidos'
 import CadastroUsuario from './pages/usuario/cadastroUsuario'
 import LandingPage from './pages/usuario/landingPage'
 import LojaArea from './pages/loja/areaDaLoja'
-import Rodape from './components/Rodapé'
+
+//Nâo apagar o segundo AdminCadastro, ele faz parte do alterar
 
 export default function AppRoutes() {
     return(
@@ -21,6 +22,7 @@ export default function AppRoutes() {
                 <Route path='/loja' element={<LojaArea/>} />
                 <Route path='/' element={<Login />} />
                 <Route path='/admin/cadastro' element={<AdminCadastro />} />
+                <Route path='/admin/cadastro/:id' element={<AdminCadastro />} />  
                 <Route path='/admin/home' element={<Home/>} />
                 <Route path='admin/consulta' element={<ConsultarJogos/>} />
                 <Route path='admin/pendentes' element={<Pendentes/>} />
@@ -29,7 +31,7 @@ export default function AppRoutes() {
                 <Route path='/usuario/cadastro' element={<CadastroUsuario/>} /> 
                 <Route path='/landing' element={<LandingPage/>}/>
                 <Route path='/jogos' element={<LojaArea/>}/> 
-                <Route path='/rodape' element={<Rodape/>}/> 
+                 
         </Routes>
     </BrowserRouter>        
     )
