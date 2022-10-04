@@ -22,7 +22,7 @@ export async function deletarJogo(id){
 }
 
 export async function buscarJogoPorId(id) {
-    const resposta = await api.get(`/jogo/consultando/${id}`);
+    const resposta = await api.get(`/admin/cadastro/${id}`);
     return resposta.data;
 
 }

@@ -1,4 +1,4 @@
-import { cadastroJogo, inserirGeneroJogo, inserirPlataformaJogo, alterarImagem, listarTodosJogos, buscarPorNome, removerGeneroJogo, removerPlataformaJogo, removerJogo, alterarJogo, buscarJogoPorId, buscarPorIdPlataforma, buscarPorIdGenero } from "../repository/jogoRepository.js";
+import { cadastroJogo, inserirGeneroJogo, inserirPlataformaJogo, alterarImagem, listarTodosJogos, buscarPorNome, removerGeneroJogo, removerPlataformaJogo, removerJogo, alterarJogo,  } from "../repository/jogoRepository.js";
 import { response, Router } from "express";
 import multer from "multer";
 import { buscarGeneroPorId } from "../repository/generoRepository.js";
@@ -157,27 +157,7 @@ server.get('/:id', async (req, resp) => {
 })
 
 
-server.get('/consultando/:id', async (req, resp) => {
-    try {
-        const id = req.params.id;
 
-       const jogo =  await buscarJogoPorId(id);
-       const genero = await buscarPorIdGenero(id);
-       const plataforma = await buscarPorIdPlataforma(id); 
-
-       resp.send({
-        info: jogo,
-        genero: genero, 
-        plataforma: plataforma 
-       })
-       
-
-    } catch (err) {
-        resp.status(400).send({ 
-            erro: err.message
-        })
-    }
-})
 
 
 export default server;

@@ -1,4 +1,4 @@
-import { login } from '../repository/adminRepository.js'
+import { buscarJogoPorId, buscarPorIdGenero, buscarPorIdPlataforma, login } from '../repository/adminRepository.js'
 import { Router  } from "express";
 import multer from 'multer';
 
@@ -21,5 +21,26 @@ server.post('/login', async (req, resp) =>{
     }
 })
 
+server.get('/cadastro/:id', async (req, resp) => {
+    try {
+        const id = req.params.id;
+
+       const nome =  await buscarJogoPorId(id);
+       const genero = await buscarPorIdGenero(id);
+       const plataforma = await buscarPorIdPlataforma(id); 
+  
+       resp.send({
+        info: nome,
+        genero: genero, 
+        plataforma: plataforma 
+       })
+       
+
+    } catch (err) {
+        resp.status(400).send({ 
+            erro: err.message
+        })
+    }
+})
 
 export default server;

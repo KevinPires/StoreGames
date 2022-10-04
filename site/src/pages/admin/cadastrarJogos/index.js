@@ -51,15 +51,15 @@ export default function CadastratJogos() {
         if (!id) return;
 
         const resposta = await buscarJogoPorId(id);
-        setIdJogo(resposta.info.id)
-        setNome(resposta.info.nome)
-        setValor(resposta.info.valor)
-        setDescricao(resposta.info.descricao)
-        setEstoque(resposta.info.estoque)
-        setResquisitos(resposta.info.requisitos)
-        setDisponivel(resposta.info.disponivel)
-        setMaisVendido(resposta.info.maisvendido)
-        setGenSelecionadas(resposta.genero)
+        setIdJogo(resposta.info.id);
+        setNome(resposta.info.nome);
+        setValor(resposta.info.valor.toString());
+        setDescricao(resposta.info.descricao);
+        setEstoque(resposta.info.estoque);
+        setResquisitos(resposta.info.requisitos);
+        setDisponivel(resposta.info.disponivel);
+        setMaisVendido(resposta.info.maisvendido);
+        setGenSelecionadas(resposta.genero);
         setPlatSelecionadas(resposta.plataforma)
     }
 
@@ -67,8 +67,8 @@ export default function CadastratJogos() {
         try {
             const valorProduto = Number(valor.replace(',', '.'));
             const novoJogo = await inserirJogo(nome, valorProduto, descricao, estoque, resquisitos, disponivel, maisVendido, genSelecionadas, platSelecionadas);
-            const r = enviarImagemJogo(novoJogo, imagem);
-            await r
+            const r = await enviarImagemJogo(novoJogo, imagem);
+           
 
             toast('Jogo cadastrado com sucesso');
         }
@@ -97,6 +97,12 @@ export default function CadastratJogos() {
         
     }
 
+    function removerPlataforma(id) {
+        const x =platSelecionadas.filter(item => item != id);
+        setPlatSelecionadas(x);
+    }
+
+
     function BuscarNomeGenero(id) {
         const gen = generos.find(item => item.id == id);
         return gen.genero;
@@ -114,10 +120,15 @@ export default function CadastratJogos() {
         }
     }
 
+    function removerGenero(id) {
+        const x =genSelecionadas.filter(item => item != id);
+        setGenSelecionadas(x);
+    }
+
     useEffect(() => {
-        carregarGenero()
-        carregarPlataformas()
-        carregarJogo()
+        carregarGenero();
+        carregarPlataformas();
+        carregarJogo();
     }, [])
 
     function escolherImagem() {
@@ -168,7 +179,7 @@ export default function CadastratJogos() {
                                         <label></label>
                                         <div className='plat-conteiner'>
                                             {genSelecionadas.map(id =>
-                                                <div 
+                                                <div onClick={() => removerGenero(id)}
                                                     key={id}
                                                     className='plat-selecionada'
                                                 >
@@ -185,12 +196,14 @@ export default function CadastratJogos() {
                                     <select value={idPlataforma} name="generos" id="generos" onChange={e => setIdPlataforma(e.target.value)}>
                                         <option disabled hidden selected="selected" > Selecione </option>
                                         {plataformas.map(item =>    
-                                            <option 
-                                          
+                                           
+                                           <option 
+                                           
                                                 key={item.id}
                                                 value={item.id}
                                             > {item.plataforma}</option>
                                         )}
+                                            
 
                                     </select>
                                     <div className='adicionar' onClick={adicionarPlataforma}>
@@ -199,7 +212,7 @@ export default function CadastratJogos() {
                                         <label></label>
                                         <div className='cat-conteiner'>
                                             {platSelecionadas.map(id =>
-                                                <div 
+                                                <div onClick={() => removerPlataforma(id)}
                                                     key={id}
                                                     className='plat-selecionada'
                                                 >

@@ -17,7 +17,7 @@ export default function HeaderAdmin () {
 
     return (
         <section className="headerAdmin">
-            <img src="/logoStoreGames.png" alt="img logo" />
+            <img src="/storegamesmini.svg" alt="img logo" />
             <div className="boxText"> <p>Seja bem vindo, <span id='adm'> {nome} </span></p> </div>
         </section>
     )

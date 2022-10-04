@@ -17,7 +17,7 @@ export default function Home(){
                <HeaderAdmin/>
             <div className='centro'>
 
-              <img className='ajuste' src='/logoOrigin.png' alt='opa'/>
+              <img className='ajuste' src='/logo-storegames.svg' alt='opa'/>
               </div>
             </div>
              </main>

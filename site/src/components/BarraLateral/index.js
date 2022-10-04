@@ -64,7 +64,7 @@ export default function BarraLateral(props){
 
         <div className='menu-items'>
         <Link to='/admin/concluidos'  className={vereficarMenuSelecionado('concluidos')}>
-                <img  className='img' src="/concluidos.png" alt="consultar" />
+                <img  className='img' src="/checkedsemfundo.svg" alt="consultar" />
                 <div className='texto'>Pedidos concluidos</div>
         </Link>
         </div>

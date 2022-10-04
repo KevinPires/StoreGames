@@ -33,7 +33,7 @@ export default function ConsultarJogos(){
         buttons: [
             {
                label: 'Sim', onClick: async () => {
-                const reposta = await deletarJogo(id, nome)
+                const resposta = await deletarJogo(id, nome)
                 if (filtro === '')
                 carregarTodosJogos();
                 
