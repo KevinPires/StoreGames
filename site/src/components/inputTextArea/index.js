@@ -8,9 +8,10 @@ export default function InputTextArea (props) {
             className="input-text-area"
             maxLength={props.maxLength}
             style={props.style}
+            
             cols={props.cols}
             rows={props.rows}
-            value={props.requisitos}
+            value={props.value}
             onChange={props.onChange}>
             </textarea>
         </main>

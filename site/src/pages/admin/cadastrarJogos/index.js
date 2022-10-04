@@ -51,6 +51,7 @@ export default function CadastratJogos() {
         if (!id) return;
 
         const resposta = await buscarJogoPorId(id);
+        console.log(resposta.info.estoque);
         setIdJogo(resposta.info.id);
         setNome(resposta.info.nome);
         setValor(resposta.info.valor.toString());
@@ -126,9 +127,12 @@ export default function CadastratJogos() {
     }
 
     useEffect(() => {
-        carregarGenero();
-        carregarPlataformas();
-        carregarJogo();
+        carregarGenero()
+        console.log(1)
+        carregarPlataformas()
+        console.log(2)
+        carregarJogo()
+        console.log(3)
     }, [])
 
     function escolherImagem() {
@@ -166,8 +170,8 @@ export default function CadastratJogos() {
 
                                 <div className="labelInput">
                                     <label htmlFor="">Genero:</label>
-                                    <select value={idGenero} name="generos" id="generos" onChange={e => setIdGenero(e.target.value)}>
-                                        <option disabled hidden selected="selected" > Selecione </option>
+                                    <select value={idGenero} name="generos" id="generos" onChange={e => setIdGenero(Number(e.target.value))}>
+                                        <option disabled hidden> Selecione </option>
 
                                         {generos.map(genero =>
                                             <option key={genero.id} value={genero.id}>{genero.genero}</option>
@@ -193,12 +197,10 @@ export default function CadastratJogos() {
 
                                 <div className="labelInput">
                                     <label htmlFor="">Plataforma:</label>
-                                    <select value={idPlataforma} name="generos" id="generos" onChange={e => setIdPlataforma(e.target.value)}>
-                                        <option disabled hidden selected="selected" > Selecione </option>
+                                    <select value={idPlataforma} name="generos" id="generos" onChange={e => setIdPlataforma(Number(e.target.value))}>
+                                        <option disabled hidden> Selecione </option>
                                         {plataformas.map(item =>    
-                                           
                                            <option 
-                                           
                                                 key={item.id}
                                                 value={item.id}
                                             > {item.plataforma}</option>

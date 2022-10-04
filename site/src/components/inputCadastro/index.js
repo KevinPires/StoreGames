@@ -6,6 +6,7 @@ export default function InputCadastro (props) {
         <section className="input-Login">
             <input 
             className='input-cadastro'
+            value={props.value}
             type={props.type} 
             onChange={props.onChange}/>
         </section>

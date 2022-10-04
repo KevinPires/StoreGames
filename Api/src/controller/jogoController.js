@@ -13,7 +13,7 @@ server.post('/', async (req,resp) => {
         console.log(req.body)
         const infoJogo = req.body
 
-        await ValidarJogo(infoJogo)
+        const valdar = await ValidarJogo(infoJogo)
         
         
         const jogoID = await cadastroJogo(infoJogo)
