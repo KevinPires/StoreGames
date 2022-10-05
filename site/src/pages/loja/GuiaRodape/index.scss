@@ -18,14 +18,64 @@
         margin-left: 10%;
     }
 
-    h1{
-        width: 130%;
+    .tituloh1{
+        width: 400px;
         font-size: 28px;
+        color: white;
+        margin-bottom: 20px;
     }
 
     p{
-        width: 105%;
+        width: 300px;
         font-size: 18px;
     }
+
+    .conteiner-rodape-2{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #323A45;
+        padding: 3em;
+       
+    }
+
+    .subconteiner-1{
+     display: flex;
+     flex-direction: row;
+     margin-bottom: 2em;
+     padding: 1.2em;
+    }
+
+    .descricao{
+        color: white;
+        margin-left: 7%;
+    }
+
+    .conteiner-rodape-3{
+        background-image: url("../../../../public/fundorodape3.jpg");
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 2em;
+    }
+
+    .info{
+        color: white;
+        width: 70%;
+        margin-bottom: 2em;
+        text-align: center;
+    }
+
+    .titulo-rodape{
+        color: white;
+        padding: 1em;
+        font-size: 30px;
+    }
+}
+
+*{
+   // border: solid 1px black;
 }
 

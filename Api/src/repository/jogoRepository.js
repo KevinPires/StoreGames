@@ -162,4 +162,25 @@ export async function alterarJogo(id, jogo){
 }
 
 
+
+// FILTROS DE JOGOS
+
+export async function filtroGeneroJogo(filtro){
+    console.log(comando)
+    const comando =`
+        select  ID_JOGO			ID,
+                IMG_CAPA		CAPA,
+                NM_JOGO			NOME,
+                VL_JOGO			VALOR
+           FROM TB_JOGO
+        INNER JOIN TB_GENERO_JOGO 
+        ON TB_JOGO.ID_JOGO = TB_GENERO_JOGO.FK_JOGO
+        INNER JOIN TB_GENERO 
+        ON TB_GENERO.ID_GENERO = TB_GENERO_JOGO.FK_GENERO
+        WHERE DS_GENERO = ?;
+    `
+    
+    const [linhas] = await con.query(comando,[filtro.filtro]);
+    return linhas;
+}
  
