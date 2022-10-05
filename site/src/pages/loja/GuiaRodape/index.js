@@ -16,21 +16,50 @@ export default function GuiaRodape(){
             </section>
 
             <section className='conteiner-rodape-2'>
-                <div className='subconteiner-1'>
-                   <img src='' alt='img'/>
-                   <h1>Grande catálogo</h1>
-                   <p>Contamos com milhares de jogos diretamente das maiores produtoras do mundo, incluindo lançamentos, pré-vendas e os títulos e franquias mais famosos e amados.</p>
+              
+                   <div className='subconteiner-1'>
+                   <img src='/imagem1.png' alt='img'/>
+                    <div>
+                    <h1 className='tituloh1'>Grande catálogo</h1>
+                   <p className='descricao'>Contamos com milhares de jogos diretamente das maiores produtoras do mundo, incluindo lançamentos, pré-vendas e os títulos e franquias mais famosos e amados.</p>
+                    </div>
                    
-                   <img src='' alt='img'/>
-                   <h1>Global e local</h1>
-                   <p>Nosso objetivo é ser local, criando e oferecendo conteúdo e campanhas únicos, localização e preços especiais para cada região onde estivermos presentes.</p>
 
-                </div>
+                   <img src='/imagem2.png' alt='img'/>
+                    <div>
+                    <h1 className='tituloh1'>Global e local</h1>
+                   <p className='descricao'>Nosso objetivo é ser local, criando e oferecendo conteúdo e campanhas únicos, localização e preços especiais para cada região onde estivermos presentes.</p>
+                    </div>
+                    </div>
 
-                <div className='item-4'>
+                    <div className='subconteiner-1'>
+                   <img src='/imagem3.png' alt='img'/>
+                    <div>
+                    <h1 className='tituloh1'>Suporte de verdade</h1>
+                   <p className='descricao'>No nosso suporte temos jogadores reais e apaixonados, fazendo de tudo para ajudá-lo em caso de problemas ou dúvidas. Seu contato é sempre tratado com carinho.</p>
+                    </div>
+                   
+                   <img src='/imagem4.png' alt='img'/>
+                    <div>
+                    <h1 className='tituloh1'>Sempre disponível</h1>
+                   <p className='descricao'>Seu conteúdo sempre disponível. Acesse sua conta, encontre seus jogos, gerencie sua biblioteca e aproveite tudo que oferecemos, feito a mão só para você.</p>
+                    </div>
+                    </div>
+                </section>
 
-                </div>
-            </section>
+                <section className='conteiner-rodape-3'>
+                    <div>  <h1 className='titulo-rodape'>Nossa missão</h1></div>
+                    <p className='info'>A Store Games tem o objetivo de facilitar a entrada de produtoras e desenvolvedores em mercados locais de jogos, com um custo menor do que o praticado em qualquer loja física.</p>
+                    <p className='info'> Desenvolvedores de todos os portes e do mundo todo, podem apresentar e vender suas criações para o nosso público.</p>
+                </section>
+                   
+
+                   
+
+                
+
+                
+            
         </main>
     )
 }
