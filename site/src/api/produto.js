@@ -12,6 +12,11 @@ export async function inserirJogo(nome, valor, descricao, estoque, requisitos, d
 }
 
 
+export async function alterarJogo(id, nome, valor, descricao, estoque, requisitos, disponivel, maisvendido, generos, plataformas) {
+    const r = await api.put('/admin/cadastro', + id, { nome, valor, descricao, estoque, requisitos, disponivel, maisvendido, generos, plataformas})
+    return r.data
+}
+
 export async function enviarImagemJogo(id, imagem){
 
     const formData = new FormData();

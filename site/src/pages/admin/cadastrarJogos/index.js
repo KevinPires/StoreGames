@@ -1,7 +1,7 @@
 import './index.scss'
 import { listarGenero } from '../../../api/generoApi'
 import { listarPlataforma } from '../../../api/plafatormaApi'
-import { enviarImagemJogo, inserirJogo } from '../../../api/produto'
+import { alterarJogo, enviarImagemJogo, inserirJogo } from '../../../api/produto'
 
 import { toast, ToastContainer } from 'react-toastify' 
 import { useEffect, useState } from 'react'
@@ -66,12 +66,22 @@ export default function CadastratJogos() {
 
     async function salvar() {
         try {
-            const valorProduto = Number(valor.replace(',', '.'));
-            const novoJogo = await inserirJogo(nome, valorProduto, descricao, estoque, resquisitos, disponivel, maisVendido, genSelecionadas, platSelecionadas);
-            const r = await enviarImagemJogo(novoJogo, imagem);
-           
+            if (!id) {
+                const valorProduto = Number(valor.replace(',', '.'));
+                const novoJogo = await inserirJogo(nome, valorProduto, descricao, estoque, resquisitos, disponivel, maisVendido, genSelecionadas, platSelecionadas);
+                const r = await enviarImagemJogo(novoJogo, imagem);
+               
+                toast('Jogo cadastrado com sucesso');
+            }
+            else{
+                const valorProduto = Number(valor.replace(',', '.'));
+                const novoJogo = await alterarJogo(id, nome, valorProduto, descricao, estoque, resquisitos, disponivel, maisVendido, genSelecionadas, platSelecionadas);
+                const r = await enviarImagemJogo(novoJogo, imagem);
+                
+                toast('Jogo alterado com sucesso');
+            }
 
-            toast('Jogo cadastrado com sucesso');
+            
         }
         catch (err) {
            toast.error(err.response.data.erro)

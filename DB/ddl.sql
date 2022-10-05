@@ -65,7 +65,6 @@ create table TB_ADMIN_LOGIN (
 
 
 create table TB_JOGO (
-
 	ID_JOGO				INT PRIMARY KEY AUTO_INCREMENT,
 	NM_JOGO				VARCHAR(30),
 	VL_JOGO				DECIMAL(10,2),
@@ -75,7 +74,6 @@ create table TB_JOGO (
 	DS_REQUISITOS		VARCHAR(300),
     BL_DISPONIVEL		BOOLEAN,
 	BL_MAISVENDIDO		BOOLEAN
-
 );
 
 create table TB_PEDIDO (

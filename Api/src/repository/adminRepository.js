@@ -1,5 +1,6 @@
 import { con } from './connection.js'
 
+
 export async function login(login, senha){
     const comando = `
         SELECT ID_ADMIN_LOGIN         id,

@@ -13,13 +13,10 @@ server.post('/', async (req,resp) => {
         console.log(req.body)
         const infoJogo = req.body
 
-        const valdar = await ValidarJogo(infoJogo)
+        const validar = await ValidarJogo(infoJogo)
         
         
         const jogoID = await cadastroJogo(infoJogo)
-
-
- 
 
         for (const idGenero of infoJogo.generos) {
             const cat = await buscarGeneroPorId(idGenero);
@@ -43,7 +40,6 @@ server.post('/', async (req,resp) => {
         })
 
     }
-
 
 })
 

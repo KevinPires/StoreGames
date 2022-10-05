@@ -1,6 +1,9 @@
 import { buscarJogoPorId, buscarPorIdGenero, buscarPorIdPlataforma, login } from '../repository/adminRepository.js'
 import { Router  } from "express";
 import multer from 'multer';
+import { alterarJogo, inserirGeneroJogo, inserirPlataformaJogo, removerGeneroJogo, removerPlataformaJogo } from '../repository/jogoRepository.js';
+import { buscarGeneroPorId } from '../repository/generoRepository.js';
+import { buscarPlataformaporID } from '../repository/plataformaRepository.js';
 
 const server = Router ();
 const upload = multer({ dest: 'storage/perfil' })
@@ -43,4 +46,41 @@ server.get('/cadastro/:id', async (req, resp) => {
     }
 })
 
+
+
+server.put('/cadastro/:id' ,async (req, resp) => {
+    try {
+        const {id} = req.params;
+        const infoJogo = req.body;
+
+        // Removendo genêro e jogo
+        const r = await removerGeneroJogo(id)
+        const r2 = await removerPlataformaJogo(id)
+
+        //Alterando dados da tb_produto
+        const jogoID = await alterarJogo(id, jogo);
+        if (resposta != 1)
+        throw new Error ('jogo não pode ser alterado');
+        
+        for (const idGenero of infoJogo.generos) {
+            const cat = await buscarGeneroPorId(idGenero);
+
+            if (cat != undefined)
+            await inserirGeneroJogo(jogoID, idGenero)
+        }
+        for (const idPlataforma of infoJogo.plataformas) {
+            const pla = await buscarPlataformaporID(idPlataforma)
+
+            if(pla != undefined) 
+            await inserirPlataformaJogo(jogoID, idPlataforma)
+        }
+        resp.status(204).send();
+    } catch (err) {
+        resp.status(400).send({
+            erro: err.message
+        })
+    }
+})  
+
 export default server;
+

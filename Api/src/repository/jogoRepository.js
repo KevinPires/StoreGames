@@ -147,7 +147,17 @@ export async function alterarJogo(id, jogo){
          BL_MAISVENDIDO = ?
     where ID_JOGO = ?; `
 
-    const [resposta] = await con.query(comando, [jogo.nome, jogo.valor, jogo.descricao, jogo.estoque, jogo.requisitos, jogo.disponivel, jogo.maisvendido, id]);
+    console.log(jogo)
+    const [resposta] = await con.query(comando, 
+        [   jogo.nome, 
+            jogo.valor, 
+            jogo.descricao, 
+            jogo.estoque, 
+            jogo.requisitos, 
+            jogo.disponivel,
+            jogo.maisvendido, 
+            id
+        ]);
     return resposta.affectedRows;
 }
 
