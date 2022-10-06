@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react'
-import { listarTodosJogos } from '../../api/jogos'
+import { buscarImagem, listarTodosJogos } from '../../api/jogos'
 import './index.scss'
 
 
 export default function CardJogo (props) {
     const [jogos, setJogos] = useState([]);
+
     
     async function CarregarJogo () {
         const x = await listarTodosJogos()
@@ -15,11 +16,13 @@ export default function CardJogo (props) {
         CarregarJogo()
     }, [])
 
+
     return (
         <main className='comp-card'>
             {jogos.map (jogo => 
                 <section className="BoxCard" >
-                        <img src="./capagta.jpg" alt="imagem Jogo" />
+                        <img src={buscarImagem(jogo.capa)} alt="imagem Jogo" />
+                       
                         <h4>{jogo.nome}</h4>
                         <span id='card-preco'>R${jogo.valor}</span>
                 </section>
