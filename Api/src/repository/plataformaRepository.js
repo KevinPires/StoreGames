@@ -17,7 +17,7 @@ export async function listarPlataforma() {
 export async function buscarPlataformaporID(id) {
     const comando = `
         select id_plataforma       as id,
-               ds_plataforma       as genero
+               ds_plataforma       as plataforma
           from TB_PLATAFORMA
          where id_plataforma = ?
     `

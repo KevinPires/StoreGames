@@ -53,19 +53,18 @@ server.put('/cadastro/:id', async (req, resp) => {
 
         const id = req.params.id; 
         const infoJogo = req.body;
-
-        console.log(id)
-        console.log(infoJogo)
+        
+        
         // Removendo genêro e plataforma
         await removerGeneroJogo(id);
         await removerPlataformaJogo(id);
 
         //Alterando dados da tb_produto
         const jogoID = await alterarJogo(id, infoJogo);
-        
-        for (const idGenero of infoJogo.generos) {
+       
+        for (const idGenero of infoJogo.genero) {
             const cat = await buscarGeneroPorId(idGenero);
-           
+            
             if (cat != undefined)
             await inserirGeneroJogo(jogoID, idGenero);
         }
@@ -80,11 +79,14 @@ server.put('/cadastro/:id', async (req, resp) => {
 
         
        
-        resp.status(204).send(jogoID.toString());
+        resp.status(204).send(jogoID);
     } catch (err) {
+        console.log(err)
         resp.status(400).send({
+            
             erro: err.message
         })
+
     }
 })  
 
