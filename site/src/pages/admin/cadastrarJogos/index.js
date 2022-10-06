@@ -54,7 +54,7 @@ export default function CadastratJogos() {
         console.log(resposta.info.estoque);
         setIdJogo(resposta.info.id);
         setNome(resposta.info.nome);
-        setValor(resposta.info.valor.toString());
+        setValor(resposta.info.valor);
         setDescricao(resposta.info.descricao);
         setEstoque(resposta.info.estoque);
         setResquisitos(resposta.info.requisitos);
@@ -76,7 +76,7 @@ export default function CadastratJogos() {
             else{
                 const valorProduto = Number(valor.replace(',', '.'));
                 const novoJogo = await alterarJogo(id, nome, valorProduto, descricao, estoque, resquisitos, disponivel, maisVendido, genSelecionadas, platSelecionadas);
-                const r = await enviarImagemJogo(novoJogo, imagem);
+                const r = await enviarImagemJogo(id, imagem);
                 
                 toast('Jogo alterado com sucesso');
             }
@@ -84,8 +84,8 @@ export default function CadastratJogos() {
             
         }
         catch (err) {
-           toast.error(err.response.data.erro)
-            // toast('Jogo não foi cadastrado!');
+           //toast.error(err.response.data.erro)
+             toast('Jogo não foi cadastrado!');
 
         }
     }
