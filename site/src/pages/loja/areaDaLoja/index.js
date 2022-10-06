@@ -16,23 +16,12 @@ export default function lojaArea () {
                 <p>Compre o seu jogo aqui</p>
             </section>
 
-           <BarraVantagens/>
+            <BarraVantagens/>
             <section className='container flexboxrow'>
                 <BarraFilto/>
                 
                 <div className='container-jogos'>
-                <CardJogo/>
-                <CardJogo/>
-                <CardJogo/>
-                <CardJogo/>
-                <CardJogo/>
-                <CardJogo/>
-                <CardJogo/>
-                <CardJogo/>
-                <CardJogo/>
-                <CardJogo/>
-                <CardJogo/>
-                <CardJogo/>
+                    <CardJogo/>
                 </div>
             </section>
             <Rodape/>

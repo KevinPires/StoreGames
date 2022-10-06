@@ -65,15 +65,16 @@ export async function alterarImagem(imagem, id) {
 //listar todos
 export async function listarTodosJogos() {
     const comando =
-    `SELECT id_jogo		id,
-    nm_jogo		      nome,
-    vl_jogo	          valor,
-    ds_jogo	          descricao,
-    qtd_estoque	      estoque,
-    ds_requisitos     requisitos,
-    bl_disponivel     disponivel,
-    bl_maisvendido    maisvendido
-FROM TB_JOGO`;
+        `SELECT id_jogo		      id,
+                nm_jogo		      nome,
+                vl_jogo	          valor,
+                ds_jogo	          descricao,
+                qtd_estoque	      estoque,
+                img_capa          capa,
+                ds_requisitos     requisitos,
+                bl_disponivel     disponivel,
+                bl_maisvendido    maisvendido
+        FROM TB_JOGO`;
     
     const [linhas] = await con.query(comando);
     return linhas;
@@ -161,7 +162,6 @@ export async function alterarJogo(id, jogo){
 }
 
 
-
 // FILTROS DE JOGOS
 
 export async function filtroGeneroJogo(filtro){
@@ -172,13 +172,29 @@ export async function filtroGeneroJogo(filtro){
                 VL_JOGO			VALOR
            FROM TB_JOGO
         INNER JOIN TB_GENERO_JOGO 
-        ON TB_JOGO.ID_JOGO = TB_GENERO_JOGO.FK_JOGO
+            ON TB_JOGO.ID_JOGO = TB_GENERO_JOGO.FK_JOGO
         INNER JOIN TB_GENERO 
-        ON TB_GENERO.ID_GENERO = TB_GENERO_JOGO.FK_GENERO
+            ON TB_GENERO.ID_GENERO = TB_GENERO_JOGO.FK_GENERO
         WHERE DS_GENERO = ?
     `
-    console.log(comando)
+
     const [linhas] = await con.query(comando,[filtro]);
     return linhas;
 }
- 
+
+
+export async function filtroPlataformaJogo(filtro){
+    const comando = `
+        SELECT 	ID_JOGO 		ID,
+                IMG_CAPA		CAPA,
+                NM_JOGO			NOME,
+                VL_JOGO		    VALOR    
+        FROM TB_JOGO
+        INNER JOIN TB_PLATAFORMA_JOGO ON TB_JOGO.ID_JOGO = TB_PLATAFORMA_JOGO.FK_JOGO
+        INNER JOIN TB_PLATAFORMA ON TB_PLATAFORMA.ID_PLATAFORMA = TB_PLATAFORMA_JOGO.FK_PLATAFORMA
+        WHERE DS_PLATAFORMA = ?;
+    `
+
+    const [linhas] = await con.query(comando, [filtro] )
+    return linhas;
+}

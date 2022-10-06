@@ -26,3 +26,17 @@ export async function buscarJogoPorId(id) {
     return resposta.data;
 
 }
+
+// filtra por genero
+
+export async function filtraGeneroJogo(genero){
+    const resposta = await api.get('/jogo/filtro/genero');
+    return resposta.data
+}
+
+// filtra plataforma
+
+export async function filtraPlataformaJogo(plataforma){
+    const resposta = await api.get ('/jogo/filtro/plataforma')
+    return resposta.data
+}

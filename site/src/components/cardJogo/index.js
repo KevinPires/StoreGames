@@ -16,10 +16,10 @@ export default function CardJogo (props) {
     }, [])
 
     return (
-        <main>
+        <main className='comp-card'>
             {jogos.map (jogo => 
                 <section className="BoxCard" >
-                        <img src="./capagta.jpg" alt="" />
+                        <img src="./capagta.jpg" alt="imagem Jogo" />
                         <h4>{jogo.nome}</h4>
                         <span id='card-preco'>R${jogo.valor}</span>
                 </section>

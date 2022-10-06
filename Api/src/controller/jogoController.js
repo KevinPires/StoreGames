@@ -1,4 +1,4 @@
-import  { cadastroJogo, inserirGeneroJogo, inserirPlataformaJogo, alterarImagem, listarTodosJogos, buscarPorNome, removerGeneroJogo, removerPlataformaJogo, removerJogo, alterarJogo, filtroGeneroJogo } from "../repository/jogoRepository.js";
+import  { cadastroJogo, inserirGeneroJogo, inserirPlataformaJogo, alterarImagem, listarTodosJogos, buscarPorNome, removerGeneroJogo, removerPlataformaJogo, removerJogo, alterarJogo, filtroGeneroJogo, filtroPlataformaJogo } from "../repository/jogoRepository.js";
 import { response, Router } from "express";
 import multer from "multer";
 import { buscarGeneroPorId } from "../repository/generoRepository.js";
@@ -152,7 +152,7 @@ server.get('/:id', async (req, resp) => {
 
 // Filtra jogo
 
-server.post('/filtro/filtrar', async (req, resp) => {
+server.get('/filtro/genero', async (req, resp) => {
     try {
         const { filtro } = req.body;
         const resposta = await filtroGeneroJogo(filtro);
@@ -164,6 +164,20 @@ server.post('/filtro/filtrar', async (req, resp) => {
     }
 })
 
+
+// filtra plataforma
+
+server.get('/filtro/plataforma', async (req, resp )=>{
+    try {
+        const { filtro } = req.body;
+        const resposta  = await filtroPlataformaJogo(filtro)
+        resp.status(200).send(resposta)
+    } catch (err) {
+        resp.status(404).send({
+            erro: err.message
+        })
+    }
+})
 
 
 export default server;
