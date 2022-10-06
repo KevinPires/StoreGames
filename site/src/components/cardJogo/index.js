@@ -3,17 +3,18 @@ import { listarTodosJogos } from '../../api/jogos'
 import './index.scss'
 
 
-export default function CardJogo (props) {
-    const [jogos, setJogos] = useState([]);
-    
-    async function CarregarJogo () {
-        const x = await listarTodosJogos()
-        setJogos(x)
+export default function CardJogo ({jogos, loading}) {
+    if(loading){
+        return <h2>LOADING ....</h2>
     }
+    // async function CarregarJogo () {
+    //     const x = await listarTodosJogos()
+    //     setJogos(x)
+    // }
 
-    useEffect(() => {
-        CarregarJogo()
-    }, [])
+    // useEffect(() => {
+    //     CarregarJogo()
+    // }, [])
 
     return (
         <main className='comp-card'>

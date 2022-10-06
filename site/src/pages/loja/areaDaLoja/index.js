@@ -5,9 +5,34 @@ import './index.scss'
 import '../../../common/common.scss'
 import CardJogo from '../../../components/cardJogo'
 import Rodape from '../../../components/Rodapé'
+import { useState, useEffect } from 'react'
+import { listarTodosJogos } from '../../../api/jogos'
+import Pagination from '../../../components/pagination'
 
-export default function lojaArea () {
 
+export default function LojaArea () {
+    const [jogos, setJogos] = useState([]);
+    const [loading, setLoading] = useState(false)
+    const [currentPage, setCurrentPage] = useState(1)
+    const [jogoPorPage] = useState(20)
+    
+
+    useEffect(()=>{
+        const fetchPost = async ()=>{
+            setLoading(true)
+            const res = await listarTodosJogos()
+            setJogos(res)
+            setLoading(false)
+        }
+
+        fetchPost()
+    }, []);
+
+    const indexOfLastPost = currentPage * jogoPorPage;
+    const indexOfFirstPost = indexOfLastPost - jogoPorPage;
+    const currentJogos =jogos.slice(indexOfFirstPost, indexOfLastPost)
+
+    const paginate = pageNumber => setCurrentPage(pageNumber)
     return (
         <main className="lojaPage">
             <HeaderLoja/>
@@ -21,7 +46,12 @@ export default function lojaArea () {
                 <BarraFilto/>
                 
                 <div className='container-jogos'>
-                    <CardJogo/>
+                    <CardJogo jogos={currentJogos} loading={loading}/>
+                    <Pagination 
+                        jogoPorPage={jogoPorPage} 
+                        totalJogos={jogos.length} 
+                        paginate={paginate}
+                    />
                 </div>
             </section>
             <Rodape/>
