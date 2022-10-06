@@ -40,3 +40,7 @@ export async function filtraPlataformaJogo(plataforma){
     const resposta = await api.get ('/jogo/filtro/plataforma')
     return resposta.data
 }
+
+export function buscarImagem(imagem) {
+    return `${api.getUri()}/${imagem}`
+}
