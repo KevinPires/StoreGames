@@ -152,16 +152,12 @@ server.get('/:id', async (req, resp) => {
 
 // Filtra jogo
 
-server.get('/filtro', async (req, resp) => {
+server.post('/filtro/filtrar', async (req, resp) => {
     try {
-        const filtro = req.body;
-        console.log(req)
-        const resp = await filtroGeneroJogo(filtro);
-
-        resp.send(resp)
-        
+        const { filtro } = req.body;
+        const resposta = await filtroGeneroJogo(filtro);
+        resp.status(200).send(resposta);
     } catch (err) {
-        console.log(err)
         resp.status(404).send({
             erro: err.message
         })
