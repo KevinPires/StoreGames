@@ -136,9 +136,9 @@ export async function removerJogo(id){
 
 
 // alterar jogo
-export async function alterarJogo(id, jogo){
+export async function alterarJogo(id, infoJogo){
     const comando = 
-    `update TB_JOGO
+    `UPDATE TB_JOGO
          set NM_JOGO = ?,
          VL_JOGO = ?,
          DS_JOGO = ?,
@@ -149,13 +149,13 @@ export async function alterarJogo(id, jogo){
     where ID_JOGO = ?; `
 
     const [resposta] = await con.query(comando, 
-        [   jogo.nome, 
-            jogo.valor, 
-            jogo.descricao, 
-            jogo.estoque, 
-            jogo.requisitos, 
-            jogo.disponivel,
-            jogo.maisvendido, 
+        [   infoJogo.nome, 
+            infoJogo.valor, 
+            infoJogo.descricao, 
+            infoJogo.estoque, 
+            infoJogo.requisitos, 
+            infoJogo.disponivel,
+            infoJogo.maisvendido, 
             id
         ]);
     return resposta.affectedRows;

@@ -48,33 +48,39 @@ server.get('/cadastro/:id', async (req, resp) => {
 
 
 
-server.put('/cadastro/:id' ,async (req, resp) => {
+server.put('/cadastro/:id', async (req, resp) => {
     try {
-        const {id} = req.params;
+
+        const id = req.params.id; 
         const infoJogo = req.body;
 
-        // Removendo genêro e jogo
-        const r = await removerGeneroJogo(id)
-        const r2 = await removerPlataformaJogo(id)
+        console.log(id)
+        console.log(infoJogo)
+        // Removendo genêro e plataforma
+        await removerGeneroJogo(id);
+        await removerPlataformaJogo(id);
 
         //Alterando dados da tb_produto
-        const jogoID = await alterarJogo(id, jogo);
-        if (resposta != 1)
-        throw new Error ('jogo não pode ser alterado');
+        const jogoID = await alterarJogo(id, infoJogo);
         
         for (const idGenero of infoJogo.generos) {
             const cat = await buscarGeneroPorId(idGenero);
-
+           
             if (cat != undefined)
-            await inserirGeneroJogo(jogoID, idGenero)
+            await inserirGeneroJogo(jogoID, idGenero);
         }
+        
+
         for (const idPlataforma of infoJogo.plataformas) {
-            const pla = await buscarPlataformaporID(idPlataforma)
+            const pla = await buscarPlataformaporID(idPlataforma);
 
             if(pla != undefined) 
-            await inserirPlataformaJogo(jogoID, idPlataforma)
+            await inserirPlataformaJogo(jogoID, idPlataforma);
         }
-        resp.status(204).send();
+
+        
+       
+        resp.status(204).send(jogoID.toString());
     } catch (err) {
         resp.status(400).send({
             erro: err.message
