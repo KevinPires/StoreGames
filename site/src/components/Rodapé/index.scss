@@ -53,6 +53,8 @@
     
     .coluna-1{
         color: white;
+        width: 80px;
+        margin-top: 5px;
         
     }
 
@@ -143,6 +145,13 @@
         transform: scale(1.1);
     }
 
+    .links{
+        text-decoration: none;
+    }
+    .links:hover{
+        color: red;
+        text-decoration: none;
+    }
+
     
 }
-

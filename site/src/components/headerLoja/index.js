@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import '../../../src/common/common.scss'
 import { listarTodosJogos, listarTodosJogosPorNome } from '../../api/jogos'
 
@@ -36,9 +37,9 @@ export default function HeaderLoja () {
 
                 <section className="containerCategoria">
                     <li className='listaOpcoes'>
-                        <p>Loja</p>
+                        <Link to='/jogos'>Loja</Link>
                         <p>Categorias</p>
-                        <p>Suporte</p>
+                       <Link to='/jogos'>Suporte</Link>
                         <p>Área do Usuario</p>
                     </li>
                 </section>
