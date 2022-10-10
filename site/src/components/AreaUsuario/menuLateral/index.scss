@@ -6,8 +6,21 @@
     background-color: white;
 
     .format-botao {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
         height: 25%;
         background-color: rgb(255, 255, 255);
-        border: 1px solid black;
+    }
+    .format-botao:hover {
+        background-color: #E74C3C;
+    }
+    .format-botao > img {
+        width: 10%;
+        height: 25%;
+    }
+
+    span {
+        width: 30%;
     }
 }
