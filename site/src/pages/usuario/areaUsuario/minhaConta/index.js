@@ -11,7 +11,7 @@ export default function AreaLoja () {
         <main className='usuario-page'>
 
             <HeaderLoja/>
-
+ 
             <section className="container-user">
                 <div className="options">
                     <OptionsUser/>  
