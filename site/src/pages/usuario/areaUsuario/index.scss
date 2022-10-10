@@ -1,0 +1,67 @@
+.usuario-page {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    .flexboxrow {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .flexboxcolumn {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .options {
+        width: 25%;
+        background-color: rgb(162, 111, 46);
+    }
+
+    .container-user {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: 100%;
+    }
+
+    .box-info {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 0.8rem;
+    }
+
+    .container-informacoes {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        width: 100%;
+        background-color: white;
+        height: 25%;
+        margin-bottom: 0.5rem;
+    }
+
+    .boxusuario {
+        width: 50%;
+        background-color: gray;
+        border: 3px solid;
+       
+    }
+
+    .boxdetalhes {
+        width: 50%;
+        background-color: gray;
+        border: 3px solid;
+        margin-left: 5px;
+    }
+
+    .detalhes {
+        width: 100%;
+        height: 75%;
+        background-color: rgb(96, 98, 98);
+        border: 3px solid black;
+
+    }
+    
+}

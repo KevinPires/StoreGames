@@ -74,9 +74,9 @@ export default function CadastratJogos() {
                 toast('Jogo cadastrado com sucesso');
             }
             else{
-                const valorProduto = Number(valor.replace(',', '.'));
-                const novoJogo = await alterarJogo(id, nome, valorProduto, descricao, estoque, resquisitos, disponivel, maisVendido, genSelecionadas, platSelecionadas);
-                const r = await enviarImagemJogo(id, imagem);
+               const valorProduto = Number(valor.replace(',', '.'));
+               await alterarJogo(id, nome, valorProduto, descricao, estoque, resquisitos, disponivel, maisVendido, genSelecionadas, platSelecionadas);
+               await enviarImagemJogo(id, imagem);
                 
                 toast('Jogo alterado com sucesso');
             }
@@ -288,18 +288,10 @@ export default function CadastratJogos() {
 
                             </section>
                             <section className="faixa-botao" onClick={salvar}><button>Cadastrar Jogo</button></section>
-
                         </section>
                     </section>
-
-
                 </section>
-
-
-
             </div>
-
-
         </main>
 
     )

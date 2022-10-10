@@ -35,6 +35,7 @@ server.post('/', async (req,resp) => {
 
         resp.status(200).send(jogoID.toString());
     } catch (err) {
+        
         resp.status(400).send({
             erro: err.message
         })
