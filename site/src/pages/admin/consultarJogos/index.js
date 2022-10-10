@@ -6,11 +6,15 @@ import { listarTodosJogos, listarTodosJogosPorNome , deletarJogo} from '../../..
 import { useEffect, useState } from 'react';
 import { confirmAlert} from 'react-confirm-alert'
 import {toast} from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
+
 
 export default function ConsultarJogos(){
 
     const [jogos, setJogos] = useState([])
     const [filtro, setFiltro] = useState ('')
+
+    const navigate = useNavigate();
 
     async function carregarTodosJogos(){
         const resp = await listarTodosJogos();
@@ -46,9 +50,11 @@ export default function ConsultarJogos(){
             }
         ]
        })
-
-     
     }
+
+    function alterarJogo(id){
+        navigate(`/admin/cadastro/${id}`);
+      }
 
   return(
     <main className="admin-consultar">
@@ -85,8 +91,7 @@ export default function ConsultarJogos(){
                         <td>{item.disponivel ? 'Sim' : 'Não'}</td>
                         <td>{item.estoque}</td>
                         <td>
-                            <img src='/lapis.png' 
-                            />
+                            <img src='/lapis.png' onClick={() => alterarJogo(item.id)} />
 
 
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

@@ -1,7 +1,7 @@
 import './index.scss'
 import { listarGenero } from '../../../api/generoApi'
 import { listarPlataforma } from '../../../api/plafatormaApi'
-import { alterarJogo, enviarImagemJogo, inserirJogo } from '../../../api/produto'
+import { alterarJogo, buscarImg, enviarImagemJogo, inserirJogo } from '../../../api/produto'
 
 import { toast, ToastContainer } from 'react-toastify' 
 import { useEffect, useState } from 'react'
@@ -51,11 +51,11 @@ export default function CadastratJogos() {
         if (!id) return;
 
         const resposta = await buscarJogoPorId(id);
-        console.log(resposta.info.estoque);
         setIdJogo(resposta.info.id);
         setNome(resposta.info.nome);
         setValor(resposta.info.valor);
         setDescricao(resposta.info.descricao);
+        setImagem(resposta.info.imagem);
         setEstoque(resposta.info.estoque);
         setResquisitos(resposta.info.requisitos);
         setDisponivel(resposta.info.disponivel);
@@ -64,9 +64,13 @@ export default function CadastratJogos() {
         setPlatSelecionadas(resposta.plataforma)
     }
 
+ 
+
+
+    // cadastrar e alterar
     async function salvar() {
         try {
-            if (!id) {
+            if (id === 0) {
                 const valorProduto = Number(valor.replace(',', '.'));
                 const novoJogo = await inserirJogo(nome, valorProduto, descricao, estoque, resquisitos, disponivel, maisVendido, genSelecionadas, platSelecionadas);
                 const r = await enviarImagemJogo(novoJogo, imagem);
@@ -76,7 +80,9 @@ export default function CadastratJogos() {
             else{
                 const valorProduto = Number(valor.replace(',', '.'));
                 const novoJogo = await alterarJogo(id, nome, valorProduto, descricao, estoque, resquisitos, disponivel, maisVendido, genSelecionadas, platSelecionadas);
-                const r = await enviarImagemJogo(id, imagem);
+                console.log(id);
+                if (typeof(imagem) === 'object');    
+                const r = await enviarImagemJogo(novoJogo, imagem);
                 
                 toast('Jogo alterado com sucesso');
             }
@@ -91,7 +97,7 @@ export default function CadastratJogos() {
     }
 
     function buscarNomePlataforma(id) {
-        const plat = plataformas.find(item => item.id == id);
+        const plat = plataformas.find(item => item.id === id);
         return plat.plataforma;
     }
 
@@ -101,7 +107,7 @@ export default function CadastratJogos() {
        }
         
         
-        if (!platSelecionadas.find(item => item == idPlataforma)) {
+        if (!platSelecionadas.find(item => item === idPlataforma)) {
             const plataformas = [...platSelecionadas, idPlataforma];
             setPlatSelecionadas(plataformas);
         }
@@ -109,13 +115,13 @@ export default function CadastratJogos() {
     }
 
     function removerPlataforma(id) {
-        const x =platSelecionadas.filter(item => item != id);
+        const x =platSelecionadas.filter(item => item !== id);
         setPlatSelecionadas(x);
     }
 
 
     function BuscarNomeGenero(id) {
-        const gen = generos.find(item => item.id == id);
+        const gen = generos.find(item => item.id === id);
         return gen.genero;
     }
 
@@ -125,14 +131,14 @@ export default function CadastratJogos() {
            }
         
         
-        if (!genSelecionadas.find(item => item == idGenero)) {
+        if (!genSelecionadas.find(item => item === idGenero)) {
             const generos = [...genSelecionadas, idGenero];
             setGenSelecionadas(generos);
         }
     }
 
     function removerGenero(id) {
-        const x =genSelecionadas.filter(item => item != id);
+        const x =genSelecionadas.filter(item => item !== id);
         setGenSelecionadas(x);
     }
 
@@ -150,7 +156,13 @@ export default function CadastratJogos() {
     }
 
     function mostrarImagem() {
-        return URL.createObjectURL(imagem)
+        if (typeof (imagem) === 'object') {
+            return URL.createObjectURL(imagem)
+        }
+        else {
+            return buscarImg(imagem);
+        }
+       
     }
     return (
 

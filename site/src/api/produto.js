@@ -29,3 +29,8 @@ export async function enviarImagemJogo(id, imagem){
 
     return resposta.status;
 }
+
+export function buscarImg(imagem) {
+
+    return `${api.getUri()}/${imagem}`
+}

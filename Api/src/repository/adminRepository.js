@@ -20,6 +20,7 @@ export async function  buscarJogoPorId(id){
         NM_JOGO                     as nome,                                                       
         VL_JOGO                     as valor,
         DS_JOGO                     as descricao,
+        IMG_CAPA                    as imagem,
         QTD_ESTOQUE                 as estoque,
         DS_REQUISITOS               as requisitos,
         BL_DISPONIVEL               as disponivel,

@@ -62,6 +62,7 @@ export async function alterarImagem(imagem, id) {
     return resposta.affectedRows
 }
 
+
 //listar todos
 export async function listarTodosJogos() {
     const comando =
