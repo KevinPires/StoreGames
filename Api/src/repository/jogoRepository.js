@@ -39,13 +39,13 @@ export async function inserirPlataformaJogo(ID_JOGO, ID_PLATAFORMA) {
 }
 
 //inserir gênero
-export async function inserirGeneroJogo(ID_JOGO, ID_GENERO) {
+export async function inserirGeneroJogo(FK_JOGO, FK_GENERO) {
     const comando = 
     `
     INSERT INTO TB_GENERO_JOGO (FK_JOGO, FK_GENERO)
 					     VALUES(?, ?);
     `
-    const [resposta] = await con.query(comando, [ID_JOGO, ID_GENERO] )
+    const [resposta] = await con.query(comando, [FK_JOGO, FK_GENERO] )
     return resposta[0]
     
 }
