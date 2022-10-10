@@ -13,7 +13,7 @@ import CadastroUsuario from './pages/usuario/cadastroUsuario'
 import LandingPage from './pages/usuario/landingPage'
 import LojaArea from './pages/loja/areaDaLoja'
 import GuiaRodape from './pages/loja/GuiaRodape'
-import AreaUsuario from './pages/usuario/areaUsuario'
+import AreaUsuario from './pages/usuario/areaUsuario/minhaConta'
 
 //Nâo apagar o segundo AdminCadastro, ele faz parte do alterar
 

@@ -1,8 +1,9 @@
-import '../../../common/common.scss'
+import '../../../../common/common.scss'
+import OptionsUser from '../../../../components/AreaUsuario/menuLateral'
+import HeaderLoja from '../../../../components/headerLoja'
+import Rodape from '../../../../components/Rodapé'
 import './index.scss'
-import OptionsUser from '../../../components/AreaUsuario/menuLateral'
-import HeaderLoja from '../../../components/headerLoja'
-import Rodape from '../../../components/Rodapé'
+
 
 export default function AreaLoja () {
 
