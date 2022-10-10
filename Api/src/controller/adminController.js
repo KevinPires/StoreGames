@@ -52,7 +52,7 @@ server.put('/cadastro/:id', async (req, resp) => {
     try {
 
         const id = req.params.id; 
-        const infoJogo = req.body;
+        const jogo = req.body;
         
         
         // Removendo genêro e plataforma
@@ -60,26 +60,26 @@ server.put('/cadastro/:id', async (req, resp) => {
         await removerPlataformaJogo(id);
 
         //Alterando dados da tb_produto
-        const jogoID = await alterarJogo(id, infoJogo);
+        await alterarJogo(id, jogo);
        
-        for (const idGenero of infoJogo.genero) {
+        for (const idGenero of jogo.genero) {
             const cat = await buscarGeneroPorId(idGenero);
             
             if (cat != undefined)
-            await inserirGeneroJogo(jogoID, idGenero);
+            await inserirGeneroJogo(id, idGenero);
         }
         
 
-        for (const idPlataforma of infoJogo.plataformas) {
-            const pla = await buscarPlataformaporID(idPlataforma);
+        for (const idPlataforma of jogo.plataforma) {
+            const pla = await buscarGeneroPorId(idPlataforma);
 
             if(pla != undefined) 
-            await inserirPlataformaJogo(jogoID, idPlataforma);
+            await inserirPlataformaJogo(id, idPlataforma);
         }
 
         
        
-        resp.status(204).send(jogoID);
+        resp.status(204).send();
     } catch (err) {
         console.log(err)
         resp.status(400).send({
