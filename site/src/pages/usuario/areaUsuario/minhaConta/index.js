@@ -44,8 +44,8 @@ export default function AreaLoja () {
                             </div>
 
                             <div className="flexboxcolumn">
-                                <b for='cep'>Nome: </b> <span id='cep'>Luan Reinhold</span>
-                                <b for='nascimento'>Endereço: </b> <span id='nascimento'>Rua Aneis de Netuno</span>
+                                <b for='cep'>Cep: </b> <span id='cep'>048992-390</span>
+                                <b for='nascimento'>Nascimento: </b> <span id='nascimento'>10/10/1997</span>
                             </div>
                         </div>
                             <h1>Informações da Conta:</h1>

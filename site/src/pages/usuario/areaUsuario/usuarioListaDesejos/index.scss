@@ -1,0 +1,86 @@
+.usuario-page-desejos {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    .flexboxrow {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .flexboxcolumn {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    .options {
+        width: 25%;
+        height: 100%;
+    }
+
+    .container-user {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: 100%;
+    }
+
+    .box-info {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 0.8rem;
+    }
+
+    .detalhes {
+        overflow: auto;
+        padding: 1em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        height: 80vh;
+        background-color: #DDDDDD;
+        border: 1px solid #767676;
+    }
+
+    .item-lista-desejos {
+        margin-top: 1em;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 95%;
+        background-color: white;
+        padding: 1em;
+        border: 1px solid #767676;
+    }
+
+    .descricao {
+        width: 50%;
+        font-size: 0.9rem;
+    }
+
+    .info {
+        font-size: 0.9rem
+    }
+
+    #user-icon {
+        width: 20%;
+    }
+    h1 {
+        font-size: 1.5rem;
+    }
+    button {
+        padding: 1rem 2rem;
+        background-color: #E74C3C;
+        border: none;
+        border-radius: 20px;
+    }
+    button:hover{
+        cursor: pointer;
+    }
+}

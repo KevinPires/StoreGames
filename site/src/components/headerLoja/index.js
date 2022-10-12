@@ -23,14 +23,14 @@ export default function HeaderLoja () {
         <main className="Header">
 
                 <section className="containerPesquisa">
-                    <img id="formatLogo" src="./logo.png" alt="logo" />
+                    <img id="formatLogo" src="/logo.png" alt="logo" />
 
                     <section className="input-Pesquisa" >   
                         <input type="text" placeholder='Pesquisar Jogo' className='input-pesquisa-format' value={texto} onChange={e => setTexto(e.target.value)} />
                     </section>
                     
                     <div className="boxUsuario">
-                        <img id='svgIcon' src="./Icon.svg" alt="iconUser" />
+                        <img id='svgIcon' src="/Icon.svg" alt="iconUser" />
                         <span>Bem vindo, Fulano <a>Minha Conta</a> | <a>Sair</a></span>
                     </div>
                 </section>
