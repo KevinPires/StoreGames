@@ -1,4 +1,4 @@
-.usuario-page-desejos {
+.usuario-page-pedidos {
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -35,6 +35,23 @@
         padding: 0.8rem;
     }
 
+    .box-select {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+    }
+
+    option {
+        width: 10%;
+    }
+
+    select {
+        width: 10%;
+        margin-left: 10px;
+        height: 1.3rem;
+    }
+
     .detalhes {
         overflow: auto;
         padding: 1em;
@@ -47,7 +64,7 @@
         border: 1px solid #767676;
     }
 
-    .item-lista-desejos {
+    .item-lista-pedidos {
         margin-top: 1em;
         display: flex;
         flex-direction: row;
@@ -57,6 +74,8 @@
         background-color: white;
         padding: 1em;
         border: 1px solid #767676;
+        border-radius: 5px;
+        height: 7rem;
     }
 
     .descricao {
@@ -67,10 +86,7 @@
     .info {
         font-size: 0.9rem
     }
-    #capa-wishlist {
-        width: 15%;
-        height: 12rem;
-    }
+
     #user-icon {
         width: 20%;
     }
@@ -78,8 +94,14 @@
         font-size: 1.5rem;
     }
     button {
-        padding: 1rem 2rem;
-        background-color: #E74C3C;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-size: 1rem;
+        width: 6rem;
+        height: 3rem;
+        background-color: #323A45;
         border: none;
         border-radius: 20px;
     }

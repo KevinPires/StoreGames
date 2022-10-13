@@ -22,7 +22,7 @@ export default function AreaLoja () {
                     <section className="detalhes">
 
                         <div className='item-lista-desejos'>
-                            <img src='/capagta.jpg' alt='capa'/>
+                            <img id='capa-wishlist' src='/capagta.jpg' alt='capa'/>
                             <div className='flexboxcolumn'>
                                 <span className='info'>Nome Jogo</span>
                                 <span className='info'>Multpiplataforma</span>
