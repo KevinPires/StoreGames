@@ -52,6 +52,30 @@ export default function GuiaRodape(){
                     <p className='info'>A Store Games tem o objetivo de facilitar a entrada de produtoras e desenvolvedores em mercados locais de jogos, com um custo menor do que o praticado em qualquer loja física.</p>
                     <p className='info'> Desenvolvedores de todos os portes e do mundo todo, podem apresentar e vender suas criações para o nosso público.</p>
                 </section>
+
+                <section className='conteiner-rodape-4'>
+                    <div > <h1 className='titulo-rodape'>Como funciona?</h1></div>
+
+                    <div className='subconteiner-2'>
+                        <div className='div1'>
+                            <img  className='imgs' src='/imagem5.png' alt='img'></img>
+                            <p className='guia'>Adicione os games ao carrinho e pague com toda a segurança.</p>
+                        </div>
+
+                        <div className='div1'>
+                            <img  className='imgs' src='/imagem6.png' alt='img'></img>
+                            <p className='guia'>Vá para a sua conta para acessar seus jogos.</p>
+                        </div>
+
+                        <div className='div1'>
+                            <img className='imgs' src='/imagem7.png' alt='img'></img>
+                            <p className='guia'>Instale seu game no seu computador e comece a jogar!</p>
+                        </div>
+                    </div>
+
+                    <h1 className='desc'>Compre e reúna os melhores games em um único lugar, com praticidade, rapidez e sem gastar muito! Procure, descubra, tenha a seu alcance os títulos das maiores produtoras do mundo e os principais lançamentos indies.</h1>
+
+                </section>
                    
 
                    

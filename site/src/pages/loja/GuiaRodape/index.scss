@@ -7,7 +7,7 @@
         display: flex;
         flex-direction: row;
         align-items: center;
-        justify-content: start;
+        justify-content: center;
         background-image: url("../../../../public/imagem-guia-rodape.jpg");
         padding: 2em;
     }
@@ -73,9 +73,50 @@
         padding: 1em;
         font-size: 30px;
     }
+
+    .conteiner-rodape-4{
+        display: flex;
+        flex-direction: column;
+        padding: 2em;
+        background-color: #596677;
+        align-items: center;
+    }
+
+    .titulo-rodape{
+        color:  white;
+        font-size: 29px;
+    }
+
+    .subconteiner-2{
+        display: flex;
+        flex-direction: row;
+       align-items: center;
+        justify-content: center;
+        padding: 1em;
+    }
+
+    .div1{
+        display: flex;
+        flex-direction: column;
+        padding: 1.5em;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .imgs{
+        height: 200px;
+        width: 200px;
+    }
+
+    .guia{
+        color: white;
+        margin-top: 1em;
+        font-size: 20px;
+    }
 }
 
 *{
-   // border: solid 1px black;
+    border: solid 1px black;
 }
 
