@@ -114,6 +114,43 @@
         margin-top: 1em;
         font-size: 20px;
     }
+
+    .desc{
+     color: white;
+     width: 55%;
+     text-align: center;
+     margin-top: 3%;
+    }
+
+    .conteiner-final{
+        padding: 2em;
+        background-color: #323A45;
+        display: flex;
+        flex-direction: column;
+        
+    }
+
+    .text-h1{
+        color: white;
+        text-align: center;
+        padding: 1em;
+    }
+
+    .subcont-final{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 3%;
+    }
+
+    .redes{
+        color: white;
+        width: 355px;
+        padding: 0.2em;
+    }
 }
 
+*{
+   // border: solid 1px black;
+}
 

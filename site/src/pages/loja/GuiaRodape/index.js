@@ -77,7 +77,28 @@ export default function GuiaRodape(){
 
                 </section>
                    
+               <section className='conteiner-final'>
+                <h1 className='text-h1'>Tem dúvidas? Você pode obter muito mais informações com nossos contatos:</h1>
+                <hr/>
+                <div className='subcont-final'>
 
+                    <div className='colum1'>
+                        <img src='/logoOrigin.png' alt='k'></img>
+                    </div>
+
+                    <div className='colum2'>
+                     <p className='redes'>Whatsapp:  (11) 5662-2731</p>
+                     <p className='redes'>Facebook:  www.facebook.com/StoreGames</p>
+                     <p className='redes'>Twitter:  www.twitter.com/@StoreGames</p>
+                    </div>
+
+                    <div className='colum3'>
+                     <p className='redes'>Email: storegames@gmail.com</p>
+                     <p className='redes'> Rua Lauro Müller - Rio de Janeiro </p>
+                     <p className='redes'>Telefone: 4002-8622</p>
+                    </div>
+                </div>
+               </section>
                    
 
                 

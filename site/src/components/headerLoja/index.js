@@ -39,8 +39,8 @@ export default function HeaderLoja () {
                     <li className='listaOpcoes'>
                         <Link to='/jogos'>Loja</Link>
                         <p>Categorias</p>
-                       <Link to='/jogos'>Suporte</Link>
-                        <p>Área do Usuario</p>
+                       <Link to='/ajuda'>Suporte</Link>
+                       <Link to='/usuario'>Area do usuario</Link>
                     </li>
                 </section>
             
