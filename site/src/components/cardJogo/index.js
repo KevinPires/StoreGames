@@ -23,9 +23,11 @@ export default function CardJogo ({jogos, loading}) {
             {jogos.map (jogo => 
                 <section className="BoxCard" >
                         <img src={buscarImagem(jogo.capa)} alt="imagem Jogo" />
+                       <div className='info-jogo'>
+                            <h4>{jogo.nome}</h4>
+                            <span id='card-preco'>R${jogo.valor}</span>
+                       </div>
                        
-                        <h4>{jogo.nome}</h4>
-                        <span id='card-preco'>R${jogo.valor}</span>
                 </section>
             )}
         </main>

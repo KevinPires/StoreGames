@@ -7,6 +7,8 @@ import { Link } from 'react-router-dom';
 import {loginUsuario} from '../../../api/usuario';
 import { useNavigate } from 'react-router-dom';
 
+import Storage from 'local-storage'
+
 
 
 export default function LoginUsuario (){
@@ -23,7 +25,7 @@ export default function LoginUsuario (){
         setCarrengando(true)
         try {
             const r = await loginUsuario(email, senha);
-
+            Storage(' usuario logado', r )
             if( r.status === 401){
                 setErro(r.data.erro)
             }else{

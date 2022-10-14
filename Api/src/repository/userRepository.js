@@ -68,12 +68,12 @@ export async function verificarCpf(cpf){
 
 export async function loginUsuario(email, senha){
     const comando = `
-        select  id_usuario_login     id,
-                ds_email          email,
-                ds_senha          senha
-          from  TB_USUARIO_LOGIN
-         where  ds_email           = ?
-           and  ds_senha           = ?
+    select  TB_USUARIO_LOGIN.ID_USUARIO				ID,
+            NM_USUARIO								NOME
+    FROM TB_USUARIO 
+    INNER JOIN TB_USUARIO_LOGIN ON TB_USUARIO_LOGIN.ID_USUARIO = TB_USUARIO.ID_USUARIO
+    WHERE ds_email = ?
+    and   ds_senha = ?
     `
 
     const [ linhas ] = await con.query(comando, [email, senha])
