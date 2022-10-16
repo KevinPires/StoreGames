@@ -54,7 +54,7 @@ export async function inserirGeneroJogo(FK_JOGO, FK_GENERO) {
 //alterar imagem
 export async function alterarImagem(imagem, id) {
     const comando = 
-    `update TB_JOGO  
+       `update TB_JOGO  
             set img_capa  = ?
         where id_jogo = ?`;
 
