@@ -52,8 +52,53 @@ export default function GuiaRodape(){
                     <p className='info'>A Store Games tem o objetivo de facilitar a entrada de produtoras e desenvolvedores em mercados locais de jogos, com um custo menor do que o praticado em qualquer loja física.</p>
                     <p className='info'> Desenvolvedores de todos os portes e do mundo todo, podem apresentar e vender suas criações para o nosso público.</p>
                 </section>
-                   
 
+                <section className='conteiner-rodape-4'>
+                    <div > <h1 className='titulo-rodape'>Como funciona?</h1></div>
+
+                    <div className='subconteiner-2'>
+                        <div className='div1'>
+                            <img  className='imgs' src='/imagem5.png' alt='img'></img>
+                            <p className='guia'>Adicione os games ao carrinho e pague com toda a segurança.</p>
+                        </div>
+
+                        <div className='div1'>
+                            <img  className='imgs' src='/imagem6.png' alt='img'></img>
+                            <p className='guia'>Vá para a sua conta para acessar seus jogos.</p>
+                        </div>
+
+                        <div className='div1'>
+                            <img className='imgs' src='/imagem7.png' alt='img'></img>
+                            <p className='guia'>Instale seu game no seu computador e comece a jogar!</p>
+                        </div>
+                    </div>
+
+                    <h1 className='desc'>Compre e reúna os melhores games em um único lugar, com praticidade, rapidez e sem gastar muito! Procure, descubra, tenha a seu alcance os títulos das maiores produtoras do mundo e os principais lançamentos indies.</h1>
+
+                </section>
+                   
+               <section className='conteiner-final'>
+                <h1 className='text-h1'>Tem dúvidas? Você pode obter muito mais informações com nossos contatos:</h1>
+                <hr/>
+                <div className='subcont-final'>
+
+                    <div className='colum1'>
+                        <img src='/logoOrigin.png' alt='k'></img>
+                    </div>
+
+                    <div className='colum2'>
+                     <p className='redes'>Whatsapp:  (11) 5662-2731</p>
+                     <p className='redes'>Facebook:  www.facebook.com/StoreGames</p>
+                     <p className='redes'>Twitter:  www.twitter.com/@StoreGames</p>
+                    </div>
+
+                    <div className='colum3'>
+                     <p className='redes'>Email: storegames@gmail.com</p>
+                     <p className='redes'> Rua Lauro Müller - Rio de Janeiro </p>
+                     <p className='redes'>Telefone: 4002-8622</p>
+                    </div>
+                </div>
+               </section>
                    
 
                 

@@ -63,31 +63,25 @@ export default function CadastratJogos() {
         setGenSelecionadas(resposta.genero);
         setPlatSelecionadas(resposta.plataforma)
     }
-
- 
-
-
     // cadastrar e alterar
     async function salvar() {
         try {
-            if (id === 0) {
-                const valorProduto = Number(valor.replace(',', '.'));
-                const novoJogo = await inserirJogo(nome, valorProduto, descricao, estoque, resquisitos, disponivel, maisVendido, genSelecionadas, platSelecionadas);
+           
+            if (!id) {
+                const novoJogo = await inserirJogo(nome, valor, descricao, estoque, resquisitos, disponivel, maisVendido, genSelecionadas, platSelecionadas);
                 const r = await enviarImagemJogo(novoJogo, imagem);
                
                 toast('Jogo cadastrado com sucesso');
             }
             else{
-                const valorProduto = Number(valor.replace(',', '.'));
-                const novoJogo = await alterarJogo(id, nome, valorProduto, descricao, estoque, resquisitos, disponivel, maisVendido, genSelecionadas, platSelecionadas);
-                console.log(id);
+                const novoJogo = await alterarJogo(id, nome, valor, descricao, estoque, resquisitos, disponivel, maisVendido, genSelecionadas, platSelecionadas);
+              
                 if (typeof(imagem) === 'object');    
-                const r = await enviarImagemJogo(novoJogo, imagem);
+                const r = await enviarImagemJogo(id, imagem);
                 
                 toast('Jogo alterado com sucesso');
             }
 
-            
         }
         catch (err) {
            //toast.error(err.response.data.erro)
@@ -144,11 +138,9 @@ export default function CadastratJogos() {
 
     useEffect(() => {
         carregarGenero()
-        console.log(1)
-        carregarPlataformas()
-        console.log(2)
+        carregarPlataformas() 
         carregarJogo()
-        console.log(3)
+        
     }, [])
 
     function escolherImagem() {
@@ -193,7 +185,7 @@ export default function CadastratJogos() {
                                 <div className="labelInput">
                                     <label htmlFor="">Genero:</label>
                                     <select value={idGenero} name="generos" id="generos" onChange={e => setIdGenero(Number(e.target.value))}>
-                                        <option disabled hidden> Selecione </option>
+                                        <option > Selecione </option>
 
                                         {generos.map(genero =>
                                             <option key={genero.id} value={genero.id}>{genero.genero}</option>
@@ -220,7 +212,7 @@ export default function CadastratJogos() {
                                 <div className="labelInput">
                                     <label htmlFor="">Plataforma:</label>
                                     <select value={idPlataforma} name="generos" id="generos" onChange={e => setIdPlataforma(Number(e.target.value))}>
-                                        <option disabled hidden> Selecione </option>
+                                        <option> Selecione </option>
                                         {plataformas.map(item =>    
                                            <option 
                                                 key={item.id}

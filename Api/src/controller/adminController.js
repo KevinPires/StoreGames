@@ -62,7 +62,7 @@ server.put('/cadastro/:id', async (req, resp) => {
         //Alterando dados da tb_produto
         await alterarJogo(id, jogo);
        
-        for (const idGenero of jogo.genero) {
+        for (const idGenero of jogo.generos) {
             const cat = await buscarGeneroPorId(idGenero);
             
             if (cat != undefined)
@@ -70,7 +70,7 @@ server.put('/cadastro/:id', async (req, resp) => {
         }
         
 
-        for (const idPlataforma of jogo.plataforma) {
+        for (const idPlataforma of jogo.plataformas) {
             const pla = await buscarGeneroPorId(idPlataforma);
 
             if(pla != undefined) 
