@@ -77,13 +77,16 @@
     h1 {
         font-size: 1.5rem;
     }
-    button {
+    .botao {
         padding: 1rem 2rem;
         background-color: #E74C3C;
         border: none;
         border-radius: 20px;
+        text-decoration: none;
+        color: black;
     }
-    button:hover{
+    .botao:hover{
         cursor: pointer;
+        color: white;
     }
 }

@@ -2,7 +2,7 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    //align-items: center;
+    
     background-color: #323A45;
     padding-top: 2em;
 
@@ -55,7 +55,7 @@
         color: white;
         width: 80px;
         margin-top: 5px;
-        
+        text-decoration: none;
     }
 
     .tamanho{
@@ -147,10 +147,11 @@
 
     .links{
         text-decoration: none;
+        color: white;
+        
     }
     .links:hover{
         color: red;
-        text-decoration: none;
     }
 
     
