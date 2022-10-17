@@ -79,3 +79,25 @@ export async function loginUsuario(email, senha){
     const [ linhas ] = await con.query(comando, [email, senha])
     return linhas[0];
  }
+
+ export async function VisualizarInfoUser (id) {
+    const comando = 
+    `
+        SELECT 
+        U.ID_USUARIO 		AS ID,
+        U.NM_USUARIO 		AS NOME,
+        U.DS_CEP	 		AS CEP,
+        U.DS_NASCIMENTO 	AS NASCIMENTO,
+        U.DS_CPF			AS CPF,
+        UL.ID_USUARIO_LOGIN AS IDUL,
+        UL.DS_EMAIL			AS EMAIL,
+        UL.DS_SENHA			AS SENHA
+        FROM TB_USUARIO U
+        LEFT JOIN TB_USUARIO_LOGIN UL
+        ON U.ID_USUARIO = UL.ID_USUARIO_LOGIN
+        WHERE U.ID_USUARIO = 2;
+    
+    `
+    const resposta = con.query(comando, [id])
+    return resposta[0]
+ }
