@@ -15,6 +15,7 @@ import GuiaRodape from './pages/loja/GuiaRodape'
 import AreaUsuario from './pages/usuario/areaUsuario/minhaConta'
 import UserListaDesejos from './pages/usuario/areaUsuario/usuarioListaDesejos'
 import UserPedidos from './pages/usuario/areaUsuario/usuarioPedidos'
+import DetalhesProduto from './pages/loja/detalhesProduto'
 
 //Nâo apagar o segundo AdminCadastro, ele faz parte do alterar
 
@@ -37,7 +38,7 @@ export default function AppRoutes() {
                 <Route path='/usuario/pedidos' element={<UserPedidos/>} />
                 <Route path='/jogos' element={<LojaArea/>}/> 
                 <Route path='/ajuda' element={<GuiaRodape/>} />
-                 
+                <Route path='/produto' element={<DetalhesProduto/>} />
         </Routes>
     </BrowserRouter>        
     )
