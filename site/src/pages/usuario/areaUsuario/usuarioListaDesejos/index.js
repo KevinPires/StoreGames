@@ -15,7 +15,8 @@ export default function AreaLoja () {
             <section className="container-user">
             
                 <div className="options">
-                    <OptionsUser/>  
+                    <OptionsUser
+                    escolhido='desejo'/>  
                 </div>
 
                 <div className="box-info">

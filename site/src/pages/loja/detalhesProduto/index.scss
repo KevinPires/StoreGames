@@ -1,0 +1,54 @@
+.page-produto{
+    margin: 0;
+    box-sizing: border-box;
+    
+    .display-row{
+        display: flex;
+        flex-direction: row;
+    }
+
+    
+    .box-cima{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        
+        .bloc-img{
+            display: flex;
+            flex-direction: column;
+            max-width: 255px;
+            max-height: 340px;
+        }
+
+        .bloc-info{
+            width: 400px;
+        }
+
+        .bloc-info > div{
+            margin: 15px;
+        }
+
+        .bloc-pagamento{
+            display: flex;
+            flex-direction: column;
+            justify-content: end;
+            
+
+            .card-pagamento{
+                border: 1px solid black;
+                width: 350px;
+                height: 240px;
+                border-radius: 20px;
+                margin-bottom: 20px;
+                padding: 15px;
+
+                .cima-pagamento{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                }
+            }
+        }
+            
+    }
+}
