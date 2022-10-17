@@ -64,9 +64,9 @@ export default function LojaArea () {
                         <section className="containerCategoria">
                             <li className='listaOpcoes'>
                                 <Link to='/jogos'>Loja</Link>
-                                <p>Categorias</p>
-                            <Link to='/jogos'>Suporte</Link>
-                                <p>Área do Usuario</p>
+                                <Link to='/categorias'>Categorias</Link>
+                                <Link to='/ajuda'>Suporte</Link>
+                                <Link to='/usuario'>Área do Usuario</Link>
                             </li>
                         </section>
                     </section>

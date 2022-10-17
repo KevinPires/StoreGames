@@ -39,9 +39,13 @@
         
     }
 
-    .listaOpcoes > p {
+    .listaOpcoes > a {
         color: white;
       cursor: pointer;
+      text-decoration: none;
+    }
+    a:hover{
+        color: red;
     }
 
     #formatLogo {
