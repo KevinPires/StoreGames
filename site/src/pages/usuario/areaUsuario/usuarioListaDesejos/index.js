@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import '../../../../common/common.scss'
 import OptionsUser from '../../../../components/AreaUsuario/menuLateral'
 import HeaderLoja from '../../../../components/headerLoja'
@@ -32,7 +33,7 @@ export default function AreaLoja () {
                             <span className='descricao'>Descrição: Terraria é um jogo eletrônico RPG de ação-aventura independente produzido pela desenvolvedora de jogos Re-Logic.
                             Possui como características a exploração, artesanato, construção de estruturas e combate a monstros perigosos em um mundo 2D gerado proceduralmente </span>
                             <div className='flexboxcolumn'>
-                                <button>Ir Loja</button>
+                                <Link to='/loja' className='botao'>Ir Loja</Link>
                                 <span>Valor</span>
                             </div>
                         </div>
