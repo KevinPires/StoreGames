@@ -68,8 +68,8 @@ export async function verificarCpf(cpf){
 
 export async function loginUsuario(email, senha){
     const comando = `
-    select  TB_USUARIO_LOGIN.ID_USUARIO				ID,
-            NM_USUARIO								NOME
+    select  TB_USUARIO_LOGIN.ID_USUARIO				id,
+            NM_USUARIO								nome
     FROM TB_USUARIO 
     INNER JOIN TB_USUARIO_LOGIN ON TB_USUARIO_LOGIN.ID_USUARIO = TB_USUARIO.ID_USUARIO
     WHERE ds_email = ?
@@ -98,6 +98,6 @@ export async function loginUsuario(email, senha){
         WHERE U.ID_USUARIO = 2;
     
     `
-    const resposta = con.query(comando, [id])
+    const resposta = await con.query(comando, [id])
     return resposta[0]
  }

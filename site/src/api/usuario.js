@@ -26,3 +26,10 @@ export async function cadastrarUsuario(nome, email, senha, cep, nascimento, cpf)
     })
     return r.data
 }
+
+export async function carregarUsuario(id) {
+    const r = await api.get('/user/usuario' , {
+        id : id
+    })
+    return r.data
+}

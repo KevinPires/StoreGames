@@ -25,12 +25,12 @@ export default function LoginUsuario (){
         setCarrengando(true)
         try {
             const r = await loginUsuario(email, senha);
-            Storage(' usuario logado', r )
+            Storage(' usuario-logado', r )
             if( r.status === 401){
                 setErro(r.data.erro)
             }else{
                 setTimeout(()=>{
-                    navigate('/jogos')
+                    navigate('/usuario')
                 }, 3000)
             }
 
