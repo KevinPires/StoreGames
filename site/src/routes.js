@@ -17,6 +17,8 @@ import UserListaDesejos from './pages/usuario/areaUsuario/usuarioListaDesejos'
 import UserPedidos from './pages/usuario/areaUsuario/usuarioPedidos'
 import DetalhesProduto from './pages/loja/detalhesProduto'
 
+import CarrinhoCompras from './pages/carrinhoCompras/carrinho'
+
 //Nâo apagar o segundo AdminCadastro, ele faz parte do alterar
 
 export default function AppRoutes() {
@@ -39,6 +41,7 @@ export default function AppRoutes() {
                 <Route path='/jogos' element={<LojaArea/>}/> 
                 <Route path='/ajuda' element={<GuiaRodape/>} />
                 <Route path='/produto' element={<DetalhesProduto/>} />
+                <Route path='/carrinho' element={<CarrinhoCompras/>} />
         </Routes>
     </BrowserRouter>        
     )

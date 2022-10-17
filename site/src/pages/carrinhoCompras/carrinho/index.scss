@@ -1,0 +1,101 @@
+.carrinho-page {
+    height: 85vh;
+    background-color: #EDEDED;
+
+    .flexboxrow {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .flexboxcolumn {
+        display: flex;
+        flex-direction: column;
+    }
+    .faixa-carrinho {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    .faixa-imagens {
+        
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 30%;
+    }
+
+    .faixa-items {
+    
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+        background-color: #EDEDED;
+        height: 100%;
+    }
+
+    .box-jogos {
+        border: 2px solid #767676;
+        overflow: auto;
+        display: flex;
+        flex-direction: column;
+        height: 16.5rem;
+    }
+    .wrapcolumn {
+        overflow: auto;
+        flex-wrap: wrap;
+    }
+
+    .jogo {
+        padding: 1em;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+        background-color: white;
+        width: 48rem;
+        height: 16.5rem;
+    }
+
+    .box-quantidade {
+        width: 15%;
+    }
+
+
+    .box-info {
+        border: 2px solid #767676;
+        padding: 1em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+
+        background-color: white;
+        width: 20%;
+        height: 60%;
+    }
+
+    button:hover {
+        cursor: pointer;
+    }
+
+    input {
+        margin-right: 15px;
+        height: 1.5rem;
+        width: 3rem;
+    }
+    button {
+        border-radius: 5px;
+        height: 3rem;
+        width: 10rem;
+        background-color: #5E80C2;
+        border: none;
+        color: white;
+    }
+
+    #capa {
+        height: 80%;
+        width: 10rem;
+    }
+}
