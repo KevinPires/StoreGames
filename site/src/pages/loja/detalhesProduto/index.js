@@ -3,33 +3,47 @@ import HeaderLoja from '../../../components/headerLoja'
 import Rodape from '../../../components/Rodapé'
 import { useParams } from 'react-router-dom';
 import { detalheJogo } from '../../../api/jogos';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import CadastratJogos from '../../admin/cadastrarJogos';
+import { API_URL } from '../../../api/config';
 
 
 export default function DetalhesProduto(){
 
-    const [jogo, setJogo] =  useState()
+    const [jogo, setJogo] =  useState([])
     const { id } = useParams();
 
 
     async function carregarDetalhes () {
-        const detalhes = detalheJogo(id)
-
+        const detalhes = await detalheJogo(id)
+        setJogo(detalhes)
+        console.log(detalhes)
     }
+
+    function carregarImagem () {
+        return API_URL + '/' + jogo.imagem
+    }
+
+    useEffect(() => {
+
+        carregarDetalhes()
+        
+
+    }, [])
 
     return(
         <main className='page-produto'>
             <HeaderLoja/>
             <div className='box-cima'>
                 <div className='bloc-img'>
-                    <img src='/Imagem GTA.png' alt=''/>
+                    <img src={carregarImagem()} alt=''/>
                     <div className='favorito'>
                         <img src='/coracaoIcon.png' alt='' />
                         <p>Adiciona aos <br/>favoritos</p>
                     </div>
                 </div>
                 <div className='bloc-info'>
-                    <h1>Grand Theft Auto V</h1>
+                    <h1>{jogo.nome}</h1>
                     <div className='display-row'>
                         <div style={{marginRight : "60px"}}>
                             <h4>Plataforma:</h4> 
@@ -42,11 +56,11 @@ export default function DetalhesProduto(){
                     </div>
                     <div>
                         <h4>Disponivel:</h4> 
-                        produto disponivel
+                        {jogo.disponivel ? "Sim" : "Não"} 
                     </div>
                     <div>
                         <h4>Descrição</h4>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard 
+                        {jogo.descricao}
                     </div>
                 </div>
                 <div className='bloc-pagamento'>
@@ -54,12 +68,12 @@ export default function DetalhesProduto(){
                         <div className='cima-pagamento'>
                             <div>
                                 <h5>Preço</h5>
-                                R$ 60,00
+                                R$ {jogo.valor}
                             </div>
                             <img src='/logoStoreGames.png' alt=''/>    
                         </div>
                         <div>
-                            <img src='bandeirasCartao.png' alt=''/>
+                            <img src='/bandeirasCartao.png' alt=''/>
                         </div>
                        
                        <button className='bt-adic'>Adicionar ao carrinho</button>
@@ -71,10 +85,8 @@ export default function DetalhesProduto(){
                 <div className='bloc-req'>
                     <h2>Requisitos minimos</h2>
                     <p>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard 
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard 
+                       {jogo.requisitos}
                     </p>
-
                 </div>
                 <div className='bloc-jogos'>
                     <h2>Jogos do mesmo gênero</h2>
