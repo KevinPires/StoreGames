@@ -22,6 +22,7 @@ export default function LojaArea () {
     async function filtrar() {
          const resp = await listarTodosJogosPorNome(texto)
          setJogos(resp)
+         console.log(jogos)
     }
  
     useEffect(() => {
@@ -37,7 +38,7 @@ export default function LojaArea () {
             setJogos(res)
             setLoading(false)
         }
-
+        console.log(jogos)
         fetchPost()
     }, []);
 
@@ -82,7 +83,8 @@ export default function LojaArea () {
                 <BarraFilto/>
                 
                 <div className='container-jogos'>
-                    <CardJogo jogos={currentJogos} loading={loading}/>
+                    
+                    <CardJogo jogos={currentJogos} loading={loading} jogo={jogos} />
                     <Pagination 
                         jogoPorPage={jogoPorPage} 
                         totalJogos={jogos.length} 

@@ -40,7 +40,7 @@ export default function AppRoutes() {
                 <Route path='/usuario/pedidos' element={<UserPedidos/>} />
                 <Route path='/jogos' element={<LojaArea/>}/> 
                 <Route path='/ajuda' element={<GuiaRodape/>} />
-                <Route path='/produto' element={<DetalhesProduto/>} />
+                <Route path='/produto/:id/detalhe' element={<DetalhesProduto/>} />
                 <Route path='/carrinho' element={<CarrinhoCompras/>} />
         </Routes>
     </BrowserRouter>        

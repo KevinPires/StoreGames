@@ -24,7 +24,6 @@ export async function deletarJogo(id){
 export async function buscarJogoPorId(id) {
     const resposta = await api.get(`/admin/cadastro/${id}`);
     return resposta.data;
-
 }
 
 // filtra por genero
@@ -43,4 +42,9 @@ export async function filtraPlataformaJogo(plataforma){
 
 export function buscarImagem(imagem) {
     return `${api.getUri()}/${imagem}`
+}
+
+export async function detalheJogo(id) {
+    const resposta = await api.get(`/jogo/${id}`);
+    return resposta.data;
 }

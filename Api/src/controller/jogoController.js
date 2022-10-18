@@ -4,6 +4,7 @@ import multer from "multer";
 import { buscarGeneroPorId } from "../repository/generoRepository.js";
 import { buscarPlataformaporID } from "../repository/plataformaRepository.js";
 import { ValidarJogo } from "../services/validarProduto.js";
+import { buscarJogoPorId } from "../repository/adminRepository.js";
 
 
 const server = Router()
@@ -137,14 +138,16 @@ server.put('/:id' , async (req, resp) => {
 server.get('/:id', async (req, resp) => {
     try {
         const id = Number(req.params.id);
+        console.log(id)
         
-        const resposta = await buscarPorId(id);
+        const resposta = await buscarJogoPorId(id);
 
         if (!resposta)
             resp.status(404).send([])
         else
             resp.send(resposta);
     } catch (err) {
+        console.log(err)
         resp.status(400).send({
             erro: err.message
         })

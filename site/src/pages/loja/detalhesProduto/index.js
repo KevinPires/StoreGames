@@ -1,9 +1,22 @@
 import './index.scss'
 import HeaderLoja from '../../../components/headerLoja'
 import Rodape from '../../../components/Rodapé'
+import { useParams } from 'react-router-dom';
+import { detalheJogo } from '../../../api/jogos';
+import { useState } from 'react';
 
 
 export default function DetalhesProduto(){
+
+    const [jogo, setJogo] =  useState()
+    const { id } = useParams();
+
+
+    async function carregarDetalhes () {
+        const detalhes = detalheJogo(id)
+
+    }
+
     return(
         <main className='page-produto'>
             <HeaderLoja/>
