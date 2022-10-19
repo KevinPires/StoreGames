@@ -18,7 +18,7 @@ import UserPedidos from './pages/usuario/areaUsuario/usuarioPedidos'
 import DetalhesProduto from './pages/loja/detalhesProduto'
 
 import CarrinhoCompras from './pages/carrinhoCompras/carrinho'
-
+import CarrinhoItem from './components/carrinhoItem'
 //Nâo apagar o segundo AdminCadastro, ele faz parte do alterar
 
 export default function AppRoutes() {
@@ -42,6 +42,7 @@ export default function AppRoutes() {
                 <Route path='/ajuda' element={<GuiaRodape/>} />
                 <Route path='/produto/:id/detalhe' element={<DetalhesProduto/>} />
                 <Route path='/carrinho' element={<CarrinhoCompras/>} />
+                <Route path='/carrinhoitem' element={<CarrinhoItem/>} />
         </Routes>
     </BrowserRouter>        
     )

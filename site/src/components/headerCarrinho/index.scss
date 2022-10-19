@@ -1,0 +1,59 @@
+.Header {
+    width: 100%;
+    height: 9rem;
+    background-color: #323A45;
+
+    .containerPesquisa {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 70%;
+
+
+    }
+    .containerCategoria {
+        display: flex;
+        flex-direction: row;
+
+        width: 100%;
+        height: 30%;
+
+    }
+
+    .boxUsuario {
+        display: flex;
+        align-items: center;
+        margin-right: 1.5rem;
+        width: 12rem;
+        height: 100%;
+        color: white;
+    }
+
+    .listaOpcoes {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        width: 100%;
+        
+    }
+
+    .listaOpcoes > a {
+        color: white;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    a:hover{
+        color: red;
+    }
+
+    #formatLogo {
+        height: 10rem;
+        width: 10rem;
+    }
+
+    #svgIcon{
+        margin-right: 0.5rem;
+    }
+}

@@ -1,5 +1,4 @@
 .carrinho-page {
-    height: 85vh;
     background-color: #EDEDED;
 
     .flexboxrow {
@@ -21,7 +20,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        height: 30%;
+        height: 20%;
     }
 
     .carrinho-vazio {
@@ -30,7 +29,7 @@
         justify-content: space-evenly;
         align-items: center;
         height: 100%;
-        background-color: #EDEDED;
+        // background-color: #EDEDED;
     }
     .info-carrinho-vazio {
         flex-direction: column;
@@ -41,39 +40,29 @@
     .faixa-items {
         display: flex;
         flex-direction: row;
-        align-items: center;
+       
         justify-content: space-evenly;
         background-color: #EDEDED;
-        height: 100%;
+        height: 100vh;
     }
 
-    .box-jogos {
-        border: 2px solid #767676;
-        overflow: auto;
-        display: flex;
-        flex-direction: column;
-        height: 16.5rem;
+    .faixa-items > div{
+        margin-top: 50px;
     }
+    
     .wrapcolumn {
         overflow: auto;
         flex-wrap: wrap;
     }
 
-    .jogo {
-        padding: 1em;
+    
+
+    .itens-carinho{
         display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-evenly;
-        background-color: white;
-        width: 48rem;
-        height: 16.5rem;
-    }
+        flex-direction: column;
 
-    .box-quantidade {
-        width: 15%;
+        
     }
-
 
     .box-info {
         border: 2px solid #767676;
@@ -84,8 +73,9 @@
         justify-content: space-evenly;
 
         background-color: white;
-        width: 20%;
-        height: 60%;
+        width: 18%;
+        height: 100%;
+        max-height: 330px;
     }
 
     button:hover {

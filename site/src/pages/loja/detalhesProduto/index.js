@@ -1,11 +1,12 @@
 import './index.scss'
 import HeaderLoja from '../../../components/headerLoja'
 import Rodape from '../../../components/Rodapé'
+import { toast } from'react-toastify'
 import { useParams } from 'react-router-dom';
 import { detalheJogo } from '../../../api/jogos';
 import { useEffect, useState } from 'react';
-import CadastratJogos from '../../admin/cadastrarJogos';
 import { API_URL } from '../../../api/config';
+import Storage from 'local-storage';
 
 
 export default function DetalhesProduto(){
@@ -22,6 +23,25 @@ export default function DetalhesProduto(){
 
     function carregarImagem () {
         return API_URL + '/' + jogo.imagem
+    }
+
+    function adicionarAoCarrinho(){
+        let carrinho = [];
+
+        if(Storage('carrinho')){
+            carrinho = Storage('carrinho')
+        }
+
+        if(!carrinho.find(item => item.id === id)){
+            carrinho.push({
+                id: id,
+                qtd: 1
+            })
+
+            Storage('carrinho', carrinho)
+        }
+
+        alert('Produto adicionado ao carrinho!!');
     }
 
     useEffect(() => {
@@ -78,7 +98,7 @@ export default function DetalhesProduto(){
                             <img src='/bandeirasCartao.png' alt=''/>
                         </div>
                        
-                       <button className='bt-adic'>Adicionar ao carrinho</button>
+                       <button className='bt-adic' onClick={adicionarAoCarrinho }>Adicionar ao carrinho</button>
                     </div>
                 </div>
             </div>

@@ -46,36 +46,36 @@ export default function LoginAdmin(){
         if  (storage ('usuario-logado')){
             navigate('/admin/home');
         }
-      }, [])
+    }, [])
    
 
 
     return (
 
-    <main className="login-admin-page">
-        <LoadingBar color='#f11946' ref={ref} />
-        <section className="containerLogin">
-            <h1><span>Área Administrativa</span></h1>
+        <main className="login-admin-page">
+            <LoadingBar color='#f11946' ref={ref} />
+            <section className="containerLogin">
+                <h1><span>Área Administrativa</span></h1>
 
-            <div className="container-row">
-                <div className="boxInputs">
-                     <InputLogin value={logar} type='text' nome='login' onChange={e => setLogar(e.target.value )}/>
-                     <InputLogin value={senha} type='password'nome='senha' onChange={e => setSenha(e.target.value )}/>
-                <div className="row">
-                    <p>Lembrar-me</p> 
-                    <button id="botao-login" onClick={entrarClick} disabled={carregando}>Login</button>
+                <div className="container-row">
+                    <div className="boxInputs">
+                        <InputLogin value={logar} type='text' nome='login' onChange={e => setLogar(e.target.value )}/>
+                        <InputLogin value={senha} type='password'nome='senha' onChange={e => setSenha(e.target.value )}/>
+                    <div className="row">
+                        <p>Lembrar-me</p> 
+                        <button id="botao-login" onClick={entrarClick} disabled={carregando}>Login</button>
+                    </div>
+                    </div>
+                    <img id="logo-login" src="./logo.png" alt="logo" />
                 </div>
+                <div>
+                    {erro}
                 </div>
-                <img id="logo-login" src="./logo.png" alt="logo" />
-            </div>
-            <div>
-                {erro}
-            </div>
-        </section>
+            </section>
 
 
 
-    </main>
+        </main>
 
   
     )
