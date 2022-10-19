@@ -36,7 +36,9 @@ export default function DetalhesProduto(){
             <HeaderLoja/>
             <div className='box-cima'>
                 <div className='bloc-img'>
-                    <img src={carregarImagem()} alt=''/>
+                    <div className='box-img'>
+                        <img src={carregarImagem()} alt=''/>
+                    </div>
                     <div className='favorito'>
                         <img src='/coracaoIcon.png' alt='' />
                         <p>Adiciona aos <br/>favoritos</p>

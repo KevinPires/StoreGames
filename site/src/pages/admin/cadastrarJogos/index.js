@@ -84,9 +84,10 @@ export default function CadastratJogos() {
 
         }
         catch (err) {
+            toast.error(err.response.data.erro)
            //toast.error(err.response.data.erro)
              toast('Jogo não foi cadastrado!');
-
+            
         }
     }
 
@@ -223,7 +224,8 @@ export default function CadastratJogos() {
 
                                     </select>
                                     <div className='adicionar' onClick={adicionarPlataforma}>
-                                        <img className='maisAdicionar' src="/mais.png" alt="consultar" /></div>
+                                        <img className='maisAdicionar' src="/mais.png" alt="consultar" />
+                                    </div>
                                     <div>
                                         <label></label>
                                         <div className='cat-conteiner'>

@@ -21,7 +21,10 @@ export default function CardJogo ({jogos, loading, props}) {
         <main className='comp-card'>
             {jogos.map (jogo => 
                 <section className="BoxCard" onClick={() => abrirDetalhes(jogo.id)}>
+                    <div className='box-img'>
                         <img src={buscarImagem(jogo.capa)} alt="imagem Jogo" />
+                    </div>
+                        
                        <div className='info-jogo'>
                             <h4>{jogo.nome}</h4>
                             <span id='card-preco'>R${jogo.valor}</span>

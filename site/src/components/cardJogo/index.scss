@@ -21,10 +21,15 @@
             margin-top: 20px;
             width: 100%;
         }
-
+        .box-img{
+            height: 140px;
+            display: flex;
+            justify-content: center;
+            
+        }
         img {
             width: 10rem;
-            max-height: 160px;
+            max-height:140px;
         }
 
         h4 {

@@ -23,9 +23,20 @@
         .bloc-img{
             display: flex;
             flex-direction: column;
-            max-width: 255px;
-            max-height: 360px;
+            width: 250px;
+            height: 400px;
 
+            .box-img{
+                height: 350px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .box-img > img{
+                max-width: 220px;
+                // max-height: ;
+            }
             .favorito{
                 display: flex;
                 flex-direction: row;
@@ -39,7 +50,7 @@
             .favorito > img{
                 width: 30px;
                 height: 25px;
-                margin-right: 40px;
+                margin-right: 32px;
             }
         }
 
