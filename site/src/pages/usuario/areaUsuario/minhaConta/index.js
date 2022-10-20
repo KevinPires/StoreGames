@@ -1,17 +1,27 @@
+import { useState } from 'react'
 import '../../../../common/common.scss'
 import OptionsUser from '../../../../components/AreaUsuario/menuLateral'
 import HeaderLoja from '../../../../components/headerLoja'
+import ModalAlteraInformacoes from '../../../../components/modal/modalUsuario/modalAlterarInformacoes'
 import Rodape from '../../../../components/Rodapé'
 import './index.scss'
 
 
 export default function AreaLoja () {
+    const [exibirModal,setExibirModal] = useState(false)
 
+    function exibirModalInfo(){
+        setExibirModal(true)
+    }
+
+    function removerModalInfo(){
+        setExibirModal(false)
+    }
     return (
         <main className='usuario-page'>
 
             <HeaderLoja/>
- 
+            <ModalAlteraInformacoes exibir={exibirModal} fecha={removerModalInfo}/>
             <section className="container-user">
                 <div className="options">
                     <OptionsUser
@@ -59,7 +69,7 @@ export default function AreaLoja () {
                                 </div>
                             </div>
                             <div className="container-botoes">
-                                <button>Alterar Senha</button> <button>Editar Informações</button>
+                                <button>Alterar Senha</button> <button onClick={exibirModalInfo}>Editar Informações</button>
                             </div>
                         </div>
                     </section>

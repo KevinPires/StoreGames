@@ -1,0 +1,91 @@
+.comp-modal-informacoes{
+    visibility: hidden;
+        
+    .exibir {
+        visibility: visible !important;
+    }
+    .modal-informacoes{
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        min-height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .conteudo{
+            position: relative;
+            top: -50px;
+            // width: 400px;
+            padding: 20px 20px 28px 20px;
+            margin: 10px;
+            border-radius: 15px;
+    
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #323A45;
+
+            .form{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-evenly;
+                width: 100%;
+            }
+            .form-meio{
+                width: 87%;
+            }
+
+            .form-meio > form{
+                width: 100%;
+                padding: 1px;
+            }  
+            form{
+                display: flex;
+                flex-direction: column;
+                width: 40%;
+            }
+
+            form > input{
+                padding:10px;
+                background-color: #DDDDDD;
+                border: none;
+                border-radius: 3px;
+                width: 100%;
+            }
+        }
+
+        
+        
+        h2{
+            color: #fff;
+        }
+        button{
+            border: none;
+            border-radius: 30px;
+            width: 14rem;
+            padding: 10px;
+            margin: 20px 10px 10px 10px;
+            background-color: #fff;
+        }
+        .conteudo > div{
+            background-color: #fff;
+            width: 100%;
+            border-radius: 8px 8px 0px 0px;
+            min-height: 20em;
+        }
+
+        .conteudo > div{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content:space-evenly;
+            width: 100%;
+        }
+    }
+
+
+}
