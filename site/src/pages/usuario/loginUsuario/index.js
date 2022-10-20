@@ -16,6 +16,7 @@ export default function LoginUsuario (){
     const [senha, setSenha] = useState('');
     const [erro, setErro] = useState ('');
     const [carregando, setCarrengando] = useState(false);
+ 
 
     const navigate = useNavigate();
     const ref = useRef();
@@ -25,12 +26,12 @@ export default function LoginUsuario (){
         setCarrengando(true)
         try {
             const r = await loginUsuario(email, senha);
-            Storage(' usuario-logado', r )
+             Storage(' usuario-logado', r )
             if( r.status === 401){
                 setErro(r.data.erro)
             }else{
                 setTimeout(()=>{
-                    navigate('/usuario')
+                    navigate(`/usuario/${r.id}`)
                 }, 3000)
             }
 

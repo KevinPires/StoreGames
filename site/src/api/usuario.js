@@ -28,8 +28,6 @@ export async function cadastrarUsuario(nome, email, senha, cep, nascimento, cpf)
 }
 
 export async function carregarUsuario(id) {
-    const r = await api.get('/user/usuario' , {
-        id : id
-    })
+    const r = await api.get(`/user/${id}`)
     return r.data
 }

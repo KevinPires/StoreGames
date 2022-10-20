@@ -84,20 +84,31 @@ export async function loginUsuario(email, senha){
     const comando = 
     `
         SELECT 
-        U.ID_USUARIO 		AS ID,
-        U.NM_USUARIO 		AS NOME,
-        U.DS_CEP	 		AS CEP,
-        U.DS_NASCIMENTO 	AS NASCIMENTO,
-        U.DS_CPF			AS CPF,
-        UL.ID_USUARIO_LOGIN AS IDUL,
-        UL.DS_EMAIL			AS EMAIL,
-        UL.DS_SENHA			AS SENHA
-        FROM TB_USUARIO U
-        LEFT JOIN TB_USUARIO_LOGIN UL
-        ON U.ID_USUARIO = UL.ID_USUARIO_LOGIN
-        WHERE U.ID_USUARIO = 2;
+        ID_USUARIO		AS id,
+        NM_USUARIO		AS nome,
+        DS_CEP			AS cep,
+        DS_NASCIMENTO 	AS nascimento,
+        DS_CPF			AS cpf
+        from TB_USUARIO
+        where id_usuario = ?;
     
     `
-    const resposta = await con.query(comando, [id])
+    const [resposta] = await con.query(comando, [id])
     return resposta[0]
+ }
+
+ export async function VisualizarInfoLogin (id) {
+    const comando = 
+    `
+    select
+    ID_USUARIO_LOGIN    as idUserLogin,
+    DS_EMAIL	        as email,
+    DS_SENHA	        as senha
+    FROM TB_USUARIO_LOGIN
+    WHERE id_usuario_login = ?;    
+
+    `
+    const [resposta] = await con.query(comando, [id])
+    return resposta[0]
+
  }

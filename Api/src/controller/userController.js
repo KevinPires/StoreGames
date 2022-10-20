@@ -1,4 +1,4 @@
-import { cadastrarUsuario ,loginUsuario,verificarCpf,verificarEmail, VisualizarInfoUser } from '../repository/userRepository.js'
+import { cadastrarUsuario ,loginUsuario,verificarCpf,verificarEmail, VisualizarInfoLogin, VisualizarInfoUser } from '../repository/userRepository.js'
 import { Router  } from "express";
 import multer from 'multer';
 
@@ -91,14 +91,21 @@ server.post('/login' , async (req, resp) =>{
     }
 })
 
-server.get('/usuario', async (req, resp) =>  {
+server.get('/:id', async (req, resp) =>  {
     try {
-        const { id } = req.body
+        const { id } = req.params
+        
         if (!id) 
             throw new Error("Obrigatorio passar o id do user")
         
         const chamadaApi = await VisualizarInfoUser(id)
-        resp.send(chamadaApi)
+        const infoUserLogin = await VisualizarInfoLogin(id)
+        resp.send({
+
+            info: chamadaApi,
+            infoLogin: infoUserLogin
+            
+        })
 
     } catch (err) {
         resp.send( {
