@@ -25,7 +25,7 @@ export default function LoginAdmin(){
        
         try{
             const r = await login(logar, senha)
-            storage('usuario-logado', r);
+            storage('admin-logado', r);
             
             setTimeout(() => {
                 navigate('/admin/home');
@@ -43,7 +43,7 @@ export default function LoginAdmin(){
     }
 
     useEffect(()=> {
-        if  (storage ('usuario-logado')){
+        if  (storage ('admin-logado')){
             navigate('/admin/home');
         }
     }, [])

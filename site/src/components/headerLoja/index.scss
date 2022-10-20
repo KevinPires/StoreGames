@@ -22,13 +22,23 @@
 
     }
 
-    .boxUsuario {
+    .box-Usuario {
         display: flex;
         align-items: center;
+        justify-content: center;
         margin-right: 1.5rem;
-        width: 12rem;
+        width: 13rem;
         height: 100%;
         color: white;
+    }
+
+
+    .box-Usuario > img:last-child {
+        margin: 5px;
+        width: 30px;
+        height: 30px;
+
+        cursor: pointer;
     }
 
     .listaOpcoes {
@@ -41,8 +51,8 @@
 
     .listaOpcoes > a {
         color: white;
-      cursor: pointer;
-      text-decoration: none;
+        cursor: pointer;
+        text-decoration: none;
     }
     a:hover{
         color: red;

@@ -82,11 +82,19 @@
             display: flex;
             align-items: center;
             margin-right: 1.5rem;
-            width: 12rem;
+            width: 13rem;
             height: 100%;
             color: white;
         }
+
+        .boxUsuario > img:last-child {
+            margin: 5px;
+            width: 30px;
+            height: 30px;
     
+            cursor: pointer;
+        }
+
         .listaOpcoes {
             display: flex;
             flex-direction: row;

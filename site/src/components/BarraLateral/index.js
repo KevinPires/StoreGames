@@ -9,7 +9,7 @@ import storage from 'local-storage'
 export default function BarraLateral(props){
 
     useEffect(() => {
-        if (!storage('usuario-logado')){
+        if (!storage('admin-logado')){
             navigate('/');
         }
       }, [])
@@ -18,7 +18,7 @@ export default function BarraLateral(props){
     const navigate = useNavigate();
  
         function sairClick(){
-        storage.remove('usuario-logado');
+        storage.remove('admin-logado');
         navigate('/');
     }
 

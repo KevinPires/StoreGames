@@ -9,9 +9,7 @@ export default function CardJogo ({jogos, loading, props}) {
     if(loading){
         return <h2>LOADING ....</h2>
     }
- 
-
-
+    
 
     function abrirDetalhes(id) {
         navigate('/produto/' + id + '/detalhe')

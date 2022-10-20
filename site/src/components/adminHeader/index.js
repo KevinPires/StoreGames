@@ -7,7 +7,7 @@ export default function HeaderAdmin () {
     const [nome, setNome] = useState('')
 
      function exibirNome () {
-        const taLogado =  storage('usuario-logado')
+        const taLogado =  storage('admin-logado')
         setNome(taLogado.login)
     }
 

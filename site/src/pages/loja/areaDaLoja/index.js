@@ -1,8 +1,8 @@
 import BarraVantagens  from '../../../components/TelaDeJogos/vantagens'
 import BarraFilto from '../../../components/TelaDeJogos/barraFiltros'
-import HeaderLoja from '../../../components/headerLoja'
 import './index.scss'
 import '../../../common/common.scss'
+import { useNavigate } from 'react-router-dom'
 import CardJogo from '../../../components/cardJogo'
 import Rodape from '../../../components/Rodapé'
 import { useState, useEffect } from 'react'
@@ -19,10 +19,10 @@ export default function LojaArea () {
     
     const [texto, setTexto] = useState('')
 
+    const Navigate = useNavigate()
     async function filtrar() {
          const resp = await listarTodosJogosPorNome(texto)
          setJogos(resp)
-         console.log(jogos)
     }
  
     useEffect(() => {
@@ -31,6 +31,10 @@ export default function LojaArea () {
 
     //
 
+    function carrinho(){
+        Navigate('/carrinho')
+    }
+    
     useEffect(()=>{
         const fetchPost = async ()=>{
             setLoading(true)
@@ -60,6 +64,7 @@ export default function LojaArea () {
                             <div className="boxUsuario">
                                 <img id='svgIcon' src="/Icon.svg" alt="iconUser" />
                                 <span>Bem vindo, Fulano <a>Minha Conta</a> | <a>Sair</a></span>
+                                <img src='/carrinho.png' alt='' onClick={carrinho}/>
                             </div>
                         </section>
                         <section className="containerCategoria">

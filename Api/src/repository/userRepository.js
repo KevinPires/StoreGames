@@ -80,18 +80,18 @@ export async function loginUsuario(email, senha){
     return linhas[0];
  }
 
- export async function VisualizarInfoUser (id) {
+export async function VisualizarInfoUser (id) {
     const comando = 
     `
         SELECT 
-        U.ID_USUARIO 		AS ID,
-        U.NM_USUARIO 		AS NOME,
-        U.DS_CEP	 		AS CEP,
-        U.DS_NASCIMENTO 	AS NASCIMENTO,
-        U.DS_CPF			AS CPF,
-        UL.ID_USUARIO_LOGIN AS IDUL,
-        UL.DS_EMAIL			AS EMAIL,
-        UL.DS_SENHA			AS SENHA
+        U.ID_USUARIO 		AS id,
+        U.NM_USUARIO 		AS nome,
+        U.DS_CEP	 		AS cep,
+        U.DS_NASCIMENTO 	AS nascimento,
+        U.DS_CPF			AS cpf,
+        UL.ID_USUARIO_LOGIN AS IdUsuarioLogin,
+        UL.DS_EMAIL			AS email,
+        UL.DS_SENHA			AS senha
         FROM TB_USUARIO U
         LEFT JOIN TB_USUARIO_LOGIN UL
         ON U.ID_USUARIO = UL.ID_USUARIO_LOGIN
@@ -100,4 +100,7 @@ export async function loginUsuario(email, senha){
     `
     const resposta = await con.query(comando, [id])
     return resposta[0]
- }
+}
+
+
+
