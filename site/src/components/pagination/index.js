@@ -13,7 +13,7 @@ export default function Pagination ({jogoPorPage, totalJogos, paginate}){
             <ul className="pagination">
                 {pageNumber.map(number =>(
                     <li key={number} className="page-item">
-                        <a onClick={() => paginate(number)} href="/jogos" className="page-link">
+                        <a onClick={() => paginate(number)} className="page-link">
                             {number}
                         </a>
                     </li>

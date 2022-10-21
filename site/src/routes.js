@@ -19,6 +19,7 @@ import DetalhesProduto from './pages/loja/detalhesProduto'
 
 import CarrinhoCompras from './pages/carrinhoCompras/carrinho'
 import CarrinhoItem from './components/carrinhoItem'
+import FinalizarCompra from './pages/carrinhoCompras/carrinho/pagamentos'
 //Nâo apagar o segundo AdminCadastro, ele faz parte do alterar
 // import ModalAlteraInformacoes from './components/modal/modalUsuario/modalAlterarInformacoes'
 
@@ -44,6 +45,7 @@ export default function AppRoutes() {
                 <Route path='/produto/:id/detalhe' element={<DetalhesProduto/>} />
                 <Route path='/carrinho' element={<CarrinhoCompras/>} />
                 <Route path='/carrinhoitem' element={<CarrinhoItem/>} />
+                <Route path='/pagamento' element={<FinalizarCompra/>} />
                 {/* <Route path='/modalinformacoes' element={<ModalAlteraInformacoes/>} /> */}
             </Routes>
     </BrowserRouter>

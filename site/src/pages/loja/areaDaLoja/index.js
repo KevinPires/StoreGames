@@ -18,15 +18,15 @@ export default function LojaArea () {
     const [jogoPorPage] = useState(20)
     
     const [texto, setTexto] = useState('')
-
+    
     const Navigate = useNavigate()
     async function filtrar() {
-         const resp = await listarTodosJogosPorNome(texto)
-         setJogos(resp)
-    }
- 
+    const resp = await listarTodosJogosPorNome(texto)
+    setJogos(resp)
+}
+
     useEffect(() => {
-         filtrar()
+            filtrar()
     }, [texto])
 
     //
@@ -34,15 +34,15 @@ export default function LojaArea () {
     function carrinho(){
         Navigate('/carrinho')
     }
+
+    const fetchPost = async ()=>{
+        setLoading(true)
+        const res = await listarTodosJogos()
+        setJogos(res)
+        setLoading(false)
+    }
     
     useEffect(()=>{
-        const fetchPost = async ()=>{
-            setLoading(true)
-            const res = await listarTodosJogos()
-            setJogos(res)
-            setLoading(false)
-        }
-        console.log(jogos)
         fetchPost()
     }, []);
 
@@ -50,7 +50,10 @@ export default function LojaArea () {
     const indexOfFirstPost = indexOfLastPost - jogoPorPage;
     const currentJogos =jogos.slice(indexOfFirstPost, indexOfLastPost)
 
+    console.log(currentJogos)
+
     const paginate = pageNumber => setCurrentPage(pageNumber)
+
     return (
         <main className="lojaPage">
                     <section className="HeaderLoja">

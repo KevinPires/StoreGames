@@ -1,0 +1,209 @@
+.finalizar-page{
+    background-color: #EDEDED;
+    display: flex;
+    flex-direction: column;
+    height: 150vh;
+
+    .ajustar{
+    display: flex;
+    flex-direction: row;
+   
+  
+    }
+
+    .etapas{
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        padding: 1em;
+    }
+   
+    .forma-pagamento{
+        display: flex;
+        flex-direction: column;
+        width: 18%;
+        padding: 1.5em;
+    }
+
+    .botao{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 105%;
+        margin-top: 8%;
+        border-radius: 12px;
+        background-color: white;
+        cursor: pointer;
+    }
+
+    .botao-sair{
+        height: 31px;
+        width: 105%;
+        margin-top: 8%;
+        border-radius: 12px;
+        background-color: red;
+        color: white;
+        cursor: pointer;
+    }
+    .botao:hover{
+        background-color: #323A45;
+        color: white;
+       }
+   
+       .pagamentos{
+        width: 35px;
+        height: 30px;
+    }
+
+    .conteiner-row{
+     display: flex;
+     flex-direction: row;
+     width: 90%;
+     justify-content: start;
+    }
+
+    .metodo{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .box1{
+        border-radius: 12px;
+        border: solid 2px black;
+        height: 90%;
+        padding: 1.5em;
+        margin: 3%;
+        background-color: white;
+    }
+
+    .input{
+        border-radius: 6px;
+        width: 200px;
+        height: 28px;
+        margin-bottom: 15%;
+    }
+
+    .resumo{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .log{
+        width: 130px;
+        height: 55px;
+        margin-left: 10%;
+    }
+
+    .box2{
+        border-radius: 12px;
+        border: solid 2px black;
+        height: 90%;
+        padding: 1.5em;
+        margin: 3%;
+        background-color: white;
+        width: 410px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-left: 10%;
+    }
+    
+
+    .pag{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 0.5em;
+     
+    }
+
+    .valor{
+        display: flex;
+        flex-direction: row;
+        
+    }
+
+    .espaço{
+        margin-left: 25%;
+    }
+
+    .finalizar{
+        border: solid blue;
+        color: white;
+        background-color: blue;
+        
+        text-align: center;
+        padding: 1em;
+        border-radius: 15px;
+        margin-top: 1.5em;
+        display: flex;
+        justify-content: center;
+    }
+
+    .endereço{
+        display: flex;
+        flex-direction: column;
+    
+       
+    }
+
+    .conteiner-pag{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .box3{
+        border-radius: 12px;
+        border: solid 2px black;
+       
+        padding: 1.5em;
+        margin: 3%;
+        background-color: white;
+        width: 72%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        
+    }
+    .endereco1{
+        display: flex;
+        flex-direction: row;
+        margin-top: 1em;
+      
+    }
+
+    .input-endereço1{
+     display: flex;
+     flex-direction: column;
+     margin-left: 2.5em;
+     
+    }
+
+    .input1, .input2, .input3{
+        border-radius: 6px;
+        margin-top: 3px;
+        padding: 0.3em;
+    }
+
+    .input1{
+        width: 200px;
+    }
+
+    .input2{
+        width: 350px;
+    }
+
+    .input3{
+        width: 90px;
+    }
+
+  }  
+
+
+*{
+ //border: solid 1px red;
+}

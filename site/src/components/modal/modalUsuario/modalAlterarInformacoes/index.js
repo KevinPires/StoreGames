@@ -5,9 +5,13 @@ import './index.scss'
 
 export default function ModalAlteraInformacoes({ exibir , fecha}){
 
+    if(!exibir){
+        return <> </>
+    }
+
     return(
         <main className="comp-modal-informacoes">
-            <div className={`modal-informacoes ${exibir ? 'exibir' : '' }`}>
+            <div className={`modal-informacoes`}>
                 <div className='conteudo'>
                     <h2>Editar informações </h2>
                     <div>
