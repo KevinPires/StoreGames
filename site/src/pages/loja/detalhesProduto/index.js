@@ -11,9 +11,10 @@ import Storage from 'local-storage';
 
 export default function DetalhesProduto(){
 
-    const [jogo, setJogo] =  useState([])
+    const [jogo, setJogo] =  useState({info: {} ,generos: [] , plataformas: []})
     const { id } = useParams();
 
+   
 
     async function carregarDetalhes () {
         const detalhes = await detalheJogo(id)
@@ -22,7 +23,7 @@ export default function DetalhesProduto(){
     }
 
     function carregarImagem () {
-        return API_URL + '/' + jogo.imagem
+        return API_URL + '/' + jogo.info.imagem
     }
 
     function adicionarAoCarrinho(){
@@ -65,24 +66,37 @@ export default function DetalhesProduto(){
                     </div>
                 </div>
                 <div className='bloc-info'>
-                    <h1>{jogo.nome}</h1>
+                    <h1>{jogo.info.nome}</h1>
                     <div className='display-row'>
-                        <div style={{marginRight : "60px"}}>
+                        <div style={{marginRight : "40px"}}>
                             <h4>Plataforma:</h4> 
-                            Xbox,PC e Ps4
+                            <div className='cont-map'>
+                                {jogo.plataformas.map(item =>
+                                    <tr key={item.id}>
+                                        <td className='td'>{item.plataforma}</td>
+                                    </tr>
+                                )}
+                            </div>
                         </div>
                         <div>
                             <h4>Genêro:</h4>
-                            Ação
+                            <div className='cont-map'>
+                                {jogo.generos.map(item =>
+                                    <tr key={item.id}>
+                                        <td className='td'>{item.genero}</td>
+                                    </tr>
+                                )}
+                            </div>
+                            
                         </div>
                     </div>
                     <div>
                         <h4>Disponivel:</h4> 
-                        {jogo.disponivel ? "Sim" : "Não"} 
+                        {jogo.info.disponivel ? "Sim" : "Não"} 
                     </div>
                     <div>
                         <h4>Descrição</h4>
-                        {jogo.descricao}
+                        {jogo.info.descricao}
                     </div>
                 </div>
                 <div className='bloc-pagamento'>
@@ -90,7 +104,7 @@ export default function DetalhesProduto(){
                         <div className='cima-pagamento'>
                             <div>
                                 <h5>Preço</h5>
-                                R$ {jogo.valor}
+                                R$ {jogo.info.valor}
                             </div>
                             <img src='/logoStoreGames.png' alt=''/>    
                         </div>
@@ -107,7 +121,7 @@ export default function DetalhesProduto(){
                 <div className='bloc-req'>
                     <h2>Requisitos minimos</h2>
                     <p>
-                       {jogo.requisitos}
+                       {jogo.info.requisitos}
                     </p>
                 </div>
                 <div className='bloc-jogos'>

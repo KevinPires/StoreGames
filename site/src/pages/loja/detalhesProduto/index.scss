@@ -65,7 +65,17 @@
         .bloc-info > div{
             margin: 15px;
         }
+        .cont-map{
+            display: flex;
+            flex-direction: row;
+            // justify-content: space-around;
+            flex-wrap: wrap;
+            width: 11rem;
+        }
 
+        .td{
+            padding: 5px;
+        }
         .bloc-pagamento{
             display: flex;
             flex-direction: column;
