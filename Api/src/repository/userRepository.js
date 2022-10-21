@@ -80,7 +80,7 @@ export async function loginUsuario(email, senha){
     return linhas[0];
  }
 
- export async function VisualizarInfoUser (id) {
+export async function VisualizarInfoUser (id) {
     const comando = 
     `
         SELECT 

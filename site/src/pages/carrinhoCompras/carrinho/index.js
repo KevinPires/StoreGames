@@ -10,33 +10,34 @@ import CarrinhoItem from '../../../components/carrinhoItem'
 import './index.scss'
 import { buscarJogoPorId } from '../../../api/jogos'
 import toast from 'react-toastify'
+import { useNavigate } from 'react-router-dom'
 
 export default function CarrinhoCompras() {
-    const [itens ,setItens]= useState([])
-    const [mostrarJogo, setMostrarJogo] = useState(true)
+    const [itens, setItens] = useState([])
+    const [mostrarJogo, setMostrarJogo] = useState(false)
 
-
-    function calcularTotal(){
+    const Navigate = useNavigate();
+    function calcularTotal() {
         let total = 0;
-        for(let item of itens){
+        for (let item of itens) {
             total = total + item.jogo.info.valor * item.qtd
         }
         return total
 
     }
 
-    function removerItem(id){
+    function removerItem(id) {
         let carrinho = Storage('carrinho');
         carrinho = carrinho.filter(item => item.id != id);
 
-        Storage('carrinho' , carrinho)
+        Storage('carrinho', carrinho)
         carregarCarrinho()
     }
-    async function carregarCarrinho(){
+    async function carregarCarrinho() {
         let carrinho = Storage('carrinho');
-        if(carrinho){
-            let temp= []
-            for(let jogo of carrinho){
+        if (carrinho) {
+            let temp = []
+            for (let jogo of carrinho) {
                 let p = await buscarJogoPorId(jogo.id)
 
                 temp.push({
@@ -44,58 +45,62 @@ export default function CarrinhoCompras() {
                     qtd: jogo.qtd
                 })
             }
-            console.log(temp)
             setItens(temp)
         }
-
     }
-    useEffect(()=>{
+
+   
+    function continuaComprando() {
+        Navigate('/jogos')
+    }
+    useEffect(() => {
         carregarCarrinho()
-    },[]);
+    }, []);
     return (
 
         <main className="carrinho-page">
-            <HeaderCarrinho/>
-            {mostrarJogo === false &&
-            <section className="carrinho-vazio">
-                <div className='info-carrinho-vazio'>
-                    <h1>Seu carrinho está vazio!</h1>
-                    <h1>Deseja procurar por produtos similares?</h1>
-                </div>
-
-                <button>Continuar Comprando</button>
-            </section>
-            }
-
-            {mostrarJogo === true && 
-            <section className="faixa-carrinho">
-                <div className="faixa-imagens">
-                    <EtapasImagens/>
-                </div>
-
-                <div className="faixa-items">
-                    <div className='itens-carinho'>
-                        {itens.map(item =>
-                            <CarrinhoItem 
-                                item={item} 
-                                removerItem={removerItem} 
-                                carregarCarrinho={carregarCarrinho}/>
-                        )}
+            <HeaderCarrinho />
+            
+            {itens.length ?(
+                <section className="faixa-carrinho">
+                    <div className="faixa-imagens">
+                        <EtapasImagens />
                     </div>
-                   
-                  
-                    <div className="box-info">
-                        <div className="flexboxcolumn">
-                            <div className="flexboxrow"><span>Preço Total: </span> <span>R$ {calcularTotal()}</span></div>
-                            <div className="flexboxrow"><span>Frete: </span> <span>R$ Dinheiros</span></div>
+
+                    <div className="faixa-items">
+                        <div className='itens-carinho'>
+                            {itens.map(item =>
+                                <CarrinhoItem
+                                    item={item}
+                                    removerItem={removerItem}
+                                    carregarCarrinho={carregarCarrinho} />
+                            )}
                         </div>
-                        <button>Continuar Compra</button>
+
+                        <div className="box-info">
+                            <div className="flexboxcolumn">
+                                <div className="flexboxrow"><span>Preço Total: </span> <span>R$ {calcularTotal()}</span></div>
+                                <div className="flexboxrow"><span>Frete: </span> <span>R$ Dinheiros</span></div>
+                            </div>
+                            <button>Finalizar Compra</button>
+                        </div>
                     </div>
-                </div>
-                
-            </section>
-            }
-            <Rodape/>
+
+                </section>
+            ):(
+                <section className="carrinho-vazio">
+                    <div className=''>
+                        <div className='info-carrinho-vazio'>
+                            <h1>Seu carrinho está vazio!</h1>
+                            <h1>Deseja procurar por produtos similares?</h1>
+                        </div>
+                    </div>
+
+
+                    <button onClick={continuaComprando}>Continuar Comprando</button>
+                </section>
+            )}
+            <Rodape />
         </main>
     )
 }
