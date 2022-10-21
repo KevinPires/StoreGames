@@ -1,22 +1,35 @@
 import './index.scss'
 import '../../../common/common.scss'
 import { Link } from 'react-router-dom'
-
+import storage from 'local-storage'
+import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 export default function OptionsUser (props) {
 
-
+    const Navigate = useNavigate()
     function vereficarBotaoSelecionado(botao){
         if (botao === props.escolhido)
         return 'escolhido'
         else 
         return '';
     }
+    const [infoStorage, setInfostorage] = useState('')
+
+    function exibirNome () {
+       const taLogado =  storage('usuario-logado')
+       setInfostorage(taLogado)
+       console.log(taLogado)
+   }
+
+   useEffect(() => {
+       exibirNome()
+   }, [])
 
     return (
         <section className="user-menu-lateral">
 
             <div className='format-botao'>
-            <Link to='/usuario'className={vereficarBotaoSelecionado('conta')}>
+            <Link to='' className={vereficarBotaoSelecionado('conta')}>
                 <img className='png' src='/perfils.png' alt='coracao-icon'/> <span> Minha conta</span>
                 </Link>
             </div>
