@@ -66,28 +66,29 @@ export default function CadastratJogos() {
     // cadastrar e alterar
     async function salvar() {
         try {
-           
+            // if (!imagem)
+            //     throw new Error('Escolha a capa do jogo.');
+    
             if (!id) {
                 const novoJogo = await inserirJogo(nome, valor, descricao, estoque, resquisitos, disponivel, maisVendido, genSelecionadas, platSelecionadas);
                 const r = await enviarImagemJogo(novoJogo, imagem);
+                setIdJogo(novoJogo);
                
                 toast('Jogo cadastrado com sucesso');
             }
             else{
                 const novoJogo = await alterarJogo(id, nome, valor, descricao, estoque, resquisitos, disponivel, maisVendido, genSelecionadas, platSelecionadas);
               
-                if (typeof(imagem) === 'object');    
+                if (typeof(imagem) === 'object'){    
                 const r = await enviarImagemJogo(id, imagem);
                 
+                }
                 toast('Jogo alterado com sucesso');
             }
 
         }
         catch (err) {
             toast.error(err.response.data.erro)
-           //toast.error(err.response.data.erro)
-             toast('Jogo não foi cadastrado!');
-            
         }
     }
 

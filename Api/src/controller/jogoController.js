@@ -14,7 +14,26 @@ server.post('/', async (req,resp) => {
         console.log(req.body)
         const infoJogo = req.body
 
-        const validar = await ValidarJogo(infoJogo)
+            if (!infoJogo.nome)
+            throw new Error('Nome do jogo é obrigatório')
+           
+            if (!infoJogo.valor)
+            throw new Error('Valor do jogo é obrigatório')
+           
+            if (!infoJogo.descricao)
+            throw new Error('Descrição do jogo é obrigatório')
+            
+            if (!infoJogo.estoque)
+            throw new Error('Estoque do jogo é obrigatório')
+           
+            if (!infoJogo.requisitos)
+            throw new Error('Requisitos do jogo é obrigatório')
+            
+            if (!infoJogo.generos || infoJogo.generos.length <= 0)
+            throw new Error('Genero do jogo é obrigatório')
+           
+            if (!infoJogo.plataformas|| infoJogo.plataformas.length <= 0)
+            throw new Error('Plataforma do jogo é obrigatório')
         
         
         const jogoID = await cadastroJogo(infoJogo)
@@ -49,6 +68,7 @@ server.put('/:id/capa', upload.single('capa'), async (req, resp) => {
     try {
         if (!req.file)
             throw new Error('Escolha a capa do filme.'); 
+            
         const { id } = req.params;
         const imagem = req.file.path;
 

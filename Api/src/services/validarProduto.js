@@ -31,6 +31,11 @@ export async function ValidarJogo (infoJogo) {
         erros.push("Plataforma obrigatória")
         haveError = true
     }
+
+    if(!infoJogo.capa || infoJogo.capa){
+        erros.push("Imagem obrigatória")
+        haveError = true
+    }
     if(haveError) {
         throw new Error ("Campos obrigatorios não preenchidos!")
     }

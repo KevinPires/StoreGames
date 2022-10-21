@@ -54,6 +54,26 @@ server.put('/cadastro/:id', async (req, resp) => {
         const id = req.params.id; 
         const jogo = req.body;
         
+        if (!jogo.nome)
+            throw new Error('Nome do jogo é obrigatório')
+           
+            if (!jogo.valor)
+            throw new Error('Valor do jogo é obrigatório')
+           
+            if (!jogo.descricao)
+            throw new Error('Descrição do jogo é obrigatório')
+            
+            if (!jogo.estoque)
+            throw new Error('Estoque do jogo é obrigatório')
+           
+            if (!jogo.requisitos)
+            throw new Error('Requisitos do jogo é obrigatório')
+            
+            if (!jogo.generos || jogo.generos.length <= 0)
+            throw new Error('Genero do jogo é obrigatório')
+           
+            if (!jogo.plataformas|| jogo.plataformas.length <= 0)
+            throw new Error('Plataforma do jogo é obrigatória')
         
         // Removendo genêro e plataforma
         await removerGeneroJogo(id);
