@@ -2,7 +2,7 @@
     background-color: #EDEDED;
     display: flex;
     flex-direction: column;
-    height: 150vh;
+   
 
     .ajustar{
     display: flex;
@@ -35,6 +35,7 @@
         border-radius: 12px;
         background-color: white;
         cursor: pointer;
+        text-decoration: none;
     }
 
     .botao-sair{
@@ -45,6 +46,8 @@
         background-color: red;
         color: white;
         cursor: pointer;
+        text-align: center;
+        text-decoration: none;
     }
     .botao:hover{
         background-color: #323A45;
@@ -69,7 +72,25 @@
         align-items: center;
     }
 
-    .box1{
+    .boxPix{
+        border-radius: 12px;
+        border: solid 2px black;
+        height: 90%;
+        padding: 1.5em;
+        margin: 3%;
+        background-color: white;
+    }
+
+    .boxBoleto{
+        border-radius: 12px;
+        border: solid 2px black;
+        height: 70%;
+        padding: 1.5em;
+        margin: 3%;
+        background-color: white;
+    }
+
+    .boxCartao{
         border-radius: 12px;
         border: solid 2px black;
         height: 90%;
@@ -100,7 +121,7 @@
     .box2{
         border-radius: 12px;
         border: solid 2px black;
-        height: 90%;
+        height: 70%;
         padding: 1.5em;
         margin: 3%;
         background-color: white;
@@ -134,7 +155,7 @@
         border: solid blue;
         color: white;
         background-color: blue;
-        
+        cursor: pointer;
         text-align: center;
         padding: 1em;
         border-radius: 15px;
@@ -163,7 +184,7 @@
         padding: 1.5em;
         margin: 3%;
         background-color: white;
-        width: 72%;
+        width: 78%;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -205,5 +226,5 @@
 
 
 *{
- //border: solid 1px red;
+// border: solid 1px red;
 }

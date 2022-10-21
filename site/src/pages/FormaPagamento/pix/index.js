@@ -1,9 +1,10 @@
 import './index.scss';
-import HeaderCarrinho from '../../../../components/headerCarrinho';
-import EtapasImagens from '../../../../components/imagensCarrinho';
-import Rodape from '../../../../components/Rodapé';
+import EtapasImagens from '../../../components/imagensCarrinho';
+import Rodape from '../../../components/Rodapé';
+import HeaderCarrinho from '../../../components/headerCarrinho';
+import { Link } from 'react-router-dom';
 
-export default function FinalizarCompra(){
+export default function Pix(){
 
 
     return (
@@ -15,10 +16,10 @@ export default function FinalizarCompra(){
 
           <section className='forma-pagamento'>
 
-    <button className='botao'> <img className='pagamentos' src='/pix.png' alt='pag'/>  &nbsp; &nbsp;PIX</button>
-    <button className='botao'>  <img className='pagamentos' src='/boleto.png' alt='pag'/> &nbsp; &nbsp;BOLETO BANCARIO</button>
-    <button className='botao'> <img className='pagamentos' src='/cartao2.png' alt='pag'/> &nbsp; &nbsp;CARTÃO DE CRÉDITO</button>
-    <button className='botao-sair'> <p>VOLTAR</p></button>
+          <Link to='/pagamento/pix' className='botao'> <img className='pagamentos' src='/pixx.png' alt='pag'/>  &nbsp; &nbsp;PIX</Link>
+          <Link to='/pagamento/boleto' className='botao'> <img className='pagamentos' src='/boleto.png' alt='pag'/>  &nbsp; &nbsp;BOLETO</Link>
+          <Link to='/pagamento/cartao' className='botao'> <img className='pagamentos' src='/cartao2.png' alt='pag'/>  &nbsp; &nbsp;CARTÃO</Link>
+    <Link to='/carrinho' className='botao-sair'> <p>VOLTAR</p></Link>
 
 </section>
 
@@ -26,11 +27,11 @@ export default function FinalizarCompra(){
 
 <section className='conteiner-row'>
 
-<section className='box1'>
+<section className='boxPix'>
 
   <div className='dados'>
     <h2>Dados pessoais</h2>
-  <div className='metodo'> <img className='pagamentos' src='/pix.png' alt='pag'/>  &nbsp; &nbsp; <b>PIX</b></div>  
+  <div className='metodo'> <img className='pagamentos' src='/pixx.png' alt='pag'/>  &nbsp; &nbsp; <b>PIX</b></div>  
   </div>
   <div>Nome completo:</div>
   <input className='input' type='text'></input>
@@ -39,7 +40,8 @@ export default function FinalizarCompra(){
   <input className='input' type='text'></input>
 </section>
 
-<section className='box2'>
+
+<section className='box22'>
 
   <div className='dados'>
 
@@ -55,7 +57,7 @@ export default function FinalizarCompra(){
    
   </div>
   <div><h3>Forma de pagamento:</h3></div>
-  <div className='pag'><img className='pagamentos' src='/pix.png' alt='pag'/>  &nbsp; PIX</div>
+  <div className='pag'><img className='pagamentos' src='/pixx.png' alt='pag'/>  &nbsp; PIX</div>
   <div className='valor'>
     Valor Total  
     <p className='espaço'>R$ preço</p> 
