@@ -50,7 +50,7 @@ export default function HeaderLoja() {
 
                 <div className="box-Usuario">
                     <img id='svgIcon' src="/Icon.svg" alt="iconUser" />
-                    <span>Bem vindo, {infoStorage.nome} <a onClick={() => Navigate(`/usuario/${infoStorage.id}`)}   >Minha Conta</a> | <a>Sair</a></span>
+                    <span>Bem vindo, {infoStorage ? infoStorage.nome : 'Visitante'} <a onClick={() => Navigate(`/usuario/${infoStorage.id}`)}   >Minha Conta</a> | <a>Sair</a></span>
                     <img src="/carrinho.png" alt="aaaa" onClick={carrinho} />
                 </div>
             </section>
