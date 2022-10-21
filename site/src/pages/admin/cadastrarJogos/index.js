@@ -66,8 +66,8 @@ export default function CadastratJogos() {
     // cadastrar e alterar
     async function salvar() {
         try {
-            // if (!imagem)
-            //     throw new Error('Escolha a capa do jogo.');
+            if (!imagem)
+                throw new Error('Escolha a capa do jogo.');
     
             if (!id) {
                 const novoJogo = await inserirJogo(nome, valor, descricao, estoque, resquisitos, disponivel, maisVendido, genSelecionadas, platSelecionadas);
@@ -88,7 +88,12 @@ export default function CadastratJogos() {
 
         }
         catch (err) {
+        if (err.response)
             toast.error(err.response.data.erro)
+        else
+            toast.error(err.message);
+        
+            
         }
     }
 
