@@ -1,8 +1,8 @@
 import  { cadastroJogo, inserirGeneroJogo, inserirPlataformaJogo, alterarImagem, listarTodosJogos, buscarPorNome, removerGeneroJogo, removerPlataformaJogo, removerJogo, alterarJogo, filtroGeneroJogo, filtroPlataformaJogo } from "../repository/jogoRepository.js";
 import { response, Router } from "express";
 import multer from "multer";
-import { buscarGeneroPorId } from "../repository/generoRepository.js";
-import { buscarPlataformaporID } from "../repository/plataformaRepository.js";
+import { buscarGeneroPorId, buscarGeneroProduto } from "../repository/generoRepository.js";
+import { buscarPlataformaporID, buscarPlataformaProduto } from "../repository/plataformaRepository.js";
 import { ValidarJogo } from "../services/validarProduto.js";
 import { buscarJogoPorId } from "../repository/adminRepository.js";
 
@@ -158,16 +158,17 @@ server.put('/:id' , async (req, resp) => {
 server.get('/:id', async (req, resp) => {
     try {
         const id = Number(req.params.id);
-        console.log(id)
         
-        const resposta = await buscarJogoPorId(id);
+        const r = await buscarJogoPorId(id);
+        const infoGenero = await buscarGeneroProduto(id)
+        const infoPlataforma = await buscarPlataformaProduto(id)
 
-        if (!resposta)
-            resp.status(404).send([])
-        else
-            resp.send(resposta);
+        resp.send({
+            info: r,
+            generos: infoGenero,
+            plataformas: infoPlataforma
+        });
     } catch (err) {
-        console.log(err)
         resp.status(400).send({
             erro: err.message
         })
