@@ -3,8 +3,9 @@ import { useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import '../../../src/common/common.scss'
 import { listarTodosJogos, listarTodosJogosPorNome } from '../../api/jogos'
-
+import storage from 'local-storage'
 import InputPesquisa from '../inputPesquisa'
+
 
 import './index.scss'
 export default function HeaderLoja() {
@@ -17,6 +18,17 @@ export default function HeaderLoja() {
         const resp = await listarTodosJogosPorNome(texto)
         // passar a resp como parametro no array de filmes para filtrar
     }
+    const [infoStorage, setInfostorage] = useState('')
+
+    function exibirNome () {
+       const taLogado =  storage('usuario-logado')
+       setInfostorage(taLogado)
+       console.log(taLogado)
+   }
+
+   useEffect(() => {
+       exibirNome()
+   }, [])
 
     function carrinho(){
         Navigate('/carrinho')
@@ -38,7 +50,7 @@ export default function HeaderLoja() {
 
                 <div className="box-Usuario">
                     <img id='svgIcon' src="/Icon.svg" alt="iconUser" />
-                    <span>Bem vindo, Fulano <a>Minha Conta</a> | <a>Sair</a></span>
+                    <span>Bem vindo, {infoStorage.nome} <a onClick={() => Navigate(`/usuario/${infoStorage.id}`)}   >Minha Conta</a> | <a>Sair</a></span>
                     <img src="/carrinho.png" alt="aaaa" onClick={carrinho} />
                 </div>
             </section>
@@ -46,9 +58,9 @@ export default function HeaderLoja() {
             <section className="containerCategoria">
                 <li className='listaOpcoes'>
                     <Link to='/jogos'>Loja</Link>
-                    <Link to='/categorias'>Categorias</Link>
+                    <span>Home</span>
                     <Link to='/ajuda'>Suporte</Link>
-                    <Link to='/usuario'>Area do usuario</Link>
+                    <span onClick={() => Navigate(`/usuario/${infoStorage.id}`)}>Area do usuario</span>
                 </li>
             </section>
 

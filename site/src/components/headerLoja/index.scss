@@ -46,16 +46,21 @@
         flex-direction: row;
         justify-content: space-evenly;
         width: 100%;
+        span:hover {
+            color : red 
+        }
         
     }
 
-    .listaOpcoes > a {
+    .listaOpcoes > span {
         color: white;
         cursor: pointer;
         text-decoration: none;
     }
+
     a:hover{
         color: red;
+        cursor: pointer;
     }
 
     #formatLogo {

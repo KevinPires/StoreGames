@@ -103,14 +103,20 @@
             
         }
     
-        .listaOpcoes > a {
+        .listaOpcoes > a, span {
             color: white;
-          cursor: pointer;
-          text-decoration: none;
+            cursor: pointer;
+            text-decoration: none;
         }
+
         a:hover{
-            color: red;
+            color: #ff0000;
         }
+
+        span:hover {
+            color: #ff0000
+        }
+      
     
         #formatLogo {
             height: 10rem;

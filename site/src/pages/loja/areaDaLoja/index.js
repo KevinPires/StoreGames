@@ -9,6 +9,7 @@ import { useState, useEffect } from 'react'
 import { listarTodosJogos, listarTodosJogosPorNome } from '../../../api/jogos'
 import Pagination from '../../../components/pagination'
 import { Link } from 'react-router-dom'
+import storage from 'local-storage'
 
 
 export default function LojaArea () {
@@ -18,6 +19,18 @@ export default function LojaArea () {
     const [jogoPorPage] = useState(20)
     
     const [texto, setTexto] = useState('')
+
+    const [infoStorage, setInfostorage] = useState('')
+
+    function exibirNome () {
+       const taLogado =  storage('usuario-logado')
+       setInfostorage(taLogado)
+       console.log(taLogado)
+   }
+
+   useEffect(() => {
+       exibirNome()
+   }, [])
     
     const Navigate = useNavigate()
     async function filtrar() {
@@ -66,16 +79,16 @@ export default function LojaArea () {
 
                             <div className="boxUsuario">
                                 <img id='svgIcon' src="/Icon.svg" alt="iconUser" />
-                                <span>Bem vindo, Fulano <a>Minha Conta</a> | <a>Sair</a></span>
+                                <span>Bem vindo, {infoStorage.nome} <a onClick={() => Navigate(`/usuario/${infoStorage.id}`)} >Minha Conta</a> | <a>Sair</a></span>
                                 <img src='/carrinho.png' alt='' onClick={carrinho}/>
                             </div>
                         </section>
                         <section className="containerCategoria">
                             <li className='listaOpcoes'>
                                 <Link to='/jogos'>Loja</Link>
-                                <Link to='/categorias'>Categorias</Link>
+                                <span>Home</span>
                                 <Link to='/ajuda'>Suporte</Link>
-                                <Link to='/usuario'>Área do Usuario</Link>
+                                <span onClick={() => Navigate(`/usuario/${infoStorage.id}`)}>Área do Usuario</span>
                             </li>
                         </section>
                     </section>
