@@ -34,17 +34,27 @@ export default function Boleto(props){
     <h2>Dados pessoais</h2>
   <div className='metodo'> <img className='pagamentos' src='/boleto.png' alt='pag'/>  &nbsp; &nbsp; <b>BOLETO</b></div>  
   </div>
-  <div>Nome completo</div>
-  <input className='input1' type='text'></input>
+  <br/>
+  <div className='input-group'>
+         <input type="text"  required className='input'/>
+        <label for="name" className='input-label'>Nome</label>
+   </div>
+  
+   <div className='input-group'>
+         <input type="text"  required className='input'/>
+        <label for="name" className='input-label'>Email</label>
+   </div>
 
-  <div>Email</div>
-  <input className='input1' type='text'></input>
+   <div className='input-group'>
+         <input type="text"  required className='input'/>
+        <label for="name" className='input-label'>CPF</label>
+   </div>
 
-  <div>CPF</div>
-  <input className='input1' type='text'></input>
-
-  <div>TELEFONE</div>
-  <input className='input1' type='text'></input>
+   
+   <div className='input-group'>
+         <input type="text"  required className='input'/>
+        <label for="name" className='input-label'>Telefone</label>
+   </div>
 </section>
 
 <section className='box22'>
@@ -65,7 +75,7 @@ export default function Boleto(props){
   <div><h3>Forma de pagamento:</h3></div>
   <div className='pag'><img className='pagamentos' src='/boleto.png' alt='pag'/>  &nbsp; BOLETO</div>
   <div className='valor'>
-    Valor Total  
+    Valor Total:  
     <p className='espaço'>R$ preço</p> 
   </div>
 
@@ -78,32 +88,38 @@ export default function Boleto(props){
     <section className='box3'>
         <h2>Informações de entrega</h2>
         <div className='endereco1'>
-            <div className='input-endereço1'>
-                <b>CEP</b>
-                <input  className='input1'></input>
-            </div>
+        <div className='input-group'>
+            <input type="text"  required className='input'/>
+              <label for="name" className='input-label'>CEP</label>
+           </div>
 
-            <div className='input-endereço1'>
-                <b>Endereço</b>
-                <input className='input2'></input>
-            </div>
+           <div className='input-group'>
+            <input type="text"  required className='input'/>
+              <label for="name" className='input-label'>Endereço</label>
+           </div>
 
-            <div className='input-endereço1'>
-                <b>Numero</b>
-                <input type='number' className='input3'></input>
-            </div>
+           <div className='input-group'>
+            <input type="number"  required className='input' />
+              <label for="name" className='input-label'>Número</label>
+           </div>
         </div>
 
         <div className='endereco1'>
-        <div className='input-endereço1'>
-                <b>Bairro</b>
-                <input  className='input1'></input>
-            </div>
+        <div className='input-group'>
+            <input type="text"  required className='input'/>
+              <label for="name" className='input-label'>Bairro</label>
+           </div>
 
-            <div className='input-endereço1'>
-                <b>Cidade</b>
-                <input className='input2'></input>
-            </div>
+           <div className='input-group'>
+            <input type="text"  required className='input'/>
+              <label for="name" className='input-label'>Cidade</label>
+           </div>
+
+           <div className='input-group'>
+            <input type="text"  required className='input'/>
+              <label for="name" className='input-label'>Complemento</label>
+           </div>
+
         </div>
     </section>
 

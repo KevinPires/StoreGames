@@ -10,7 +10,7 @@ import CarrinhoItem from '../../../components/carrinhoItem'
 import './index.scss'
 import { buscarJogoPorId } from '../../../api/jogos'
 import toast from 'react-toastify'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 export default function CarrinhoCompras() {
     const [itens, setItens] = useState([])
@@ -82,7 +82,7 @@ export default function CarrinhoCompras() {
                                 <div className="flexboxrow"><span>Preço Total: </span> <span>R$ {calcularTotal()}</span></div>
                                 <div className="flexboxrow"><span>Frete: </span> <span>R$ Dinheiros</span></div>
                             </div>
-                            <button>Finalizar Compra</button>
+                            <Link className='button' to='/pagamento/pix'>Finalizar Compra</Link>
                         </div>
                     </div>
 

@@ -33,40 +33,30 @@ export default function Cartao(){
     <h2>Dados pessoais</h2>
   <div className='metodo'> <img className='pagamentos' src='/cartao2.png' alt='pag'/>  &nbsp; &nbsp; <b>CARTÃO</b></div>  
   </div>
-  <div>Nome impresso no cartão:</div>
-  <input className='input1' type='text'></input>
-
-  <div>Numero do cartão:</div>
-  <input className='input1' type='text'></input>
-
-  <div className='inputs-peq'>
-
-  <div className='alin'>CPF
-  <input className='inputpeq2' type='text'></input>
-  </div>
-   
-   <div className='alin2'> Data de nasc.
-    <input className='inputpeq' type='date'></input>
+  
+  <br/>
+  <div className='input-group'>
+         <input type="text"  required className='input'/>
+        <label for="name" className='input-label'>Cartão</label>
    </div>
   
- 
-  </div>
+   <div className='input-group'>
+         <input type="number"  required className='input'/>
+        <label for="name" className='input-label'>N° cartão</label>
+   </div>
 
-  <div className='inputs-peq'>
+   <div className='input-group'>
+         <input type="date"  required className='input'/>
+        <label for="name" className='input-label'>Vencimento</label>
+   </div>
 
-  <div className='alin2'>Validade
-  <input className='inputpeq2' type='text'></input>
-  </div>
-   
-   <div className='alin'> Cód. Vereficação
-    <input className='inputpeq' type='number'></input>
+   <div className='input-group'>
+         <input type="number"  required className='input'/>
+        <label for="name" className='input-label'>Cód. Segurança</label>
    </div>
   
- 
-  </div>
 
-  <div>Quantidade de parcelas:</div>
-  <input className='input1' type='number'></input>
+  
 </section>
 
 
@@ -88,7 +78,7 @@ export default function Cartao(){
   <div><h3>Forma de pagamento:</h3></div>
   <div className='pag'><img className='pagamentos' src='/cartao2.png' alt='pag'/>  &nbsp; CARTÃO</div>
   <div className='valor'>
-    Valor Total  
+    Valor Total:  
     <p className='espaço'>R$ preço</p> 
   </div>
 
@@ -99,34 +89,40 @@ export default function Cartao(){
 
 <section className='endereço'>
     <section className='box3'>
-        <h2>Informações de entrega</h2>
+    <h2>Informações de entrega</h2>
         <div className='endereco1'>
-            <div className='input-endereço1'>
-                <b>CEP</b>
-                <input  className='input1'></input>
-            </div>
+        <div className='input-group'>
+            <input type="text"  required className='input'/>
+              <label for="name" className='input-label'>CEP</label>
+           </div>
 
-            <div className='input-endereço1'>
-                <b>Endereço</b>
-                <input className='input2'></input>
-            </div>
+           <div className='input-group'>
+            <input type="text"  required className='input'/>
+              <label for="name" className='input-label'>Endereço</label>
+           </div>
 
-            <div className='input-endereço1'>
-                <b>Numero</b>
-                <input type='number' className='input3'></input>
-            </div>
+           <div className='input-group'>
+            <input type="number"  required className='input' />
+              <label for="name" className='input-label'>Número</label>
+           </div>
         </div>
 
         <div className='endereco1'>
-        <div className='input-endereço1'>
-                <b>Bairro</b>
-                <input  className='input1'></input>
-            </div>
+        <div className='input-group'>
+            <input type="text"  required className='input'/>
+              <label for="name" className='input-label'>Bairro</label>
+           </div>
 
-            <div className='input-endereço1'>
-                <b>Cidade</b>
-                <input className='input2'></input>
-            </div>
+           <div className='input-group'>
+            <input type="text"  required className='input'/>
+              <label for="name" className='input-label'>Cidade</label>
+           </div>
+
+           <div className='input-group'>
+            <input type="text"  required className='input'/>
+              <label for="name" className='input-label'>Complemento</label>
+           </div>
+
         </div>
     </section>
 

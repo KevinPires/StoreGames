@@ -86,13 +86,18 @@
         height: 1.5rem;
         width: 3rem;
     }
-    button {
+    button, .button {
         border-radius: 5px;
         height: 3rem;
         width: 10rem;
         background-color: #5E80C2;
         border: none;
         color: white;
+        text-decoration: none;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     #capa {

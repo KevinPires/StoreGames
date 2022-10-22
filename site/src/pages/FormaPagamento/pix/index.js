@@ -4,6 +4,8 @@ import Rodape from '../../../components/Rodapé';
 import HeaderCarrinho from '../../../components/headerCarrinho';
 import { Link } from 'react-router-dom';
 
+
+
 export default function Pix(){
 
 
@@ -15,11 +17,11 @@ export default function Pix(){
           <div className='ajustar'>
 
           <section className='forma-pagamento'>
-
           <Link to='/pagamento/pix' className='botao'> <img className='pagamentos' src='/pixx.png' alt='pag'/>  &nbsp; &nbsp;PIX</Link>
           <Link to='/pagamento/boleto' className='botao'> <img className='pagamentos' src='/boleto.png' alt='pag'/>  &nbsp; &nbsp;BOLETO</Link>
           <Link to='/pagamento/cartao' className='botao'> <img className='pagamentos' src='/cartao2.png' alt='pag'/>  &nbsp; &nbsp;CARTÃO</Link>
     <Link to='/carrinho' className='botao-sair'> <p>VOLTAR</p></Link>
+          
 
 </section>
 
@@ -33,11 +35,21 @@ export default function Pix(){
     <h2>Dados pessoais</h2>
   <div className='metodo'> <img className='pagamentos' src='/pixx.png' alt='pag'/>  &nbsp; &nbsp; <b>PIX</b></div>  
   </div>
-  <div>Nome completo:</div>
-  <input className='input' type='text'></input>
+<br/>
+  <div className='input-group'>
+         <input type="text"  required className='input'/>
+        <label for="name" className='input-label'>Nome</label>
+   </div>
+  
+   <div className='input-group'>
+         <input type="text"  required className='input'/>
+        <label for="name" className='input-label'>Chave pix</label>
+   </div>
 
-  <div>CPF:</div>
-  <input className='input' type='text'></input>
+   <div className='input-group'>
+         <input type="text"  required className='input'/>
+        <label for="name" className='input-label'>CPF</label>
+   </div>
 </section>
 
 
@@ -59,7 +71,7 @@ export default function Pix(){
   <div><h3>Forma de pagamento:</h3></div>
   <div className='pag'><img className='pagamentos' src='/pixx.png' alt='pag'/>  &nbsp; PIX</div>
   <div className='valor'>
-    Valor Total  
+    Valor Total:
     <p className='espaço'>R$ preço</p> 
   </div>
 
@@ -71,33 +83,44 @@ export default function Pix(){
 <section className='endereço'>
     <section className='box3'>
         <h2>Informações de entrega</h2>
+
         <div className='endereco1'>
-            <div className='input-endereço1'>
-                <b>CEP</b>
-                <input  className='input1'></input>
-            </div>
 
-            <div className='input-endereço1'>
-                <b>Endereço</b>
-                <input className='input2'></input>
-            </div>
+           <div className='input-group'>
+            <input type="text"  required className='input'/>
+              <label for="name" className='input-label'>CEP</label>
+           </div>
 
-            <div className='input-endereço1'>
-                <b>Numero</b>
-                <input type='number' className='input3'></input>
-            </div>
+           <div className='input-group'>
+            <input type="text"  required className='input'/>
+              <label for="name" className='input-label'>Endereço</label>
+           </div>
+
+           <div className='input-group'>
+            <input type="number"  required className='input' />
+              <label for="name" className='input-label'>Número</label>
+           </div>
+
+          
         </div>
 
         <div className='endereco1'>
-        <div className='input-endereço1'>
-                <b>Bairro</b>
-                <input  className='input1'></input>
-            </div>
+        <div className='input-group'>
+            <input type="text"  required className='input'/>
+              <label for="name" className='input-label'>Bairro</label>
+           </div>
 
-            <div className='input-endereço1'>
-                <b>Cidade</b>
-                <input className='input2'></input>
-            </div>
+           <div className='input-group'>
+            <input type="text"  required className='input'/>
+              <label for="name" className='input-label'>Cidade</label>
+           </div>
+
+           <div className='input-group'>
+            <input type="text"  required className='input'/>
+              <label for="name" className='input-label'>Complemento</label>
+           </div>
+
+            
         </div>
     </section>
 
