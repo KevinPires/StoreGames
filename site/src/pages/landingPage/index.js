@@ -1,9 +1,12 @@
 import './index.scss'
 import '../../common/common.scss'
+import { Link } from 'react-router-dom'
 import HeaderLoja from '../../components/headerLoja'
 import CardJogo from '../../components/cardJogo'
 import { useEffect, useState } from 'react';
 import { listarJogosDestaque, listarTodosJogos } from '../../api/jogos';
+import Rodape from '../../components/Rodapé';
+
 
 export default function LandingPage() {
 
@@ -19,7 +22,7 @@ export default function LandingPage() {
         setJogoFinal(10)
     }
 
-    console.log(jogos)
+  
 
     async function mostrarJogo() {
         const x = await listarJogosDestaque()
@@ -71,12 +74,14 @@ export default function LandingPage() {
                 <button onClick={exibirMais}><b>Mostrar mais</b></button>
 
                 <hr/>
+
             </section>
 
             <section className="faixa-tres">
-
-                <img src="/hermes.png" alt="" />
-
+                <div className="container-hermes">
+                    <img src="/hermes.png" alt="" />
+                </div>
+                
                 <div className="box-texto-f3">
                     <div className="f3-texto-format ">
                         <h1>Rapidez e eficiência</h1>
@@ -85,9 +90,37 @@ export default function LandingPage() {
                     </div>
                 </div>
 
-
             </section>
 
+            <section className="faixa-cadastro">
+                <div className="container-lobo">
+                <Link to='/usuario/cadastro'><button><b>Cadastre-se agora!</b></button></Link>
+                </div>
+
+                <div className="container-boxs">
+                    <div className="box-esquerda">
+                        <img id='img-format-boxes' src="/computador.png" alt="computador com teclado e mouse" />
+                        <div className="box-esquerda-texto">
+                            <h1>Acompanhe o mundo</h1>
+                            <p>Encontre os melhores jogos atuais</p>
+                        </div>
+                    </div>
+                    <div className="box-direita">
+                        <img id='img-format-boxes' src="/controle.png" alt="" />
+                        <div className="box-direito-texto">
+                            <h1>Explore as possibilidades!</h1>
+                            <p>Ofertas imperdiveis!</p>
+                        </div>
+                    </div>
+                </div>
+            </section> 
+
+            <section className="descontos flexboxcolumn">
+                <h1>Não perca os melhores descontos!</h1>
+                <Link to='/usuario/cadastro'><button><b>Cadastre-se agora!</b></button></Link>
+            </section>
+
+        <Rodape/>
         </main>
     )
 }
