@@ -22,6 +22,7 @@ import CarrinhoItem from './components/carrinhoItem'
 import Boleto from './pages/FormaPagamento/boleto'
 import Cartao from './pages/FormaPagamento/cartao'
 import Pix from './pages/FormaPagamento/pix'
+import CompraFinalizada from './pages/FormaPagamento/compraFinalizada'
 import LandingPage from './pages/landingPage'
 //Nâo apagar o segundo AdminCadastro, ele faz parte do alterar
 // import ModalAlteraInformacoes from './components/modal/modalUsuario/modalAlterarInformacoes'
@@ -52,6 +53,7 @@ export default function AppRoutes() {
                 <Route path='/pagamento/boleto' element={<Boleto/>} />
                 <Route path='/pagamento/cartao' element={<Cartao/>} />
                 <Route path='/pagamento/pix' element={<Pix/>} />
+                <Route path='/comprafinalizada' element={<CompraFinalizada/>} />
                 {/* <Route path='/modalinformacoes' element={<ModalAlteraInformacoes/>} /> */}
             </Routes>
     </BrowserRouter>
