@@ -7,6 +7,7 @@ import { detalheJogo } from '../../../api/jogos';
 import { useEffect, useState } from 'react';
 import { API_URL } from '../../../api/config';
 import Storage from 'local-storage';
+import { adicionarFavorito } from '../../../api/usuario';
 
 
 export default function DetalhesProduto(){
@@ -14,7 +15,26 @@ export default function DetalhesProduto(){
     const [jogo, setJogo] =  useState({info: {} ,generos: [] , plataformas: []})
     const { id } = useParams();
 
-   
+    const [infoStorage, setInfostorage] = useState('')
+
+    function exibirNome() {
+        const taLogado = Storage('usuario-logado')
+        setInfostorage(taLogado)
+    }
+
+    useEffect(() => {
+        exibirNome()
+    }, [])
+
+    async function inserirFavorito(){
+        try {
+            const r = await adicionarFavorito(infoStorage.id, jogo.info.id)
+            alert('adicionado')
+        } catch (err) {
+            console.log(err)
+        }
+        
+    }
 
     async function carregarDetalhes () {
         const detalhes = await detalheJogo(id)
@@ -46,10 +66,8 @@ export default function DetalhesProduto(){
     }
 
     useEffect(() => {
-
         carregarDetalhes()
-        
-
+        exibirNome()
     }, [])
 
     return(
@@ -61,7 +79,7 @@ export default function DetalhesProduto(){
                         <img src={carregarImagem()} alt=''/>
                     </div>
                     <div className='favorito'>
-                        <img src='/coracaoIcon.png' alt='' />
+                        <img src='/coracaoIcon.png' alt='' onClick={inserirFavorito}/>
                         <p>Adiciona aos <br/>favoritos</p>
                     </div>
                 </div>
