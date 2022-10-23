@@ -8,6 +8,7 @@ import Rodape from '../../../../components/Rodapé'
 import './index.scss'
 import { carregarUsuario } from '../../../../api/usuario';
 import { useEffect, useState } from 'react';
+import ModalAlteraSenha from '../../../../components/modal/modalAlterarSenha';
 
 
 export default function AreaLoja () {
@@ -24,7 +25,16 @@ export default function AreaLoja () {
         exibirUsuario()
     }, [])
     
+    const [exibirModalSenha, setExibirModalSenha] = useState(false)
     const [exibirModal,setExibirModal] = useState(false)
+
+    function exibirModalSen(){
+        setExibirModalSenha(true)
+    }
+
+    function removerModalSenha(){
+        setExibirModalSenha(false)
+    }
 
     function exibirModalInfo(){
         setExibirModal(true)
@@ -38,6 +48,7 @@ export default function AreaLoja () {
 
             <HeaderLoja/>
             <ModalAlteraInformacoes exibir={exibirModal} fecha={removerModalInfo}/>
+            <ModalAlteraSenha exibir={exibirModalSenha} fecha={removerModalSenha}/>
             <section className="container-user">
                 <div className="options">
                     <OptionsUser
@@ -85,7 +96,7 @@ export default function AreaLoja () {
                                 </div>
                             </div>
                             <div className="container-botoes">
-                                <button>Alterar Senha</button> <button onClick={exibirModalInfo}>Editar Informações</button>
+                                <button onClick={exibirModalSen}>Alterar Senha</button> <button onClick={exibirModalInfo}>Editar Informações</button>
                             </div>
                         </div>
                     </section>
