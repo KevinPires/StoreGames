@@ -31,3 +31,15 @@ export async function carregarUsuario(id) {
     const r = await api.get(`/user/${id}`)
     return r.data
 }
+
+
+export async function adicionarFavorito(id, idJogo){
+    const r = await api.post('user/favorito/adicionar',{
+        id: id,
+        idJogo: idJogo
+    })
+
+    return r.data
+}
+
+
