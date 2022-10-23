@@ -9,6 +9,13 @@ const api = axios.create({
 export async  function  listarTodosJogos(){
     const reposta = await api.get('/jogo/consultar');
     return reposta.data;
+    
+}
+
+export async  function  listarJogosDestaque(){
+    const reposta = await api.get('/jogo/consultar/destaque');
+    return reposta.data;
+   
 }
 
 export async function  listarTodosJogosPorNome(nome){

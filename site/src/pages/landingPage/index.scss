@@ -1,0 +1,147 @@
+.landing-page {
+    display: flex;
+    flex-direction: column;
+    
+    .faixa-um {
+        background-color: #E74C3C;
+        height: 75vh;
+        display: flex;
+        flex-direction: row;
+        background-image: url('../../../public/Gameboy.png');
+        background-repeat: no-repeat;
+        background-position: 88% 50%;
+        background-size: 470px 350px;
+    }
+
+    .listra {
+        height: 100%;
+        width: 15%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-end;
+    
+  
+    }
+
+    
+    .listra-maiorr { 
+        height: 100%;
+    }
+
+    #listra-menor{
+        height:  60%;
+    }
+    #listra-maior{
+        height: 101.4%;
+       
+    }
+    
+    #gameboy {
+        width: 45%;
+        height: 60%;
+    }
+
+    .box-texto {
+        height: 100%;
+        width: 25%;
+        display: flex;
+        align-items: center;
+        
+    }
+
+    .f1-texto-format {
+        margin-left: 4rem;
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: column;
+        width: 22rem;
+    }
+
+    .f1-texto-format > * {
+        margin-top: 13px;
+        color: #323A45;
+    }
+
+    .f1-texto-format > button {
+        align-self: center;
+        height: 2.5rem;
+        width: 8rem;
+        border-radius: 15px;
+        border: none;
+    }
+    button:hover {
+        cursor: pointer;
+    }
+
+    .f1-texto-format > h1 {
+        line-height: 1.2em;
+        font-size: 2.5rem;
+    }
+
+    .container-gameboy {
+        height: 100%;
+        background-color: #323A45;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .faixa-dois {
+        padding: 2em;
+        height: 75vh;
+        display: flex;
+        flex-direction: column;
+
+        button {
+            align-self: center;
+            height: 2.5rem;
+            width: 8rem;
+            border-radius: 15px;
+            border: none;
+            background-color: #E74C3C;
+          }
+
+          hr {
+            margin-top: 10px;
+            height: 2px;
+          }
+    
+    }
+
+    .faixa-dois-expandida {
+        padding: 2em;
+        height: 105vh;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .faixa-tres {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        height: 75vh;
+        background-color: #D6D6D6;
+
+        .f3-texto-format {
+            width: 25rem;
+        }
+
+        .box-texto-f3 {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+        }
+
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 3rem;
+      }
+      p {
+        margin-bottom: 25px;
+      }
+    }
+
+
+}

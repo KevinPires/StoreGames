@@ -86,7 +86,7 @@ export default function LojaArea () {
                         <section className="containerCategoria">
                             <li className='listaOpcoes'>
                                 <Link to='/jogos'>Loja</Link>
-                                <span>Home</span>
+                                <Link to='/'>Home</Link>
                                 <Link to='/ajuda'>Suporte</Link>
                                 <span onClick={() => Navigate(`/usuario/${infoStorage.id}`)}>Área do Usuario</span>
                             </li>

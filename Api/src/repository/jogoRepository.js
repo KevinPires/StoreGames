@@ -199,3 +199,22 @@ export async function filtroPlataformaJogo(filtro){
     const [linhas] = await con.query(comando, [filtro] )
     return linhas;
 }
+
+export async function listarDestaque() {
+    const comando =
+        `SELECT id_jogo		      id,
+                nm_jogo		      nome,
+                vl_jogo	          valor,
+                ds_jogo	          descricao,
+                qtd_estoque	      estoque,
+                img_capa          capa,
+                ds_requisitos     requisitos,
+                bl_disponivel     disponivel,
+                bl_maisvendido    maisvendido
+
+        FROM TB_JOGO
+        where bl_maisvendido = true`;
+    
+    const [linhas] = await con.query(comando);
+    return linhas;
+}
