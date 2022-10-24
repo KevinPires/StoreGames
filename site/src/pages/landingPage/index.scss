@@ -27,6 +27,23 @@
     
   
     }
+    .botao{
+        align-self: center;
+        height: 2.5rem;
+        width: 8rem;
+        border-radius: 15px;
+        border: none;
+        background-color: #Fff;
+    }
+    .botao:hover{
+        align-self: center;
+        height: 2.5rem;
+        width: 8rem;
+        border-radius: 15px;
+        border: solid 3px black;
+        background-color: #Fff;
+    }
+
 
     
     .listra-maiorr { 
@@ -110,6 +127,8 @@
             margin-top: 10px;
             height: 2px;
           }
+
+       
     
     }
 
