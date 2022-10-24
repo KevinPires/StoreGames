@@ -1,4 +1,4 @@
-import { cadastrarUsuario, exibirFavorito, inserirFavorito, loginUsuario, verificarCpf, verificarEmail, VisualizarInfoLogin, VisualizarInfoUser } from '../repository/userRepository.js'
+import { alterarSenha, cadastrarUsuario, exibirFavorito, inserirFavorito, loginUsuario, verificarCpf, verificarEmail, VisualizarInfoLogin, VisualizarInfoUser } from '../repository/userRepository.js'
 import { Router } from "express";
 import multer from 'multer';
 import { buscarGeneroPorId } from '../repository/generoRepository.js';
@@ -145,4 +145,19 @@ server.get('/favorito/exibir/:id', async (req, resp)=>{
     }
 })
 
+
+server.put('/alterar/senha/:id', async(req, resp)=>{
+    try {
+        const { id } = req.params
+        const { senha } = req.body
+        
+        const r = await alterarSenha(senha, id)
+        
+        resp.send(r)
+    } catch (err) {
+        resp.send({
+            erro: err.message
+        })
+    }
+})
 export default server;

@@ -135,3 +135,18 @@ export async function exibirFavorito(id){
     const [resposta] = await con.query( comando , [id])
     return [resposta]
 }
+
+// ALTERAR SENHA
+
+export async function alterarSenha(id, senha){
+    const comando =`
+        update TB_USUARIO_LOGIN
+            SET DS_SENHA = ?
+        WHERE ID_USUARIO = ?;
+    `
+
+    const resposta = await con.query(comando [id, senha])
+    console.log(resposta)
+    return resposta.affectedRows
+    
+}
