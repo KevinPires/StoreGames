@@ -132,26 +132,31 @@ server.post('/favorito/adicionar', async (req, resp) => {
 })
 
 
-server.get('/favorito/exibir/:id', async (req, resp)=>{
-    try {
-        const { id } = req.params
-        const r = await exibirFavorito(id);
+// server.get('/favorito/exibir/:id', async (req, resp)=>{
+//     try {
+//         const { id } = req.params
+//         const r = await exibirFavorito(id);
 
-        resp.send(r)
-    } catch (err) {
-        resp.send({
-            erro: err.message
-        })
-    }
-})
+
+//         for (idJogo of r.idJogos){
+//             const resposta = await buscarJogoPorId(idJogo)
+//         }
+//         resp.send(r)
+//     } catch (err) {
+//         resp.send({
+//             erro: err.message
+//         })
+//     }
+// })
 
 
 server.put('/alterar/senha/:id', async(req, resp)=>{
     try {
-        const { id } = req.params
-        const { senha } = req.body
         
-        const r = await alterarSenha(senha, id)
+        const { senha } = req.body
+        const { id } = req.params
+
+        const r = await alterarSenha( senha, id)
         
         resp.send(r)
     } catch (err) {

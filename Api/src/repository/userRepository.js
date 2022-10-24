@@ -128,7 +128,8 @@ export async function inserirFavorito(id, idJogo){
 
 export async function exibirFavorito(id){
     const comando =`
-            SELECT  FK_JOGO				idJogo
+            SELECT  id_usuario_favorito     id_usuario_favorito,
+                    FK_JOGO				    idJogo
         FROM TB_USUARIO_FAVORITO
         WHERE FK_USUARIO = ?;
     `
@@ -138,15 +139,14 @@ export async function exibirFavorito(id){
 
 // ALTERAR SENHA
 
-export async function alterarSenha(id, senha){
+export async function alterarSenha(senha, id){
+    console.log(id , senha)
     const comando =`
         update TB_USUARIO_LOGIN
-            SET DS_SENHA = ?
-        WHERE ID_USUARIO = ?;
+            set ds_senha= ?
+        where id_usuario = ?;
     `
-
-    const resposta = await con.query(comando [id, senha])
-    console.log(resposta)
-    return resposta.affectedRows
     
+    const resposta = await con.query(comando, [ senha, id])
+    return resposta.affectedRows
 }
