@@ -218,3 +218,59 @@ export async function listarDestaque() {
     const [linhas] = await con.query(comando);
     return linhas;
 }
+
+// Filtrar por valor
+
+export async function filtrarValorCinquenta(){
+const comando =
+    `SELECT 	
+		   TB_JOGO.id_jogo,
+		   TB_JOGO.nm_jogo,
+		   TB_JOGO.vl_jogo
+	FROM TB_JOGO
+	where vl_jogo < 50`;
+
+    const [linhas] = await con.query(comando);
+    return linhas;
+
+}
+
+export async function filtrarValorCem(){
+    const comando = 
+    `SELECT 
+          TB_JOGO.id_jogo,
+          TB_JOGO.nm_jogo,
+          TB_JOGO.vl_jogo
+    FROM TB_JOGO
+    where vl_jogo >= 51 and vl_jogo <=100`;
+
+    const [linhas] = await con.query(comando);
+    return linhas;
+}
+
+export async function filtrarValorDuzentos(){
+    const comando = 
+    `SELECT 
+          TB_JOGO.id_jogo,
+          TB_JOGO.nm_jogo,
+          TB_JOGO.vl_jogo
+    FROM TB_JOGO
+    where vl_jogo >= 101 and vl_jogo <=200`;
+
+    const [linhas] = await con.query(comando);
+    return linhas;
+}
+
+export async function filtrarValorFinal(){
+    const comando = 
+    `SELECT 
+          TB_JOGO.id_jogo,
+          TB_JOGO.nm_jogo,
+          TB_JOGO.vl_jogo
+    FROM TB_JOGO
+    where vl_jogo >= 201`;
+
+    const [linhas] = await con.query(comando);
+    return linhas;
+}
+

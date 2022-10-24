@@ -1,4 +1,4 @@
-import  { cadastroJogo, inserirGeneroJogo, inserirPlataformaJogo, alterarImagem, listarTodosJogos, buscarPorNome, removerGeneroJogo, removerPlataformaJogo, removerJogo, alterarJogo, filtroGeneroJogo, filtroPlataformaJogo, listarDestaque } from "../repository/jogoRepository.js";
+import  { cadastroJogo, inserirGeneroJogo, inserirPlataformaJogo, alterarImagem, listarTodosJogos, buscarPorNome, removerGeneroJogo, removerPlataformaJogo, removerJogo, alterarJogo, filtroGeneroJogo, filtroPlataformaJogo, listarDestaque, filtrarValorCinquenta, filtrarValorCem, filtrarValorDuzentos, filtrarValorFinal } from "../repository/jogoRepository.js";
 import { response, Router } from "express";
 import multer from "multer";
 import { buscarGeneroPorId, buscarGeneroProduto } from "../repository/generoRepository.js";
@@ -216,4 +216,54 @@ server.get('/filtro/plataforma', async (req, resp )=>{
 })
 
 
+
+// Filtro de 50 pila
+server.get('/filtro/valor1' , async (req, resp) => {
+    try {
+        const resposta = await filtrarValorCinquenta();
+        resp.send(resposta);
+    } catch (err) {
+        resp.status(400).send ({
+            erro:err.message
+        });
+    }
+})
+
+// Filtro de 100 pila
+server.get('/filtro/valor2' , async (req, resp) => {
+    try {
+        const resposta = await filtrarValorCem();
+        resp.send(resposta);
+    } catch (err) {
+        resp.status(400).send ({
+            erro:err.message
+        });
+    }
+})
+
+
+
+// Filtro entre 101 e 200 pila
+server.get('/filtro/valor3' , async (req, resp) => {
+    try {
+        const resposta = await filtrarValorDuzentos();
+        resp.send(resposta);
+    } catch (err) {
+        resp.status(400).send ({
+            erro:err.message
+        });
+    }
+})
+
+// Filtro acima de 200 pila
+server.get('/filtro/valor4' , async (req, resp) => {
+    try {
+        const resposta = await filtrarValorFinal();
+        resp.send(resposta);
+    } catch (err) {
+        resp.status(400).send ({
+            erro:err.message
+        });
+    }
+})
 export default server;
