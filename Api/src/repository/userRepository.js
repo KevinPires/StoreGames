@@ -43,8 +43,7 @@ export async function verificarEmail(email) {
     const [resposta] = await con.query(
         comando, [
         email
-    ]
-    )
+    ])
 
     return resposta.length
 }
@@ -140,7 +139,7 @@ export async function exibirFavorito(id){
 // ALTERAR SENHA
 
 export async function alterarSenha(senha, id){
-    console.log(id , senha)
+    
     const comando =`
         update TB_USUARIO_LOGIN
             set ds_senha= ?
@@ -150,3 +149,21 @@ export async function alterarSenha(senha, id){
     const resposta = await con.query(comando, [ senha, id])
     return resposta.affectedRows
 }
+
+
+// VERIFICAÇÃO DE SENHA 
+
+// export async function verificarSenha(id, senha){
+//     console.log(id, senha)
+//     const comando=`
+//         select 	id_usuario_login			id,
+//                 nm_usuario				usuario
+//         from TB_USUARIO
+//         INNER JOIN TB_USUARIO_LOGIN ON TB_USUARIO_LOGIN.ID_USUARIO = TB_USUARIO.ID_USUARIO
+//         WHERE TB_USUARIO.ID_USUARIO = ?
+//         AND DS_SENHA = ?;
+//     `
+
+//     const [resposta]= await con.query(comando, [id, senha])
+//     return resposta[0]
+// }

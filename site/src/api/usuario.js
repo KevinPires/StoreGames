@@ -2,6 +2,7 @@ import { API_URL } from "./config";
 
 import axios from "axios";
 
+
 const api =axios.create({
     baseURL: API_URL
 });
@@ -43,3 +44,9 @@ export async function adicionarFavorito(id, idJogo){
 }
 
 
+export async function alterarSenhaUsuario(id, senha){
+    const r = await api.put(`/user/alterar/senha/${id}`,{
+        senha: senha
+    })
+    return r.data
+}
