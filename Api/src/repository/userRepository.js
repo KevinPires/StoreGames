@@ -151,19 +151,17 @@ export async function alterarSenha(senha, id){
 }
 
 
-// VERIFICAÇÃO DE SENHA 
+// ALTERAR INFORMAÇÕES USUARIO
 
-// export async function verificarSenha(id, senha){
-//     console.log(id, senha)
-//     const comando=`
-//         select 	id_usuario_login			id,
-//                 nm_usuario				usuario
-//         from TB_USUARIO
-//         INNER JOIN TB_USUARIO_LOGIN ON TB_USUARIO_LOGIN.ID_USUARIO = TB_USUARIO.ID_USUARIO
-//         WHERE TB_USUARIO.ID_USUARIO = ?
-//         AND DS_SENHA = ?;
-//     `
+export async function alterarInfo(id, usuario, cep){
+    console.log(id, usuario, cep)
+    const comando =`
+            update TB_USUARIO
+            SET NM_USUARIO = ?,
+                DS_CEP= ?
+        WHERE ID_USUARIO = ?;
+    `
 
-//     const [resposta]= await con.query(comando, [id, senha])
-//     return resposta[0]
-// }
+    const resposta = await con.query(comando,[id, usuario, cep])
+    return resposta.affectedRows
+}

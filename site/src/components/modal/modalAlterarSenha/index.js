@@ -29,6 +29,7 @@ export default function ModalAlteraSenha({ exibir, fecha }) {
             } else {
                 const r = await alterarSenhaUsuario(infoStorage.id, senha)
                 alert('alterado com sucesso')
+                fecha()
             }
 
         } catch (err) {

@@ -1,4 +1,4 @@
-import { alterarSenha, cadastrarUsuario, exibirFavorito, inserirFavorito, loginUsuario, verificarCpf, verificarEmail,  VisualizarInfoLogin, VisualizarInfoUser } from '../repository/userRepository.js'
+import { alterarInfo, alterarSenha, cadastrarUsuario, exibirFavorito, inserirFavorito, loginUsuario, verificarCpf, verificarEmail,  VisualizarInfoLogin, VisualizarInfoUser } from '../repository/userRepository.js'
 import { Router } from "express";
 import multer from 'multer';
 import { buscarGeneroPorId } from '../repository/generoRepository.js';
@@ -167,23 +167,19 @@ server.put('/alterar/senha/:id', async(req, resp)=>{
 })
 
 
-// server.post('/verificar/senha/:id', async( req, resp)=>{
-//     try {
-//         const { id } = req.params
-//         const { senha } = req.body
+server.put('/alterar/informacoes/:id', async(req, resp)=>{
+    try {
+        const { id } = req.params
+        const { usuario , cep } = req.body
+        const r = await alterarInfo(id, usuario, cep)
 
-//         const r = await verificarSenha(id, senha)
-//         if(!r){
-//             throw new Error('Senha invalida ')
-//         }
-//         resp.status(204).send(r)
-//     } catch (err) {
-//         resp.status(401).send({
-//             erro: err.message
-//         })
-//     }
-// })
-
+        resp.status(204).send(r)
+    } catch (err) {
+        resp.status(404).send({
+            erro: err.message
+        })
+    }
+})
 
 
 export default server;

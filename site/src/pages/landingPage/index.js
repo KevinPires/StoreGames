@@ -48,7 +48,7 @@ export default function LandingPage() {
                     <div className="f1-texto-format">
                         <h1>Seu novo jogo te espera aqui!</h1>
                         <p>Acesse agora nossa loja e garanta seu produto com o melhor preço!</p>
-                        <button>Ir para Loja</button>
+                        <button ><Link className='b1' to="/jogos">Ir para Loja</Link></button>
                     </div>
 
                 </div>

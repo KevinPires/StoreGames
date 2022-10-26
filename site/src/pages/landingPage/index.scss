@@ -90,7 +90,14 @@
         width: 8rem;
         border-radius: 15px;
         border: none;
+        text-decoration: none;
     }
+
+    .b1{
+        text-decoration: none;
+        color: #000000;
+    }
+
     button:hover {
         cursor: pointer;
     }

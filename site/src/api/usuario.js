@@ -50,3 +50,12 @@ export async function alterarSenhaUsuario(id, senha){
     })
     return r.data
 }
+
+
+export async function alterarInformacoes(id,usuario,cep){
+    const r = await api.put(`/user/alterar/informacoes/${id}`,{
+        usuario: usuario,
+        cep: cep
+    })
+    return r.data
+}
