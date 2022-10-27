@@ -4,7 +4,7 @@ import jogoController from './controller/jogoController.js'
 import generoController from './controller/generoController.js'
 import plataformaController from './controller/plataformaRepository.js'
 import userController from'./controller/userController.js'
-
+import pedidoController from './controller/pedidoController.js'
 import express from 'express'
 import cors from 'cors'
 
@@ -16,6 +16,7 @@ server.use(express.json());
 
 
 //config endpoints
+server.use('/pedido' , pedidoController)
 server.use('/admin', adminController);
 server.use('/jogo', jogoController)
 server.use('/genero', generoController)
