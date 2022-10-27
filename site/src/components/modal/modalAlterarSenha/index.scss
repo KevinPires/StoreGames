@@ -1,4 +1,4 @@
-.comp-modal-informacoes{
+.comp-modal-senha{
     // visibility: hidden;
         
     // .exibir {
@@ -20,7 +20,7 @@
             position: relative;
             top: -50px;
             width: 400px;
-            padding: 20px 20px 26px 20px;
+            padding: 20px 20px 28px 20px;
             margin: 10px;
             border-radius: 15px;
     
@@ -28,7 +28,9 @@
             flex-direction: column;
             align-items: center;
             background-color: #323A45;
+
             .img-close{
+                
                 width: 25px;
             }
             .form{
@@ -84,7 +86,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-           justify-content: space-evenly;
+            justify-content:space-evenly;
             width: 100%;
         }
     }

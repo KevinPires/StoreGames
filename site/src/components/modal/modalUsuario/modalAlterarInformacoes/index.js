@@ -1,52 +1,66 @@
+import { useState } from 'react'
 import './index.scss'
-
+import Storage from 'local-storage'
+import { alterarInformacoes } from '../../../../api/usuario'
 
 
 
 export default function ModalAlteraInformacoes({ exibir , fecha}){
 
-    if(!exibir){
+    const [infoStorage, setInfostorage] = useState('')
+    const [usuario, setUsuario] = useState('')
+    const [cep, setCep] = useState('')
+
+
+    if (!exibir) {
         return <> </>
     }
 
+
+    function exibirNome() {
+        const taLogado = Storage('usuario-logado')
+        setInfostorage(taLogado)
+    }
+
+    async function alterarInfo(){
+        try {
+            exibirNome()
+            if(!usuario){
+                alert('Digite um campo para altera')
+            }else{
+                const r = await alterarInformacoes(infoStorage.id, usuario, cep)
+                alert('alterado com sucesso')
+                fecha()
+            }
+            
+        } catch (err) {
+            console.log(err)
+        }
+    }
     return(
         <main className="comp-modal-informacoes">
             <div className={`modal-informacoes`}>
                 <div className='conteudo'>
-                    <h2>Editar informações </h2>
+                    <h2>Editar informações <img className='img-close' src='/closeicon.png' alt='' onClick={fecha} /></h2>
                     <div>
-                        <div className="form">
+                        <div className="form-meio">
                             <form>
                                 <label>Nome:</label>
-                                <input type="txt"/>
-                            </form>
-                            <form>
-                                <label>Data de nascimento:</label>
-                                <input type="date"/>
+                                <input type="txt" value={usuario} onChange={e => setUsuario(e.target.value)}/>
                             </form>
                         </div>
+
 
                         <div className="form-meio">
                             <form>
-                                <label>Email:</label>
-                                <input type="txt"/>
-                            </form>
-                        </div>
-
-                        <div className="form">
-                            <form>
                                 <label>cep:</label>
-                                <input type="txt"/>
-                            </form>
-                            <form>
-                                <label>Cpf:</label>
-                                <input type="txt"/>
+                                <input type="txt" value={cep} onChange={e => setCep(e.target.value)}/>
                             </form>
                         </div>
 
                         
                     </div>
-                    <button onClick={fecha}>Salvar</button>
+                    <button onClick={alterarInfo}>Salvar</button>
                 </div>
             </div>
         </main>

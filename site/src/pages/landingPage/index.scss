@@ -1,6 +1,11 @@
 .landing-page {
     display: flex;
     flex-direction: column;
+
+    .flexboxcolumn {
+        display: flex;
+        flex-direction: column;
+    }
     
     .faixa-um {
         background-color: #E74C3C;
@@ -22,6 +27,23 @@
     
   
     }
+    .botao{
+        align-self: center;
+        height: 2.5rem;
+        width: 8rem;
+        border-radius: 15px;
+        border: none;
+        background-color: #Fff;
+    }
+    .botao:hover{
+        align-self: center;
+        height: 2.5rem;
+        width: 8rem;
+        border-radius: 15px;
+        border: solid 3px black;
+        background-color: #Fff;
+    }
+
 
     
     .listra-maiorr { 
@@ -68,7 +90,14 @@
         width: 8rem;
         border-radius: 15px;
         border: none;
+        text-decoration: none;
     }
+
+    .b1{
+        text-decoration: none;
+        color: #000000;
+    }
+
     button:hover {
         cursor: pointer;
     }
@@ -88,7 +117,30 @@
 
     .faixa-dois {
         padding: 2em;
-        height: 75vh;
+       
+        display: flex;
+        flex-direction: column;
+
+        button {
+            align-self: center;
+            height: 2.5rem;
+            width: 8rem;
+            border-radius: 15px;
+            border: none;
+            background-color: #E74C3C;
+          }
+
+          hr {
+            margin-top: 10px;
+            height: 2px;
+          }
+
+       
+    
+    }
+
+    .faixa-dois-expandida {
+        padding: 2em;
         display: flex;
         flex-direction: column;
 
@@ -108,13 +160,6 @@
     
     }
 
-    .faixa-dois-expandida {
-        padding: 2em;
-        height: 105vh;
-        display: flex;
-        flex-direction: column;
-    }
-
     .faixa-tres {
         display: flex;
         flex-direction: row;
@@ -122,12 +167,27 @@
         height: 75vh;
         background-color: #D6D6D6;
 
-        .f3-texto-format {
+        .f3-texto-format {  
+            display: flex;
+            flex-direction: column;
             width: 25rem;
+        }
+
+        .container-hermes {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50%;
+        }
+
+        img {
+            width: 65%;
+            height: 85%;
         }
 
         .box-texto-f3 {
             height: 100%;
+            width: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -143,5 +203,122 @@
       }
     }
 
+    .faixa-cadastro {
+        height: 90vh;
+        background-color: #ffffff;
+        padding: 1.5em;
 
+        .container-lobo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 55%;
+            margin-bottom: 10px;
+            background-image: url('../../../public/lobobackground.png');
+            background-repeat: no-repeat;
+            background-size: 100%;
+            background-position: 50% 60% ;
+        }
+
+        .container-boxs {
+            display: flex;
+            flex-direction: row;
+            height: 45% ;
+        }
+
+        .box-esquerda {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 50%;
+            height: 100%;
+            background-color: #596677;
+            margin-right: 10px;
+        }
+
+        .box-direita {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 50%;
+            height: 100%;
+            background-color: #E74C3C;
+            margin-left: 10px;
+        }
+
+        #img-format-boxes {
+            height: 70%;
+            width: 50%;
+        }
+
+        .box-esquerda-texto {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 30%;
+            width: 100%;
+            background-color: #BDC3CB;
+          
+        }
+        .box-direito-texto {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 30%;
+            width: 100%;
+            background-color: #F4B0A9
+          
+        }
+
+        button {
+            align-self: center;
+            height: 2.5rem;
+            width: 9rem;
+            border-radius: 15px;
+            border: none;
+            background-color: #ffffff;
+          }
+
+    }
+
+    .descontos {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 25vh;
+
+        button {
+            margin-top: 15px;
+            align-self: center;
+            height: 2.5rem;
+            width: 13rem;
+            border-radius: 15px;
+            border: none;
+            background-color: #969494;
+          }
+    }
+
+
+    @media screen and (max-width: 850px) {
+        .faixa-um {
+            .listra-maiorr {
+                display: none;
+            }
+
+            .listra {
+                display: none;
+            }
+
+            .box-texto {
+                width: 30rem;
+            }
+        
+    }
+
+}
 }

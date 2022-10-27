@@ -91,3 +91,38 @@ LEFT JOIN TB_ENDERECO E
 ON E.ID_ENDERECO = P.ID_PEDIDO
 LEFT JOIN TB_PAGAMENTO_PIX PIX
 ON PIX.ID_PAGAMENTO_PIX = P.ID_PEDIDO;
+
+
+-- GET FILTRO DE PREÇO
+-- SELECT 
+-- 		   TB_JOGO.id_jogo,
+-- 		   TB_JOGO.nm_jogo,
+-- 		   TB_JOGO.vl_jogo,
+-- 		   TB_JOGO.ds_jogo,
+--            TB_JOGO.qtd_estoque,
+--           TB_JOGO.bl_disponivel,
+--            TB_JOGO.bl_maisvendido,
+--            COUNT(TB_GENERO_JOGO.FK_GENERO),
+--            COUNT(TB_PLATAFORMA_JOGO.FK_PLATAFORMA)
+-- 	FROM TB_JOGO
+-- 	INNER JOIN TB_GENERO_JOGO ON TB_JOGO.ID_JOGO = TB_GENERO_JOGO.FK_JOGO
+-- 	INNER JOIN TB_PLATAFORMA_JOGO ON TB_JOGO.ID_JOGO = TB_PLATAFORMA_JOGO.FK_JOGO
+--     WHERE VL_JOGO < 50
+--     GROUP BY TB_JOGO.ID_JOGO,
+-- 		     TB_JOGO.nm_jogo,
+-- 		     TB_JOGO.vl_jogo,
+-- 		     TB_JOGO.ds_jogo,
+--              TB_JOGO.qtd_estoque,
+-- 		     TB_JOGO.bl_disponivel,
+--              TB_JOGO.bl_maisvendido;
+
+-- GET FILTRO de preço
+	SELECT 	
+		   TB_JOGO.id_jogo,
+		   TB_JOGO.nm_jogo,
+		   TB_JOGO.vl_jogo
+	FROM TB_JOGO
+	where vl_jogo < 50;
+	
+
+-- GET FILTRO PARA PLATAFORMA
