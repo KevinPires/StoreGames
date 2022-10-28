@@ -64,7 +64,7 @@ export default function AreaLoja () {
                                 <h1>Bem vindo, <span>{dados.info.nome}!</span></h1>
                                 <h1>{dados.infoLogin.email}</h1>
                             </div>
-                    
+                        
                         </div>
                         <div className="boxdetalhes">
                             <h1>Detalhes</h1>

@@ -21,12 +21,11 @@ export async function cadastrarPedido (pedido) {
             pedido.notaFiscal,
             pedido.data 
     ]);
-    pedido.id = info.insertId
-    return info[0]
+    return info.insertId
 }
 
 
-export async function cadastrarEndereco(pedido, id) {
+export async function cadastrarEndereco(idPedido, pedido ) {
     const comando = 
     `
         INSERT INTO TB_ENDERECO 
@@ -38,17 +37,17 @@ export async function cadastrarEndereco(pedido, id) {
         DS_NUMERO,
         FK_PEDIDO
         )
-            VALUES('?', '?', '?', '?','?', ?);
+            VALUES(? , ? , ? , ? , ? , ? );
     `
-    const resposta = await con.query(comando, [
+    const [resposta] = await con.query(comando, [
         pedido.cep,
         pedido.endereco,
         pedido.cidade,
         pedido.bairro,
         pedido.numero,
-        id
+        idPedido
     ])
 
-    resposta.insertId
-    return resposta[0]
+    return resposta
+    
 }

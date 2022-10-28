@@ -15,14 +15,14 @@ server.post('/:idUsuario', async (req, resp) => {
         const novoPedido = criarNovoPedido(idUsuario, info)
     
         const idPedidoCriado = await cadastrarPedido(novoPedido);
-            await cadastrarEndereco(novoPedido)
+            await cadastrarEndereco(idPedidoCriado, info.endereco)
+            
         
-        
-        resp.send(idPedidoCriado)
+        resp.status(200).send()
         
     } catch (err) {
         console.log(err)
-        resp.status(401).send({
+        resp.status(400).send({
             erro: err.message
         })
     }
