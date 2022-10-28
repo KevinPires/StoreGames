@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { cadastrarEndereco, cadastrarPedido } from "../repository/pedidoRepository.js";
+import { cadastrarEndereco, cadastrarPedido, cadastrarPix } from "../repository/pedidoRepository.js";
 import { criarNovoPedido } from "../services/pedido.js";
 
 
@@ -16,6 +16,7 @@ server.post('/:idUsuario', async (req, resp) => {
     
         const idPedidoCriado = await cadastrarPedido(novoPedido);
             await cadastrarEndereco(idPedidoCriado, info.endereco)
+            await cadastrarPix(idPedidoCriado, info.cartao)
             
         
         resp.status(200).send()

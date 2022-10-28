@@ -51,3 +51,24 @@ export async function cadastrarEndereco(idPedido, pedido ) {
     return resposta
     
 }
+
+export async function cadastrarPix (idPedido, cartao) {
+    const comando = 
+    `
+    INSERT INTO 
+    TB_PAGAMENTO_PIX (
+        NM_CLIENTE, 
+        DS_CPF, 
+        DS_CHAVEPIX, 
+        FK_PEDIDO
+    )
+    VALUES(? , ? , ? , ? );
+    `
+    const [resposta] = await con.query (comando, [
+        cartao.nome,
+        cartao.cpf,
+        cartao.chavepix,
+        idPedido
+    ])
+    return resposta
+}
