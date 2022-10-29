@@ -72,3 +72,20 @@ export async function cadastrarPix (idPedido, cartao) {
     ])
     return resposta
 }
+
+export async function inserirJogoPedido (idPedido, idJogo, qtd, valor) {
+    const comando = 
+    `
+    INSERT INTO 
+    TB_JOGO_PEDIDO (
+        ID_PEDIDO,
+        ID_JOGO, 
+        QTD_ITENS, 
+        VL_PRODUTO
+        )
+    VALUES(? , ? , ? , ? );
+    
+    `
+    const [resp] = await con.query (comando, [idPedido, idJogo, qtd, valor])
+    return resp.affectedRows
+}

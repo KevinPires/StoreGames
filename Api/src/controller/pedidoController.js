@@ -1,5 +1,6 @@
 import { Router } from "express";
-import { cadastrarEndereco, cadastrarPedido, cadastrarPix } from "../repository/pedidoRepository.js";
+import { buscarJogoPorId } from "../repository/adminRepository.js";
+import { cadastrarEndereco, cadastrarPedido, cadastrarPix, inserirJogoPedido } from "../repository/pedidoRepository.js";
 import { criarNovoPedido } from "../services/pedido.js";
 
 
@@ -17,6 +18,11 @@ server.post('/:idUsuario', async (req, resp) => {
         const idPedidoCriado = await cadastrarPedido(novoPedido);
             await cadastrarEndereco(idPedidoCriado, info.endereco)
             await cadastrarPix(idPedidoCriado, info.cartao)
+
+        for (const item of info.jogos) {
+            const prod = await buscarJogoPorId(item.id)
+            await inserirJogoPedido(idPedidoCriado, prod.id, item.qtd, prod.valor);
+        }
             
         
         resp.status(200).send()
