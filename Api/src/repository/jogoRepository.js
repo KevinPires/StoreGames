@@ -274,3 +274,19 @@ export async function filtrarValorFinal(){
     return linhas;
 }
 
+
+// JOGOS DO MESMO GENERO 
+
+export async function jogosDoMesmoGenero(genero){
+    const comando = `
+        select 	ID_JOGO				ID,
+                NM_JOGO				NOME,
+                DS_GENERO			GENERO
+            FROM TB_JOGO
+            LEFT JOIN TB_GENERO_JOGO ON TB_GENERO_JOGO.FK_JOGO = TB_JOGO.ID_JOGO
+            LEFT JOIN TB_GENERO ON TB_GENERO.ID_GENERO = TB_GENERO_JOGO.FK_GENERO
+            where DS_GENERO = ?;
+    `
+    const [resposta] = await con.query(comando,[genero])
+    return resposta
+}
