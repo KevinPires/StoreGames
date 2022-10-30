@@ -18,7 +18,7 @@ export default function AreaLoja () {
     async function exibirUsuario() {
        const x = await carregarUsuario(id)
        setDados(x)
-       console.log()
+       console.log(x)
     }
     
     useEffect(() => {
