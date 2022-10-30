@@ -60,8 +60,8 @@ export default function HeaderLoja() {
 
             <section className="containerCategoria">
                 <li className='listaOpcoes'>
-                    <Link to='/jogos'>Loja</Link>
                     <Link to='/'>Home</Link>
+                    <Link to='/jogos'>Loja</Link>
                     <Link to='/ajuda'>Suporte</Link>
                     <span onClick={() => Navigate(`/usuario/${infoStorage.id}`)}>Area do usuario</span>
                 </li>
