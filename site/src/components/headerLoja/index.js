@@ -20,20 +20,23 @@ export default function HeaderLoja() {
     }
     const [infoStorage, setInfostorage] = useState('')
 
-    function exibirNome () {
-       const taLogado =  storage('usuario-logado')
-       setInfostorage(taLogado)
-       console.log(taLogado)
-   }
+    function exibirNome() {
+        const taLogado = storage('usuario-logado')
+        setInfostorage(taLogado)
+        console.log(taLogado)
+    }
 
-   useEffect(() => {
-       exibirNome()
-   }, [])
+    function sairClick() {
+        storage.remove('usuario-logado');
+    }
+    useEffect(() => {
+        exibirNome()
+    }, [])
 
-    function carrinho(){
+    function carrinho() {
         Navigate('/carrinho')
-    }   
-    
+    }
+
     useEffect(() => {
         filtrar()
     }, [texto])
@@ -50,7 +53,7 @@ export default function HeaderLoja() {
 
                 <div className="box-Usuario">
                     <img id='svgIcon' src="/Icon.svg" alt="iconUser" />
-                    <span>Bem vindo, {infoStorage ? infoStorage.nome : 'Visitante'} <a onClick={() => Navigate(`/usuario/${infoStorage.id}`)}   >Minha Conta</a> | <a>Sair</a></span>
+                    <span>Bem vindo, {infoStorage ? infoStorage.nome : 'Visitante'} <a onClick={() => Navigate(`/usuario/${infoStorage.id}`)}   >Minha Conta</a> | <a onClick={sairClick}>Sair</a></span>
                     <img src="/carrinho.png" alt="aaaa" onClick={carrinho} />
                 </div>
             </section>

@@ -109,7 +109,7 @@ server.get('/:id', async (req, resp) => {
             infoLogin: infoUserLogin
 
         })
-
+        
     } catch (err) {
         resp.send({
             erro: err.message
