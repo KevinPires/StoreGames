@@ -7,6 +7,11 @@
         flex-direction: column;
     }
     
+
+    .container-jogos{
+        display: flex;
+        justify-content: center;
+    }
     .faixa-um {
         background-color: #E74C3C;
         height: 75vh;
@@ -166,6 +171,7 @@
         flex-direction: column;
         align-content: center;
         margin-right: 2rem;
+        width: 100vw;
        
         button {
             align-self: center;
