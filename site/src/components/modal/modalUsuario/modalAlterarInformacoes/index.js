@@ -1,36 +1,36 @@
 import { useState } from 'react'
 import './index.scss'
 import Storage from 'local-storage'
-import { alterarInformacoes } from '../../../../api/usuario'
+import { alterarInformacoes, carregarUsuario } from '../../../../api/usuario'
+import { useParams } from 'react-router-dom'
 
 
 
 export default function ModalAlteraInformacoes({ exibir , fecha}){
-
-    const [infoStorage, setInfostorage] = useState('')
+    const { id } = useParams()
+    const [ dados, setDados] = useState({info:[], infoLogin:[] })
     const [usuario, setUsuario] = useState('')
     const [cep, setCep] = useState('')
 
-
     if (!exibir) {
+        exibirUsuario()
         return <> </>
     }
 
-
-    function exibirNome() {
-        const taLogado = Storage('usuario-logado')
-        setInfostorage(taLogado)
+    async function exibirUsuario() {
+        const x = await carregarUsuario(id)
+        setDados(x)
     }
 
     async function alterarInfo(){
         try {
-            exibirNome()
+            
+
             if(!usuario){
                 alert('Digite um campo para altera')
             }else{
-                const r = await alterarInformacoes(infoStorage.id, usuario, cep)
+                const r = await alterarInformacoes(dados.info.id, usuario, cep)
                 alert('alterado com sucesso')
-                fecha()
             }
             
         } catch (err) {

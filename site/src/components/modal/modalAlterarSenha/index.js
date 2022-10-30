@@ -1,33 +1,34 @@
 import { useEffect, useState } from 'react'
-import { alterarSenhaUsuario } from '../../../api/usuario'
+import { alterarSenhaUsuario, carregarUsuario } from '../../../api/usuario'
 import Storage from 'local-storage'
 import './index.scss'
+import { useParams } from 'react-router-dom'
 
 
 
 export default function ModalAlteraSenha({ exibir, fecha }) {
-
-    const [infoStorage, setInfostorage] = useState('')
+    const { id } = useParams()
     const [senha, setSenha] = useState('')
+    const [ dados, setDados] = useState({info:[], infoLogin:[] })
 
     if (!exibir) {
         return <> </>
     }
 
-
-    function exibirNome() {
-        const taLogado = Storage('usuario-logado')
-        setInfostorage(taLogado)
+    async function exibirUsuario() {
+        const x = await carregarUsuario(id)
+        setDados(x)
     }
+
 
     async function salvarAlteracao() {
         try {
-            exibirNome()
+            exibirUsuario()
 
             if (!senha) {
                 alert('Insira um valor valido no campo de senha')
             } else {
-                const r = await alterarSenhaUsuario(infoStorage.id, senha)
+                const r = await alterarSenhaUsuario(dados.info.id, senha)
                 alert('alterado com sucesso')
                 fecha()
             }
