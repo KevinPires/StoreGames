@@ -31,7 +31,7 @@
         align-self: center;
         height: 2.5rem;
         width: 8rem;
-        border-radius: 15px;
+        border-radius: 18px;
         border: none;
         background-color: #Fff;
     }
@@ -39,7 +39,7 @@
         align-self: center;
         height: 2.5rem;
         width: 8rem;
-        border-radius: 15px;
+        border-radius: 18px;
         border: solid 3px black;
         background-color: #Fff;
     }
@@ -77,6 +77,12 @@
         justify-content: space-evenly;
         flex-direction: column;
         width: 22rem;
+        font-family: 'poppins-medium';
+    }
+
+    .f1-title-format{
+        width: 20rem;
+   
     }
 
     .f1-texto-format > * {
@@ -88,14 +94,18 @@
         align-self: center;
         height: 2.5rem;
         width: 8rem;
-        border-radius: 15px;
+        border-radius: 18px;
         border: none;
         text-decoration: none;
+        margin-right: 2.2rem;
     }
+
 
     .b1{
         text-decoration: none;
         color: #000000;
+        font-family: "robotocon-bold";
+       
     }
 
     button:hover {
@@ -120,19 +130,30 @@
        
         display: flex;
         flex-direction: column;
+        
 
         button {
             align-self: center;
             height: 2.5rem;
             width: 8rem;
-            border-radius: 15px;
+            border-radius: 18px;
             border: none;
             background-color: #E74C3C;
+            font-family: 'robotocon-bold';
+            color: #ffffff;
           }
 
           hr {
             margin-top: 10px;
             height: 2px;
+          }
+
+          .f2-texto-format{
+            font-family: "poppins-medium";
+            text-align: center;
+            font-size: 1.4rem;
+            color:#323a45;
+    
           }
 
        
@@ -143,12 +164,16 @@
         padding: 2em;
         display: flex;
         flex-direction: column;
-
+        align-content: center;
+        width: 90vw;
+        margin-right: 2rem;
+    
+       
         button {
             align-self: center;
             height: 2.5rem;
             width: 8rem;
-            border-radius: 15px;
+            border-radius: 18px;
             border: none;
             background-color: #E74C3C;
           }
@@ -157,6 +182,12 @@
             margin-top: 10px;
             height: 2px;
           }
+          .f2-texto-format{
+            font-family: "poppins-medium";
+            text-align: center;
+            font-size: 1.4rem;
+            color:#323a45;
+          } 
     
     }
 
@@ -191,6 +222,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            font-family: 'robotocon-regular';
             
         }
 
@@ -279,9 +311,10 @@
             align-self: center;
             height: 2.5rem;
             width: 9rem;
-            border-radius: 15px;
+            border-radius: 18px;
             border: none;
             background-color: #ffffff;
+            font-family: 'robotocon-bold';
           }
 
     }
@@ -297,9 +330,10 @@
             align-self: center;
             height: 2.5rem;
             width: 13rem;
-            border-radius: 15px;
+            border-radius: 18px;
             border: none;
             background-color: #969494;
+            font-family: 'robotocon-bold';
           }
     }
 

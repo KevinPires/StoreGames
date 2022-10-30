@@ -25,7 +25,7 @@ export default function CardJogo ({jogos, loading, props}) {
                         
                        <div className='info-jogo'>
                             <h4>{jogo.nome}</h4>
-                            <span id='card-preco'>R${jogo.valor}</span>
+                            <p id='card-preco' className='card-price'>R${jogo.valor}</p>
                        </div>
                        
                 </section>

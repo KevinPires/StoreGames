@@ -9,8 +9,8 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        width: 14rem;
-        height: 20rem;
+        width: 15rem;
+        height: 20em;
         padding: 1rem;
         border-radius: 15px;
         background-color: #EDEDED;
@@ -28,16 +28,26 @@
             
         }
         img {
-            width: 10rem;
-            max-height:140px;
+            width: 12.2rem;
+            height: 14rem;
+            max-height: 14rem;
+            margin-top: 0.6rem;
+            border-radius: 8px;
         }
 
         h4 {
-            font-size: 1.2rem;
+            font-size: 0.9rem;
+            height: 2rem;
+            font-family: 'robotocon-bold';
+            padding-top: 4.8rem;
+            text-align: center;
         }
 
         #card-preco {
             color: gray;
+            text-align: center;
+            padding: 1.3rem 1rem;
+            margin-top: 1rem;
         }
     }
 
