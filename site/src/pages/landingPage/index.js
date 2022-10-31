@@ -46,7 +46,7 @@ export default function LandingPage() {
                 <div className="box-texto">
 
                     <div className="f1-texto-format">
-                        <h1>Seu novo jogo te espera aqui!</h1>
+                        <h1 className='f1-title-format'>Seu novo jogo te espera aqui!</h1>
                         <p>Acesse agora nossa loja e garanta seu produto com o melhor preço!</p>
                         <button ><Link className='b1' to="/jogos">Ir para Loja</Link></button>
                     </div>
@@ -86,7 +86,7 @@ export default function LandingPage() {
                     <div className="f3-texto-format ">
                         <h1>Rapidez e eficiência</h1>
                         <p>Nós da GamesStore somos líder em eficiência e agilidade na entrega do seu produto. Contamos com nossos Super-heróis mais velozes para as suas entregas.</p>
-                        <p>Turbine suas entregas comprando com a gente e receba seus produtos antes mesmo do flash conseguir atravessar a rua.</p>
+                        <p>Turbine suas entregas comprando conosco e receba seus produtos antes mesmo do flash conseguir atravessar a rua.</p>
                     </div>
                 </div>
 

@@ -66,7 +66,7 @@ export default function LoginAdmin(){
                         <button id="botao-login" onClick={entrarClick} disabled={carregando}>Login</button>
                     </div>
                     </div>
-                    <img id="logo-login" src="./logo.png" alt="logo" />
+                    <img id="logo-login" src="/logo.png" alt="logo" />
                 </div>
                 <div>
                     {erro}

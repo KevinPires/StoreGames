@@ -55,3 +55,29 @@ export async function detalheJogo(id) {
     const resposta = await api.get(`/jogo/${id}`);
     return resposta.data;
 }
+
+
+// Filtro de Jogos - Parte da Loja
+
+
+
+export async function filtrarValorCinquenta() {
+    const resposta = await api.get(`/jogo/filtro/valor1`);
+    return resposta.data;
+}
+
+
+export async function filtrarValorCem() {
+    const resposta = await api.get(`/jogo/filtro/valor2`);
+    return resposta.data;
+}
+
+export async function filtrarValorDuzentos() {
+    const resposta = await api.get(`/jogo/filtro/valor3`);
+    return resposta.data;
+}
+
+export async function filtrarValorFinal() {
+    const resposta = await api.get(`/jogo/filtro/valor4`);
+    return resposta.data;
+}

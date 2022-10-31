@@ -31,7 +31,7 @@ export default function LoginUsuario (){
                 setErro(r.data.erro)
             }else{
                 setTimeout(()=>{
-                    navigate(`/usuario/${r.id}`)
+                    navigate(`/loja`)
                 }, 3000)
             }
 

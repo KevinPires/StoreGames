@@ -1,4 +1,4 @@
-import  { cadastroJogo, inserirGeneroJogo, inserirPlataformaJogo, alterarImagem, listarTodosJogos, buscarPorNome, removerGeneroJogo, removerPlataformaJogo, removerJogo, alterarJogo, filtroGeneroJogo, filtroPlataformaJogo, listarDestaque, filtrarValorCinquenta, filtrarValorCem, filtrarValorDuzentos, filtrarValorFinal } from "../repository/jogoRepository.js";
+import  { cadastroJogo, inserirGeneroJogo, inserirPlataformaJogo, alterarImagem, listarTodosJogos, buscarPorNome, removerGeneroJogo, removerPlataformaJogo, removerJogo, alterarJogo, filtroGeneroJogo, filtroPlataformaJogo, listarDestaque, filtrarValorCinquenta, filtrarValorCem, filtrarValorDuzentos, filtrarValorFinal, jogosDoMesmoGenero } from "../repository/jogoRepository.js";
 import { response, Router } from "express";
 import multer from "multer";
 import { buscarGeneroPorId, buscarGeneroProduto } from "../repository/generoRepository.js";
@@ -260,6 +260,18 @@ server.get('/filtro/valor4' , async (req, resp) => {
     try {
         const resposta = await filtrarValorFinal();
         resp.send(resposta);
+    } catch (err) {
+        resp.status(400).send ({
+            erro:err.message
+        });
+    }
+})
+
+server.get('/mesmo/genero', async(req,resp) =>{
+    try {
+        const { genero } = req.body;
+        const r = await jogosDoMesmoGenero(genero);
+        resp.status(200).send(r)
     } catch (err) {
         resp.status(400).send ({
             erro:err.message

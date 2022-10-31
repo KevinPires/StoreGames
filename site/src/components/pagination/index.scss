@@ -3,16 +3,24 @@
     flex-direction: row;
     list-style-type: none;
     border: none;
+
+
     
+   
 
     .page-item{
         border: 1px solid #ffa500;
         text-decoration: none;
+        margin-left: 0.6rem;
+        
+       
+
     }
 
     .page-link{
         
         text-decoration: none;
+       
         margin: 2px;
         padding: 10px;
     }

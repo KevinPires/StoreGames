@@ -24,8 +24,8 @@ export default function HeaderCarrinho() {
                 <img id="formatLogo" src="/logo.png" alt="logo" />
                 <section className="containerCategoria">
                     <li className='listaOpcoes'>
+                        <Link to='/'>Home</Link>
                         <Link to='/jogos'>Loja</Link>
-                        <Link to='/categorias'>Categorias</Link>
                         <Link to='/ajuda'>Suporte</Link>
                         <Link to={`/usuario/${infoStorage.id}`}>Area do usuario</Link>
                     </li>

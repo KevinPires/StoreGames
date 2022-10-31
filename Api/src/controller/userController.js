@@ -63,11 +63,12 @@ server.post('/cadastro', async (req, resp) => {
 
         resp.status(200).send({
             idInserido: resposta,
+            usuario,
             msg: 'Usuario Cadastrado'
         })
     } catch (err) {
 
-        resp.status(401).send({
+        resp.status(404).send({
             erro: err.message
         })
     }
@@ -108,7 +109,7 @@ server.get('/:id', async (req, resp) => {
             infoLogin: infoUserLogin
 
         })
-
+        
     } catch (err) {
         resp.send({
             erro: err.message
@@ -180,6 +181,8 @@ server.put('/alterar/informacoes/:id', async(req, resp)=>{
         })
     }
 })
+
+server.post('/cad')
 
 
 export default server;

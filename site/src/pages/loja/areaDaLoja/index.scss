@@ -26,7 +26,8 @@
     .container-jogos {
         flex-wrap: wrap;
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
+        justify-content: space-between;
         
         width: 75%;
         padding: 1em;
