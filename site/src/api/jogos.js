@@ -35,15 +35,28 @@ export async function buscarJogoPorId(id) {
 
 // filtra por genero
 
-export async function filtraGeneroJogo(genero){
-    const resposta = await api.get('/jogo/filtro/genero');
+export async function filtraGeneroJogo(filtro){
+    
+    const resposta = await api.get('/jogo/filtro/genero',{
+        filtro: filtro
+    });
     return resposta.data
 }
 
 // filtra plataforma
 
-export async function filtraPlataformaJogo(plataforma){
-    const resposta = await api.get ('/jogo/filtro/plataforma')
+export async function filtraPlataformaPc(){
+    const resposta = await api.get('/jogo/filtro/pc')
+    return resposta.data
+}
+
+export async function filtraPlataformaPs4(){
+    const resposta = await api.get('/jogo/filtro/ps4')
+    return resposta.data
+}
+
+export async function filtraPlataformaXbox(){
+    const resposta = await api.get('/jogo/filtro/xbox')
     return resposta.data
 }
 

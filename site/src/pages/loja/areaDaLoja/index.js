@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom'
 import CardJogo from '../../../components/cardJogo'
 import Rodape from '../../../components/Rodapé'
 import { useState, useEffect } from 'react'
-import { listarTodosJogos, listarTodosJogosPorNome, filtrarValorCem, filtrarValorCinquenta, filtrarValorDuzentos, filtrarValorFinal } from '../../../api/jogos'
+import { listarTodosJogos, listarTodosJogosPorNome, filtrarValorCem, filtrarValorCinquenta, filtrarValorDuzentos, filtrarValorFinal, filtraPlataformaPc, filtraPlataformaPs4, filtraPlataformaXbox } from '../../../api/jogos'
 import Pagination from '../../../components/pagination'
 import { Link } from 'react-router-dom'
 import storage from 'local-storage'
@@ -19,7 +19,7 @@ export default function LojaArea() {
     const [jogoPorPage] = useState(20)
 
     // filtros
-    const [preco, setPreco] = useState()
+    const [filtro, setFiltro] = useState()
     const [plataforma, setPlataforma] = useState()
     const [genero, setGenero] = useState()
 
@@ -30,10 +30,7 @@ export default function LojaArea() {
     function exibirNome() {
         const taLogado = storage('usuario-logado')
         setInfostorage(taLogado)
-        console.log(taLogado)
     }
-
-    
 
     useEffect(() => {
         exibirNome()
@@ -65,29 +62,38 @@ export default function LojaArea() {
     useEffect(() => {
         async function filtrar() {
             let resp = []
-            if (preco === '1'){
+            if (filtro === '1'){
                 resp = await filtrarValorCinquenta()
                 setJogos(resp)
-            }else if(preco === '2'){
+            }else if(filtro === '2'){
                 resp = await filtrarValorCem()
                 setJogos(resp)
-            }else if(preco === '3'){
+            }else if(filtro === '3'){
                 resp = await filtrarValorDuzentos()
                 setJogos(resp)
-            }else if(preco === '4'){
+            }else if(filtro === '4'){
                 resp = await filtrarValorFinal()
                 setJogos(resp)
+            }else if(filtro === 'pc'){
+                resp = await filtraPlataformaPc()
+                setJogos(resp)
+            }else if(filtro === 'ps4'){
+                console.log(filtro)
+                resp = await filtraPlataformaPs4()
+                setJogos(resp)
+            }else if (filtro === 'xbox'){
+                resp = await filtraPlataformaXbox()
+                setJogos(resp)
             }
-                
-            console.log(jogos)
+        
         }
-        if (preco){
+        if (filtro){
             filtrar()
         }else{
             fetchPost()
         }
-            
-    }, [preco])
+        
+    }, [filtro])
     
     // useEffect(() => {
     //     fetchPost()
@@ -135,7 +141,7 @@ export default function LojaArea() {
             <BarraVantagens />
             <section className='container flexboxrow'>
                 <BarraFilto
-                    preco={e => setPreco(e.target.value)}
+                    filtro={e => setFiltro(e.target.value)}
                     plataforma={e => setPlataforma(e.target.value)}
                     genero={e => setGenero(e.target.value)}
                 />

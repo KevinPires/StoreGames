@@ -84,15 +84,17 @@ export async function listarTodosJogos() {
 //buscar por nome
 export async function buscarPorNome(nome) {
     const comando =
-   ` SELECT id_jogo		id,
-    nm_jogo		        nome,
-    vl_jogo	            valor,
-    ds_jogo	            descricao,
-    qtd_estoque	        estoque,
-    ds_requisitos       requisitos,
-    bl_disponivel       disponivel,
-    bl_maisvendido      maisvendido  
-    from TB_JOGO  
+   ` SELECT 
+            id_jogo		        id,
+            img_capa            capa,
+            nm_jogo		        nome,
+            vl_jogo	            valor,
+            ds_jogo	            descricao,
+            qtd_estoque	        estoque,
+            ds_requisitos       requisitos,
+            bl_disponivel       disponivel,
+            bl_maisvendido      maisvendido  
+            from TB_JOGO  
           WHERE nm_jogo like ?` ;
     
     const [linhas] = await con.query(comando, [ `%${nome}%` ]);
@@ -184,21 +186,54 @@ export async function filtroGeneroJogo(filtro){
 }
 
 
-export async function filtroPlataformaJogo(filtro){
+export async function filtroPlataformaPc(){
     const comando = `
-        SELECT 	ID_JOGO 		ID,
-                IMG_CAPA		CAPA,
-                NM_JOGO			NOME,
-                VL_JOGO		    VALOR    
+        SELECT 	ID_JOGO 		id,
+                IMG_CAPA		capa,
+                NM_JOGO			nome,
+                VL_JOGO		    valor    
         FROM TB_JOGO
         INNER JOIN TB_PLATAFORMA_JOGO ON TB_JOGO.ID_JOGO = TB_PLATAFORMA_JOGO.FK_JOGO
         INNER JOIN TB_PLATAFORMA ON TB_PLATAFORMA.ID_PLATAFORMA = TB_PLATAFORMA_JOGO.FK_PLATAFORMA
-        WHERE DS_PLATAFORMA = ?;
+        WHERE DS_PLATAFORMA = 'pc';
     `
 
-    const [linhas] = await con.query(comando, [filtro] )
+    const [linhas] = await con.query(comando)
     return linhas;
 }
+
+export async function filtroPlataformaPs4(){
+    const comando = `
+        SELECT 	ID_JOGO 		id,
+                IMG_CAPA		capa,
+                NM_JOGO			nome,
+                VL_JOGO		    valor    
+        FROM TB_JOGO
+        INNER JOIN TB_PLATAFORMA_JOGO ON TB_JOGO.ID_JOGO = TB_PLATAFORMA_JOGO.FK_JOGO
+        INNER JOIN TB_PLATAFORMA ON TB_PLATAFORMA.ID_PLATAFORMA = TB_PLATAFORMA_JOGO.FK_PLATAFORMA
+        WHERE DS_PLATAFORMA = 'Ps4';
+    `
+
+    const [linhas] = await con.query(comando)
+    return linhas;
+}
+
+export async function filtroPlataformaXbox(){
+    const comando = `
+        SELECT 	ID_JOGO 		id,
+                IMG_CAPA		capa,
+                NM_JOGO			nome,
+                VL_JOGO		    valor    
+        FROM TB_JOGO
+        INNER JOIN TB_PLATAFORMA_JOGO ON TB_JOGO.ID_JOGO = TB_PLATAFORMA_JOGO.FK_JOGO
+        INNER JOIN TB_PLATAFORMA ON TB_PLATAFORMA.ID_PLATAFORMA = TB_PLATAFORMA_JOGO.FK_PLATAFORMA
+        WHERE DS_PLATAFORMA = 'xbox';
+    `
+
+    const [linhas] = await con.query(comando)
+    return linhas;
+}
+
 
 export async function listarDestaque() {
     const comando =
