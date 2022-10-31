@@ -81,33 +81,33 @@ export default function LandingPage() {
 
             <section data-aos="fade-up" className="faixa-tres">
                 <div className="container-hermes">
-                    <img data-aos="slide-right" src="/hermes.png" alt="" />
+                    <img data-aos="slide-up" src="/hermes.png" alt="" />
                 </div>
                 
                 <div data-aos="fade" className="box-texto-f3">
                     <div className="f3-texto-format ">
                         <h1 data-aos="slide-right">Rapidez e eficiência</h1>
-                        <p data-aos="slide-left">Nós da GamesStore somos líder em eficiência e agilidade na entrega do seu produto. Contamos com nossos Super-heróis mais velozes para as suas entregas.</p>
-                        <p data-aos="slide-left">Turbine suas entregas comprando conosco e receba seus produtos antes mesmo do flash conseguir atravessar a rua.</p>
+                        <p data-aos="slide-up">Nós da GamesStore somos líder em eficiência e agilidade na entrega do seu produto. Contamos com nossos Super-heróis mais velozes para as suas entregas.</p>
+                        <p data-aos="slide-up">Turbine suas entregas comprando conosco e receba seus produtos antes mesmo do flash conseguir atravessar a rua.</p>
                     </div>
                 </div>
 
             </section>
 
-            <section data-aos="slide-up" className="faixa-cadastro">
+            <section data-aos="fade" className="faixa-cadastro">
                 <div data-aos="zoom-in" className="container-lobo">
                 <Link to='/usuario/cadastro'><button data-aos="fade" ><b>Cadastre-se agora!</b></button></Link>
                 </div>
 
-                <div className="container-boxs">
-                    <div data-aos="slide-right" className="box-esquerda">
+                <div data-aos="slide-up" className="container-boxs">
+                    <div className="box-esquerda">
                         <img id='img-format-boxes' src="/computador.png" alt="computador com teclado e mouse" />
                         <div className="box-esquerda-texto">
                             <h1 data-aos="slide-up">Acompanhe o mundo</h1>
                             <p data-aos="slide-down">Encontre os melhores jogos atuais</p>
                         </div>
                     </div>
-                    <div data-aos="slide-left" className="box-direita">
+                    <div className="box-direita">
                         <img id='img-format-boxes' src="/controle.png" alt="" />
                         <div className="box-direito-texto">
                             <h1 data-aos="slide-up">Explore as possibilidades!</h1>
@@ -118,7 +118,7 @@ export default function LandingPage() {
             </section> 
 
             <section data-aos="fade-up" className="descontos flexboxcolumn">
-                <h1 data-aos="slide-left">Não perca os melhores descontos!</h1>
+                <h1 data-aos="slide-down">Não perca os melhores descontos!</h1>
                 <Link to='/usuario/cadastro'><button><b>Cadastre-se agora!</b></button></Link>
             </section>
 
