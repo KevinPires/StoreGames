@@ -1,10 +1,10 @@
 import './index.scss';
 import Rodape from '../../../components/Rodapé';
 import HeaderCarrinho from '../../../components/headerCarrinho';
-
+import { useNavigate } from 'react-router-dom';
 
 export default function CompraFinalizada() {
-
+    const Navigate = useNavigate();
 
     return (
         <main className='page-compra-finalizada'>
@@ -21,7 +21,7 @@ export default function CompraFinalizada() {
                             </form>
                         </div>
                         <div className='buttons'>
-                            <button>Continuar comprando</button>
+                            <button onClick={ ()=> Navigate('/loja')}>Continuar comprando</button>
                             <button>Acompanhar pedido</button>
                         </div>
                     </div>
