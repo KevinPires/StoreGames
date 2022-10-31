@@ -1,4 +1,4 @@
-import  { cadastroJogo, inserirGeneroJogo, inserirPlataformaJogo, alterarImagem, listarTodosJogos, buscarPorNome, removerGeneroJogo, removerPlataformaJogo, removerJogo, alterarJogo, filtroGeneroJogo, filtroPlataformaJogo, listarDestaque, filtrarValorCinquenta, filtrarValorCem, filtrarValorDuzentos, filtrarValorFinal, jogosDoMesmoGenero } from "../repository/jogoRepository.js";
+import  { cadastroJogo, inserirGeneroJogo, inserirPlataformaJogo, alterarImagem, listarTodosJogos, buscarPorNome, removerGeneroJogo, removerPlataformaJogo, removerJogo, alterarJogo, filtroGeneroJogo, listarDestaque, filtrarValorCinquenta, filtrarValorCem, filtrarValorDuzentos, filtrarValorFinal, jogosDoMesmoGenero, filtroPlataformaPc, filtroPlataformaPs4, filtroPlataformaXbox } from "../repository/jogoRepository.js";
 import { response, Router } from "express";
 import multer from "multer";
 import { buscarGeneroPorId, buscarGeneroProduto } from "../repository/generoRepository.js";
@@ -203,10 +203,32 @@ server.get('/filtro/genero', async (req, resp) => {
 
 // filtra plataforma
 
-server.get('/filtro/plataforma', async (req, resp )=>{
+server.get('/filtro/pc', async (req, resp )=>{
     try {
-        const { filtro } = req.body;
-        const resposta  = await filtroPlataformaJogo(filtro)
+        const resposta  = await filtroPlataformaPc()
+        resp.status(200).send(resposta)
+    } catch (err) {
+        resp.status(404).send({
+            erro: err.message
+        })
+    }
+})
+
+// filtro plataforma ps4
+server.get('/filtro/ps4', async (req, resp )=>{
+    try {
+        const resposta  = await filtroPlataformaPs4()
+        resp.status(200).send(resposta)
+    } catch (err) {
+        resp.status(404).send({
+            erro: err.message
+        })
+    }
+})
+
+server.get('/filtro/xbox', async (req, resp )=>{
+    try {
+        const resposta  = await filtroPlataformaXbox()
         resp.status(200).send(resposta)
     } catch (err) {
         resp.status(404).send({
