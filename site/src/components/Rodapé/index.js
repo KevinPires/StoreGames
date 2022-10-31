@@ -23,7 +23,7 @@ export default function Rodape(){
 
               <div className='redes-sociais'>
                 <Link to='/ajuda' className='facebox'> <img className='face' src='/face.png' alt='opa'/> </Link>
-                <Link to='/ajuda' className='zapbox'> <img className='zap' src='/zap.zap.png' alt='opa'/> </Link>
+                <Link to='/ajuda' className='zapbox'> <img className='zap' src='/f.png' alt='opa'/> </Link>
                 <Link to='/ajuda' className='twiterbox'> <img className='twiter' src='/twiterr.png' alt='opa'/> </Link>
             </div>
          </section>

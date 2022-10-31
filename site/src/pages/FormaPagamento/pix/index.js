@@ -171,7 +171,7 @@ export default function Pix() {
                 <p className='espaço'>R$ {calcularTotal()}</p>
               </div>
 
-              <div className='finalizar' onClick={SalvarPedido}> Finalizar Compra</div>
+              <div className='finalizar' onClick={SalvarPedido}> Finalizar compra</div>
             </section>
 
           </section>

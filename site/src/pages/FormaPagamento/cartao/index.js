@@ -48,7 +48,7 @@ export default function Cartao() {
 
               <div className='input-group'>
                 <input type="date" required className='input' />
-                <label for="name" className='input-label'>Vencimento</label>
+                <label for="name" className='input-label'></label>
               </div>
 
               <div className='input-group'>
