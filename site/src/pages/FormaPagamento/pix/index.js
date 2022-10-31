@@ -4,15 +4,20 @@ import Rodape from '../../../components/Rodapé';
 import HeaderCarrinho from '../../../components/headerCarrinho';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Storage from 'local-storage';
 import { inserirNovoPedido } from '../../../api/pedidoApi';
-import { toast, ToastContainer } from 'react-toastify' 
+import { toast, ToastContainer } from 'react-toastify'
+import { buscarJogoPorId } from '../../../api/jogos';
 
 export default function Pix() {
   const Navigate = useNavigate()
   const [status, setStatus] = useState('')
 
+  // itens carrinho
+  const [itens, setItens] = useState([])
+
+  
   // forma de pagamento pix
   const [nome, setNome] = useState('')
   const [chavePix, setChavePix] = useState('')
@@ -25,51 +30,83 @@ export default function Pix() {
   const [numero, setNumero] = useState('')
   const [bairro, setBairro] = useState('')
   const [cidade, setCidade] = useState('')
- 
 
- async function SalvarPedido () {
-  try {
-
-    let jogos = Storage('carrinho')
-    let idUser = Storage('usuario-logado').id
-    let pedido =
-    {
-        status : 'Em fila',
-        valor  : 19.99,
-        frete :  15.00,
-  
-        endereco: {
-            cep : cep,
-            endereco : endereco,
-            cidade : cidade,
-            bairro : bairro,
-            numero : numero
-        },
-  
-        cartao : {
-          nome : nome,
-          cpf : cpf,
-          chavepix : chavePix
-        },
-        
-        jogos: jogos
+  function calcularTotal() {
+    let total = 0;
+    for (let item of itens) {
+      total = total + item.jogo.info.valor * item.qtd
     }
-    const resposta = await inserirNovoPedido(idUser, pedido)
-    
-    toast.dark('Pedido Concluido')
-    Navigate('/comprafinalizada')
-    Storage('carrinho', [])
-    
-  } catch (error) {
+    return total
 
-   toast.dark("Não foi possivel concluir o pedido")
   }
- 
+
+  async function carregarCarrinho() {
+    let carrinho = Storage('carrinho');
+    if (carrinho) {
+      let temp = []
+      for (let jogo of carrinho) {
+        let p = await buscarJogoPorId(jogo.id)
+
+        temp.push({
+          jogo: p,
+          qtd: jogo.qtd
+        })
+      }
+      setItens(temp)
+    }
   }
+
+  
+
+  async function SalvarPedido() {
+    try {
+
+      let jogos = Storage('carrinho')
+      let idUser = Storage('usuario-logado').id
+      let total = calcularTotal()
+      let pedido =
+      {
+        status: 'Em fila',
+        valor: total,
+        frete: 15.00,
+
+        endereco: {
+          cep: cep,
+          endereco: endereco,
+          cidade: cidade,
+          bairro: bairro,
+          numero: numero
+        },
+
+        cartao: {
+          nome: nome,
+          cpf: cpf,
+          chavepix: chavePix
+        },
+
+        jogos: jogos
+      }
+      const resposta = await inserirNovoPedido(idUser, pedido)
+
+      toast.dark('Pedido Concluido')
+      Navigate('/comprafinalizada')
+      Storage('carrinho', [])
+
+    } catch (error) {
+
+      toast.dark("Não foi possivel concluir o pedido")
+    }
+
+  }
+
+  useEffect(() => {
+    carregarCarrinho()
+  }, []);
+
 
   return (
     <main className='finalizar-page'>
-      <ToastContainer/>
+      <ToastContainer />
       <HeaderCarrinho />
       <section className='etapas'><EtapasImagens /></section>
 
@@ -97,7 +134,7 @@ export default function Pix() {
               <br />
               <div className='input-group'>
                 <input type="text" required className='input' value={nome} onChange={e => setNome(e.target.value)} />
-                <label for="name" className='input-label' >Nome</label> 
+                <label for="name" className='input-label' >Nome</label>
               </div>
 
               <div className='input-group'>
@@ -120,7 +157,7 @@ export default function Pix() {
 
                   <div>
                     <div><h3>Resumo do pedido</h3></div>
-                    <div> Grand Theft Auto V (PC)</div>
+                    <div> Grand Theft Auto v (PC)</div>
                   </div>
 
                   <img className='log' src='/logoOrigin.png' alt='pag' />
@@ -131,7 +168,7 @@ export default function Pix() {
               <div className='pag'><img className='pagamentos' src='/pixx.png' alt='pag' />  &nbsp; PIX</div>
               <div className='valor'>
                 Valor Total:
-                <p className='espaço'>R$ preço</p>
+                <p className='espaço'>R$ {calcularTotal()}</p>
               </div>
 
               <div className='finalizar' onClick={SalvarPedido}> Finalizar Compra</div>
