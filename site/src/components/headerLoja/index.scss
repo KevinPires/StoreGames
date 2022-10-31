@@ -30,6 +30,13 @@
         width: 13rem;
         height: 100%;
         color: white;
+        span {
+            cursor: pointer;
+            
+        }
+        p:hover {
+            color: red;
+        }
     }
 
 
