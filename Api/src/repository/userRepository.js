@@ -97,7 +97,6 @@ export async function VisualizarInfoUser(id) {
 }
 
 export async function VisualizarInfoLogin(id) {
-    console.log(id)
     const comando =
         `
         select
@@ -154,7 +153,7 @@ export async function alterarSenha(senha, id){
 // ALTERAR INFORMAÇÕES USUARIO
 
 export async function alterarInfo(id, usuario, cep){
-    console.log(id, usuario, cep)
+    
     const comando =`
             update TB_USUARIO
             SET NM_USUARIO = ?,

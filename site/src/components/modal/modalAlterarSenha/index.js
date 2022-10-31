@@ -12,6 +12,7 @@ export default function ModalAlteraSenha({ exibir, fecha }) {
     const [ dados, setDados] = useState({info:[], infoLogin:[] })
 
     if (!exibir) {
+        exibirUsuario()
         return <> </>
     }
 
