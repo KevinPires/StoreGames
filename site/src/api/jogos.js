@@ -57,14 +57,15 @@ export async function detalheJogo(id) {
 }
 
 
-// Filtro de Jogos
+// Filtro de Jogos - Parte da Loja
 
-// * 50 reais *
+
 
 export async function filtrarValorCinquenta() {
     const resposta = await api.get(`/jogo/filtro/valor1`);
     return resposta.data;
 }
+
 
 export async function filtrarValorCem() {
     const resposta = await api.get(`/jogo/filtro/valor2`);

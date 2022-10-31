@@ -4,7 +4,7 @@ import { buscarImagem, listarTodosJogos } from '../../api/jogos'
 import './index.scss'
 
 
-export default function CardJogo ({jogos, loading, props}) {
+export default function CardJogo ({jogos, loading}) {
     const navigate = useNavigate();
     if(loading){
         return <h2>LOADING ....</h2>

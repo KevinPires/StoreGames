@@ -224,9 +224,10 @@ export async function listarDestaque() {
 export async function filtrarValorCinquenta(){
 const comando =
     `SELECT 	
-		   TB_JOGO.id_jogo,
-		   TB_JOGO.nm_jogo,
-		   TB_JOGO.vl_jogo
+		   TB_JOGO.id_jogo       id,
+           TB_JOGO.IMG_CAPA          capa,
+		   TB_JOGO.nm_jogo       nome,     
+		   TB_JOGO.vl_jogo        valor  
 	FROM TB_JOGO
 	where vl_jogo < 50`;
 
@@ -238,9 +239,10 @@ const comando =
 export async function filtrarValorCem(){
     const comando = 
     `SELECT 
-          TB_JOGO.id_jogo,
-          TB_JOGO.nm_jogo,
-          TB_JOGO.vl_jogo
+            TB_JOGO.id_jogo             id,
+            TB_JOGO.IMG_CAPA            capa,
+            TB_JOGO.nm_jogo             nome,
+            TB_JOGO.vl_jogo             valor
     FROM TB_JOGO
     where vl_jogo >= 51 and vl_jogo <=100`;
 
@@ -251,9 +253,10 @@ export async function filtrarValorCem(){
 export async function filtrarValorDuzentos(){
     const comando = 
     `SELECT 
-          TB_JOGO.id_jogo,
-          TB_JOGO.nm_jogo,
-          TB_JOGO.vl_jogo
+            TB_JOGO.id_jogo             id,
+            TB_JOGO.IMG_CAPA            capa,
+            TB_JOGO.nm_jogo             nome,
+            TB_JOGO.vl_jogo             valor
     FROM TB_JOGO
     where vl_jogo >= 101 and vl_jogo <=200`;
 
@@ -264,9 +267,10 @@ export async function filtrarValorDuzentos(){
 export async function filtrarValorFinal(){
     const comando = 
     `SELECT 
-          TB_JOGO.id_jogo,
-          TB_JOGO.nm_jogo,
-          TB_JOGO.vl_jogo
+            TB_JOGO.id_jogo             id,
+            TB_JOGO.IMG_CAPA            capa,
+            TB_JOGO.nm_jogo             nome,
+            TB_JOGO.vl_jogo             valor
     FROM TB_JOGO
     where vl_jogo >= 201`;
 
