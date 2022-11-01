@@ -1,8 +1,25 @@
 import './index.scss';
 import BarraLateral from '../../../components/BarraLateral';
 import HeaderAdmin from '../../../components/adminHeader';
+import { visualizarPedidos } from '../../../api/pedidoApi';
+import { useEffect, useState } from 'react';
 
 export default function Pendentes() {
+
+    const [pedidos, setPedidos] = useState([])
+    console.log(pedidos)
+
+    async function carregarPedidos () {
+        const exibirPedido = await visualizarPedidos()
+        setPedidos(exibirPedido)
+
+    }
+
+    useEffect(() => {
+        carregarPedidos()
+    }, [])
+
+
     return (
         <main className="admin-pendentes">
             <BarraLateral selecionado='pendencias' />
@@ -16,13 +33,14 @@ export default function Pendentes() {
                     <div className="flexboxcolumn barraPesquisa">
                         <input placeholder='Pesquise pedidos pendentes!' type='txt'></input>
                     </div>
-
+                    
                     <div className="containerBoxes">
+                    {pedidos.map(item =>    
                         <div className="boxPedido">
                             <div className="flexboxrow infoPedido">
-                                <div className="flexboxcolumn">
+                                <div className="flexboxcolumn nomeNota">
                                     <label>Nome Cliente: </label>
-                                    <p>Luan Reinhold</p>
+                                    <p>{item.cliente}</p>
                                 </div>
                                 <div className="flexboxcolumn">
                                     <label>Metodo Pagamento: </label>
@@ -30,15 +48,19 @@ export default function Pendentes() {
                                 </div>
                                 <div className="flexboxcolumn">
                                     <label>Valor: </label>
-                                    <p>R$110.00</p>
+                                    <p>{item.ptotal}</p>
                                 </div>
                                 <div className="flexboxcolumn">
                                     <label>Data: </label>
-                                    <p>31/10/22</p>
+                                    <p>{item.pdata ? item.pdata.substr(0,10) : " "}</p>
                                 </div>
                                 <div className="flexboxcolumn">
                                     <label>Status:  </label>
-                                    <p>Em fila</p>
+                                    <p>{item.pstatus}</p>
+                                </div>
+                                <div className="flexboxcolumn">
+                                    <label>Cód. Fiscal:  </label>
+                                    <p>{item.pnotaFiscal}</p>
                                 </div>
                                 <div className="botoes flexboxcolumn">
                                     <button>Em Análise</button>
@@ -47,38 +69,10 @@ export default function Pendentes() {
                                 </div>
                             </div>
                         </div>
-
-                        <div className="boxPedido">
-                            <div className="flexboxrow infoPedido">
-                                <div className="flexboxcolumn">
-                                    <label>Nome Cliente: </label>
-                                    <p>Luan Reinhold</p>
-                                </div>
-                                <div className="flexboxcolumn">
-                                    <label>Metodo Pagamento: </label>
-                                    <p>Luan Reinhold</p>
-                                </div>
-                                <div className="flexboxcolumn">
-                                    <label>Valor: </label>
-                                    <p>Luan Reinhold</p>
-                                </div>
-                                <div className="flexboxcolumn">
-                                    <label>Data: </label>
-                                    <p>Luan Reinhold</p>
-                                </div>
-                                <div className="flexboxcolumn">
-                                    <label>Status:  </label>
-                                    <p>Luan Reinhold</p>
-                                </div>
-                                <div className="botoes flexboxcolumn">
-                                    <button>Em Análise</button>
-                                    <button>Negado</button>
-                                    <button>Aprovado</button>
-                                </div>
-                            </div>
-                        </div>
+                        )}
                         
                     </div>
+                    
                 </div>
             </section>
         </main>
