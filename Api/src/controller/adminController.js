@@ -114,13 +114,13 @@ server.put('/cadastro/:id', async (req, resp) => {
 server.put('/status', async (req, resp) => {
     try {
         const info = req.body
-
+        console.log(info)
         if(!info) {
             throw new Error('Campos Obrigatorios')
         }
 
-        const alterarInfo = await alterarPedidoStatus(info.id, info.status)
-
+        const alterarInfo = await alterarPedidoStatus(info.status, info.id)        
+        
         resp.status(202).send();
 
     } catch (err) {
@@ -141,8 +141,9 @@ server.get('/pedidos', async (req,resp) => {
 
 
     } catch (error) {
+        console.log(error)
         resp.status(400).send({
-            erro: err.message
+            erro: error.message
         })
     }
 })
