@@ -167,25 +167,79 @@ export async function alterarJogo(id, infoJogo){
 
 // FILTROS DE JOGOS
 
-export async function filtroGeneroJogo(filtro){
+export async function filtroGeneroAcao(){
     const comando =`
-        select  ID_JOGO			ID,
-                IMG_CAPA		CAPA,
-                NM_JOGO			NOME,
-                VL_JOGO			VALOR
+        select  ID_JOGO			id,
+                IMG_CAPA		capa,
+                NM_JOGO			nome,
+                VL_JOGO			valor
            FROM TB_JOGO
         INNER JOIN TB_GENERO_JOGO 
             ON TB_JOGO.ID_JOGO = TB_GENERO_JOGO.FK_JOGO
         INNER JOIN TB_GENERO 
             ON TB_GENERO.ID_GENERO = TB_GENERO_JOGO.FK_GENERO
-        WHERE DS_GENERO = ?
+        WHERE DS_GENERO = 'Ação'
     `
 
-    const [linhas] = await con.query(comando,[filtro]);
+    const [linhas] = await con.query(comando);
     return linhas;
 }
 
+export async function filtroGeneroAventura(){
+    const comando =`
+        select  ID_JOGO			id,
+                IMG_CAPA		capa,
+                NM_JOGO			nome,
+                VL_JOGO			valor
+           FROM TB_JOGO
+        INNER JOIN TB_GENERO_JOGO 
+            ON TB_JOGO.ID_JOGO = TB_GENERO_JOGO.FK_JOGO
+        INNER JOIN TB_GENERO 
+            ON TB_GENERO.ID_GENERO = TB_GENERO_JOGO.FK_GENERO
+        WHERE DS_GENERO = 'Aventura'
+    `
 
+    const [linhas] = await con.query(comando);
+    return linhas;
+}
+
+export async function filtroGeneroSimulacao(){
+    const comando =`
+        select  ID_JOGO			id,
+                IMG_CAPA		capa,
+                NM_JOGO			nome,
+                VL_JOGO			valor
+           FROM TB_JOGO
+        INNER JOIN TB_GENERO_JOGO 
+            ON TB_JOGO.ID_JOGO = TB_GENERO_JOGO.FK_JOGO
+        INNER JOIN TB_GENERO 
+            ON TB_GENERO.ID_GENERO = TB_GENERO_JOGO.FK_GENERO
+        WHERE DS_GENERO = 'Simulacao'
+    `
+
+    const [linhas] = await con.query(comando);
+    return linhas;
+}
+
+export async function filtroGeneroRPG(){
+    const comando =`
+        select  ID_JOGO			id,
+                IMG_CAPA		capa,
+                NM_JOGO			nome,
+                VL_JOGO			valor
+           FROM TB_JOGO
+        INNER JOIN TB_GENERO_JOGO 
+            ON TB_JOGO.ID_JOGO = TB_GENERO_JOGO.FK_JOGO
+        INNER JOIN TB_GENERO 
+            ON TB_GENERO.ID_GENERO = TB_GENERO_JOGO.FK_GENERO
+        WHERE DS_GENERO = 'RPG'
+    `
+
+    const [linhas] = await con.query(comando);
+    return linhas;
+}
+
+//// FILTRO DE PLATAFORMA
 export async function filtroPlataformaPc(){
     const comando = `
         SELECT 	ID_JOGO 		id,
@@ -234,6 +288,7 @@ export async function filtroPlataformaXbox(){
     return linhas;
 }
 
+//////////////////////////////////////////////////////////////////
 
 export async function listarDestaque() {
     const comando =
