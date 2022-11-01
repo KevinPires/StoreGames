@@ -94,6 +94,28 @@ export default function LandingPage() {
 
             </section>
 
+            <section className='jogos-populares'>
+                <div className='titulo-jogos'>
+                <div><h1 data-aos="slide-right">Jogos mais jogados</h1></div>
+                <div><p data-aos="slide-up">Explore nossa biblioteca com os jogos mais </p></div>
+                </div>
+                
+
+                <div className='alinhamento-jogos'>
+
+                    <div><img src='/seta.png' alt='seta'/></div>
+
+                    <div><img className='jogo-card' src='/jogo.jpg' alt='jogo'/></div>
+                    <div><img className='jogo-card' src='/mine.jpg' alt='jogo'/></div>
+                    <div><img className='jogo-card' src='/dayz.jpg' alt='jogo'/></div>
+                    <div><img className='jogo-card' src='/nba.jpg' alt='jogo'/></div>
+                    
+
+                    <div><img src='/seta.png' alt='seta2'/></div>
+
+                </div>
+            </section>
+
             <section data-aos="fade" className="faixa-cadastro">
                 <div data-aos="zoom-in" className="container-lobo">
                 <Link to='/usuario/cadastro'><button data-aos="fade" ><b>Cadastre-se agora!</b></button></Link>

@@ -341,6 +341,39 @@
           }
     }
 
+    .jogos-populares{
+        display: flex;
+        flex-direction: column;
+        padding: 2em;
+
+        .titulo-jogos{
+            padding: 3em;
+
+            h1{
+                font-size: 50px;
+            }
+            p{
+                font-size: 20px;
+                margin-top: 1em;
+            }
+        }
+
+        .alinhamento-jogos{
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: center;
+
+          .jogo-card{
+            width: 250px;
+            height: 300px;
+            border-radius: 7px;
+            margin-left: 1em;
+            margin-right: 1em;
+          }
+        }
+    }
+
 
     @media screen and (max-width: 850px) {
         .faixa-um {
