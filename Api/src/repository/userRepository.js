@@ -161,6 +161,6 @@ export async function alterarInfo(id, usuario, cep){
         WHERE ID_USUARIO = ?;
     `
 
-    const resposta = await con.query(comando,[id, usuario, cep])
+    const [resposta] = await con.query(comando,[usuario, cep, id])
     return resposta.affectedRows
 }

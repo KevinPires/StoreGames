@@ -12,24 +12,26 @@ export default function ModalAlteraInformacoes({ exibir , fecha}){
     const [usuario, setUsuario] = useState('')
     const [cep, setCep] = useState('')
 
-    if (!exibir) {
-        exibirUsuario()
-        return <> </>
-    }
+    // if (!exibir) {
+    //     exibirUsuario()
+    //     return <> </>
+    // }
 
     async function exibirUsuario() {
         const x = await carregarUsuario(id)
         setDados(x)
+        return x;
     }
 
     async function alterarInfo(){
         try {
-            
+            const x = await exibirUsuario();
 
             if(!usuario){
                 alert('Digite um campo para altera')
             }else{
-                const r = await alterarInformacoes(dados.info.id, usuario, cep)
+                const r = await alterarInformacoes(x.info.id, usuario, cep)
+                console.log(r);
                 alert('alterado com sucesso')
             }
             
@@ -38,7 +40,7 @@ export default function ModalAlteraInformacoes({ exibir , fecha}){
         }
     }
     return(
-        <main className="comp-modal-informacoes">
+        <main className="comp-modal-informacoes"  style={{ visibility: exibir ? 'visible' : 'hidden'}}>
             <div className={`modal-informacoes`}>
                 <div className='conteudo'>
                     <h2>Editar informações <img className='img-close' src='/closeicon.png' alt='' onClick={fecha} /></h2>
