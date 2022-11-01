@@ -52,3 +52,18 @@ export async function  buscarJogoPorId(id){
    return linhas.map(item => item.id);
 }
     
+export async function alterarPedidoStatus (id, pedido) {
+    const comando =
+    `
+    UPDATE
+    TB_PEDIDO SET DS_STATUS = ?
+    WHERE ID_PEDIDO = ?;
+
+    
+    `
+    const [resposta] = await con.query(comando, [
+        pedido,
+        id
+    ])
+    return resposta.affectedRows
+}

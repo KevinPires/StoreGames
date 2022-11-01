@@ -1,9 +1,10 @@
-import { buscarJogoPorId, buscarPorIdGenero, buscarPorIdPlataforma, login } from '../repository/adminRepository.js'
+import { alterarPedidoStatus, buscarJogoPorId, buscarPorIdGenero, buscarPorIdPlataforma, login } from '../repository/adminRepository.js'
 import { Router  } from "express";
 import multer from 'multer';
 import { alterarJogo, inserirGeneroJogo, inserirPlataformaJogo, removerGeneroJogo, removerPlataformaJogo } from '../repository/jogoRepository.js';
 import { buscarGeneroPorId } from '../repository/generoRepository.js';
 import { buscarPlataformaporID } from '../repository/plataformaRepository.js';
+import { visualizarPedidos } from '../repository/pedidoRepository.js';
 
 const server = Router ();
 const upload = multer({ dest: 'storage/perfil' })
@@ -109,6 +110,44 @@ server.put('/cadastro/:id', async (req, resp) => {
 
     }
 })  
+
+server.put('/status', async (req, resp) => {
+    try {
+        const info = req.body
+
+        if(!info) {
+            throw new Error('Campos Obrigatorios')
+        }
+
+        const alterarInfo = await alterarPedidoStatus(info.id, info.status)
+
+        resp.status(202).send();
+
+    } catch (err) {
+        resp.status(400).send({
+            erro: err.message
+        })
+    }
+
+
+})
+
+server.get('/pedidos', async (req,resp) => {
+    try {
+
+        const exibirPedidos = await visualizarPedidos()
+
+        resp.send({
+             pedidos : exibirPedidos
+        })
+
+
+    } catch (error) {
+        resp.status(400).send({
+            erro: err.message
+        })
+    }
+})
 
 export default server;
 

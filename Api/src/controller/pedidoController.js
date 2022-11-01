@@ -33,10 +33,6 @@ server.post('/:idUsuario', async (req, resp) => {
             erro: err.message
         })
     }
-
-
-
-  
 })
 
 
