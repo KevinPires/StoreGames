@@ -11,25 +11,26 @@ export default function ModalAlteraSenha({ exibir, fecha }) {
     const [senha, setSenha] = useState('')
     const [ dados, setDados] = useState({info:[], infoLogin:[] })
 
-    if (!exibir) {
-        exibirUsuario()
-        return <> </>
-    }
+    // if (!exibir) {
+    //     exibirUsuario()
+    //     return <> </>
+    // }
 
     async function exibirUsuario() {
         const x = await carregarUsuario(id)
         setDados(x)
+        return x;
     }
 
 
     async function salvarAlteracao() {
         try {
-            exibirUsuario()
+            const x = await exibirUsuario()
 
             if (!senha) {
                 alert('Insira um valor valido no campo de senha')
             } else {
-                const r = await alterarSenhaUsuario(dados.info.id, senha)
+                const r = await alterarSenhaUsuario(x.info.id, senha)
                 alert('alterado com sucesso')
                 fecha()
             }
@@ -41,7 +42,7 @@ export default function ModalAlteraSenha({ exibir, fecha }) {
 
 
     return (
-        <main className="comp-modal-senha">
+        <main className="comp-modal-senha" style={{ visibility: exibir ? 'visible' : 'hidden'}}>
             <div className={`modal-informacoes`}>
                 <div className='conteudo'>
                     <h2>Alterar Senha <img className='img-close' src='/closeicon.png' alt='' onClick={fecha} /> </h2>

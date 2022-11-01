@@ -172,9 +172,10 @@ server.put('/alterar/informacoes/:id', async(req, resp)=>{
     try {
         const { id } = req.params
         const { usuario , cep } = req.body
+
         const r = await alterarInfo(id, usuario, cep)
 
-        resp.status(204).send(r)
+        resp.status(204).send()
     } catch (err) {
         resp.status(404).send({
             erro: err.message
