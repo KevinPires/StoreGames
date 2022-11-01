@@ -1,0 +1,76 @@
+.admin-pendentes {
+    display: flex;
+    flex-direction: row;
+
+    .flexboxrow {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .flexboxcolumn {
+        display: flex;
+        flex-direction: column;
+    }
+    .container-pagina {
+        padding: 1em;
+    }
+
+    .pagina-column {
+        width: 100%;
+        
+        
+        .boxPedido {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 100%;
+            background-color: #F6F0F0;
+            margin-bottom: 5rem;
+            border: 1px solid #767676;
+            height: 15em;
+        }
+
+        .containerBoxes {
+            padding: 10px;
+            overflow: auto;
+            width: 100%;
+            background-color: white;
+            
+            height: 35rem;
+        }
+    }
+
+    .infoPedido {
+        width: 90%;
+        justify-content: space-around;
+        button {
+            padding: 1rem;
+            background-color: #323A45;
+            border: none;
+            color: #ffffff;
+            margin-bottom: 10px;
+            border-radius: 10px;
+        }
+    }
+
+    .botoes {
+        width: 10%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        
+    }
+
+    .barraPesquisa {
+        margin-bottom: 10px;
+        width: 12rem;
+        input {
+            height: 2.5rem;
+            width: 14rem;
+        }
+    }
+
+    button:hover {
+        cursor: pointer;
+    }
+}

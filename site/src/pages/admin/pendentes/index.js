@@ -2,62 +2,85 @@ import './index.scss';
 import BarraLateral from '../../../components/BarraLateral';
 import HeaderAdmin from '../../../components/adminHeader';
 
-export default function Pendentes(){
-    return(
-        <main className="admin-home">
-    <BarraLateral selecionado='pendencias'/>
+export default function Pendentes() {
+    return (
+        <main className="admin-pendentes">
+            <BarraLateral selecionado='pendencias' />
+
+            <section className="pagina-column">
 
 
-    <div className="cont-faixa-cadastro">
+                <HeaderAdmin />
 
-         <HeaderAdmin/>
+                <div className="container-pagina">
+                    <div className="flexboxcolumn barraPesquisa">
+                        <input placeholder='Pesquise pedidos pendentes!' type='txt'></input>
+                    </div>
 
-         <div className='conteudo'>
-            <div className='caixa-busca'>
-                <input type="text" placeholder='Buscar pedidos pendentes por nome' />
-            </div>
-        
+                    <div className="containerBoxes">
+                        <div className="boxPedido">
+                            <div className="flexboxrow infoPedido">
+                                <div className="flexboxcolumn">
+                                    <label>Nome Cliente: </label>
+                                    <p>Luan Reinhold</p>
+                                </div>
+                                <div className="flexboxcolumn">
+                                    <label>Metodo Pagamento: </label>
+                                    <p>Pix</p>
+                                </div>
+                                <div className="flexboxcolumn">
+                                    <label>Valor: </label>
+                                    <p>R$110.00</p>
+                                </div>
+                                <div className="flexboxcolumn">
+                                    <label>Data: </label>
+                                    <p>31/10/22</p>
+                                </div>
+                                <div className="flexboxcolumn">
+                                    <label>Status:  </label>
+                                    <p>Em fila</p>
+                                </div>
+                                <div className="botoes flexboxcolumn">
+                                    <button>Em Análise</button>
+                                    <button>Negado</button>
+                                    <button>Aprovado</button>
+                                </div>
+                            </div>
+                        </div>
 
-            <table >
-                <thead>
-                    <tr>
+                        <div className="boxPedido">
+                            <div className="flexboxrow infoPedido">
+                                <div className="flexboxcolumn">
+                                    <label>Nome Cliente: </label>
+                                    <p>Luan Reinhold</p>
+                                </div>
+                                <div className="flexboxcolumn">
+                                    <label>Metodo Pagamento: </label>
+                                    <p>Luan Reinhold</p>
+                                </div>
+                                <div className="flexboxcolumn">
+                                    <label>Valor: </label>
+                                    <p>Luan Reinhold</p>
+                                </div>
+                                <div className="flexboxcolumn">
+                                    <label>Data: </label>
+                                    <p>Luan Reinhold</p>
+                                </div>
+                                <div className="flexboxcolumn">
+                                    <label>Status:  </label>
+                                    <p>Luan Reinhold</p>
+                                </div>
+                                <div className="botoes flexboxcolumn">
+                                    <button>Em Análise</button>
+                                    <button>Negado</button>
+                                    <button>Aprovado</button>
+                                </div>
+                            </div>
+                        </div>
                         
-                        <th>NOME</th>
-                        <th>MÉTODO PAGAMENTO</th>
-                        <th>VALOR</th>
-                        <th>DATA</th>
-                        <th>STATUS</th>
-                        <th>ANALISAR</th>
-                        
-                    </tr>
-                </thead>
-                <tbody>
-
-                
-                    <tr>
-                        <td>Clovis</td>
-                        <td>PIX</td>
-                        <td>R$ 10,00</td>
-                        <td>02/11/2021</td>
-                        <td>Em fila</td>
-                        <td>
-                            <img src='/aprovado.png'  />
-
-
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-                            <img src='/reprovado.png'/>
-
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-                            <img src='/analise.png'/>
-                        </td>
-                    </tr>
-                
-                </tbody>
-            </table>
-        </div>
-     </div>
-       </main>
+                    </div>
+                </div>
+            </section>
+        </main>
     )
 }
