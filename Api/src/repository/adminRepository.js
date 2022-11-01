@@ -52,7 +52,7 @@ export async function  buscarJogoPorId(id){
    return linhas.map(item => item.id);
 }
     
-export async function alterarPedidoStatus (id, pedido) {
+export async function alterarPedidoStatus (pedido, id ) {
     const comando =
     `
     UPDATE

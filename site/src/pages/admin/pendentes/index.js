@@ -1,7 +1,7 @@
 import './index.scss';
 import BarraLateral from '../../../components/BarraLateral';
 import HeaderAdmin from '../../../components/adminHeader';
-import { visualizarPedidos } from '../../../api/pedidoApi';
+import { alterarStatus, visualizarPedidos } from '../../../api/pedidoApi';
 import { useEffect, useState } from 'react';
 
 export default function Pendentes() {
@@ -19,6 +19,16 @@ export default function Pendentes() {
         carregarPedidos()
     }, [])
 
+    async function alteraStatusClick (status, id) {
+        try {
+             let x = await alterarStatus(status, id)
+            
+           
+            alert('status alterado para analise')
+        } catch (error) {
+            console.log(error)
+        }
+    }
 
     return (
         <main className="admin-pendentes">
@@ -63,9 +73,9 @@ export default function Pendentes() {
                                     <p>{item.pnotaFiscal}</p>
                                 </div>
                                 <div className="botoes flexboxcolumn">
-                                    <button>Em Análise</button>
-                                    <button>Negado</button>
-                                    <button>Aprovado</button>
+                                    <button onClick={() => alteraStatusClick('Em Analise', item.idpedido)}>Em Análise</button>
+                                    <button onClick={() => alteraStatusClick('Negado', item.idpedido)}>Negado</button>
+                                    <button onClick={() => alteraStatusClick('Aprovado', item.idpedido)}>Aprovado</button>
                                 </div>
                             </div>
                         </div>
