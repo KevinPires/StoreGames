@@ -137,9 +137,7 @@ server.get('/pedidos', async (req,resp) => {
 
         const exibirPedidos = await visualizarPedidos()
 
-        resp.send({
-             pedidos : exibirPedidos
-        })
+        resp.send(exibirPedidos)
 
 
     } catch (error) {
