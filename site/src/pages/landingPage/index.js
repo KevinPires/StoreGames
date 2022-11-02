@@ -8,13 +8,14 @@ import { listarJogosDestaque } from '../../api/jogos';
 import Rodape from '../../components/Rodapé';
 import 'aos/dist/aos.css';
 import AOS from 'aos';
+import { useNavigate } from 'react-router-dom'
 
 
 
 
 export default function LandingPage() {
 
-    
+    const Navigate = useNavigate()
 
     const [jogos, setJogos] = useState([]);
     const [jogofinal, setJogoFinal] = useState(4)
@@ -47,7 +48,7 @@ export default function LandingPage() {
     }
 
   useEffect(() => {
-    AOS.init({duration : 2500})
+    AOS.init({duration : 800})
   }, [])
 
     async function mostrarJogo() {
@@ -132,19 +133,19 @@ export default function LandingPage() {
                         <input type='radio' name='radio-btn' id='radio3'/>
                         <input type='radio' name='radio-btn' id='radio4'/>
 
-                        <div className='slide-frist'>
+                        <div className='slide-frist' onClick={() => Navigate('/produto/275/detalhe')}>
                             <img src='/roct.jpg' alt='img1'/>
                         </div>
 
-                        <div className='slide'>
+                        <div className='slide' onClick={() => Navigate('/produto/272/detalhe')}>
                             <img src='/min.jpg' alt='img2'/>
                         </div>
 
-                        <div className='slide'>
+                        <div className='slide' onClick={() => Navigate('/produto/240/detalhe')}>
                             <img src='/ride.jpg' alt='img3'/>
                         </div>
 
-                        <div className='slide'>
+                        <div className='slide' onClick={() => Navigate('/produto/234/detalhe')}>
                             <img src='/fafi.jpg' alt='img4'/>
                         </div>
 

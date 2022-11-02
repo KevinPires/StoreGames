@@ -371,10 +371,11 @@
             width: 400%;
             height: 400px;
             display: flex;
+            cursor: pointer;
          }
 
           input {
-          //display:none
+          overflow: hidden;
          }
 
          .slide{

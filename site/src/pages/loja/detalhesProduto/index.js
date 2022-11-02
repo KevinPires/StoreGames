@@ -14,6 +14,7 @@ export default function DetalhesProduto(){
 
     const [jogo, setJogo] =  useState({info: {} ,generos: [] , plataformas: []})
     const { id } = useParams();
+    const [favorito, setFavorito] = useState(false)
 
     const [infoStorage, setInfostorage] = useState('')
 
@@ -21,7 +22,9 @@ export default function DetalhesProduto(){
         const taLogado = Storage('usuario-logado')
         setInfostorage(taLogado)
     }
-
+    function favoritoTrue(){
+        setFavorito(true)
+    }
     useEffect(() => {
         exibirNome()
     }, [])
@@ -79,7 +82,7 @@ export default function DetalhesProduto(){
                         <img src={carregarImagem()} alt=''/>
                     </div>
                     <div className='favorito'>
-                        <img src='/coracaoIcon.png' alt='' onClick={inserirFavorito}/>
+                        <img onClick={favoritoTrue} style={{ cursor: "pointer"}}src='/coracaoIcon.png' alt='' onClick={inserirFavorito}/>
                         <p>Adiciona aos <br/>favoritos</p>
                     </div>
                 </div>
