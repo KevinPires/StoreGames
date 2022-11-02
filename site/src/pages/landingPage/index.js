@@ -24,23 +24,23 @@ export default function LandingPage() {
 
     const [exibirfaixa, setExibirFaixa] = useState('faixa-dois')
 
-    //let count = 1;
+    let count = 1;
     //document.getElementById("radio1").checked = true;
 
-    //setInterval(function(){
-       // nextImage();
-    //}, 2000)
+    setInterval(function(){
+        nextImage();
+    }, 2000)
 
-    //function nextImage(){
-       // count++;
-       // if(count > 4){
-        //    count = 1;
-       // }
+    function nextImage(){
+        count++;
+        if(count > 4){
+            count = 1;
+       }
 
        // document.getElementById("radio" + count).checked = true;
-    //}
+    }
 
-    // Oque esta comentado é uma função de repetição para o carrocel mas n sei fazer completo
+    // Provavelmenmte a pagina n vai carregar por causa dessa função em cima, qualquer coisa so comentar
 
     function exibirMais() {
         setExibirFaixa('faixa-dois-expandida') 
@@ -121,7 +121,7 @@ export default function LandingPage() {
             <section className='jogos-populares'>
                 <div className='titulo-jogos'>
                 <div><h1 data-aos="slide-right">Jogos mais jogados</h1></div>
-                <div><p data-aos="slide-up">Explore nossa biblioteca com os jogos mais populares </p></div>
+                <div><p data-aos="slide-up">Explore nossa biblioteca com os jogos mais populares! </p></div>
                 </div>
                 
                  <div className='slider'>
