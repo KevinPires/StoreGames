@@ -69,10 +69,31 @@ export async function detalheJogo(id) {
     return resposta.data;
 }
 
+//////////////////////////////////////
+
+// filtro genero
+export async function filtraGeneroAcao(){
+    const resposta = await api.get('/jogo/filtro/acao')
+    return resposta.data
+}
+
+export async function filtraGeneroAventura(){
+    const resposta = await api.get('/jogo/filtro/aventura')
+    return resposta.data
+}
+
+export async function filtraGeneroSimulacao(){
+    const resposta = await api.get('/jogo/filtro/simulacao')
+    return resposta.data
+}
+
+export async function filtraGeneroRPG(){
+    const resposta = await api.get('/jogo/filtro/rpg')
+    return resposta.data
+}
+
 
 // Filtro de Jogos - Parte da Loja
-
-
 
 export async function filtrarValorCinquenta() {
     const resposta = await api.get(`/jogo/filtro/valor1`);

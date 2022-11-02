@@ -1,4 +1,4 @@
-import { alterarInfo, alterarSenha, cadastrarUsuario, exibirFavorito, inserirFavorito, loginUsuario, verificarCpf, verificarEmail,  VisualizarInfoLogin, VisualizarInfoUser } from '../repository/userRepository.js'
+import { alterarInfo, alterarSenha, cadastrarUsuario, exibirFavorito, inserirFavorito, loginUsuario, verificarCpf, verificarEmail, VisualizarInfoLogin, VisualizarInfoUser } from '../repository/userRepository.js'
 import { Router } from "express";
 import multer from 'multer';
 import { buscarGeneroPorId } from '../repository/generoRepository.js';
@@ -109,7 +109,7 @@ server.get('/:id', async (req, resp) => {
             infoLogin: infoUserLogin
 
         })
-        
+
     } catch (err) {
         resp.send({
             erro: err.message
@@ -133,32 +133,37 @@ server.post('/favorito/adicionar', async (req, resp) => {
 })
 
 
-// server.get('/favorito/exibir/:id', async (req, resp)=>{
-//     try {
-//         const { id } = req.params
-//         const r = await exibirFavorito(id);
-
-
-//         for (idJogo of r.idJogos){
-//             const resposta = await buscarJogoPorId(idJogo)
-//         }
-//         resp.send(r)
-//     } catch (err) {
-//         resp.send({
-//             erro: err.message
-//         })
-//     }
-// })
-
-
-server.put('/alterar/senha/:id', async(req, resp)=>{
+server.get('/favorito/exibir/:id', async (req, resp) => {
     try {
-    
+        const { id } = req.params
+        const r = await exibirFavorito(id);
+        let jogos = []
+
+        for(let item of r){
+            const x =  await buscarJogoPorId(item.id_jogo)
+            jogos = x
+        }
+        console.log(jogos)
+        resp.send({
+            r: r,
+            jogos: jogos
+        })
+    } catch (err) {
+        resp.status(404).send({
+            erro: err.message
+        })
+    }
+})
+
+
+server.put('/alterar/senha/:id', async (req, resp) => {
+    try {
+
         const { senha } = req.body
         const { id } = req.params
-        console.log(id , senha)
-        const r = await alterarSenha( senha, id)
-        
+        console.log(id, senha)
+        const r = await alterarSenha(senha, id)
+
         resp.send(r)
     } catch (err) {
         resp.send({
@@ -168,10 +173,10 @@ server.put('/alterar/senha/:id', async(req, resp)=>{
 })
 
 
-server.put('/alterar/informacoes/:id', async(req, resp)=>{
+server.put('/alterar/informacoes/:id', async (req, resp) => {
     try {
         const { id } = req.params
-        const { usuario , cep } = req.body
+        const { usuario, cep } = req.body
 
         const r = await alterarInfo(id, usuario, cep)
 

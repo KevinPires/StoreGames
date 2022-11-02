@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import './index.scss'
-import Storage from 'local-storage'
 import { alterarInformacoes, carregarUsuario } from '../../../../api/usuario'
 import { useParams } from 'react-router-dom'
 

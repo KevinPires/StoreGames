@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import HeaderLoja from '../../components/headerLoja'
 import CardJogo from '../../components/cardJogo'
 import { useEffect, useState } from 'react';
-import { listarJogosDestaque, listarTodosJogos } from '../../api/jogos';
+import { listarJogosDestaque } from '../../api/jogos';
 import Rodape from '../../components/Rodapé';
 import 'aos/dist/aos.css';
 import AOS from 'aos';

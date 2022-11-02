@@ -1,4 +1,4 @@
-import  { cadastroJogo, inserirGeneroJogo, inserirPlataformaJogo, alterarImagem, listarTodosJogos, buscarPorNome, removerGeneroJogo, removerPlataformaJogo, removerJogo, alterarJogo, filtroGeneroJogo, listarDestaque, filtrarValorCinquenta, filtrarValorCem, filtrarValorDuzentos, filtrarValorFinal, jogosDoMesmoGenero, filtroPlataformaPc, filtroPlataformaPs4, filtroPlataformaXbox } from "../repository/jogoRepository.js";
+import  { cadastroJogo, inserirGeneroJogo, inserirPlataformaJogo, alterarImagem, listarTodosJogos, buscarPorNome, removerGeneroJogo, removerPlataformaJogo, removerJogo, alterarJogo, listarDestaque, filtrarValorCinquenta, filtrarValorCem, filtrarValorDuzentos, filtrarValorFinal, jogosDoMesmoGenero, filtroPlataformaPc, filtroPlataformaPs4, filtroPlataformaXbox, filtroGeneroAcao, filtroGeneroAventura,filtroGeneroSimulacao, filtroGeneroRPG } from "../repository/jogoRepository.js";
 import { response, Router } from "express";
 import multer from "multer";
 import { buscarGeneroPorId, buscarGeneroProduto } from "../repository/generoRepository.js";
@@ -11,7 +11,6 @@ const server = Router()
 const upload = multer({dest: 'storage/capasJogos' })
 server.post('/', async (req,resp) => {
     try{
-        console.log(req.body)
         const infoJogo = req.body
 
             if (!infoJogo.nome)
@@ -186,12 +185,44 @@ server.get('/:id', async (req, resp) => {
     }
 })
 
-// Filtra jogo
+// Filtra jogo Genero
 
-server.get('/filtro/genero', async (req, resp) => {
+server.get('/filtro/acao', async (req, resp) => {
     try {
-        const { filtro } = req.body;
-        const resposta = await filtroGeneroJogo(filtro);
+        const resposta = await filtroGeneroAcao();
+        resp.status(200).send(resposta);
+    } catch (err) {
+        resp.status(404).send({
+            erro: err.message
+        })
+    }
+})
+
+server.get('/filtro/aventura', async (req, resp) => {
+    try {
+        const resposta = await filtroGeneroAventura();
+        resp.status(200).send(resposta);
+    } catch (err) {
+        resp.status(404).send({
+            erro: err.message
+        })
+    }
+})
+
+server.get('/filtro/simulacao', async (req, resp) => {
+    try {
+        const resposta = await filtroGeneroSimulacao();
+        resp.status(200).send(resposta);
+    } catch (err) {
+        resp.status(404).send({
+            erro: err.message
+        })
+    }
+})
+
+server.get('/filtro/rpg', async (req, resp) => {
+    try {
+        const resposta = await filtroGeneroRPG();
         resp.status(200).send(resposta);
     } catch (err) {
         resp.status(404).send({

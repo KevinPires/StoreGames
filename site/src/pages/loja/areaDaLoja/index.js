@@ -6,10 +6,11 @@ import { useNavigate } from 'react-router-dom'
 import CardJogo from '../../../components/cardJogo'
 import Rodape from '../../../components/Rodapé'
 import { useState, useEffect } from 'react'
-import { listarTodosJogos, listarTodosJogosPorNome, filtrarValorCem, filtrarValorCinquenta, filtrarValorDuzentos, filtrarValorFinal, filtraPlataformaPc, filtraPlataformaPs4, filtraPlataformaXbox } from '../../../api/jogos'
+import { listarTodosJogos, listarTodosJogosPorNome, filtrarValorCem, filtrarValorCinquenta, filtrarValorDuzentos, filtrarValorFinal, filtraPlataformaPc, filtraPlataformaPs4, filtraPlataformaXbox, filtraGeneroAcao, filtraGeneroAventura, filtraGeneroSimulacao, filtraGeneroRPG } from '../../../api/jogos'
 import Pagination from '../../../components/pagination'
 import { Link } from 'react-router-dom'
 import storage from 'local-storage'
+
 
 
 export default function LojaArea() {
@@ -83,6 +84,18 @@ export default function LojaArea() {
                 setJogos(resp)
             }else if (filtro === 'xbox'){
                 resp = await filtraPlataformaXbox()
+                setJogos(resp)
+            }else if (filtro === 'acao'){
+                resp = await filtraGeneroAcao()
+                setJogos(resp)
+            }else if (filtro === 'aventura'){
+                resp = await filtraGeneroAventura()
+                setJogos(resp)
+            }else if (filtro === 'simulacao'){
+                resp = await filtraGeneroSimulacao()
+                setJogos(resp)
+            }else if (filtro === 'rpg'){
+                resp = await filtraGeneroRPG()
                 setJogos(resp)
             }
         

@@ -33,9 +33,10 @@ export default function BarraFilto(props){
                 <div className="box-filtro">
                     <h4>filtra por gênero</h4>
                     <div>
-                        <div className="camp-filtro"> <input type="radio" name="valor" className="checkbox-round" onClick={props.filtro}/> <p>Ação</p> </div>
-                        <div className="camp-filtro"> <input type="radio" name="valor" className="checkbox-round" onClick={props.filtro}/> <p>Aventura</p></div>
-                        <div className="camp-filtro"> <input type="radio" name="valor" className="checkbox-round" onClick={props.filtro}/> <p>Casual</p></div>
+                        <div className="camp-filtro"> <input type="radio" name="valor" className="checkbox-round" onClick={props.filtro} value="acao"/> <p>Ação</p> </div>
+                        <div className="camp-filtro"> <input type="radio" name="valor" className="checkbox-round" onClick={props.filtro} value="aventura"/> <p>Aventura</p></div>
+                        <div className="camp-filtro"> <input type="radio" name="valor" className="checkbox-round" onClick={props.filtro} value="simulacao"/> <p>Simulação</p></div>
+                        <div className="camp-filtro"> <input type="radio" name="valor" className="checkbox-round" onClick={props.filtro} value="rpg"/> <p>RPG</p></div>
                     </div>  
                 </div>
             </div>

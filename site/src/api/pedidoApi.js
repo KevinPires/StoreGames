@@ -11,13 +11,13 @@ export async function inserirNovoPedido(idUsuario, novoPedido){
     return r.data;
 }
 
-export async function alterarStatus(idPedido, info){
+export async function alterarStatus(status, id){
     const r = await api.put('/admin/status', {
-        idPedido: idPedido,
-        info : info
+        status: status,
+        id: id
     });
-    return r.data;
 
+    return r.data;
 }
 
 export async function visualizarPedidos(){

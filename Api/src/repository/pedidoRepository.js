@@ -106,7 +106,9 @@ export async function visualizarPedidos () {
         PIX.DS_CPF 			    as cpf
         from TB_PEDIDO as P
         LEFT JOIN TB_PAGAMENTO_PIX PIX
-        ON P.ID_PEDIDO = PIX.FK_PEDIDO;
+        ON P.ID_PEDIDO = PIX.FK_PEDIDO
+        WHERE P.DS_STATUS != 'Aprovado' || 'Negado' 
+        ORDER BY P.DS_STATUS ASC
     `
     const [resposta] = await con.query (comando)
     return resposta
