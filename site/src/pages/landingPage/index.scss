@@ -345,6 +345,8 @@
         display: flex;
         flex-direction: column;
         padding: 2em;
+       
+       
 
         .titulo-jogos{
             padding: 3em;
@@ -358,20 +360,107 @@
             }
         }
 
-        .alinhamento-jogos{
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-          justify-content: center;
+         .slider{
+            margin: 0 auto;
+            width: 800px;
+            height: 400px;
+            overflow: hidden;
+         }
 
-          .jogo-card{
-            width: 250px;
-            height: 300px;
-            border-radius: 7px;
-            margin-left: 1em;
-            margin-right: 1em;
-          }
-        }
+         .slides{
+            width: 400%;
+            height: 400px;
+            display: flex;
+         }
+
+          input {
+          //display:none
+         }
+
+         .slide{
+            width: 25%;
+            position: relative;
+            transition: 2s;
+         }
+
+          img {
+            width: 800px;
+            height: 400px;
+            
+         }
+
+         .manual-navigation{
+            position: absolute;
+            width: 800px;
+            margin-top: -40px;
+            display: flex;
+            justify-content: center;
+         }
+
+         .manual-btn{
+            border: 2px solid cyan;
+            padding: 5px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 1s;
+         }
+
+         .manual-btn:not(:last-child){
+            margin-right: 40px;
+         }
+
+         .manual-btn:hover{
+            background-color: cyan;
+         }
+
+         #radio1:checked  {
+            margin-left: 0;
+         }
+
+         #radio2:checked {
+            margin-left: -26.57%;
+         }
+
+         #radio3:checked {
+            margin-left: -51.57%;
+         }
+
+         #radio4:checked {
+            margin-left: -76.7%;
+         }
+
+         .navigation-auto div{
+            border: 2px solid #20a6ff;
+            padding: 5px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 1s;
+         }
+
+         .navigation-auto{
+            position: absolute;
+            width: 800px;
+            margin-top: 360px;
+            display: flex;
+            justify-content: center;
+         }
+
+         .navigation-auto div:not(:last-child){
+            margin-right: 40px;
+         }
+
+         #radio1:checked ~ .navigation-auto .auto-btn1{
+            background-color: cyan;
+         }
+         #radio2:checked ~ .navigation-auto .auto-btn2{
+            background-color: cyan;
+         }
+         #radio3:checked ~ .navigation-auto .auto-btn3{
+            background-color: cyan;
+         }
+         #radio4:checked ~ .navigation-auto .auto-btn4{
+            background-color: cyan;
+         }
     }
 
 

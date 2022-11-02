@@ -9,7 +9,12 @@ import Rodape from '../../components/Rodapé';
 import 'aos/dist/aos.css';
 import AOS from 'aos';
 
+
+
+
 export default function LandingPage() {
+
+    
 
     const [jogos, setJogos] = useState([]);
     const [jogofinal, setJogoFinal] = useState(4)
@@ -17,6 +22,24 @@ export default function LandingPage() {
     
 
     const [exibirfaixa, setExibirFaixa] = useState('faixa-dois')
+
+    //let count = 1;
+    //document.getElementById("radio1").checked = true;
+
+    //setInterval(function(){
+       // nextImage();
+    //}, 2000)
+
+    //function nextImage(){
+       // count++;
+       // if(count > 4){
+        //    count = 1;
+       // }
+
+       // document.getElementById("radio" + count).checked = true;
+    //}
+
+    // Oque esta comentado é uma função de repetição para o carrocel mas n sei fazer completo
 
     function exibirMais() {
         setExibirFaixa('faixa-dois-expandida') 
@@ -97,23 +120,54 @@ export default function LandingPage() {
             <section className='jogos-populares'>
                 <div className='titulo-jogos'>
                 <div><h1 data-aos="slide-right">Jogos mais jogados</h1></div>
-                <div><p data-aos="slide-up">Explore nossa biblioteca com os jogos mais </p></div>
+                <div><p data-aos="slide-up">Explore nossa biblioteca com os jogos mais populares </p></div>
                 </div>
                 
+                 <div className='slider'>
 
-                <div className='alinhamento-jogos'>
+                    <div className='slides'>
 
-                    <div><img src='/seta.png' alt='seta'/></div>
+                        <input type='radio' name='radio-btn' id='radio1'/>
+                        <input type='radio' name='radio-btn' id='radio2'/>
+                        <input type='radio' name='radio-btn' id='radio3'/>
+                        <input type='radio' name='radio-btn' id='radio4'/>
 
-                    <div><img className='jogo-card' src='/jogo.jpg' alt='jogo'/></div>
-                    <div><img className='jogo-card' src='/mine.jpg' alt='jogo'/></div>
-                    <div><img className='jogo-card' src='/dayz.jpg' alt='jogo'/></div>
-                    <div><img className='jogo-card' src='/nba.jpg' alt='jogo'/></div>
-                    
+                        <div className='slide-frist'>
+                            <img src='/roct.jpg' alt='img1'/>
+                        </div>
 
-                    <div><img src='/seta.png' alt='seta2'/></div>
+                        <div className='slide'>
+                            <img src='/min.jpg' alt='img2'/>
+                        </div>
 
-                </div>
+                        <div className='slide'>
+                            <img src='/ride.jpg' alt='img3'/>
+                        </div>
+
+                        <div className='slide'>
+                            <img src='/fafi.jpg' alt='img4'/>
+                        </div>
+
+                      <div className='navigation-auto'>
+                        <div className='auto-btn1'></div>
+                        <div className='auto-btn2'></div>
+                        <div className='auto-btn3'></div>
+                        <div className='auto-btn4'></div>
+                      </div>
+                    </div>
+
+                    <div className='manual-navigation'>
+                    <label for='radio1' className='manual-btn'></label>
+                    <label for='radio2' className='manual-btn'></label>
+                    <label for='radio3' className='manual-btn'></label>
+                    <label for='radio4' className='manual-btn'></label>
+                 </div>
+                 </div>
+
+                
+                
+
+               
             </section>
 
             <section data-aos="fade" className="faixa-cadastro">
