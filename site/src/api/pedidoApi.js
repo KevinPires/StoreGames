@@ -25,4 +25,10 @@ export async function visualizarPedidos(){
     return r.data;
 }
 
+// Visualizar pedidos parte usuario 
+
+export async function pedidosUsuario(id){
+    const r = await api.get(`/pedido/usuario/${id}`)
+    return r.data
+}
 

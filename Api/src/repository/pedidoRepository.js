@@ -136,3 +136,24 @@ export async function pesquisarPedidoNome () {
     const [resposta] = await con.query (comando)
     return resposta
 }
+
+
+// VIZUALIZAÇÃO DO PEDIDO NA AREA USUARIO
+
+export async function pedidosUsuario(id){
+    console.log(id)
+    const comando =`
+            SELECT 	
+                    ID_PEDIDO			id_pedido,
+                    ID_USUARIO			id,
+                    DS_STATUS		 	situação,
+                    VL_TOTAL 		    valor,
+                    COD_NOTAFISCAL		notafiscal,
+                    DT_PEDIDO			datapedido
+        FROM TB_PEDIDO 
+        WHERE ID_USUARIO =?; 
+    `
+
+    const [resposta] = await con.query(comando, [id])
+    return resposta
+}

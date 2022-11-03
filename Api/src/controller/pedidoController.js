@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { buscarJogoPorId } from "../repository/adminRepository.js";
-import { cadastrarEndereco, cadastrarPedido, cadastrarPix, inserirJogoPedido } from "../repository/pedidoRepository.js";
+import { cadastrarEndereco, cadastrarPedido, cadastrarPix, inserirJogoPedido, pedidosUsuario } from "../repository/pedidoRepository.js";
 import { criarNovoPedido } from "../services/pedido.js";
 
 
@@ -28,7 +28,6 @@ server.post('/:idUsuario', async (req, resp) => {
         resp.status(200).send()
         
     } catch (err) {
-        console.log(err)
         resp.status(400).send({
             erro: err.message
         })
@@ -37,7 +36,20 @@ server.post('/:idUsuario', async (req, resp) => {
 
 
 
+// PEDIDOS DO USUARIO 
 
+server.get('/usuario/:id', async(req,resp) =>{
+    try {
+        const { id } = req.params
+
+        const r = await pedidosUsuario(id)
+        resp.send(r)
+    } catch (err) {
+        resp.status(400).send({
+            erro: err.message
+        })
+    }
+})
 
 
 

@@ -1,12 +1,30 @@
+import { useEffect, useState } from 'react'
+import { pedidosUsuario } from '../../../../api/pedidoApi'
 import '../../../../common/common.scss'
 import OptionsUser from '../../../../components/AreaUsuario/menuLateral'
 import HeaderLoja from '../../../../components/headerLoja'
 import Rodape from '../../../../components/Rodapé'
 import './index.scss'
+import localStorage from 'local-storage'
 
 
 export default function AreaLoja () {
+    const Storage = localStorage
+    const [pedidos, setPedidos] = useState([])
+    
+    console.log(Storage('usuario-logado') )
+    
+    
 
+    // async function chamandoPedidos(){
+    //     let x = []
+
+    //     const r = await pedidosUsuario(id)
+    // }
+    
+    useEffect(() => {
+    
+    }, [])
     return (
         <main className='usuario-page-pedidos'>
 
