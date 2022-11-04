@@ -12,19 +12,26 @@ import { Link } from 'react-router-dom'
 export default function AreaLoja () {
     const Storage = localStorage
     const [pedidos, setPedidos] = useState([])
-    
-    console.log(Storage('usuario-logado') )
-    
-    
+    const [infoStorage, setInfostorage] = useState('')
 
-    // async function chamandoPedidos(){
-    //     let x = []
+    function exibirNome() {
+        const taLogado = Storage('usuario-logado')
+        setInfostorage(taLogado)
+    }
 
-    //     const r = await pedidosUsuario(id)
-    // }
+    useEffect(()=> {
+        exibirNome()
+    },[])
+
+    async function chamandoPedidos(){
+        let x = []
+
+        const r = await pedidosUsuario(infoStorage.id)
+        console.log(r)
+    }
     
     useEffect(() => {
-    
+        chamandoPedidos()
     }, [])
     return (
         <main className='usuario-page-pedidos'>
