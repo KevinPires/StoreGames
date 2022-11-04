@@ -56,19 +56,18 @@ export default function Acompanhamento(){
                     </div>
                     <div className='progress-2'>
                        <div><p>Pedido expedido</p></div>
-                       <div> <p>Em rota de entrega</p></div>
-                       <div> <p>Sucesso</p></div>
+                       <div> <p className='p'>Em rota de entrega</p></div>
+                       
                      </div>
 
                    
-                        
-                       
                    
                   </div>
 
-                      <img src='/logoOrigin.png' alt='logo' width='200px'/>
+                     <div className='img'> <img src='/logoOrigin.png' alt='logo' width='200px' /></div>
                  </div>
               </section>
+             
               </section>
              
                 </main>
