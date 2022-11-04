@@ -24,6 +24,7 @@ import Cartao from './pages/FormaPagamento/cartao'
 import Pix from './pages/FormaPagamento/pix'
 import CompraFinalizada from './pages/FormaPagamento/compraFinalizada'
 import LandingPage from './pages/landingPage'
+import Acompanhamento from './pages/usuario/areaUsuario/usuarioAcompanhamento'
 //Nâo apagar o segundo AdminCadastro, ele faz parte do alterar
 // import ModalAlteraInformacoes from './components/modal/modalUsuario/modalAlterarInformacoes'
 
@@ -45,6 +46,7 @@ export default function AppRoutes() {
                 <Route path='/usuario/:id' element={<AreaUsuario/>} />
                 <Route path='/usuario/listaDesejos' element={<UserListaDesejos/>} />
                 <Route path='/usuario/pedidos' element={<UserPedidos/>} />
+                <Route path='/usuario/pedidos/:id' element={<Acompanhamento/>} />
                 <Route path='/jogos' element={<LojaArea/>}/>
                 <Route path='/ajuda' element={<GuiaRodape/>} />
                 <Route path='/produto/:id/detalhe' element={<DetalhesProduto/>} />

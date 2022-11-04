@@ -6,6 +6,7 @@ import HeaderLoja from '../../../../components/headerLoja'
 import Rodape from '../../../../components/Rodapé'
 import './index.scss'
 import localStorage from 'local-storage'
+import { Link } from 'react-router-dom'
 
 
 export default function AreaLoja () {
@@ -68,7 +69,7 @@ export default function AreaLoja () {
                             </div>
 
                             <div>
-                                <button>Detalhes</button>
+                               <Link to='/usuario/pedidos/:id'><button>Detalhes</button></Link> 
                             </div>
                         </div>
                         
