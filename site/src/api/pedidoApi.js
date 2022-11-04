@@ -32,3 +32,11 @@ export async function pedidosUsuario(id){
     return r.data
 }
 
+export async function pedidosUsuarioConcluidos(id){
+    const r = await api.get(`/pedido/usuario/concluido/${id}`)
+    return r.data
+}
+
+
+
+

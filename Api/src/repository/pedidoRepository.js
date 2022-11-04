@@ -114,6 +114,30 @@ export async function visualizarPedidos () {
     return resposta
 }
 
+export async function pedidosConcluidos () {
+    const comando =
+    `
+        select 
+        P.ID_PEDIDO 		    as idpedido,
+        P.ID_USUARIO 		    as iduser,
+        P.DS_STATUS 		    as pstatus,
+        P.VL_TOTAL 			    as ptotal,
+        P.VL_FRETE 			    as pfrete,
+        P.COD_NOTAFISCAL 	    AS pnotaFiscal,
+        P.DT_PEDIDO 		    AS pdata,
+        PIX.ID_PAGAMENTO_PIX    as idpix,
+        PIX.NM_CLIENTE 		    as cliente,
+        PIX.DS_CPF 			    as cpf
+        from TB_PEDIDO as P
+        LEFT JOIN TB_PAGAMENTO_PIX PIX
+        ON P.ID_PEDIDO = PIX.FK_PEDIDO
+        WHERE P.DS_STATUS != 'Analise' AND P.DS_STATUS != 'Em fila'  
+        ORDER BY P.DS_STATUS ASC;
+    `
+    const [resposta] = await con.query (comando)
+    return resposta
+}
+
 export async function pesquisarPedidoNome () {
     const comando =
     `
@@ -157,3 +181,4 @@ export async function pedidosUsuario(id){
     const [resposta] = await con.query(comando, [id])
     return resposta
 }
+

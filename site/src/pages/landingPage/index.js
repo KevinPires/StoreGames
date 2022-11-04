@@ -48,7 +48,7 @@ export default function LandingPage() {
     }
 
   useEffect(() => {
-    AOS.init({duration : 800})
+    AOS.init({duration : 2000})
   }, [])
 
     async function mostrarJogo() {

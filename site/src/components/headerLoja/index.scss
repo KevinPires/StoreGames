@@ -30,8 +30,11 @@
         width: 13rem;
         height: 100%;
         color: white;
+        font-family: 'poppins-medium';
         span {
             cursor: pointer;
+            
+            
             
         }
         p:hover {
@@ -63,6 +66,7 @@
         color: white;
         cursor: pointer;
         text-decoration: none;
+        font-family: 'poppins-medium'; 
     }
 
     a:hover{

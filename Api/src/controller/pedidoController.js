@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { buscarJogoPorId } from "../repository/adminRepository.js";
-import { cadastrarEndereco, cadastrarPedido, cadastrarPix, inserirJogoPedido, pedidosUsuario } from "../repository/pedidoRepository.js";
+import { cadastrarEndereco, cadastrarPedido, cadastrarPix, inserirJogoPedido, pedidosConcluidos, pedidosUsuario } from "../repository/pedidoRepository.js";
 import { criarNovoPedido } from "../services/pedido.js";
 
 
@@ -43,6 +43,19 @@ server.get('/usuario/:id', async(req,resp) =>{
         const { id } = req.params
 
         const r = await pedidosUsuario(id)
+        resp.send(r)
+    } catch (err) {
+        resp.status(400).send({
+            erro: err.message
+        })
+    }
+})
+
+server.get('/usuario/concluido/:id', async(req,resp) =>{
+    try {
+        const { id } = req.params
+
+        const r = await pedidosConcluidos(id)
         resp.send(r)
     } catch (err) {
         resp.status(400).send({

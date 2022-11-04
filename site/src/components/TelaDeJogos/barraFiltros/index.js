@@ -23,7 +23,7 @@ export default function BarraFilto(props){
                     </div>
                 </div>
                 <div className="box-filtro">                
-                    <h4>Filtra por plataforma</h4>
+                    <h4>Filtrar por plataforma</h4>
                     <div>
                         <div className="camp-filtro"> <input type="radio" name="valor" className="checkbox-round" onClick={props.filtro} value="pc"/> <p>Computador</p></div>
                         <div className="camp-filtro"> <input type="radio" name="valor" className="checkbox-round" onClick={props.filtro} value="xbox"/> <p>Xbox</p></div>
@@ -31,7 +31,7 @@ export default function BarraFilto(props){
                     </div>
                 </div>
                 <div className="box-filtro">
-                    <h4>filtra por gênero</h4>
+                    <h4>Filtrar por gênero</h4>
                     <div>
                         <div className="camp-filtro"> <input type="radio" name="valor" className="checkbox-round" onClick={props.filtro} value="acao"/> <p>Ação</p> </div>
                         <div className="camp-filtro"> <input type="radio" name="valor" className="checkbox-round" onClick={props.filtro} value="aventura"/> <p>Aventura</p></div>
