@@ -40,6 +40,12 @@ export default function Pix() {
 
   }
 
+  function VerificarLogin () {
+      if(!Storage('usuario-logado')) 
+        toast.dark('É preciso estar logado para finalizar a compra!')
+        setTimeout(() => Navigate('/'), 3000) 
+  }
+
   async function carregarCarrinho() {
     let carrinho = Storage('carrinho');
     if (carrinho) {
@@ -97,13 +103,14 @@ export default function Pix() {
 
     } catch (error) {
 
-      toast.dark("Não foi possivel concluir o pedido")
+      toast.dark(error.response.data.erro)
     }
 
   }
 
   useEffect(() => {
     carregarCarrinho()
+    VerificarLogin()
   }, []);
 
 

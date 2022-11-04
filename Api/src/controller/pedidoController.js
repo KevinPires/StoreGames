@@ -2,6 +2,7 @@ import { Router } from "express";
 import { buscarJogoPorId } from "../repository/adminRepository.js";
 import { cadastrarEndereco, cadastrarPedido, cadastrarPix, inserirJogoPedido, pedidosConcluidos, pedidosUsuario } from "../repository/pedidoRepository.js";
 import { criarNovoPedido } from "../services/pedido.js";
+import { ValidarCarrinho } from "../services/validacaoCarrinho.js";
 
 
 const server = Router();
@@ -13,6 +14,8 @@ server.post('/:idUsuario', async (req, resp) => {
         const {idUsuario} = req.params
         const info = req.body
         
+        const validacao = await ValidarCarrinho(info)
+
         const novoPedido = criarNovoPedido(idUsuario, info)
     
         const idPedidoCriado = await cadastrarPedido(novoPedido);

@@ -72,11 +72,12 @@ export default function Pendentes() {
                                     <label>Cód. Fiscal:  </label>
                                     <p>{item.pnotaFiscal}</p>
                                 </div>
-                                <div className="botoes flexboxcolumn">
+                            </div>
+                            <p>Defina o status do pedido, com uma das opções a seguir: </p>
+                            <div className="botoes">
                                     <button onClick={() => alteraStatusClick('Analise', item.idpedido)}>Em Análise</button>
                                     <button onClick={() => alteraStatusClick('Negado', item.idpedido)}>Negado</button>
                                     <button onClick={() => alteraStatusClick('Aprovado', item.idpedido)}>Aprovado</button>
-                                </div>
                             </div>
                         </div>
                         )}
