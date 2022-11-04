@@ -25,7 +25,7 @@ export default function LandingPage() {
     const [exibirfaixa, setExibirFaixa] = useState('faixa-dois')
 
     let count = 1;
-    //document.getElementById("radio1").checked = true;
+    document.getElementById("radio1").checked = true;
 
     setInterval(function(){
         nextImage();
@@ -37,7 +37,7 @@ export default function LandingPage() {
             count = 1;
        }
 
-       // document.getElementById("radio" + count).checked = true;
+       document.getElementById("radio" + count).checked = true;
     }
 
     // Provavelmenmte a pagina n vai carregar por causa dessa função em cima, qualquer coisa so comentar

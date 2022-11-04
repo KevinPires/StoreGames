@@ -1,0 +1,81 @@
+.usuario-page-pedidos{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+
+    .container-acomp{
+    display: flex;
+    flex-direction: row;
+    
+    }
+
+    .pop{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        border: solid 1px #323A45;
+        height: 105%;
+    }
+
+    .back-pop{
+        display: flex;
+        flex-direction: column;
+        border: solid 1px #323A45;
+        background-color: #323A45;
+        border-radius: 16px;
+        width: 800px;
+        height: 500px;
+        
+        h1{
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        img{
+            text-align: center;
+        }
+        
+    }
+
+    .front-pop{
+        margin: 2em;
+        padding: 20px;
+        border: solid 1px white;
+        background-color: white;
+        border-radius: 16px;
+    }
+
+    .progress-bar{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        padding: 10px;
+    }
+
+    .progress{
+        display: flex;
+        flex-direction: row;
+        margin-top: 1em;
+        justify-content: space-around;
+    }
+    .progress-2{
+        display: flex;
+        flex-direction: row;
+        margin-top: 1em;
+        justify-content: space-around;
+        
+    }
+
+    p, b{
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}
+
+*{
+   // border: solid 1px black;
+}
