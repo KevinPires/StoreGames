@@ -64,6 +64,9 @@ export default function Pix() {
       let jogos = Storage('carrinho')
       let idUser = Storage('usuario-logado').id
       let total = calcularTotal()
+      if(!Storage('usuario-logado')) {
+        Navigate('/usuario/cadastro')
+      }
       let pedido =
       {
         status: 'Em fila',
