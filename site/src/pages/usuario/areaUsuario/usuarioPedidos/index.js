@@ -6,30 +6,20 @@ import HeaderLoja from '../../../../components/headerLoja'
 import Rodape from '../../../../components/Rodapé'
 import './index.scss'
 import localStorage from 'local-storage'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
+import { carregarUsuario } from '../../../../api/usuario'
 
 
 export default function AreaLoja () {
-    const Storage = localStorage
+    const { id } = useParams()
+
     const [pedidos, setPedidos] = useState([])
-    const [infoStorage, setInfostorage] = useState('')
-
-    function exibirNome() {
-        const taLogado = Storage('usuario-logado')
-        setInfostorage(taLogado)
-    }
-
-    useEffect(()=> {
-        exibirNome()
-    },[])
 
     async function chamandoPedidos(){
-        let x = []
-
-        const r = await pedidosUsuario(infoStorage.id)
-        console.log(r)
+        const r = await pedidosUsuario(id)
+        setPedidos(r)
     }
-    
+    console.log(pedidos)
     useEffect(() => {
         chamandoPedidos()
     }, [])
@@ -53,32 +43,37 @@ export default function AreaLoja () {
                                 <option disabled hidden></option>
                             </select>
                         </div>
-                        <div className='item-lista-pedidos'>
+
+
+                        {pedidos.map (item=>
+                                <div className='item-lista-pedidos'>
                             
-                            <div className='flexboxcolumn'>
-                                <span><b>Id do Pedido</b></span>
-                                <span>xxxxxxx</span>
+                                <div className='flexboxcolumn'>
+                                    <span><b>Id do Pedido</b></span>
+                                    <span>{item.id_pedido}</span>
+                                </div>
+    
+                                <div className='flexboxcolumn'>
+                                    <span><b>Status</b></span>
+                                    <span>{item.situação}</span>
+                                </div>
+    
+                                <div className='flexboxcolumn'>
+                                    <span><b>Data de compra</b></span>
+                                    <span>{item.datapedido ? item.datapedido.substr(0,10) : " "}</span>
+                                </div>
+                               
+                                <div className='flexboxcolumn'>
+                                    <span><b>Pagamento</b></span    >
+                                    <span>Pix</span>
+                                </div>
+    
+                                <div>
+                                   <Link to='/usuario/pedidos/:id'><button>Detalhes</button></Link> 
+                                </div>
                             </div>
-
-                            <div className='flexboxcolumn'>
-                                <span><b>Status</b></span>
-                                <span>xxxxxxx</span>
-                            </div>
-
-                            <div className='flexboxcolumn'>
-                                <span><b>Data de compra</b></span>
-                                <span>17/03/2022</span>
-                            </div>
-                           
-                            <div className='flexboxcolumn'>
-                                <span><b>Pagamento</b></span    >
-                                <span>Forma de pagamento</span>
-                            </div>
-
-                            <div>
-                               <Link to='/usuario/pedidos/:id'><button>Detalhes</button></Link> 
-                            </div>
-                        </div>
+                        )}
+                        
                         
                     </section>
                 </div>
