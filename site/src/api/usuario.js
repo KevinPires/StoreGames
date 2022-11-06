@@ -59,3 +59,9 @@ export async function alterarInformacoes(id,usuario,cep){
     })
     return r.data
 }
+
+
+export async function consultarStatus(id){
+    const r = await api.get(`/user/pedido/${id}`)
+    return r.data;
+}

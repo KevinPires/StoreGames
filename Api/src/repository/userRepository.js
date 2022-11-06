@@ -164,3 +164,34 @@ export async function alterarInfo(id, usuario, cep){
     const [resposta] = await con.query(comando,[usuario, cep, id])
     return resposta.affectedRows
 }
+
+
+export async function statusPedido(id){
+    
+    const comando = 
+        `select 
+        P.ID_PEDIDO               as idpedido,
+        P.ID_USUARIO              as iduser,
+        P.DS_STATUS               as pstatus,
+        P.VL_TOTAL                as ptotal,
+        P.VL_FRETE                as pfrete,
+        P.COD_NOTAFISCAL          as pnotaFiscal,
+        P.DT_PEDIDO               as pdata,
+        PIX.ID_PAGAMENTO_PIX      as idpix,
+        PIX.NM_CLIENTE            as cliente,
+        PIX.DS_CPF                as cpf,
+        E.DS_ENDERECO             as rua,
+        E.DS_NUMERO               as numero,
+        E.DS_BAIRRO               as bairro
+        from TB_PEDIDO as P
+        LEFT JOIN TB_PAGAMENTO_PIX PIX
+        ON P.ID_PEDIDO = PIX.FK_PEDIDO
+        LEFT JOIN TB_ENDERECO E
+        ON P.ID_PEDIDO = E.FK_PEDIDO
+        WHERE P.ID_PEDIDO = ?
+        ORDER BY P.DS_STATUS ASC
+    ;`
+    const [linhas] = await con.query(comando, [id]);
+    return linhas[0];
+}
+
