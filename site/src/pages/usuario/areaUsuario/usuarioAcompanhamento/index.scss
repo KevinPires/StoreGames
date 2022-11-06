@@ -90,8 +90,20 @@
         align-items: center;
        margin-top: -25px;
     }
+
+    .faixa-informacoes {
+        background-color: black;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        height: 10rem;
+    }
+
+    .status-analise, .status-cancelado, .status-entrega {
+        background-color: white;
+        
+    }
+
+
 }
 
-*{
-   // border: solid 1px black;
-}
