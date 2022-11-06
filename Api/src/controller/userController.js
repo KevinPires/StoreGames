@@ -1,4 +1,4 @@
-import { alterarInfo, alterarSenha, cadastrarUsuario, exibirFavorito, inserirFavorito, loginUsuario, verificarCpf, verificarEmail, VisualizarInfoLogin, VisualizarInfoUser } from '../repository/userRepository.js'
+import { alterarInfo, alterarSenha, cadastrarUsuario, exibirFavorito, inserirFavorito, loginUsuario, statusPedido, verificarCpf, verificarEmail, VisualizarInfoLogin, VisualizarInfoUser } from '../repository/userRepository.js'
 import { Router } from "express";
 import multer from 'multer';
 import { buscarGeneroPorId } from '../repository/generoRepository.js';
@@ -188,7 +188,21 @@ server.put('/alterar/informacoes/:id', async (req, resp) => {
     }
 })
 
-server.post('/cad')
+server.get('/pedido/:id', async (req, resp) => {
+    try {
+        const id = req.params.id;
+        const resposta = await statusPedido(id);
+        if (!resposta)
+            resp.status(400).send([])
+        else
+            resp.send(resposta);
+    } catch (err) {
+        console.log(err.message)
+        resp.status(400).send({
+            erro: err.message
+        })        
+    }
+})
 
 
 export default server;

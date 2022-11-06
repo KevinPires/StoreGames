@@ -67,3 +67,4 @@ export async function alterarPedidoStatus (pedido, id ) {
     ])
     return resposta.affectedRows
 }
+
