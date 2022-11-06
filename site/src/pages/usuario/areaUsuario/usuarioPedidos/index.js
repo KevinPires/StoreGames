@@ -8,21 +8,26 @@ import './index.scss'
 import localStorage from 'local-storage'
 import { Link, useParams } from 'react-router-dom'
 import { carregarUsuario } from '../../../../api/usuario'
+import { useNavigate } from 'react-router-dom';
 
 
 export default function AreaLoja () {
+    const Navigate = useNavigate()
     const { id } = useParams()
 
     const [pedidos, setPedidos] = useState([])
+    console.log(pedidos)
 
     async function chamandoPedidos(){
         const r = await pedidosUsuario(id)
         setPedidos(r)
     }
     console.log(pedidos)
+
     useEffect(() => {
         chamandoPedidos()
     }, [])
+
     return (
         <main className='usuario-page-pedidos'>
 
@@ -69,7 +74,7 @@ export default function AreaLoja () {
                                 </div>
     
                                 <div>
-                                   <Link to='/usuario/pedidos/:id'><button>Detalhes</button></Link> 
+                                   <div onClick={() => Navigate(`/usuario/pedidos/${item.id_pedido}`)}><button>Detalhes</button></div> 
                                 </div>
                             </div>
                         )}

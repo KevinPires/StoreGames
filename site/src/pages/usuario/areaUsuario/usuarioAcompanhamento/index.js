@@ -1,14 +1,32 @@
 import './index.scss';
 import HeaderLoja from '../../../../components/headerLoja';
 import OptionsUser from '../../../../components/AreaUsuario/menuLateral';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { consultarStatus } from '../../../../api/usuario';
+import { useParams } from 'react-router-dom';
 
 export default function Acompanhamento() {
 
-    const [status, setStatus] = useState('Aprovado')
+    const [status, setStatus] = useState('')
+    const [info, SetInfo] = useState([])
+    console.log(info)
+    console.log(status)
 
+    const {id} = useParams()
 
+    async function CarregaStatus () {
 
+        let carregar = await consultarStatus(id)
+        SetInfo(carregar)
+        setStatus(carregar.pstatus)
+
+    }
+
+    useEffect(() => {
+        CarregaStatus()
+    }, [])
+
+  
     return (
         <main className='usuario-page-pedidos'>
 
