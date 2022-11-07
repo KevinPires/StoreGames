@@ -45,23 +45,23 @@ export default function Acompanhamento() {
 
                         <div className='front-pop'>
                             <div className='info'>
-                                <b>Endereço</b>
-                                <p>Rua Alváro Paes Leme, 555. Pq Cocaia</p>
+                                <b>Endereço:</b>
+                                <p>{info.rua} n {info.numero}, {info.bairro}</p>
                             </div>
 
                             <div className='info'>
-                                <b>Status do pedido</b>
-                                <p>Em andamento: Saiu para entrega </p>
+                                <b>Status do pedido:</b>
+                                <p>{info.pstatus}</p>
                             </div>
 
                             <div className='info'>
-                                <b>Valor da compra </b>
-                                <p>R$ 10,00</p>
+                                <b>Valor da compra: </b>
+                                <p>R$ {info.ptotal}</p>
                             </div>
 
                             <div className='info'>
-                                <b>Nota fiscal </b>
-                                <p>xxxxxxx</p>
+                                <b>Nota fiscal: </b>
+                                <p>{info.pnotaFiscal}</p>
                             </div>
 
                             <div className="faixa-informacoes">
