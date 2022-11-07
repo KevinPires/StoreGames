@@ -46,11 +46,11 @@ export default function PedidosConcluidos() {
                         <tbody>
                         {dados.map (item =>
                             <tr>
-                                <th>{item.cliente}</th>
-                                <th>{item.pdata ? item.pdata.substr(0,10) : ' '}</th>
-                                <th>{item.ptotal}</th>
-                                <th>Item</th>
-                                <th>{item.pnotaFiscal}</th>
+                                <td>{item.cliente}</td>
+                                <td>{item.pdata ? item.pdata.substr(0,10) : ' '}</td>
+                                <td>{item.ptotal}</td>
+                                <td>Item</td>
+                                <td>{item.pnotaFiscal}</td>
                             </tr>
                         )}
                         </tbody>

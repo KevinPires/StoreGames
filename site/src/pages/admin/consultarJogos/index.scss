@@ -76,6 +76,7 @@
         padding: 25px 40px;
         font-weight: 500;
         text-align: center;
+        color: #000;
     }
     tbody tr:nth-child(even) {
         background-color: #EDEDED;
@@ -93,11 +94,12 @@
         width: 100px;
     }
     tr td:nth-child(1) {
-        color: #606060;
+        color: #000;
         font-weight: 700;
     }
     tr td:nth-last-child(1) * {
         visibility: hidden;
+        color: #000;
     }
     tr:hover td:nth-last-child(1) img {
         visibility: visible;
