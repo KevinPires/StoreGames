@@ -30,7 +30,7 @@ export async function ValidarCarrinho (info) {
         throw new Error("Campo Obrigatório!")
     }
 
-    if(info.cartao.cpf.length <= 12) {
+    if(info.cartao.cpf.length > 12) {
         throw new Error("Cpf inválido")
     }
 

@@ -110,7 +110,7 @@ export default function Pix() {
 
   useEffect(() => {
     carregarCarrinho()
-    VerificarLogin()
+
   }, []);
 
 
