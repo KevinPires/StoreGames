@@ -115,3 +115,9 @@ export async function filtrarValorFinal() {
     const resposta = await api.get(`/jogo/filtro/valor4`);
     return resposta.data;
 }
+
+
+export async function  listarGenerosIguais (genero){
+    const reposta = await api.get('/jogo/mesmo/genero', {genero : genero});
+    return reposta.data;
+}

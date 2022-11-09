@@ -41,9 +41,10 @@ export default function Pix() {
   }
 
   function VerificarLogin () {
-      if(!Storage('usuario-logado')) 
+      if(!Storage('usuario-logado')) {
         toast.dark('É preciso estar logado para finalizar a compra!')
-        setTimeout(() => Navigate('/'), 3000) 
+        setTimeout(() => Navigate('/usuario/cadastro'), 3000) }
+
   }
 
   async function carregarCarrinho() {
@@ -109,7 +110,8 @@ export default function Pix() {
   }
 
   useEffect(() => {
-    carregarCarrinho()
+    carregarCarrinho()  
+    VerificarLogin()
 
   }, []);
 
