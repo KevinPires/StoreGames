@@ -2,9 +2,31 @@
 
 .boxBoletos{
     border-radius: 12px;
-    border: solid 1px black;
+    border: solid 1px gray;
     height: 85%;
     padding: 1.5em;
     margin: 3%;
     background-color: white;
 }
+
+.box3{
+    border-radius: 12px;
+    border: solid 1px gray;
+   
+    padding: 1.5em;
+    margin: 3%;
+    background-color: white;
+    width: 79%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    
+}
+.endereco1{
+    display: flex;
+    flex-direction: row;
+    margin-top: 1em;
+    justify-content: space-evenly;
+  
+}
+

@@ -85,7 +85,7 @@
 
     .boxPix{
         border-radius: 12px;
-        border: solid 1px black;
+        border: solid 1px gray;
         height: 85%;
         padding: 1.5em;
         margin: 3%;
@@ -94,7 +94,7 @@
 
     .boxBoleto{
         border-radius: 12px;
-        border: solid 1px black;
+        border: solid 1px gray;
         height: 70%;
         padding: 1.5em;
         margin: 3%;
@@ -104,7 +104,7 @@
 
     .boxCartao{
         border-radius: 12px;
-        border: solid 1px black;
+        border: solid 1px gray;
         height: 90%;
         padding: 1.5em;
         margin: 3%;
@@ -132,7 +132,7 @@
 
     .box2{
         border-radius: 12px;
-        border: solid 1px black;
+        border: solid 1px gray;
         height: 70%;
         padding: 1.5em;
         margin: 3%;
@@ -196,7 +196,7 @@
 
     .box22{
         border-radius: 12px;
-        border: solid 1px black;
+        border: solid 1px gray;
         height: 85%;
         padding: 1.5em;
         margin: 3%;
@@ -211,27 +211,42 @@
 
     
     
-    .box3{
+    .box33{
         border-radius: 12px;
-        border: solid 1px black;
+        border: solid 1px gray;
        
         padding: 1.5em;
         margin: 3%;
-        background-color: white;
+        background-color: rgb(255, 255, 255);
         width: 79%;
         display: flex;
         flex-direction: column;
-        justify-content: start;
+        justify-content: center;
+      
         
     }
-    .endereco1{
+    .endereco{
         display: flex;
         flex-direction: row;
         margin-top: 1em;
-        justify-content: space-evenly;
+        justify-content: center;
+        align-items: center;
+        
       
     }
 
+    
+    .endereco12{
+        display: flex;
+        flex-direction: row;
+        margin-top: 1em;
+        justify-content: center;
+        align-items: center;
+        
+      
+    }
+
+   
 
     .input-group{
         position: relative;

@@ -187,7 +187,7 @@ export default function Pix() {
           </section>
 
           <section className='endereço'>
-            <section className='box3'>
+            <section className='box33'>
               <h2>Informações de entrega</h2>
 
               <div className='endereco1'>
@@ -207,6 +207,9 @@ export default function Pix() {
                   <label for="name" className='input-label'>Número</label>
                 </div>
 
+                
+
+
 
               </div>
 
@@ -219,7 +222,16 @@ export default function Pix() {
                 <div className='input-group'>
                   <input type="text" required className='input' value={cidade} onChange={e => setCidade(e.target.value)} />
                   <label for="name" className='input-label'>Cidade</label>
+
+
                 </div>
+
+                <div className='input-group'>
+                  <input type="number" required className='input' value={numero} onChange={e => setNumero(e.target.value)} />
+                  <label for="name" className='input-label'>Complemento</label>
+                </div>
+
+                
 
               </div>
             </section>
