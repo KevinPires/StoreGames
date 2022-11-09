@@ -1,26 +1,34 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
+import { API_URL } from '../../../../api/config'
 import { exibirFavorito } from '../../../../api/usuario'
 import '../../../../common/common.scss'
 import OptionsUser from '../../../../components/AreaUsuario/menuLateral'
 import HeaderLoja from '../../../../components/headerLoja'
 import Rodape from '../../../../components/Rodapé'
 import './index.scss'
-
+import { useNavigate } from 'react-router-dom'
 
 export default function AreaLoja () {
     const { id } = useParams
     const [favoritos, setFavoritos] = useState({jogos:[], generos:[] , plataformas: []})
+    const Navigate = useNavigate()
 
     async function mostrarFavorito(){
         let r =  await exibirFavorito(1)
         setFavoritos(r) 
     }
 
+    function carregarImagem () {
+        return API_URL + '/' + favoritos.jogos.imagem
+    }
+    // function abrirDetalhes(id) {
+    //     Navigate('/produto/' + id + '/detalhe')
+    // }
     useEffect(()=>{
         mostrarFavorito()
     })
-    
+    console.log(favoritos)
     return (
         <main className='usuario-page-desejos'>
 
@@ -43,10 +51,9 @@ export default function AreaLoja () {
                                     {favoritos.plataformas.map(item=><span className='info'>{item.plaformas}</span>)}
                                     <span className='info'>Gêneros</span>
                                 </div>
-                                <span className='descricao'>Descrição: Terraria é um jogo eletrônico RPG de ação-aventura independente produzido pela desenvolvedora de jogos Re-Logic.
-                                Possui como características a exploração, artesanato, construção de estruturas e combate a monstros perigosos em um mundo 2D gerado proceduralmente </span>
+                                <span className='descricao'>{item.descricao}</span>
                                 <div className='flexboxcolumn'>
-                                    <Link to='/loja' className='botao'>Ir Loja</Link>
+                                    <button className='botao' onClick={()=> Navigate('/jogos')}>Ir Loja</button>
                                     <span>Valor</span>
                                 </div>
                             </div>

@@ -14,7 +14,6 @@ export default function DetalhesProduto(){
 
     const [jogo, setJogo] =  useState({info: {} ,generos: [] , plataformas: []})
     const { id } = useParams();
-    const [favorito, setFavorito] = useState(false)
 
     const [infoStorage, setInfostorage] = useState('')
 
@@ -36,9 +35,7 @@ export default function DetalhesProduto(){
         const taLogado = Storage('usuario-logado')
         setInfostorage(taLogado)
     }
-    function favoritoTrue(){
-        setFavorito(true)
-    }
+    
     useEffect(() => {
         exibirNome()
     }, [])
@@ -48,7 +45,7 @@ export default function DetalhesProduto(){
             const r = await adicionarFavorito(infoStorage.id, jogo.info.id)
             alert('adicionado')
         } catch (err) {
-            console.log(err)
+            alert(err)
         }
         
     }
@@ -56,7 +53,6 @@ export default function DetalhesProduto(){
     async function carregarDetalhes () {
         const detalhes = await detalheJogo(id)
         setJogo(detalhes)
-        console.log(detalhes)
     }
 
     function carregarImagem () {

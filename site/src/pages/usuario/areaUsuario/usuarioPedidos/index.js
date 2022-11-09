@@ -42,12 +42,7 @@ export default function AreaLoja () {
 
                 <div className="box-info">
                     <section className="detalhes">
-                        <div className='box-select'>
-                            <label><b>Filtrar por status:</b></label>
-                            <select>
-                                <option disabled hidden></option>
-                            </select>
-                        </div>
+                        
 
 
                         {pedidos.map (item=>
