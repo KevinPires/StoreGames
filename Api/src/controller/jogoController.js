@@ -324,11 +324,14 @@ server.get('/mesmo/genero', async(req,resp) =>{
     try {
         const { genero } = req.body;
         const r = await jogosDoMesmoGenero(genero);
-        resp.status(200).send(r)
+
+        resp.send(r)
     } catch (err) {
         resp.status(400).send ({
             erro:err.message
         });
     }
 })
+
+
 export default server;

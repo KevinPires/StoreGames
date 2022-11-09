@@ -27,7 +27,7 @@ export default function HeaderCarrinho() {
                         <Link to='/'>Home</Link>
                         <Link to='/jogos'>Loja</Link>
                         <Link to='/ajuda'>Suporte</Link>
-                        <Link to={`/usuario/${infoStorage.id}`}>Area do usuario</Link>
+                        {/* <Link to={`/usuario/${infoStorage.id}`}>Area do usuario</Link> */}
                     </li>
                 </section>
                 <div className="boxUsuario">

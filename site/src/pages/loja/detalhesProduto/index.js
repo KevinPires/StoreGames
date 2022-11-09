@@ -3,7 +3,7 @@ import HeaderLoja from '../../../components/headerLoja'
 import Rodape from '../../../components/Rodapé'
 import { toast } from'react-toastify'
 import { useParams } from 'react-router-dom';
-import { detalheJogo } from '../../../api/jogos';
+import { detalheJogo, listarGenerosIguais } from '../../../api/jogos';
 import { useEffect, useState } from 'react';
 import { API_URL } from '../../../api/config';
 import Storage from 'local-storage';
@@ -17,6 +17,20 @@ export default function DetalhesProduto(){
     const [favorito, setFavorito] = useState(false)
 
     const [infoStorage, setInfostorage] = useState('')
+
+    const [jogosGenero, setJogosGenero] = useState([]);
+    console.log(jogosGenero)
+   
+
+
+    async function exibirJogosGenero () {
+        let x = await listarGenerosIguais('Aventura')
+        setJogosGenero(x)
+    }
+
+    useEffect(() => {
+        exibirJogosGenero()
+    }, [])
 
     function exibirNome() {
         const taLogado = Storage('usuario-logado')
@@ -82,7 +96,7 @@ export default function DetalhesProduto(){
                         <img src={carregarImagem()} alt=''/>
                     </div>
                     <div className='favorito'>
-                        <img onClick={favoritoTrue} style={{ cursor: "pointer"}}src='/coracaoIcon.png' alt='' onClick={inserirFavorito}/>
+                        <img style={{ cursor: "pointer"}}src='/coracaoIcon.png' alt='' onClick={inserirFavorito}/>
                         <p>Adiciona aos <br/>favoritos</p>
                     </div>
                 </div>
