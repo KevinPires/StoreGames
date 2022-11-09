@@ -66,10 +66,18 @@ export default function Acompanhamento() {
 
                             <div className="faixa-informacoes">
 
+
+                                {status === 'Em fila' &&
+                                    <div className="status-analise">
+                                        <p className='title-center'>Pedido em fila</p>
+                                        <p>Aguarde! Estamos organizando tudo para você</p>
+                                        <img src='/icons-fila.png' alt='icon-carrinho' className='img-acomp'></img>
+                                    </div>
+                                }   
                                 {status === 'Analise' &&
                                     <div className="status-analise">
-                                        <p>Status da compra: Pedido Recebido</p>
-                                        <p>Aguarde o resultado da analise do pedido.</p>
+                                        <p>Pedido em Análise</p>
+                                        <p>Aguardando pagamento.</p>
                                         <img src='/carro.png' alt='icon-carrinho'></img>
                                     </div>
                                 }
@@ -78,6 +86,7 @@ export default function Acompanhamento() {
                                 {status === 'Negado' &&
                                     <div className="status-analise">
                                         <p>Esta compra foi negada</p>
+                                        <p>Pagamento não recebido. Contato:storegames@gmail.com</p>
                                         <img src='/cancelado.png' alt='icon-cancelado'></img>
                                     </div>
                                 }
