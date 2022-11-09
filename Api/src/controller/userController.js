@@ -1,8 +1,9 @@
 import { alterarInfo, alterarSenha, cadastrarUsuario, exibirFavorito, inserirFavorito, loginUsuario, statusPedido, verificarCpf, verificarEmail, VisualizarInfoLogin, VisualizarInfoUser } from '../repository/userRepository.js'
 import { Router } from "express";
 import multer from 'multer';
-import { buscarGeneroPorId } from '../repository/generoRepository.js';
+import { buscarGeneroPorId, buscarGeneroProduto } from '../repository/generoRepository.js';
 import { buscarJogoPorId } from '../repository/adminRepository.js';
+import { buscarPlataformaProduto } from '../repository/plataformaRepository.js';
 
 const server = Router();
 
@@ -138,15 +139,28 @@ server.get('/favorito/exibir/:id', async (req, resp) => {
         const { id } = req.params
         const r = await exibirFavorito(id);
         let jogos = []
+        let generos = []
+        let plataformas = []
 
         for(let item of r){
             const x =  await buscarJogoPorId(item.id_jogo)
-            jogos = x
+            jogos = [...jogos , x] 
         }
-        console.log(jogos)
+
+        for(let item of r ){
+            const x = await buscarGeneroProduto(item.id_jogo)
+            generos = [...generos, x]
+        } 
+        
+        for (let item of r){
+            const x = await buscarPlataformaProduto(item.id_jogo)
+            plataformas = [...plataformas, x]
+        }
+
         resp.send({
-            r: r,
-            jogos: jogos
+            jogos: jogos,
+            generos: generos,
+            plataformas: plataformas
         })
     } catch (err) {
         resp.status(404).send({

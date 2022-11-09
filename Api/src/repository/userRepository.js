@@ -126,8 +126,7 @@ export async function inserirFavorito(id, idJogo){
 
 export async function exibirFavorito(id){
     const comando =`
-            SELECT  id_usuario_favorito     id_usuario_favorito,
-                    FK_JOGO				    id_jogo
+            SELECT  FK_JOGO				    id_jogo
         FROM TB_USUARIO_FAVORITO
         WHERE FK_USUARIO = ?;
     `

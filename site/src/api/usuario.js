@@ -43,6 +43,11 @@ export async function adicionarFavorito(id, idJogo){
     return r.data
 }
 
+export async function exibirFavorito(id){
+    const r = await api.get(`user/favorito/exibir/${id}`)
+    return r.data
+}
+
 
 export async function alterarSenhaUsuario(id, senha){
     const r = await api.put(`/user/alterar/senha/${id}`,{
