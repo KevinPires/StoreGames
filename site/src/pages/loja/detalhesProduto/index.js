@@ -17,6 +17,8 @@ export default function DetalhesProduto(){
 
     const [infoStorage, setInfostorage] = useState('')
 
+    const [exibirCoracao, setExibirCoracao] = useState(false)
+
     const [jogosGenero, setJogosGenero] = useState([]);
     console.log(jogosGenero)
    
@@ -92,8 +94,13 @@ export default function DetalhesProduto(){
                         <img src={carregarImagem()} alt=''/>
                     </div>
                     <div className='favorito'>
-                        <img style={{ cursor: "pointer"}}src='/coracaoIcon.png' alt='' onClick={inserirFavorito}/>
-                        <p>Adiciona aos <br/>favoritos</p>
+                        {exibirCoracao === false &&
+                        <img src='/coracaoIcon.png' alt='' onClick={inserirFavorito}/>
+                        }
+                        {exibirCoracao === true &&
+                        <img src='/vermelho-favorito.png' />
+                        }
+                                                <p>Adiciona aos <br/>favoritos</p>
                     </div>
                 </div>
                 <div className='bloc-info'>
