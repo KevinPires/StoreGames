@@ -174,8 +174,10 @@ export async function pedidosUsuario(id){
                     VL_TOTAL 		    valor,
                     COD_NOTAFISCAL		notafiscal,
                     DT_PEDIDO			datapedido
+                    
         FROM TB_PEDIDO 
-        WHERE ID_USUARIO =?; 
+        WHERE ID_USUARIO =?
+        ORDER BY ID_PEDIDO DESC; 
     `
 
     const [resposta] = await con.query(comando, [id])

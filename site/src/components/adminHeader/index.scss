@@ -14,11 +14,18 @@
     .boxText {
         color: white;
         width: 8em;
+        font-family: 'poppins-medium';
     }
 
     #adm {
         color: red
     }
 
+    .config-btn{
+        cursor: pointer;
+    }
+    .config-btn:hover{
+        width: 12rem;
+    }
 }
 

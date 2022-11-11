@@ -3,7 +3,7 @@ import BarraLateral from '../../../components/BarraLateral';
 import HeaderAdmin from '../../../components/adminHeader';
 import { alterarStatus, visualizarPedidos } from '../../../api/pedidoApi';
 import { useEffect, useState } from 'react';
-
+import { toast, ToastContainer } from 'react-toastify'
 export default function Pendentes() {
 
     const [pedidos, setPedidos] = useState([])
@@ -24,14 +24,15 @@ export default function Pendentes() {
              let x = await alterarStatus(status, id)
             
            
-            alert('status alterado para analise')
+            toast(`Pedido alterado para: ${status}`)
         } catch (error) {
-            console.log(error)
+            toast.error(error)
         }
     }
 
     return (
         <main className="admin-pendentes">
+            <ToastContainer/>
             <BarraLateral selecionado='pendencias' />
 
             <section className="pagina-column">

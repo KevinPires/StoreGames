@@ -11,6 +11,7 @@ import { carregarUsuario } from '../../../../api/usuario'
 import { useNavigate } from 'react-router-dom';
 
 
+
 export default function AreaLoja () {
     const Navigate = useNavigate()
     const { id } = useParams()
