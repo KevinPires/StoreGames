@@ -13,7 +13,7 @@ export default function GuiaRodape(){
         <main className='page-ajuda'>
             <HeaderLoja/>
 
-            <section  data-aos="fade-up" className='conteiner-rodape-1'>
+            <section   className='conteiner-rodape-1'>
              <div className='item-1'><img src='/tv.png' alt='tv'/></div> 
              <div className='item-2'>
                 <h1 data-aos="slide-up">Você está na Store Games</h1>
@@ -22,9 +22,9 @@ export default function GuiaRodape(){
              </div>
             </section>
 
-            <section data-aos="slide-right" className='conteiner-rodape-2'>
+            <section  className='conteiner-rodape-2'>
               
-                   <div className='subconteiner-1'>
+                   <div data-aos="slide-right" className='subconteiner-1'>
                    <img data-aos="slide-up" className='imgs' src='/imagem1.png' alt='img'/>
                     <div>
                     <h1 data-aos="slide-up" className='tituloh1'>Grande catálogo</h1>
@@ -54,13 +54,13 @@ export default function GuiaRodape(){
                     </div>
                 </section>
 
-                <section data-aos="fade-up" className='conteiner-rodape-3'>
-                    <div>  <h1 className='titulo-rodape'>Nossa missão</h1></div>
+                <section   className='conteiner-rodape-3'>
+                    <div data-aos="fade-up">  <h1 className='titulo-rodape'>Nossa missão</h1></div>
                     <p data-aos="slide-up" className='info'>A Store Games tem o objetivo de facilitar a entrada de produtoras e desenvolvedores em mercados locais de jogos, com um custo menor do que o praticado em qualquer loja física.</p>
                     <p data-aos="slide-up" className='info'> Desenvolvedores de todos os portes e do mundo todo, podem apresentar e vender suas criações para o nosso público.</p>
                 </section>
 
-                <section data-aos="slide-left" className='conteiner-rodape-4'>
+                <section  className='conteiner-rodape-4'>
                     <div > <h1   data-aos="fade-up" className='titulo-rodape'>Como funciona?</h1></div>
 
                     <div className='subconteiner-2'>
@@ -84,7 +84,7 @@ export default function GuiaRodape(){
 
                 </section>
                    
-               <section data-aos="fade-up" className='conteiner-final'>
+               <section  className='conteiner-final'>
                 <h1  data-aos="slide-up" className='text-h1'>Tem dúvidas? Você pode obter muito mais informações com nossos contatos:</h1>
                 < hr/>
                 <div className='subcont-final'>
