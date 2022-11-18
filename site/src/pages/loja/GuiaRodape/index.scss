@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     width: 100%;
+    height: 100vh;
     
 
     .conteiner-rodape-1{
@@ -39,6 +40,7 @@
         align-items: center;
         background-color: #323A45;
         padding: 3em;
+        width: 100%;
        
     }
 
@@ -47,6 +49,7 @@
      flex-direction: row;
      margin-bottom: 2em;
      padding: 1.2em;
+     width: 100%;
     }
 
     .descricao{
@@ -150,6 +153,94 @@
         color: white;
         width: 420px;
         padding: 0.2em;
+    }
+
+    @media (max-width: 1025px){
+        .conteiner-rodape-1{
+            h1{
+                font-size: 20px;
+            }
+            p{
+                font-size: 15px;
+            }
+            img {
+                width: 380px;
+                height: 300px;
+            }
+        }
+
+        .conteiner-rodape-2{
+            padding: 0.5em;
+        }
+
+        .subconteiner-1{
+
+          
+            img {
+                height: 65%;
+                width: 65%;
+                margin-top: 1.2rem;
+            }
+            p{
+               width: 280px;
+               font-size: 14px;
+             }
+             h1{
+                font-size: 20px;
+                margin-left: 1rem;
+             }
+
+            
+        }
+
+        .conteiner-rodape-3{
+            h1{
+                font-size: 22px;
+            }
+
+            p{
+                font-size: 14px;
+            }
+        }
+
+        .conteiner-rodape-4{
+            h1{
+                font-size: 22px;
+            }
+
+            p{
+                font-size: 15px;
+            }
+
+            img {
+                width: 50%;
+                height: 50%;
+            }
+
+            .desc{
+                font-size: 18px;
+            }
+        }
+
+        .conteiner-final{
+            .text-h1{
+                font-size: 18px;
+            }
+
+            .subcont-final{
+                .colum2{
+                    p{
+                        font-size: 14px;
+                    }
+                }
+
+                .colum3{
+                    p{
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
     }
 }
 
