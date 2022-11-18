@@ -7,7 +7,7 @@ import { detalheJogo, listarGenerosIguais } from '../../../api/jogos';
 import { useEffect, useState } from 'react';
 import { API_URL } from '../../../api/config';
 import Storage from 'local-storage';
-import { adicionarFavorito } from '../../../api/usuario';
+import { adicionarFavorito, verificarFavorito } from '../../../api/usuario';
 
 
 export default function DetalhesProduto(){
@@ -15,13 +15,12 @@ export default function DetalhesProduto(){
     const [jogo, setJogo] =  useState({info: {} ,generos: [] , plataformas: []})
     const { id } = useParams();
 
-    const [infoStorage, setInfostorage] = useState('')
+    const [infoStorage, setInfostorage] = useState()
 
     const [exibirCoracao, setExibirCoracao] = useState(false)
 
     const [jogosGenero, setJogosGenero] = useState([]);
-    console.log(jogosGenero)
-   
+
 
 
     async function exibirJogosGenero () {
@@ -30,17 +29,22 @@ export default function DetalhesProduto(){
     }
 
     useEffect(() => {
-        exibirJogosGenero()
+        // exibirJogosGenero()
+        carregarDetalhes()
+        handleSetStorage()
     }, [])
 
-    function exibirNome() {
+    useEffect(() => {
+        if (infoStorage && jogo) {
+            verificarFavoritoFront()
+        }
+    }, [infoStorage, jogo])
+
+
+    const handleSetStorage = () => {
         const taLogado = Storage('usuario-logado')
         setInfostorage(taLogado)
     }
-    
-    useEffect(() => {
-        exibirNome()
-    }, [])
 
     async function inserirFavorito(){
         try {
@@ -48,9 +52,10 @@ export default function DetalhesProduto(){
             setExibirCoracao(true)
             toast('Jogo adicionado aos favoritos')
         } catch (err) {
-            toast(err)
+            setExibirCoracao(false)
+            toast.error('Jogo removido dos favoritos')
         }
-        
+
     }
 
     async function carregarDetalhes () {
@@ -81,13 +86,15 @@ export default function DetalhesProduto(){
         alert('Produto adicionado ao carrinho!!');
     }
 
-    useEffect(() => {
-        carregarDetalhes()
-        exibirNome()
-    }, [])
+    async function verificarFavoritoFront(){
+        const r = await verificarFavorito(infoStorage.id, jogo.info.id)
+        if(r === true){
+            setExibirCoracao(true)
+        }
+    }
 
     return(
-        
+
         <main className='page-produto'>
             <ToastContainer/>
             <HeaderLoja/>
@@ -101,7 +108,7 @@ export default function DetalhesProduto(){
                         <img src='/coracaoIcon.png' alt='' onClick={inserirFavorito}/>
                         }
                         {exibirCoracao === true &&
-                        <img src='/vermelho-favorito.png' />
+                        <img src='/vermelho-favorito.png' onClick={inserirFavorito}/>
                         }
                     <p>Adiciona aos <br/>favoritos</p>
                     </div>
@@ -110,7 +117,7 @@ export default function DetalhesProduto(){
                     <h1>{jogo.info.nome}</h1>
                     <div className='display-row'>
                         <div style={{marginRight : "40px"}}>
-                            <h4>Plataforma:</h4> 
+                            <h4>Plataforma:</h4>
                             <div className='cont-map'>
                                 {jogo.plataformas.map(item =>
                                     <tr key={item.id}>
@@ -128,12 +135,12 @@ export default function DetalhesProduto(){
                                     </tr>
                                 )}
                             </div>
-                            
+
                         </div>
                     </div>
                     <div>
-                        <h4>Disponivel:</h4> 
-                        {jogo.info.disponivel ? "Sim" : "Não"} 
+                        <h4>Disponivel:</h4>
+                        {jogo.info.disponivel ? "Sim" : "Não"}
                     </div>
                     <div>
                         <h4>Descrição</h4>
@@ -147,12 +154,12 @@ export default function DetalhesProduto(){
                                 <h5>Preço</h5>
                                 R$ {jogo.info.valor}
                             </div>
-                            <img src='/logoStoreGames.png' alt=''/>    
+                            <img src='/logoStoreGames.png' alt=''/>
                         </div>
                         <div>
                             <img src='/bandeirasCartao.png' alt=''/>
                         </div>
-                       
+
                        <button className='bt-adic' onClick={adicionarAoCarrinho }>Adicionar ao carrinho</button>
                     </div>
                 </div>

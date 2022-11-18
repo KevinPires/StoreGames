@@ -1,4 +1,4 @@
-import { alterarInfo, alterarSenha, cadastrarUsuario, exibirFavorito, inserirFavorito, loginUsuario, statusPedido, verificarCpf, verificarEmail, VisualizarInfoLogin, VisualizarInfoUser } from '../repository/userRepository.js'
+import { alterarInfo, alterarSenha, cadastrarUsuario, exibirFavorito, inserirFavorito, loginUsuario, removerFavorito, statusPedido, verificarCpf, verificarEmail, verificarFavorito, VisualizarInfoLogin, VisualizarInfoUser } from '../repository/userRepository.js'
 import { Router } from "express";
 import multer from 'multer';
 import { buscarGeneroPorId, buscarGeneroProduto } from '../repository/generoRepository.js';
@@ -122,17 +122,64 @@ server.post('/favorito/adicionar', async (req, resp) => {
     try {
         const { id } = req.body;
         const { idJogo } = req.body;
+        console.log(id, idJogo)
 
-        const r = await inserirFavorito(id, idJogo)
+        let resposta = null;
 
-        resp.send(r)
+        if( await verificarFavorito(id,idJogo) >= 1){
+            const r = await removerFavorito(id,idJogo)
+            resposta = r
+        }else{
+            const r = await inserirFavorito(id, idJogo)
+            resposta = r
+        }
+        
+        resp.status(200).send(resposta)
     } catch (err) {
-        resp.send({
+        resp.status(404).send({
             erro: err.message
         })
     }
 })
 
+
+server.delete('/remover/favorito', async (req,resp)=>{
+    try {
+        const { id } = req.body;
+        const { idJogo } = req.body;
+        
+        const r = await removerFavorito(id, idJogo)
+        if(!r){
+            throw new Error('jogo ja removido')
+        }
+        resp.status(204).send()
+    } catch (err) {
+        resp.status(404).send({
+            erro: err.message
+        })
+    }
+})
+
+server.post('/verificar/favorito', async (req,resp) =>{
+    try {
+        const { id } = req.body;
+        const { idJogo } = req.body;
+        let resposta = false
+
+        const r = await verificarFavorito(id,idJogo)
+        if(!r){
+            resposta = false
+        }else{
+            resposta = true
+        }
+
+        resp.send(resposta)
+    } catch (err) {
+        resp.status(404).send({
+            erro: err.message
+        })
+    }
+})
 
 server.get('/favorito/exibir/:id', async (req, resp) => {
     try {

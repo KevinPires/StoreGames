@@ -124,6 +124,30 @@ export async function inserirFavorito(id, idJogo){
 }
 
 
+export async function verificarFavorito(id, idJogo){
+    const comando = `
+        select  *
+        from TB_USUARIO_FAVORITO
+        where fk_usuario = ?
+        and fk_jogo     = ?
+    `
+
+    const [resposta] = await con.query(comando, [id, idJogo])
+    return resposta.length
+}
+
+
+export async function removerFavorito(id, idJogo){
+    const comando = `
+        DELETE FROM TB_USUARIO_FAVORITO
+        WHERE FK_USUARIO = ?
+        AND FK_JOGO = ?;
+    `
+
+    const [resposta] = await con.query(comando, [id, idJogo])
+    return resposta.affectedRows
+}
+
 export async function exibirFavorito(id){
     const comando =`
             SELECT  FK_JOGO				    id_jogo

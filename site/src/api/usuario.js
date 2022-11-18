@@ -35,8 +35,26 @@ export async function carregarUsuario(id) {
 
 
 export async function adicionarFavorito(id, idJogo){
-    const r = await api.post('user/favorito/adicionar',{
+    const r = await api.post('/user/favorito/adicionar',{
         id: id,
+        idJogo: idJogo
+    })
+
+    return r.data
+}
+
+export async function verificarFavorito(id,idJogo){
+    const r = await api.post('/user/verificar/favorito', {
+        id: id,
+        idJogo: idJogo
+    })
+    console.log(r)
+    return r.data
+}
+
+export async function removerFavorito(id,idJogo){
+    const r = await api.delete('user/remover/favorito',{
+        id:id,
         idJogo: idJogo
     })
 
