@@ -1,23 +1,38 @@
 import './index.scss';
 import BarraLateral from '../../../components/BarraLateral';
 import HeaderAdmin from '../../../components/adminHeader';
-import { alterarStatus, visualizarPedidos } from '../../../api/pedidoApi';
+import { alterarStatus, pesquisarPedidoNome, visualizarPedidos } from '../../../api/pedidoApi';
 import { useEffect, useState } from 'react';
 import { toast, ToastContainer } from 'react-toastify'
 export default function Pendentes() {
 
     const [pedidos, setPedidos] = useState([])
-    console.log(pedidos)
+    const [inputNome, setInputNome] = useState()
 
     async function carregarPedidos () {
         const exibirPedido = await visualizarPedidos()
         setPedidos(exibirPedido)
-
     }
 
+    async function FiltrarPedidoNome () {
+        const filtrarNome = await pesquisarPedidoNome(inputNome)
+        setPedidos(filtrarNome)
+    }
+
+
     useEffect(() => {
-        carregarPedidos()
-    }, [])
+        if(inputNome){
+            FiltrarPedidoNome()
+        }else{
+            carregarPedidos()
+        }
+    }, [inputNome])
+
+    // useEffect(() => {
+    //     FiltrarPedidoNome
+    // }, [inputNome])
+
+
 
     async function alteraStatusClick (status, id) {
         try {
@@ -42,9 +57,9 @@ export default function Pendentes() {
 
                 <div className="container-pagina">
                     <div className="flexboxcolumn barraPesquisa">
-                        <input placeholder='Pesquise pedidos pendentes!' type='txt'></input>
+                        <input value={inputNome} onChange={e => setInputNome(e.target.value)} placeholder='Pesquise pedidos pendentes!' type='txt'></input>
                     </div>
-                    
+                    {inputNome}
                     <div className="containerBoxes">
                     {pedidos.map(item =>    
                         <div className="boxPedido">

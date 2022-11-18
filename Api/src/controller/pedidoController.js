@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { buscarJogoPorId } from "../repository/adminRepository.js";
-import { cadastrarEndereco, cadastrarPedido, cadastrarPix, inserirJogoPedido, pedidosConcluidos, pedidosUsuario } from "../repository/pedidoRepository.js";
+import { cadastrarEndereco, cadastrarPedido, cadastrarPix, inserirJogoPedido, pedidosConcluidos, pedidosUsuario, pesquisarPedidoNome } from "../repository/pedidoRepository.js";
 import { criarNovoPedido } from "../services/pedido.js";
 import { ValidarCarrinho } from "../services/validacaoCarrinho.js";
 
@@ -67,6 +67,21 @@ server.get('/usuario/concluido/:id', async(req,resp) =>{
     }
 })
 
+server.get('/nome', async (req, resp) => {
+    try {
+
+        const { nome } = req.query
+
+        const InserirNome = await pesquisarPedidoNome(nome)
+
+        resp.send(InserirNome)
+
+    } catch (err) {
+        resp.send({
+            erro: err.message
+        })
+    }
+})
 
 
 
