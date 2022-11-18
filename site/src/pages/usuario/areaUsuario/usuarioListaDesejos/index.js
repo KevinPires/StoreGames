@@ -10,17 +10,18 @@ import './index.scss'
 import { useNavigate } from 'react-router-dom'
 
 export default function AreaLoja () {
-    const { id } = useParams
-    const [favoritos, setFavoritos] = useState({jogos:[], generos:[] , plataformas: []})
+    const { id } = useParams()
+    const [favoritos, setFavoritos] = useState([])
     const Navigate = useNavigate()
 
     async function mostrarFavorito(){
-        let r =  await exibirFavorito(1)
+        let r =  await exibirFavorito(id)
         setFavoritos(r) 
     }
 
-    function carregarImagem () {
-        return API_URL + '/' + favoritos.jogos.imagem
+    function carregarImagem (item) {
+        if (item.info)
+            return API_URL + '/' + item.info.imagem
     }
     // function abrirDetalhes(id) {
     //     Navigate('/produto/' + id + '/detalhe')
@@ -43,18 +44,18 @@ export default function AreaLoja () {
 
                 <div className="box-info">
                     <section className="detalhes">
-                        {favoritos.jogos.map (item =>
+                        {favoritos.map (item =>
                             <div className='item-lista-desejos'>
-                                <img id='capa-wishlist' src='/capagta.jpg' alt='capa'/>
+                                <img id='capa-wishlist' src={carregarImagem(item)} alt='capa'/>
                                 <div className='flexboxcolumn'>
-                                    <span className='info'>{item.nome}</span>
-                                    {favoritos.plataformas.map(item=><span className='info'>{item.plaformas}</span>)}
-                                    <span className='info'>Gêneros</span>
+                                    <span className='info'>{item.info.nome}</span>
+                                    {item.plataformas.map((item, index) => index < 1 && <span className='info'>{item.plataforma}</span>)}
+                                    {item.generos.map((item, index) => index < 1 && <span className='info'>{item.genero}</span>)}
                                 </div>
-                                <span className='descricao'>{item.descricao}</span>
+                                <span className='descricao'>{item.info.descricao}</span>
                                 <div className='flexboxcolumn'>
                                     <button className='botao' onClick={()=> Navigate('/jogos')}>Ir Loja</button>
-                                    <span>Valor</span>
+                                    <span className='info'>VALOR: R${item.info.valor}</span>
                                 </div>
                             </div>
                         )}

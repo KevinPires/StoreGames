@@ -42,10 +42,8 @@ export default function AreaLoja () {
                 </div>
 
                 <div className="box-info">
-                    <section className="detalhes">
-                        
-
-
+                    {pedidos.length?(
+                        <section className="detalhes">
                         {pedidos.map (item=>
                                 <div className='item-lista-pedidos'>
                             
@@ -73,10 +71,17 @@ export default function AreaLoja () {
                                    <div onClick={() => Navigate(`/usuario/pedidos/${item.id_pedido}`)}><button>Detalhes</button></div> 
                                 </div>
                             </div>
-                        )}
-                        
-                        
+                        )}                       
                     </section>
+                    ):(
+                        <section className='detalhes2'>
+                            <div className='renderizacao'>
+                                <h1 className='texto-rend'>Não existem pedidos</h1>
+                                <img  className="vault" src='/vaultboy.png' alt='aaa'/>
+                            </div>
+                        </section>
+                    )}
+                    
                 </div>
             </section>
             <Rodape/>

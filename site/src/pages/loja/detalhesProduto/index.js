@@ -45,6 +45,7 @@ export default function DetalhesProduto(){
     async function inserirFavorito(){
         try {
             const r = await adicionarFavorito(infoStorage.id, jogo.info.id)
+            setExibirCoracao(true)
             alert('adicionado')
         } catch (err) {
             alert(err)
