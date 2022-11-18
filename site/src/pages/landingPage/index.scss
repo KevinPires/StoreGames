@@ -1,6 +1,7 @@
 .landing-page {
     display: flex;
     flex-direction: column;
+    width: 100%;
 
     .flexboxcolumn {
         display: flex;
@@ -347,8 +348,6 @@
         padding: 2em;
         background-color: #E74C3C;
        
-       
-       
 
         .titulo-jogos{
             padding: 3em;
@@ -474,21 +473,43 @@
     }
 
 
-    @media screen and (max-width: 850px) {
-        .faixa-um {
-            .listra-maiorr {
-                display: none;
-            }
-
-            .listra {
-                display: none;
-            }
-
-            .box-texto {
-                width: 30rem;
-            }
+    @media  (max-width: 1025px) {
         
-    }
+        
+
+            .faixa-um {
+                .listra-maiorr {
+                    display: none;
+                }
+    
+                .listra {
+                    display: none;
+                }
+    
+                .f1-texto-format {
+                    margin-left: 12rem;
+                    
+                } 
+
+        }
+
+        .jogos-populares{
+            .titulo-jogos{
+                h1{
+                    font-size: 31px;
+                }
+                p{
+                    font-size: 17px;
+                }
+            }
+        }
+       
+
 
 }
+
+
+
+     
+
 }

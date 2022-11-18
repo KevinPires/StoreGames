@@ -17,9 +17,9 @@ export default function BarraFilto(props){
                     <h4>Filtrar por preço</h4>
                     <div className="" >
                         <div className="camp-filtro"> <input type="radio" name="valor" className="checkbox-round" onClick={props.filtro} value='1'/> <p>Menos de R$50,00</p></div>
-                        <div className="camp-filtro"> <input type="radio" name="valor" className="checkbox-round" onClick={props.filtro} value='2'/> <p>de R$ 51,00 até R$100,00 </p> </div>
-                        <div className="camp-filtro"> <input type="radio" name="valor" className="checkbox-round" onClick={props.filtro} value='3'/> <p>de R$ 101,00 até R$200,00 </p> </div>
-                        <div className="camp-filtro"> <input type="radio" name="valor" className="checkbox-round" onClick={props.filtro} value='4'/> <p>de R$ 201,00 </p> </div>
+                        <div className="camp-filtro"> <input type="radio" name="valor" className="checkbox-round" onClick={props.filtro} value='2'/> <p>de R$ 51,00 à R$100,00 </p> </div>
+                        <div className="camp-filtro"> <input type="radio" name="valor" className="checkbox-round" onClick={props.filtro} value='3'/> <p>de R$ 101,00 à R$200,00 </p> </div>
+                        <div className="camp-filtro"> <input type="radio" name="valor" className="checkbox-round" onClick={props.filtro} value='4'/> <p>de R$ 201,00 à cima</p> </div>
                     </div>
                 </div>
                 <div className="box-filtro">                
