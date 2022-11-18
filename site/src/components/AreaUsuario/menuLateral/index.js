@@ -36,7 +36,7 @@ export default function OptionsUser(props) {
                 </div>
 
                 <div className='format-botao'>
-                    <Link to='/usuario/listaDesejos' className={vereficarBotaoSelecionado('desejo')}>
+                    <Link to={`/usuario/listaDesejos/${infoStorage.id}`} className={vereficarBotaoSelecionado('desejo')}>
                         <img className='png' src='/desejo.png' alt='coracao-icon' /> <span> Desejos</span>
                     </Link >
                 </div>

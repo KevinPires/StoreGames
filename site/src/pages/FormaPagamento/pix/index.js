@@ -209,10 +209,7 @@ export default function Pix() {
                   <label for="name" className='input-label'>Número</label>
                 </div>
 
-                
-
-
-
+        
               </div>
 
               <div className='endereco1'>

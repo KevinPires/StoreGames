@@ -108,4 +108,29 @@
     button:hover{
         cursor: pointer;
     }
+
+    .detalhes2{
+        overflow: auto;
+        padding: 1em;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 80vh;
+        background-color: #DDDDDD;
+        border: 1px solid #767676;
+    }
+
+    .renderizacao{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .texto-rend{
+            font-size: 2em;
+        }
+        .vault{
+            width: 20rem;
+        }
+    }
 }

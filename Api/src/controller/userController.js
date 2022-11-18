@@ -139,33 +139,20 @@ server.get('/favorito/exibir/:id', async (req, resp) => {
         const { id } = req.params
         const r = await exibirFavorito(id);
         let jogos = []
-        let generos = []
-        let plataformas = []
-
+        
         for(let item of r){
             const x =  await buscarJogoPorId(item.id_jogo)
             const plat = await buscarPlataformaProduto(item.id_jogo)
             const gen = await buscarGeneroProduto(item.id_jogo)
-            jogos = [...jogos , x] 
-            generos = [ ...generos , gen]
-            plataformas = [ ...plataformas, plat]
+            
+            jogos.push({
+                info: x,
+                generos: gen,
+                plataformas: plat
+            })
         }
 
-        // for(let item of r ){
-        //     const x = await buscarGeneroProduto(item.id_jogo)
-        //     generos = [...generos, x]
-        // } 
-        
-        // for (let item of r){
-        //     const x = await buscarPlataformaProduto(item.id_jogo)
-        //     plataformas = [...plataformas, x]
-        // }
-
-        resp.send({
-            jogos: jogos,
-            generos: generos,
-            plataformas: plataformas
-        })
+        resp.send(jogos)
     } catch (err) {
         resp.status(404).send({
             erro: err.message
