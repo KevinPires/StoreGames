@@ -7,6 +7,7 @@ import { toast, ToastContainer } from 'react-toastify'
 export default function Pendentes() {
 
     const [pedidos, setPedidos] = useState([])
+    console.log(pedidos)
     const [inputNome, setInputNome] = useState()
 
     async function carregarPedidos () {
@@ -57,13 +58,16 @@ export default function Pendentes() {
 
                 <div className="container-pagina">
                     <div className="flexboxcolumn barraPesquisa">
-                        <input value={inputNome} onChange={e => setInputNome(e.target.value)} placeholder='Pesquise pedidos pendentes!' type='txt'></input>
+                        <input value={inputNome} onChange={e => setInputNome(e.target.value)} placeholder='Pesquisar pedido por nome' type='txt'></input>
                     </div>
-                    {inputNome}
                     <div className="containerBoxes">
                     {pedidos.map(item =>    
                         <div className="boxPedido">
                             <div className="flexboxrow infoPedido">
+                                <div className="flexboxcolumn">
+                                    <label>Id: </label>
+                                    <p>{item.idpedido}</p>
+                                </div>
                                 <div className="flexboxcolumn nomeNota">
                                     <label>Nome Cliente: </label>
                                     <p>{item.cliente}</p>
