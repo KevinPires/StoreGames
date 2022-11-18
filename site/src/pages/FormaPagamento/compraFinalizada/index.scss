@@ -21,6 +21,11 @@
                 justify-content: space-around;
                 align-items: center;
             }
+        button:hover{
+            cursor:pointer;
+           background-color: #dd5748e8;
+            padding: 12px;
+        }
         }
 
         .conteudo > div{

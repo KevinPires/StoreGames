@@ -175,8 +175,8 @@ export default function LandingPage() {
 
             </section>
 
-            <section data-aos="fade" className="faixa-cadastro">
-                <div data-aos="zoom-in" className="container-lobo">
+            <section className="faixa-cadastro">
+                <div className="container-lobo">
                     <Link to='/usuario/cadastro'><button data-aos="fade" ><b>Cadastre-se agora!</b></button></Link>
                 </div>
 

@@ -1,4 +1,3 @@
-
 import '../../../../common/common.scss'
 import OptionsUser from '../../../../components/AreaUsuario/menuLateral'
 import { useParams } from 'react-router-dom';
@@ -58,7 +57,7 @@ export default function AreaLoja () {
                 <div className="box-info">
                     <div className="container-informacoes">
                         
-                        <div className="boxusuario">
+                        <div className="boxusuario font-1">
                             <img id='user-icon' src='/icon-user.jpg' alt='lala'/>
                             <div className="containerinfos">
                                 <h1>Bem vindo, <span>{dados.info.nome}!</span></h1>
@@ -67,13 +66,13 @@ export default function AreaLoja () {
                         
                         </div>
                         <div className="boxdetalhes">
-                            <h1>Detalhes</h1>
+                            <h1 className='title-user font-1'>Detalhes</h1>
                             <p>Conta criada em: 10/10/22</p>
                         </div>
                     </div>
                     
                     <section className="detalhes">
-                        <h1>Informações Pessoais:</h1>
+                        <h1 className='font-1 title-user'>Informações Pessoais:</h1>
                         <div className="container-pessoal">
                             <div className="flexboxcolumn">
                                 <b for='nome'>Nome: </b> <span id='nome'>{dados.info.nome}</span>
@@ -81,23 +80,23 @@ export default function AreaLoja () {
                                 <b for='cpf'>Cpf: </b> <span id='cpf'>{dados.info.cpf}</span>
                             </div>
 
-                            <div className="flexboxcolumn">
+                            <div className="flexboxcolumn ">
                                 <b for='cep'>Cep: </b> <span id='cep'>{dados.info.cep}</span>
                                 <b for='nascimento'>Nascimento: </b> <span id='nascimento'>{dados.info.nascimento ? dados.info.nascimento.substr(0,10) : 'data'}</span>
                             </div>
                         </div>
-                            <h1>Informações da Conta:</h1>
+                            <h1 className='font-1'>Informações da Conta:</h1>
                         <div className="container-conta">
                             <div className="box-info-conta">
                                 <div className="flexboxcolumn">
                                     <b for='email'>Email: </b> <span id='email'>{dados.infoLogin.email}</span>
-                                    <b for='compra'>Data ultima compra: </b> <span id='endereco'>09/05/2022</span>
-                                    <b for='senha'>Senha: </b> <span id='senha'>{dados.infoLogin.senha}</span>
                                 </div>
                             </div>
                             <div className="container-botoes">
                                 <button onClick={exibirModalSen}>Alterar Senha</button> <button onClick={exibirModalInfo}>Editar Informações</button>
+                               
                             </div>
+                           
                         </div>
                     </section>
                 </div>

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { alterarSenhaUsuario, carregarUsuario } from '../../../api/usuario'
+import { toast, ToastContainer } from 'react-toastify' 
 import Storage from 'local-storage'
 import './index.scss'
 import { useParams } from 'react-router-dom'
@@ -28,11 +29,11 @@ export default function ModalAlteraSenha({ exibir, fecha }) {
             const x = await exibirUsuario()
 
             if (!senha) {
-                alert('Insira um valor valido no campo de senha')
+                toast('Insira um valor valido no campo de senha')
             } else {
                 const r = await alterarSenhaUsuario(x.info.id, senha)
-                alert('alterado com sucesso')
                 fecha()
+                toast('Senha alterada com sucesso')
             }
 
         } catch (err) {
@@ -40,9 +41,16 @@ export default function ModalAlteraSenha({ exibir, fecha }) {
         }
     }
 
+    useEffect(() => {
+        alterarSenhaUsuario()
+         
+     }, [])
+ 
+ 
 
     return (
         <main className="comp-modal-senha" style={{ visibility: exibir ? 'visible' : 'hidden'}}>
+             <ToastContainer/>
             <div className={`modal-informacoes`}>
                 <div className='conteudo'>
                     <h2>Alterar Senha <img className='img-close' src='/closeicon.png' alt='' onClick={fecha} /> </h2>

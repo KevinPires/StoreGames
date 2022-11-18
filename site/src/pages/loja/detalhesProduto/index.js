@@ -1,7 +1,7 @@
 import './index.scss'
 import HeaderLoja from '../../../components/headerLoja'
 import Rodape from '../../../components/Rodapé'
-import { toast } from'react-toastify'
+import { toast, ToastContainer } from 'react-toastify'
 import { useParams } from 'react-router-dom';
 import { detalheJogo, listarGenerosIguais } from '../../../api/jogos';
 import { useEffect, useState } from 'react';
@@ -45,9 +45,9 @@ export default function DetalhesProduto(){
     async function inserirFavorito(){
         try {
             const r = await adicionarFavorito(infoStorage.id, jogo.info.id)
-            alert('adicionado')
+            toast('Jogo adicionado aos favoritos')
         } catch (err) {
-            alert(err)
+            toast(err)
         }
         
     }
@@ -86,7 +86,9 @@ export default function DetalhesProduto(){
     }, [])
 
     return(
+        
         <main className='page-produto'>
+            <ToastContainer/>
             <HeaderLoja/>
             <div className='box-cima'>
                 <div className='bloc-img'>

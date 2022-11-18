@@ -11,6 +11,7 @@
     .flexboxcolumn {
         display: flex;
         flex-direction: column;
+        margin-right: 3rem;
     }
 
     .options {
@@ -23,6 +24,10 @@
         flex-direction: row;
         width: 100%;
         height: 100%;
+    }
+
+    .title-user{
+        margin:3.2rem 0rem 0rem 0rem;
     }
 
     .box-info {
@@ -89,15 +94,17 @@
 
     .container-conta {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         justify-content: space-between;
+        align-items: center;
     }
 
     .container-botoes {
         display: flex;
         flex-direction: column;
-        width: 10rem;
+        width: 11rem;
         justify-content: space-evenly;
+        margin: 7rem 0rem 0rem 0rem;
     }
 
 
@@ -117,7 +124,8 @@
         padding: 1.3rem;
         background-color: #E74C3C;
         border: none;
-        border-radius: 20px;
+        border-radius: 25px;
+        font-family: "robotocon-regular";
     }
     button:hover{
         cursor: pointer;

@@ -38,6 +38,11 @@ export default function ModalAlteraInformacoes({ exibir , fecha}){
             console.log(err)
         }
     }
+
+    // useEffect(() => {
+    //     alterarInfo()
+         
+    //  }, [])
     return(
         <main className="comp-modal-informacoes"  style={{ visibility: exibir ? 'visible' : 'hidden'}}>
             <div className={`modal-informacoes`}>
