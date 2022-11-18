@@ -138,7 +138,7 @@ export async function pedidosConcluidos () {
     return resposta
 }
 
-export async function pesquisarPedidoNome () {
+export async function pesquisarPedidoNome (nome) {
     const comando =
     `
         select 
@@ -155,9 +155,9 @@ export async function pesquisarPedidoNome () {
         from TB_PEDIDO as P
         LEFT JOIN TB_PAGAMENTO_PIX PIX
         ON P.ID_PEDIDO = PIX.FK_PEDIDO
-        WHERE = PIX.NM_CLIENTE = ?
-    `
-    const [resposta] = await con.query (comando)
+        WHERE PIX.NM_CLIENTE like ?
+    `;
+    const [resposta] = await con.query (comando, [`%${nome}%` ])
     return resposta
 }
 

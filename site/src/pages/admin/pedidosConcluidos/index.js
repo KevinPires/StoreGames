@@ -2,11 +2,13 @@ import './index.scss'
 import BarraLateral from '../../../components/BarraLateral'
 import HeaderAdmin from '../../../components/adminHeader'
 import { useEffect, useState } from 'react'
-import { pedidosUsuarioConcluidos } from '../../../api/pedidoApi'
+import { pedidosUsuarioConcluidos, pesquisarPedidoNome } from '../../../api/pedidoApi'
 
 export default function PedidosConcluidos() {
 
     const [dados, setDados] = useState([])
+
+    const [inputNome, setInputNome] = useState()
 
     async function carregarPedidos () {
         const chamarFuncao =  await pedidosUsuarioConcluidos()
@@ -14,11 +16,18 @@ export default function PedidosConcluidos() {
     }
 
     useEffect(() => {
-        carregarPedidos()
-    }, [])
+        if(inputNome){
+            FiltrarPedidoNome()
+        }else{
+            carregarPedidos()
+        }
+    }, [inputNome])
 
-    console.log(dados)
-
+    async function FiltrarPedidoNome () {
+        const filtrarNome = await pesquisarPedidoNome(inputNome)
+        setDados(filtrarNome)
+    }
+    
     return (
         <main className="admin-home">
             <BarraLateral selecionado='concluidos' />
@@ -29,7 +38,7 @@ export default function PedidosConcluidos() {
                 <HeaderAdmin />
                 <div className='conteudo'>
                     <div className='caixa-busca'>
-                        <input type="text" placeholder='Buscar pedidos concluidos  por nome' />
+                        <input value={inputNome} onChange={e => setInputNome(e.target.value)} type="text" placeholder='Buscar pedidos concluidos  por nome' />
                     </div>
 
                 

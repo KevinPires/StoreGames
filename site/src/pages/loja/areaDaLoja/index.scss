@@ -132,4 +132,15 @@
             margin-right: 0.5rem;
         }
     }
+
+    @media (max-width: 1025px){
+        .faixaum{
+            height: 45vh;
+            p{
+                font-size: 30px;
+            }
+        }
+
+        
+    }
 }

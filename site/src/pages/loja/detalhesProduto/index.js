@@ -17,7 +17,7 @@ export default function DetalhesProduto(){
 
     const [infoStorage, setInfostorage] = useState('')
 
-    const [exibirCoracao, setExibirCoracao] = useState(false)
+    const [exibirCoracao, setExibirCoracao] = useState(true)
 
     const [jogosGenero, setJogosGenero] = useState([]);
     console.log(jogosGenero)
@@ -101,7 +101,7 @@ export default function DetalhesProduto(){
                         {exibirCoracao === true &&
                         <img src='/vermelho-favorito.png' />
                         }
-                                                <p>Adiciona aos <br/>favoritos</p>
+                    <p>Adiciona aos <br/>favoritos</p>
                     </div>
                 </div>
                 <div className='bloc-info'>

@@ -37,6 +37,14 @@ export async function pedidosUsuarioConcluidos(id){
     return r.data
 }
 
+export async function pesquisarPedidoNome(nome){
+    const r = await api.get(`/pedido/nome?nome=${nome}`)
+    return r.data
+}
+
+
+
+
 
 
 
