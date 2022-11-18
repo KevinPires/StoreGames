@@ -148,7 +148,7 @@ export default function LojaArea() {
 
             </section>
             <section className="faixaum">
-                <p>Compre o seu jogo aqui</p>
+                <p>Comprar é bom, na StoreGames é melhor ainda!</p>
             </section>
 
             <BarraVantagens />

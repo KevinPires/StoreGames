@@ -38,7 +38,7 @@ export default function PedidosConcluidos() {
                 <HeaderAdmin />
                 <div className='conteudo'>
                     <div className='caixa-busca'>
-                        <input value={inputNome} onChange={e => setInputNome(e.target.value)} type="text" placeholder='Buscar pedidos concluidos  por nome' />
+                        <input value={inputNome} onChange={e => setInputNome(e.target.value)} type="text" placeholder='Buscar pedidos concluidos por nome' />
                     </div>
 
                 

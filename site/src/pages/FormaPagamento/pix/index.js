@@ -126,8 +126,7 @@ export default function Pix() {
 
         <section className='forma-pagamento'>
           <Link to='/pagamento/pix' className='botao'> <img className='pagamentos' src='/pixx.png' alt='pag' />  &nbsp; &nbsp;PIX</Link>
-          <Link to='/pagamento/boleto' className='botao'> <img className='pagamentos' src='/boleto.png' alt='pag' />  &nbsp; &nbsp;BOLETO</Link>
-          <Link to='/pagamento/cartao' className='botao'> <img className='pagamentos' src='/cartao2.png' alt='pag' />  &nbsp; &nbsp;CARTÃO</Link>
+         
           <Link to='/carrinho' className='botao-sair'> <p>VOLTAR</p></Link>
 
 
