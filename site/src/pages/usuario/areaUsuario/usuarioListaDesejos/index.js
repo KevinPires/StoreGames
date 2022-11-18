@@ -23,8 +23,10 @@ export default function AreaLoja () {
         if (item.info)
             return API_URL + '/' + item.info.imagem
     }
-    // function abrirDetalhes(id) {
-    //     Navigate('/produto/' + id + '/detalhe')
+    // function abrirDetalhes(item) {
+        
+    //     Navigate('/produto/' + item.info.id + '/detalhe')
+        
     // }
     useEffect(()=>{
         mostrarFavorito()
@@ -43,9 +45,9 @@ export default function AreaLoja () {
                 </div>
 
                 <div className="box-info">
-                    <section className="detalhes">
+                    <section className="detalhes" >
                         {favoritos.map (item =>
-                            <div className='item-lista-desejos'>
+                            <div className='item-lista-desejos' >
                                 <img id='capa-wishlist' src={carregarImagem(item)} alt='capa'/>
                                 <div className='flexboxcolumn'>
                                     <span className='info'>{item.info.nome}</span>
@@ -54,7 +56,7 @@ export default function AreaLoja () {
                                 </div>
                                 <span className='descricao'>{item.info.descricao}</span>
                                 <div className='flexboxcolumn'>
-                                    <button className='botao' onClick={()=> Navigate('/jogos')}>Ir Loja</button>
+                                    <button className='botao' onClick={()=> Navigate('/produto/' + item.info.id + '/detalhe')}>Ir Loja</button>
                                     <span className='info'>VALOR: R${item.info.valor}</span>
                                 </div>
                             </div>
