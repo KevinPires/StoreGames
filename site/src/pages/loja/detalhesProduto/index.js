@@ -17,7 +17,7 @@ export default function DetalhesProduto(){
 
     const [infoStorage, setInfostorage] = useState('')
 
-    const [exibirCoracao, setExibirCoracao] = useState(true)
+    const [exibirCoracao, setExibirCoracao] = useState(false)
 
     const [jogosGenero, setJogosGenero] = useState([]);
     console.log(jogosGenero)
