@@ -50,14 +50,14 @@ export default function AreaLoja () {
                             <div className='item-lista-desejos' >
                                 <img id='capa-wishlist' src={carregarImagem(item)} alt='capa'/>
                                 <div className='flexboxcolumn'>
-                                    <span className='info'>{item.info.nome}</span>
+                                    <span className='info'><b>{item.info.nome}</b></span>
                                     {item.plataformas.map((item, index) => index < 1 && <span className='info'>{item.plataforma}</span>)}
                                     {item.generos.map((item, index) => index < 1 && <span className='info'>{item.genero}</span>)}
                                 </div>
                                 <span className='descricao'>{item.info.descricao}</span>
                                 <div className='flexboxcolumn'>
                                     <button className='botao' onClick={()=> Navigate('/produto/' + item.info.id + '/detalhe')}>Ir Loja</button>
-                                    <span className='info'>VALOR: R${item.info.valor}</span>
+                                    <span className='info'>R${item.info.valor}</span>
                                 </div>
                             </div>
                         )}

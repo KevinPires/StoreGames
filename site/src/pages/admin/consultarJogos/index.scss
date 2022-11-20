@@ -14,6 +14,7 @@
         flex-direction: column;
         width: 100%;
         height: 100%;
+        background-color: red;
     }
 
 
@@ -52,8 +53,6 @@
     }
 
 
-
-
     table {
         width: 100%;
         border-collapse: collapse;
@@ -71,6 +70,7 @@
     }
     thead {
         background-color: #323A45;
+        
     }
     td {
         padding: 25px 40px;
@@ -109,6 +109,45 @@
 
 
 }
+
+
+@media (max-width:1270px) {
+
+
+    .cont-faixa-cadastro{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100vh;
+
+        .conteudo {
+            display: flex;
+            flex-direction: column;
+            padding: 20px ;
+            background-color: #F5F6FA;
+            height: 80vh;
+        }
+        table {
+            width: 100%;
+            height: 40rem;
+            border-collapse: collapse;
+           
+            overflow: auto;
+            display: inline-block;
+
+         
+        }
+       
+    }
+
+
+
+
+
+    }
+    
+
+
 
 
 

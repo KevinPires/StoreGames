@@ -175,10 +175,11 @@
         width: 3rem;
         border-radius: 1.4rem;
       }
+      
       .box-left{
         display: flex;
         justify-content: space-around;
-        width: 26%;
+        width: 30%;
       }
       .maisAdicionar{
         height: 30px;
@@ -203,28 +204,37 @@
 
     @media (max-width:1270px) {
         .containerCadastrar {
-            width: 100%;
-            
-        }
+          width: 60rem;
 
-        .boxColumn {
-            width: 30%;
         }
+    }
+
+    @media (max-width:1150x) {
+      .containerCadastrar {
+        width: 90%;
+
+      }
+  }
+
+
+    @media (max-width:1100px) {
+      .containerCadastrar {
+        width: 55rem;   
+      }
+      .boxColumn {
+          width: 25%;
+      }
 
     }
 
     @media (max-width:1024px) {
       .containerCadastrar {
-          width: 90%;
-            
-            
+        width: 50rem;   
       }
-
       .boxColumn {
           width: 25%;
       }
-        
-  
+
     }
 }
 

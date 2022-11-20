@@ -58,7 +58,7 @@ export default function BarraLateral(props) {
             <div className='menu-items'>
                 <Link to='/admin/pendentes' className={vereficarMenuSelecionado('pendencias')}>
                     <img className='img' src="/pendencia.png" alt="consultar" />
-                    <div className='texto'>Pedidos pendentes</div>
+                    <p className='texto'>Pedidos pendentes</p>
                 </Link>
             </div>
 

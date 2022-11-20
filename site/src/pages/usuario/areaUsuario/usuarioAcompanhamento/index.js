@@ -47,7 +47,7 @@ export default function Acompanhamento() {
                         <div className='front-pop'>
                             <div className='info'>
                                 <b>Endereço:</b>
-                                <p>{info.rua} n {info.numero}, {info.bairro}</p>
+                                <p>{info.rua} n°{info.numero}, {info.bairro}</p>
                             </div>
 
                             <div className='info'>
