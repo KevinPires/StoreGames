@@ -320,11 +320,10 @@ server.get('/filtro/valor4' , async (req, resp) => {
     }
 })
 
-server.get('/mesmo/genero', async(req,resp) =>{
+server.post('/mesmo/genero', async(req,resp) =>{
     try {
         const { genero } = req.body;
         const r = await jogosDoMesmoGenero(genero);
-
         resp.send(r)
     } catch (err) {
         resp.status(400).send ({

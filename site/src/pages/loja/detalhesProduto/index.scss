@@ -141,13 +141,19 @@
             
             .img-gta{
                 width: 100%;
+                height: 85%;
             }
 
             .jogos{
-                width:85%;
+                width:97%;
                 display: flex;
                 flex-direction: row;
                 justify-content: space-around;
+
+                .card-genero{
+                    width: 17%;
+                    cursor: pointer;
+                }
             }
 
             .btn-loja{

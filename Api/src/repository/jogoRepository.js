@@ -372,6 +372,7 @@ export async function filtrarValorFinal(){
 // JOGOS DO MESMO GENERO 
 
 export async function jogosDoMesmoGenero(genero){
+    console.log(genero)
     const comando = 
     `
         select 	id_jogo		      id,
@@ -384,6 +385,7 @@ export async function jogosDoMesmoGenero(genero){
             LEFT JOIN TB_GENERO_JOGO ON TB_GENERO_JOGO.FK_JOGO = TB_JOGO.ID_JOGO
             LEFT JOIN TB_GENERO ON TB_GENERO.ID_GENERO = TB_GENERO_JOGO.FK_GENERO
             where DS_GENERO like ?
+            limit  4
     `
     const [resposta] = await con.query(comando,[ `%${genero}%` ])
     return resposta

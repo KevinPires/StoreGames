@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react';
 import { API_URL } from '../../../api/config';
 import Storage from 'local-storage';
 import { adicionarFavorito, verificarFavorito } from '../../../api/usuario';
+import { useNavigate } from 'react-router-dom';
 
 
 export default function DetalhesProduto(){
@@ -21,15 +22,14 @@ export default function DetalhesProduto(){
 
     const [jogosGenero, setJogosGenero] = useState([]);
 
-
+    const Navigate = useNavigate();
 
     async function exibirJogosGenero () {
-        let x = await listarGenerosIguais('Aventura')
+        let x = await listarGenerosIguais(jogo.generos[0].genero)
         setJogosGenero(x)
     }
 
     useEffect(() => {
-        // exibirJogosGenero()
         carregarDetalhes()
         handleSetStorage()
     }, [])
@@ -37,14 +37,22 @@ export default function DetalhesProduto(){
     useEffect(() => {
         if (infoStorage && jogo) {
             verificarFavoritoFront()
+            exibirJogosGenero()
         }
     }, [infoStorage, jogo])
 
-
+    
     const handleSetStorage = () => {
         const taLogado = Storage('usuario-logado')
         setInfostorage(taLogado)
     }
+
+    // function navegar(item) {
+    //     if(item.id){
+    //         const x = Navigate('/produto/' + item.id + '/detalhe')
+    //     }
+            
+    // }
 
     async function inserirFavorito(){
         try {
@@ -65,6 +73,11 @@ export default function DetalhesProduto(){
 
     function carregarImagem () {
         return API_URL + '/' + jogo.info.imagem
+    }
+
+    function carregarImagem2 (item) {
+        if(item.capa)
+            return API_URL + '/' + item.capa
     }
 
     function adicionarAoCarrinho(){
@@ -175,24 +188,17 @@ export default function DetalhesProduto(){
                 <div className='bloc-jogos'>
                     <h2>Jogos do mesmo gênero</h2>
                     <div className='jogos'>
-                        <div>
-                            <img  className='img-gta' src='/Imagem GTA.png' alt=''/>
-                            <h4>Grand Theft Auto V </h4>
-                        </div>
-                        <div>
-                            <img  className='img-gta' src=' /Imagem GTA.png' alt=''/>
-                            <h4>Grand Theft Auto V </h4>
-                        </div>
-                        <div>
-                            <img className='img-gta' src='/Imagem GTA.png' alt=''/>
-                            <h4>Grand Theft Auto V </h4>
-                        </div>
-                        <div>
-                            <img className='img-gta' src='/Imagem GTA.png' alt=''/>
-                            <h4>Grand Theft Auto V </h4>
-                        </div>
+
+                        {jogosGenero.map(item=>
+                            <div className='card-genero' >
+                                <img  className='img-gta' src={carregarImagem2(item)} alt=''/>
+                                <h4>{item.nome.slice(0,19)}</h4>
+                            </div>
+                        )}
+                        
+                        
                     </div>
-                    <button className='btn-loja'>Ir para loja</button>
+                    <button className='btn-loja' onClick={()=> Navigate('/jogos')}>Ir para loja</button>
                 </div>
             </div>
             <Rodape/>
