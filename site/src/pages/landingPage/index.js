@@ -137,19 +137,19 @@ export default function LandingPage() {
                         <input type='radio' name='radio-btn' id='radio3' />
                         <input type='radio' name='radio-btn' id='radio4' />
 
-                        <div className='slide-frist' onClick={() => Navigate('/produto/275/detalhe')}>
+                        <div className='slide-frist' onClick={() => Navigate('/produto/1/detalhe')}>
                             <img src='/roct.jpg' alt='img1' />
                         </div>
 
-                        <div className='slide' onClick={() => Navigate('/produto/272/detalhe')}>
+                        <div className='slide' onClick={() => Navigate('/produto/2/detalhe')}>
                             <img src='/min.jpg' alt='img2' />
                         </div>
 
-                        <div className='slide' onClick={() => Navigate('/produto/240/detalhe')}>
+                        <div className='slide' onClick={() => Navigate('/produto/3/detalhe')}>
                             <img src='/ride.jpg' alt='img3' />
                         </div>
 
-                        <div className='slide' onClick={() => Navigate('/produto/234/detalhe')}>
+                        <div className='slide' onClick={() => Navigate('/produto/4/detalhe')}>
                             <img src='/fafi.jpg' alt='img4' />
                         </div>
 
